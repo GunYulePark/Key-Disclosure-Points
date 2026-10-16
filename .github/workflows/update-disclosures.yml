@@ -13,6 +13,9 @@ on:
       - 'public/**'
       - 'package*.json'
       - 'monitoring/watch-documents.json'
+      - 'monitoring/ai-config.json'
+      - 'requirements.txt'
+      - 'tests/**'
       - '.github/workflows/update-disclosures.yml'
 
 concurrency:
@@ -22,7 +25,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     permissions:
       contents: write
       pages: read
@@ -34,10 +37,20 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install document readers
+        run: python3 -m pip install -r requirements.txt
       - name: Test collectors against failure fixtures
         run: python3 -m unittest discover -s tests -v
       - name: Collect official public sources
         run: python3 scripts/collector.py
+      - name: Analyze public documents with Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 scripts/ai_analyzer.py
       - name: Install and validate
         run: |
           npm ci
@@ -47,7 +60,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add monitoring/state.json public/data/operations.json docs
+          git add monitoring/state.json monitoring/ai-state.json public/data/operations.json public/data/ai-analysis.json docs
           if ! git diff --cached --quiet; then
             git commit -m 'Update public collection status and review queue'
             git push origin HEAD:main
@@ -70,7 +83,11 @@ jobs:
           python3 - <<'PY'
           import json, os
           d=json.load(open('monitoring/state.json'))
-          lines=['## Public collection',f"Status: {d['lastRunStatus']}",f"Review queue: {len(d['queue'])}", 'No AI judgments or emails were sent.']
+          ai=json.load(open('monitoring/ai-state.json'))
+          lines=['## Public collection',f"Status: {d['lastRunStatus']}",f"Review queue: {len(d['queue'])}", 'AI drafts require human review. No emails were sent.']
+          lines += [f"Gemini: {ai['status']} / {ai['model']}", f"AI draft versions: {len(ai['results'])}"]
+          if ai['status']=='needs_key': print('::warning::Set repository secret GEMINI_API_KEY to activate recurring AI analysis.')
+          if ai['status'] in ('partial','failed'): print('::warning::Gemini analysis needs attention; last good results retained.')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('\n\n'.join(lines)+'\n')
           if d['lastRunStatus']!='complete':print('::warning::Some official sources could not be collected; last good data retained.')
           PY

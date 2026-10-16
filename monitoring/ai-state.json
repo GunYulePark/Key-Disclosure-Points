@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "results": [],
+  "tasks": {},
+  "cache": {},
+  "ledger": {},
+  "attempts": [],
+  "provider": "Google Gemini API",
+  "model": "gemini-3.8-flash",
+  "promptVersion": "gemini-review-v1",
+  "lastAttemptAt": "2026-10-16T16:58:15+09:00",
+  "limits": {
+    "model": "gemini-3.8-flash",
+    "maxCallsPerRun": 6,
+    "maxCallsPerDay": 12,
+    "maxItemsPerRun": 2,
+    "maxOutputTokens": 7000,
+    "maxDailyReservedUSD": 3,
+    "maxMonthlyReservedUSD": 20,
+    "pdfPagesPerChunk": 60,
+    "textCharsPerChunk": 60000,
+    "requestTimeoutSeconds": 120
+  },
+  "status": "needs_key",
+  "error": null
+}

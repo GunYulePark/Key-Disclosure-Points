@@ -1,0 +1,12 @@
+{
+  "model": "gemini-3.8-flash",
+  "maxCallsPerRun": 6,
+  "maxCallsPerDay": 12,
+  "maxItemsPerRun": 2,
+  "maxOutputTokens": 7000,
+  "maxDailyReservedUSD": 3,
+  "maxMonthlyReservedUSD": 20,
+  "pdfPagesPerChunk": 60,
+  "textCharsPerChunk": 60000,
+  "requestTimeoutSeconds": 120
+}
