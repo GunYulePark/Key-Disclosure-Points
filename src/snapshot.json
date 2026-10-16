@@ -1,6 +1,6 @@
 {
   "asOf": "2026-10-16",
-  "ruleVersion": "0.1.1",
+  "ruleVersion": "0.2.0",
   "findings": [
     {
       "id": "HOLD-BASELINE",
@@ -517,6 +517,108 @@
       "rule_version": "0.1.1",
       "candidate": true,
       "date": "2026-08-14"
+    },
+    {
+      "id": "CKD-BIO-REVIEW",
+      "company_id": "ckd",
+      "priority": "P1",
+      "candidate": false,
+      "date": "2026-10-16",
+      "rule_version": "0.2.0",
+      "title": "제약·바이오 개편 기준: 종근당 반영 검토",
+      "instructions": "기수취 구분은 유지하고 조건부 수취 투자유의·마일스톤 성격을 보완 검토합니다. 3년 이력/고유 ID, 실제 목표시장 및 직전 계획 대비 지연표를 준비합니다. 이미 있는 구분을 전부 누락으로 표시하지 않습니다.",
+      "correction_status": "모범사례 반영 검토 · 추가 정정 미확정",
+      "facts": {},
+      "evidence": [
+        {
+          "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+          "receipt_no": "2026.8 모범사례",
+          "location": "이력관리·진행경과·시장규모·주요계약",
+          "excerpt": "3년 내 개발이력, 고유 ID, 직전 계획 대비 1년 이상 지연 등 세부 기준 확인",
+          "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+          "region": "rule_document"
+        },
+        {
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=15&offset=225350&length=144969&dtd=dart4.xsd",
+          "receipt_no": "20260814003547",
+          "location": "6. 주요계약 및 연구개발활동",
+          "excerpt": "2026 반기보고서의 주요계약·연구개발 절을 확인했습니다. CKD-510 총액 USD 1,305백만, 계약금 USD 80백만, 기수취 개발 마일스톤 USD 5백만이 구분돼 있습니다. 연구개발은 경쟁제품·시장규모가 별도 항목이며, 선택 절에서 새 이력관리 총괄표 제목과 ID 항목은 확인되지 않았습니다.",
+          "sha256": "1cfb026e12a0fe065109d0f2523b3262015fcd4d29c9b72445b883f8161807ba",
+          "region": "body"
+        }
+      ],
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "human_review_completed": false,
+      "action_type": "반영 검토"
+    },
+    {
+      "id": "KB-BIO-REVIEW",
+      "company_id": "kb",
+      "priority": "P1",
+      "candidate": false,
+      "date": "2026-10-16",
+      "rule_version": "0.2.0",
+      "title": "제약·바이오 개편 기준: 경보제약 반영 검토",
+      "instructions": "7·8월 계획의 실제 발매 여부를 다음 보고서 기준일에 확인하고 이력표/목표시장 근거를 보완합니다. 1년 지연은 별도 비교 후 판단합니다. 현재 확인된 라이선스인에 아웃 계약의 수취금액 기준을 일괄 적용하지 않습니다.",
+      "correction_status": "모범사례 반영 검토 · 추가 정정 미확정",
+      "facts": {},
+      "evidence": [
+        {
+          "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+          "receipt_no": "2026.8 모범사례",
+          "location": "이력관리·진행경과·시장규모·주요계약",
+          "excerpt": "3년 내 개발이력, 고유 ID, 직전 계획 대비 1년 이상 지연 등 세부 기준 확인",
+          "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+          "region": "rule_document"
+        },
+        {
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003323&dcmNo=11536681&eleId=15&offset=162709&length=78923&dtd=dart4.xsd",
+          "receipt_no": "20260814003323",
+          "location": "6. 주요계약 및 연구개발활동",
+          "excerpt": "2026 반기보고서는 라이선스아웃 해당사항 없음, AFT·Can-Fite 등 라이선스인 계약을 표시합니다. 연구개발 절에는 2026년 7월/8월 발매 예정인 계획과 당뇨병 전체시장 전망이 있습니다. 선택 절에서 새 이력관리 표 제목·ID는 확인되지 않았습니다.",
+          "sha256": "ce95dc4e0f4c5d97542c19394cda164ccd7a4041c61a868e3e1fdb1f57dfefae",
+          "region": "body"
+        }
+      ],
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "human_review_completed": false,
+      "action_type": "반영 검토"
+    },
+    {
+      "id": "HOLD-BIO-REVIEW",
+      "company_id": "hold",
+      "priority": "P1",
+      "candidate": false,
+      "date": "2026-10-16",
+      "rule_version": "0.2.0",
+      "title": "제약·바이오 개편 기준: 종근당홀딩스 반영 검토",
+      "instructions": "자체 계약 해당사항 없음과 보고서에 실린 회사별 계약·연구개발 정보를 나누어 점검합니다. 경보제약/종근당 자료와 ID·기준일·개발 단계·계약 수치의 일치를 확인하고 소속·연결 범위를 명시합니다.",
+      "correction_status": "모범사례 반영 검토 · 추가 정정 미확정",
+      "facts": {},
+      "evidence": [
+        {
+          "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+          "receipt_no": "2026.8 모범사례",
+          "location": "이력관리·진행경과·시장규모·주요계약",
+          "excerpt": "3년 내 개발이력, 고유 ID, 직전 계획 대비 1년 이상 지연 등 세부 기준 확인",
+          "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+          "region": "rule_document"
+        },
+        {
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=17&offset=498129&length=465339&dtd=dart4.xsd",
+          "receipt_no": "20261012000414",
+          "location": "6. 주요계약 및 연구개발활동",
+          "excerpt": "2026.10.12 정정 반기보고서의 동일 절에 주요 종속회사 경보제약의 라이선스인과 관련 회사 종근당의 CKD-510 등이 기재돼 있습니다. 이 절에서 새 이력관리 표 제목·ID는 확인되지 않았습니다.",
+          "sha256": "61a49f9f4f1448d3e53ac597aed8539c604a168e41c6efc9afcf39bc09c78642",
+          "region": "body"
+        }
+      ],
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "human_review_completed": false,
+      "action_type": "반영 검토"
     }
   ],
   "filings": [
@@ -1837,7 +1939,8 @@
       "notice_url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
       "published_date": "2026-08-28",
       "status": "notice_reviewed_hwp_downloaded_full_text_review_pending",
-      "company_action": "review_sector_specific_items_in_next_stage"
+      "company_action": "review_sector_specific_items_in_next_stage",
+      "verification_status": "provided_pdf_and_guidance_text_company_sections_reviewed"
     }
   ],
   "sources": [

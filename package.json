@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "lucide-react": "1.31.0",
+    "pdfjs-dist": "6.4.299",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
@@ -19,5 +20,7 @@
     "esbuild": "0.28.0",
     "typescript": "5.9.3"
   },
-  "engines": {"node": ">=22"}
+  "engines": {
+    "node": ">=22"
+  }
 }

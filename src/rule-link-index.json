@@ -1,0 +1,136 @@
+[
+  {
+    "id": "BIO-HISTORY",
+    "title": "연구개발 이력관리 총괄표",
+    "terms": [
+      "이력관리",
+      "파이프라인",
+      "개발중단",
+      "기술반환"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-ID",
+    "title": "파이프라인 ID 유지",
+    "terms": [
+      "식별번호",
+      "파이프라인 ID",
+      "적응증"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-DELAY",
+    "title": "직전 계획보다 1년 이상 지연",
+    "terms": [
+      "지연",
+      "향후계획",
+      "진행경과"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-MARKET",
+    "title": "전체시장과 실제 목표시장 구분",
+    "terms": [
+      "목표시장",
+      "시장규모",
+      "경쟁제품"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-LICENSE",
+    "title": "기술이전 계약의 금액·조건·투자유의",
+    "terms": [
+      "기술이전",
+      "마일스톤",
+      "로열티",
+      "라이센스아웃",
+      "라이선스아웃"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-OFFER",
+    "title": "상장사의 증권신고서에도 준하는 설명",
+    "terms": [
+      "증권신고서",
+      "공모가",
+      "성공 확률",
+      "자금조달"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-ADHOC",
+    "title": "수시공시 후속 개정 추적",
+    "terms": [
+      "수시공시",
+      "임상시험 결과",
+      "P-value",
+      "품목허가"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "BIO-PRESS",
+    "title": "보도자료와 공시 일치·사전 승인",
+    "terms": [
+      "언론보도",
+      "보도자료",
+      "공시 우선",
+      "내부 승인"
+    ],
+    "href": "#rules-bio"
+  },
+  {
+    "id": "FORMAT_CURRENT",
+    "title": "기업공시서식 작성기준 2026.9.30 시행",
+    "terms": [
+      "기업공시서식",
+      "작성기준",
+      "정기보고서"
+    ],
+    "href": "#rules-format_current"
+  },
+  {
+    "id": "FORMAT_PREVIOUS",
+    "title": "기업공시서식 작성기준 2026.8.3 시행",
+    "terms": [
+      "중복상장",
+      "종속회사 상장"
+    ],
+    "href": "#rules-format_previous"
+  },
+  {
+    "id": "TREASURY_ATTACHMENT",
+    "title": "자기주식보고서 첨부 예외",
+    "terms": [
+      "자기주식",
+      "교환사채",
+      "보유처분계획"
+    ],
+    "href": "#rules-treasury"
+  },
+  {
+    "id": "INDEPENDENT_DIRECTOR_LABEL",
+    "title": "독립이사 관련 서식 용어 변경",
+    "terms": [
+      "독립이사",
+      "사외이사"
+    ],
+    "href": "#rules-independent_director_label"
+  },
+  {
+    "id": "BIO_GUIDANCE",
+    "title": "제약·바이오 기업 공시 모범사례 2026.8월",
+    "terms": [
+      "제약",
+      "바이오",
+      "모범사례"
+    ],
+    "href": "#rules-bio"
+  }
+]

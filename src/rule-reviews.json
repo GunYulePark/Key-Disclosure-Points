@@ -1,0 +1,233 @@
+[
+  {
+    "id": "BIO-2026-07",
+    "title": "제약·바이오 공시 개편 · 회사별 반영 검토",
+    "as_of": "2026-10-16",
+    "source_title": "제약·바이오 공시, 투자자 눈높이로 전면 개편",
+    "source_sha256": "deec44302ca7acb38025c94bd9ef4875c1cbfa2a206de96e0ea6e9f5fdabd2fb",
+    "source_pages": 12,
+    "distributed_date": "2026-07-30",
+    "release_date": "2026-07-31",
+    "guidance_posted_date": "2026-08-28",
+    "guidance_url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+    "legal_status": "8월 모범사례는 참고용이며 양식·기재범위는 합리적 판단에 따라 조정할 수 있습니다. 기본 공시 의무와 모범사례의 예시 양식을 구분합니다. 일괄 시행일·소급 정정 의무는 확인되지 않았습니다.",
+    "coverage": "제공 PDF 12쪽 전체의 텍스트와 주요 표·각주, 후속 HWP 전문 텍스트, 세 회사 주요계약·연구개발 절을 대조했습니다. HWP 지면·전체 과거 파이프라인·내부 초안 및 거래소 최종 개정 여부는 추가 확인 대상입니다.",
+    "rules": [
+      {
+        "id": "BIO-HISTORY",
+        "title": "연구개발 이력관리 총괄표",
+        "priority": "P1",
+        "state": "모범사례 반영 검토",
+        "before": "현재 진행 중인 연구개발 목록 위주",
+        "after": "작성기준일로부터 3년 내 개발이력이 있는 파이프라인의 품목·적응증·최초 공시·현재 상태·개발 단계를 연결합니다. 중단·판매·기술반환도 빠뜨리지 않습니다.",
+        "location": "제공 PDF 4쪽 / 2026.8 모범사례: 라.(1) 및 각주",
+        "terms": [
+          "이력관리",
+          "파이프라인",
+          "개발중단",
+          "기술반환"
+        ],
+        "action": "직전 3년의 보고서·수시공시를 역추적하여 누락 후보를 찾고, 기존 진행표·완료표·중단표와 대사합니다. 3년 범위는 후속 모범사례의 구체화입니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-ID",
+        "title": "파이프라인 ID 유지",
+        "priority": "P1",
+        "state": "모범사례 반영 검토",
+        "before": "품목명만으로 목록을 연결",
+        "after": "고유 ID를 부여하고 삭제·임의변경·재사용을 막습니다. 단순 적응증 확장·추가 임상은 동일 ID, 전혀 다른 질환은 별도 ID로 관리합니다.",
+        "location": "2026.8 모범사례: 파이프라인 ID 관리 방법",
+        "terms": [
+          "식별번호",
+          "파이프라인 ID",
+          "적응증"
+        ],
+        "action": "물질명·제품명·도입/이전 명칭의 별칭표와 ID 대장을 만들고 과거 공시까지 연결합니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-DELAY",
+        "title": "직전 계획보다 1년 이상 지연",
+        "priority": "P1",
+        "state": "해당 사건 확인 후 반영",
+        "before": "최신 일정만 갱신",
+        "after": "직전 공시한 향후계획 대비 1년 이상 지연된 경우 그 사실과 주요 원인을 함께 기재합니다.",
+        "location": "제공 PDF 4쪽 / 2026.8 모범사례: 진행경과 추가사항",
+        "terms": [
+          "지연",
+          "향후계획",
+          "진행경과"
+        ],
+        "action": "제품별 직전 공시 일정과 실제 진행·새 일정을 비교합니다. 날짜가 없거나 아직 1년 미만이면 장기 지연으로 단정하지 않습니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-MARKET",
+        "title": "전체시장과 실제 목표시장 구분",
+        "priority": "P1",
+        "state": "모범사례 반영 검토",
+        "before": "전체 질환 시장의 성장 전망과 경쟁제품을 따로 제시",
+        "after": "시장규모·경쟁제품을 연결하고 실제 목표시장 중심으로 설명합니다. 경쟁약물 단계·차별성·영업망·생산능력 등 사업 역량 근거를 제시합니다.",
+        "location": "제공 PDF 9~10쪽 / 2026.8 모범사례: 시장규모 및 경쟁제품",
+        "terms": [
+          "목표시장",
+          "시장규모",
+          "경쟁제품"
+        ],
+        "action": "전체시장 수치를 매출 전망처럼 사용하지 않도록 제품별 대상 국가·환자군·경쟁구도·점유율 산정 근거와 자료 시점을 보완합니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-LICENSE",
+        "title": "기술이전 계약의 금액·조건·투자유의",
+        "priority": "P1",
+        "state": "라이선스아웃 계약에 적용 검토",
+        "before": "총 계약규모 위주로 강조",
+        "after": "계약금·개발 마일스톤·허가/판매 마일스톤·로열티를 구분하고 조건부 수취임을 설명합니다. 상대방 비공개 시 인원·사업·임상3상 경험·매출 구간·블록버스터 보유 여부를 확인합니다.",
+        "location": "제공 PDF 4쪽 / 2026.8 모범사례: 9.가. 라이센스아웃 상세표",
+        "terms": [
+          "기술이전",
+          "마일스톤",
+          "로열티",
+          "라이센스아웃",
+          "라이선스아웃"
+        ],
+        "action": "기수취와 미래 조건부 금액, 반환 가능성·수익인식을 대사하고 투자유의 문구를 보완합니다. 금액만 비공개이고 상대방이 공개된 경우를 상대방 비공개와 혼동하지 않습니다. 라이선스인에 아웃 기준을 기계적으로 적용하지 않습니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-OFFER",
+        "title": "상장사의 증권신고서에도 준하는 설명",
+        "priority": "P2",
+        "state": "증권신고서 제출 시 조건부",
+        "before": "IPO 기업만의 기준으로 이해",
+        "after": "붙임2는 이미 상장한 회사의 증권신고서에도 준하는 투자위험 설명이 필요하다고 명시합니다. 시장·성공확률·허가위험·개발기간 및 자금의 네 가정을 구체화합니다.",
+        "location": "제공 PDF 6쪽·9~12쪽, 특히 9쪽 적용 목적",
+        "terms": [
+          "증권신고서",
+          "공모가",
+          "성공 확률",
+          "자금조달"
+        ],
+        "action": "신고서 제출 사건이 있을 때 파이프라인/적응증/단계별 성공확률 출처, 허가 일정·대응, 단계별 비용·유동자금·추가조달 계획을 대조합니다. 정기보고서 전부에 공모가 표를 강제하지 않습니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-ADHOC",
+        "title": "수시공시 후속 개정 추적",
+        "priority": "P2",
+        "state": "최종 기준 확인 대기",
+        "before": "공시별로 분산된 개발이력·전문용어",
+        "after": "정기보고서 이력 연결, 임상 결과 용어·해석 안내 등을 제안합니다. 제공 PDF는 거래소 검토 중이라고 명시합니다.",
+        "location": "제공 PDF 5쪽 각주·7~8쪽",
+        "terms": [
+          "수시공시",
+          "임상시험 결과",
+          "P-value",
+          "품목허가"
+        ],
+        "action": "거래소 최종 규정·서식·시행일 확인 후 의무 여부를 판단합니다. 이번 자료만으로 시행일이나 기존 공시 정정 의무를 만들지 않습니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "BIO-PRESS",
+        "title": "보도자료와 공시 일치·사전 승인",
+        "priority": "P2",
+        "state": "최종 가이드라인 확인 대기",
+        "before": "보도 선행·과장 표현·정보 불일치 위험",
+        "after": "중요정보 공시 우선, 공시와 보도 일치, 선택적 제공 방지 및 사전 내부 승인 절차를 제시합니다. 최종 가이드라인은 향후 협의·확정 예정입니다.",
+        "location": "제공 PDF 5쪽 마지막 각주·7~8쪽 사례",
+        "terms": [
+          "언론보도",
+          "보도자료",
+          "공시 우선",
+          "내부 승인"
+        ],
+        "action": "현재는 내부 점검 권고로 관리합니다. 보도 시각·수치·개발단계·확정/예정 표현을 원문 공시와 대사하고 최종 기준 공표를 추적합니다.",
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      }
+    ],
+    "companies": [
+      {
+        "id": "ckd",
+        "name": "종근당",
+        "priority": "P1",
+        "observed": "2026 반기보고서의 주요계약·연구개발 절을 확인했습니다. CKD-510 총액 USD 1,305백만, 계약금 USD 80백만, 기수취 개발 마일스톤 USD 5백만이 구분돼 있습니다. 연구개발은 경쟁제품·시장규모가 별도 항목이며, 선택 절에서 새 이력관리 총괄표 제목과 ID 항목은 확인되지 않았습니다.",
+        "action": "기수취 구분은 유지하고 조건부 수취 투자유의·마일스톤 성격을 보완 검토합니다. 3년 이력/고유 ID, 실제 목표시장 및 직전 계획 대비 지연표를 준비합니다. 이미 있는 구분을 전부 누락으로 표시하지 않습니다.",
+        "rule_ids": [
+          "BIO-HISTORY",
+          "BIO-ID",
+          "BIO-DELAY",
+          "BIO-MARKET",
+          "BIO-LICENSE"
+        ],
+        "limitation": "반기 제출은 8월 후속 모범사례 게시 전입니다. 새 양식 미확인만으로 당시 위반이나 정정 의무를 확정하지 않습니다.",
+        "evidence": {
+          "company": "ckd",
+          "receipt_no": "20260814003547",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=15&offset=225350&length=144969&dtd=dart4.xsd",
+          "section": "6. 주요계약 및 연구개발활동",
+          "sha256": "1cfb026e12a0fe065109d0f2523b3262015fcd4d29c9b72445b883f8161807ba"
+        },
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "kb",
+        "name": "경보제약",
+        "priority": "P1",
+        "observed": "2026 반기보고서는 라이선스아웃 해당사항 없음, AFT·Can-Fite 등 라이선스인 계약을 표시합니다. 연구개발 절에는 2026년 7월/8월 발매 예정인 계획과 당뇨병 전체시장 전망이 있습니다. 선택 절에서 새 이력관리 표 제목·ID는 확인되지 않았습니다.",
+        "action": "7·8월 계획의 실제 발매 여부를 다음 보고서 기준일에 확인하고 이력표/목표시장 근거를 보완합니다. 1년 지연은 별도 비교 후 판단합니다. 현재 확인된 라이선스인에 아웃 계약의 수취금액 기준을 일괄 적용하지 않습니다.",
+        "rule_ids": [
+          "BIO-HISTORY",
+          "BIO-ID",
+          "BIO-DELAY",
+          "BIO-MARKET"
+        ],
+        "limitation": "현재 자료만으로 발매 지연·개발 중단을 단정하지 않습니다. 거래 유형과 후속 기준 게시 시점을 함께 검토합니다.",
+        "evidence": {
+          "company": "kb",
+          "receipt_no": "20260814003323",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003323&dcmNo=11536681&eleId=15&offset=162709&length=78923&dtd=dart4.xsd",
+          "section": "6. 주요계약 및 연구개발활동",
+          "sha256": "ce95dc4e0f4c5d97542c19394cda164ccd7a4041c61a868e3e1fdb1f57dfefae"
+        },
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      },
+      {
+        "id": "hold",
+        "name": "종근당홀딩스",
+        "priority": "P1",
+        "observed": "2026.10.12 정정 반기보고서의 동일 절에 주요 종속회사 경보제약의 라이선스인과 관련 회사 종근당의 CKD-510 등이 기재돼 있습니다. 이 절에서 새 이력관리 표 제목·ID는 확인되지 않았습니다.",
+        "action": "자체 계약 해당사항 없음과 보고서에 실린 회사별 계약·연구개발 정보를 나누어 점검합니다. 경보제약/종근당 자료와 ID·기준일·개발 단계·계약 수치의 일치를 확인하고 소속·연결 범위를 명시합니다.",
+        "rule_ids": [
+          "BIO-HISTORY",
+          "BIO-ID",
+          "BIO-DELAY",
+          "BIO-MARKET",
+          "BIO-LICENSE"
+        ],
+        "limitation": "10월 정정 제출일만으로 6월 말 작성기준을 새로 적용하거나 추가 정정 의무를 확정하지 않습니다. 종근당을 홀딩스의 종속회사라고 일괄 분류하지 않습니다.",
+        "evidence": {
+          "company": "hold",
+          "receipt_no": "20261012000414",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=17&offset=498129&length=465339&dtd=dart4.xsd",
+          "section": "6. 주요계약 및 연구개발활동",
+          "sha256": "61a49f9f4f1448d3e53ac597aed8539c604a168e41c6efc9afcf39bc09c78642"
+        },
+        "mandatory_edit_confirmed": false,
+        "correction_required": false
+      }
+    ]
+  }
+]
