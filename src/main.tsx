@@ -4,4 +4,5 @@ import './style.css';
 import './treasury.css';
 import './treasury-responsive.css';
 import './rule-reviews.css';
+import './operations.css';
 createRoot(document.getElementById('root')!).render(<Desk/>);

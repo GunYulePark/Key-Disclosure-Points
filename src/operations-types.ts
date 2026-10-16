@@ -1,0 +1,8 @@
+export type CollectedFiling={company_id:string;corp_code:string;receipt_no:string;title:string;filer:string;received_date:string;remarks:string;url:string};
+export type OperationState={schemaVersion:number;lastAttemptAt:string;lastCompleteAt:string|null;lastRunStatus:string;schedule:{engine:string;timezone:string;weekdays:string;time:string;execution:string;aiEngine:string};reviewBaseline:{asOf:string;ruleVersion:string};sources:{id:string;title:string;status:string;lastAttemptAt:string;lastSuccessAt?:string;error?:string|null;detail?:Record<string,unknown>}[];filings:CollectedFiling[];queue:{id:string;kind:string;title:string;company_id:string;url:string;receipt_no?:string;date:string;firstSeenAt:string;status:string;review:string;attachments?:{url:string;title:string}[];before:unknown;after:unknown}[];runs:{id:string;at:string;status:string;ok:number;total:number;newCandidates:number;workflowRunUrl?:string|null}[];limits:string[]};
+export function parseOperations(value:unknown):OperationState{
+ const d=value as OperationState;
+ if(!d||d.schemaVersion!==1||!['complete','partial','failed'].includes(d.lastRunStatus)||!Number.isFinite(Date.parse(d.lastAttemptAt))||!d.schedule||!d.reviewBaseline||!Array.isArray(d.sources)||!Array.isArray(d.filings)||!Array.isArray(d.queue)||!Array.isArray(d.runs)||!Array.isArray(d.limits))throw Error('수집 상태 형식이 올바르지 않습니다.');
+ if(d.filings.some(f=>!['ckd','hold','kb'].includes(f.company_id)||!/^\d{14}$/.test(f.receipt_no)||!/^\d{4}-\d{2}-\d{2}$/.test(f.received_date)||typeof f.title!=='string'||typeof f.filer!=='string'||!f.url.startsWith('https://dart.fss.or.kr/dsaf001/main.do?rcpNo=')))throw Error('수집 공시 목록 검증에 실패했습니다.');
+ return d;
+}

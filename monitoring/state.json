@@ -1,0 +1,2649 @@
+{
+  "schemaVersion": 1,
+  "schedule": {
+    "engine": "GitHub Actions / Python",
+    "timezone": "Asia/Seoul",
+    "weekdays": "월~금",
+    "time": "08:00",
+    "execution": "cloud",
+    "aiEngine": "not_connected"
+  },
+  "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+  "lastCompleteAt": "2026-10-16T16:30:53+09:00",
+  "lastRunStatus": "complete",
+  "collectionStart": "2026-01-01",
+  "reviewBaseline": {
+    "asOf": "2026-10-16",
+    "ruleVersion": "0.2.0"
+  },
+  "sources": [
+    {
+      "id": "filings-ckd",
+      "title": "종근당 공시 목록",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "total": 51,
+        "pages": 1,
+        "response_hashes": [
+          "643ea565b8b2dd4d2272b81f585a97c7f5ab5a0b3aef8effc021dbeca08c82a3"
+        ],
+        "from_date": "2026-01-01",
+        "to_date": "2026-10-16",
+        "mode": "public_search"
+      },
+      "error": null
+    },
+    {
+      "id": "filings-hold",
+      "title": "종근당홀딩스 공시 목록",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "total": 49,
+        "pages": 1,
+        "response_hashes": [
+          "82290b7d31bcdf1c94420589a0e86b2b1a4298eca01b4f28b98e6be76b815aca"
+        ],
+        "from_date": "2026-01-01",
+        "to_date": "2026-10-16",
+        "mode": "public_search"
+      },
+      "error": null
+    },
+    {
+      "id": "filings-kb",
+      "title": "경보제약 공시 목록",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "total": 26,
+        "pages": 1,
+        "response_hashes": [
+          "4d2d04583b673894368448dfff3f1c4e6a84e4f3f5d7aeb5a49219285cf01e1f"
+        ],
+        "from_date": "2026-01-01",
+        "to_date": "2026-10-16",
+        "mode": "public_search"
+      },
+      "error": null
+    },
+    {
+      "id": "board-general",
+      "title": "기업공시제도 일반",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "rows": 15,
+        "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
+        "response_sha256": "fa05ccbc01a22d5dafc0d999e6b2ea0fc825228e1841a2db89a8c70fccb8efcd",
+        "oldest_date": "2025-12-03"
+      },
+      "error": null
+    },
+    {
+      "id": "board-caution",
+      "title": "공시유의사항",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "rows": 15,
+        "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
+        "response_sha256": "dcd6c3dcc11fb02da6f75221b2aadf77aae15e0c79251ed7ae45aca8799f8eb7",
+        "oldest_date": "2018-08-20"
+      },
+      "error": null
+    },
+    {
+      "id": "document-june-diff",
+      "title": "6.30 개정 신구조문대비표",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
+        "bytes": 3764098,
+        "matches_reviewed": true,
+        "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
+      },
+      "error": null
+    },
+    {
+      "id": "document-current-body",
+      "title": "현행 기업공시서식 작성기준(9.30)",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
+        "bytes": 3046810,
+        "matches_reviewed": true,
+        "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
+      },
+      "error": null
+    },
+    {
+      "id": "document-current-annex",
+      "title": "현행 별지서식(9.30)",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
+        "bytes": 4455112,
+        "matches_reviewed": true,
+        "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
+      },
+      "error": null
+    },
+    {
+      "id": "document-lecture",
+      "title": "3분기 기업공시 설명회",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+        "bytes": 5783284,
+        "matches_reviewed": true,
+        "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
+      },
+      "error": null
+    },
+    {
+      "id": "document-fsc",
+      "title": "금융위 6.23 시행령 의결 보도자료",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
+        "bytes": 283732,
+        "matches_reviewed": true,
+        "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
+      },
+      "error": null
+    },
+    {
+      "id": "document-bio-guidance",
+      "title": "제약·바이오 모범사례 2026.8 HWP",
+      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "detail": {
+        "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+        "bytes": 123904,
+        "matches_reviewed": true,
+        "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
+      },
+      "error": null
+    }
+  ],
+  "filings": [
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20261012000414",
+      "title": "[기재정정]반기보고서 (2026.06)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-10-12",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012000414"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008800916",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-10-08",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008800916"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000718",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000718"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000694",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "이주원",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000694"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000683",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "이장한",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000683"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000669",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000669"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260930800443",
+      "title": "[기재정정]주요사항보고서(영업정지) (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-09-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930800443"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260930000763",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-09-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930000763"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260930000601",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-09-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930000601"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260930000336",
+      "title": "[기재정정]주요사항보고서(영업정지)",
+      "filer": "경보제약",
+      "received_date": "2026-09-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930000336"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260831800474",
+      "title": "[기재정정]주요사항보고서(영업정지) (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-08-31",
+      "remarks": "유정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260831800474"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260831001373",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-08-31",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260831001373"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260831001253",
+      "title": "[기재정정]주요사항보고서(영업정지)",
+      "filer": "경보제약",
+      "received_date": "2026-08-31",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260831001253"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260828001906",
+      "title": "임원ㆍ주요주주특정증권등거래계획보고서",
+      "filer": "이주원",
+      "received_date": "2026-08-28",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260828001906"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260828001861",
+      "title": "임원ㆍ주요주주특정증권등거래계획보고서",
+      "filer": "이장한",
+      "received_date": "2026-08-28",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260828001861"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260814803807",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-08-14",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814803807"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260814003989",
+      "title": "반기보고서 (2026.06)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-08-14",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003989"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260814003547",
+      "title": "반기보고서 (2026.06)",
+      "filer": "종근당",
+      "received_date": "2026-08-14",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003547"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260814003323",
+      "title": "반기보고서 (2026.06)",
+      "filer": "경보제약",
+      "received_date": "2026-08-14",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003323"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260813001322",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "고촌재단",
+      "received_date": "2026-08-13",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001322"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260731800820",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "경보제약",
+      "received_date": "2026-07-31",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731800820"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260731800724",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "종근당",
+      "received_date": "2026-07-31",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731800724"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260727800807",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항) (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-07-27",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727800807"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260727800806",
+      "title": "투자판단관련주요경영사항 (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인)",
+      "filer": "종근당",
+      "received_date": "2026-07-27",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727800806"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260722800459",
+      "title": "공정거래자율준수프로그램운영현황(안내공시)",
+      "filer": "종근당",
+      "received_date": "2026-07-22",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260722800459"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260716000389",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-07-16",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716000389"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260701000582",
+      "title": "증권발행실적보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-07-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000582"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260701000355",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "국민연금공단",
+      "received_date": "2026-07-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000355"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260701000007",
+      "title": "투자설명서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-07-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000007"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260630800113",
+      "title": "지속가능경영보고서등관련사항(자율공시)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630800113"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260630800100",
+      "title": "지속가능경영보고서등관련사항(자율공시)",
+      "filer": "종근당",
+      "received_date": "2026-06-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630800100"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260630001061",
+      "title": "[발행조건확정]증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630001061"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260626800995",
+      "title": "지속가능경영보고서등관련사항(자율공시)",
+      "filer": "경보제약",
+      "received_date": "2026-06-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260626800995"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260626000723",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "KopernikGlobalInvestors,LLC",
+      "received_date": "2026-06-26",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260626000723"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260625000593",
+      "title": "[발행조건확정]증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-25",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260625000593"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260625000581",
+      "title": "[기재정정]증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-25",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260625000581"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260624000321",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-06-24",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260624000321"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260624000311",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-06-24",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260624000311"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260619000632",
+      "title": "증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-19",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619000632"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260611800425",
+      "title": "신규시설투자등 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260611800425"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260611800406",
+      "title": "신규시설투자등",
+      "filer": "종근당",
+      "received_date": "2026-06-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260611800406"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260610800422",
+      "title": "풍문또는보도에대한해명(미확정)",
+      "filer": "종근당",
+      "received_date": "2026-06-10",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610800422"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260608800753",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-08",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608800753"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260608000276",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-06-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608000276"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260601801393",
+      "title": "기업지배구조보고서공시",
+      "filer": "경보제약",
+      "received_date": "2026-06-01",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801393"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260601801195",
+      "title": "기업지배구조보고서공시",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-01",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801195"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260601800818",
+      "title": "기업지배구조보고서공시",
+      "filer": "종근당",
+      "received_date": "2026-06-01",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601800818"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260601001904",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "KopernikGlobalInvestors,LLC",
+      "received_date": "2026-06-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601001904"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260528800651",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-05-28",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260528800651"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260528000635",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-05-28",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260528000635"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260515002752",
+      "title": "분기보고서 (2026.03)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-05-15",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002752"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260515002659",
+      "title": "분기보고서 (2026.03)",
+      "filer": "종근당",
+      "received_date": "2026-05-15",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002659"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260515001275",
+      "title": "분기보고서 (2026.03)",
+      "filer": "경보제약",
+      "received_date": "2026-05-15",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001275"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260514800908",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항) (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인 신청)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-05-14",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260514800908"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260514800849",
+      "title": "투자판단관련주요경영사항 (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인 신청)",
+      "filer": "종근당",
+      "received_date": "2026-05-14",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260514800849"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260430001234",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260430001234"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260429800652",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "경보제약",
+      "received_date": "2026-04-29",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429800652"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260429800623",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "종근당",
+      "received_date": "2026-04-29",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429800623"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260421000334",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-21",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260421000334"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260410800731",
+      "title": "단일판매ㆍ공급계약해지 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-04-10",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410800731"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260410800707",
+      "title": "단일판매ㆍ공급계약해지",
+      "filer": "경보제약",
+      "received_date": "2026-04-10",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410800707"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260407002688",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-07",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260407002688"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260402001459",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-02",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402001459"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260401004359",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "국민연금공단",
+      "received_date": "2026-04-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260401004359"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260326803185",
+      "title": "정기주주총회결과",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326803185"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260326802483",
+      "title": "기업가치제고계획(자율공시)",
+      "filer": "경보제약",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326802483"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260326802440",
+      "title": "정기주주총회결과",
+      "filer": "경보제약",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326802440"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260326801137",
+      "title": "정기주주총회결과",
+      "filer": "종근당",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326801137"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260326001463",
+      "title": "독립이사의선임ㆍ해임또는중도퇴임에관한신고",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-26",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326001463"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260326001153",
+      "title": "독립이사의선임ㆍ해임또는중도퇴임에관한신고",
+      "filer": "경보제약",
+      "received_date": "2026-03-26",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326001153"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260323801250",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-03-23",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323801250"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260323001446",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-03-23",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323001446"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260323001384",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-23",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323001384"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260323000966",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-03-23",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323000966"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260319001207",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "홍성상",
+      "received_date": "2026-03-19",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260319001207"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260318001530",
+      "title": "사업보고서 (2025.12)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-18",
+      "remarks": "연",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001530"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260318001475",
+      "title": "사업보고서 (2025.12)",
+      "filer": "경보제약",
+      "received_date": "2026-03-18",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001475"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260318001376",
+      "title": "사업보고서 (2025.12)",
+      "filer": "종근당",
+      "received_date": "2026-03-18",
+      "remarks": "연",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001376"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316802779",
+      "title": "감사보고서제출 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316802779"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316802455",
+      "title": "감사보고서제출",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316802455"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316801659",
+      "title": "감사보고서제출 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316801659"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260316801566",
+      "title": "감사보고서제출",
+      "filer": "종근당",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316801566"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316800994",
+      "title": "감사보고서제출 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316800994"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260316800944",
+      "title": "감사보고서제출",
+      "filer": "경보제약",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316800944"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260313801944",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-03-13",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313801944"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260313001236",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-13",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001236"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260311800881",
+      "title": "현금ㆍ현물배당결정 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800881"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311800880",
+      "title": "현금ㆍ현물배당결정",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800880"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311800770",
+      "title": "주주총회소집결의",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800770"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260311800004",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항) (듀비엠폴서방정(CKD383) 식품의약품안전처 국내 품목허가 승인)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800004"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311800001",
+      "title": "투자판단관련주요경영사항 (듀비엠폴서방정(CKD383) 식품의약품안전처 국내 품목허가 승인)",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800001"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311004068",
+      "title": "의결권대리행사권유참고서류",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311004068"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311003926",
+      "title": "주주총회소집공고",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311003926"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260305801242",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-03-05",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305801242"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260305001322",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-05",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305001322"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260305001161",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-03-05",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305001161"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260305000992",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "정희록",
+      "received_date": "2026-03-05",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305000992"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260227007344",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "홍성상",
+      "received_date": "2026-02-27",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227007344"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225800635",
+      "title": "현금ㆍ현물배당결정",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225800635"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225800628",
+      "title": "현금ㆍ현물배당을위한주주명부폐쇄(기준일)결정",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225800628"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225800581",
+      "title": "주주총회소집결의",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225800581"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260225005056",
+      "title": "의결권대리행사권유참고서류",
+      "filer": "경보제약",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225005056"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260225004961",
+      "title": "주주총회소집공고",
+      "filer": "경보제약",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225004961"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225003274",
+      "title": "의결권대리행사권유참고서류",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225003274"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225003126",
+      "title": "주주총회소집공고",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225003126"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260224801324",
+      "title": "현금ㆍ현물배당결정 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-24",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260224801324"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260224801313",
+      "title": "현금ㆍ현물배당결정",
+      "filer": "경보제약",
+      "received_date": "2026-02-24",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260224801313"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260224801182",
+      "title": "주주총회소집결의",
+      "filer": "경보제약",
+      "received_date": "2026-02-24",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260224801182"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260211801328",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211801328"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260211800653",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "경보제약",
+      "received_date": "2026-02-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211800653"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260211000546",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000546"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260211000536",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "김도경",
+      "received_date": "2026-02-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000536"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260203000313",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-02-03",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260203000313"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260202801620",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202801620"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260202801559",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+      "filer": "경보제약",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202801559"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260202800992",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800992"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260202800941",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+      "filer": "종근당",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800941"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260202800837",
+      "title": "[기재정정]신규시설투자등 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800837"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260202800827",
+      "title": "[기재정정]신규시설투자등",
+      "filer": "경보제약",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800827"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260130801149",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260130801149"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260130000653",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "KopernikGlobalInvestors,LLC",
+      "received_date": "2026-01-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260130000653"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260122800326",
+      "title": "공정거래자율준수프로그램운영현황(안내공시)",
+      "filer": "종근당",
+      "received_date": "2026-01-22",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260122800326"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260119800979",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-19",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119800979"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260116800578",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260116800578"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260116000291",
+      "title": "임원ㆍ주요주주특정증권등거래계획보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-16",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260116000291"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260116000264",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-01-16",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260116000264"
+    }
+  ],
+  "notices": {
+    "general-451": {
+      "id": "general-451",
+      "fingerprint": "325e171b5a2873277265abbbe28f88c789ee0f2b1a23b39bdce5d2ce89cea3fb",
+      "item": {
+        "id": "general-451",
+        "title": "'26년 3분기 기업공시 설명회 강의자료",
+        "date": "2026-10-12",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=451",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+            "title": "01_기업공시 설명회 강의자료_유통공시(비재무부문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=2",
+            "title": "02_기업공시 설명회 강의자료_전자공시 작성 및 제출요령.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=3",
+            "title": "03_기업공시 설명회_증권신고서 및 정정요구 사례.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=4",
+            "title": "04_기업공시 설명회 강의자료_지분공시제도 실무 및 사례 안내.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=5",
+            "title": "05_기업공시 설명회 강의자료_불공정거래 예방교육.pdf"
+          }
+        ]
+      }
+    },
+    "general-450": {
+      "id": "general-450",
+      "fingerprint": "a7156d8851b1685a7465d71dc98b2254b473b5d795fbadd334102a352fa8c7f1",
+      "item": {
+        "id": "general-450",
+        "title": "기업공시서식 작성기준(2026.9.30. 시행)",
+        "date": "2026-09-30",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=450",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.9.30. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.9 30. 시행).pdf"
+          }
+        ]
+      }
+    },
+    "general-448": {
+      "id": "general-448",
+      "fingerprint": "9c6a9e9f7c57c1a5db9f9900f6309f7abf0048b8f551db3d1e3a48419a264ca4",
+      "item": {
+        "id": "general-448",
+        "title": "기업공시서식 작성기준(2026.8.3. 시행)",
+        "date": "2026-08-03",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=448",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=a6301cbd601e44768e3947a00879fa2a&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=a6301cbd601e44768e3947a00879fa2a&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=a6301cbd601e44768e3947a00879fa2a&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=a6301cbd601e44768e3947a00879fa2a&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.8.3. 시행).pdf"
+          }
+        ]
+      }
+    },
+    "general-447": {
+      "id": "general-447",
+      "fingerprint": "3793acc6ecd27030674729b0159588a2aa9ad96412b4ecab5b0cd90bb5c0f8b8",
+      "item": {
+        "id": "general-447",
+        "title": "기업공시서식 작성기준(2026.7.28. 시행)",
+        "date": "2026-07-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=447",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.7.28. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.7.28. 시행).pdf"
+          }
+        ]
+      }
+    },
+    "general-446": {
+      "id": "general-446",
+      "fingerprint": "14898d62db220031d1b8f32289b26248e84a0027d69157036a18249bc0872662",
+      "item": {
+        "id": "general-446",
+        "title": "기업공시서식 작성기준(2026.7.23. 시행)",
+        "date": "2026-07-23",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=446",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.7.23. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.7.23. 시행).pdf"
+          }
+        ]
+      }
+    },
+    "general-445": {
+      "id": "general-445",
+      "fingerprint": "349c69354fd831e7c9bba9ead8beb487dfacd2bfe9e006eb405420d3b6f7f6f9",
+      "item": {
+        "id": "general-445",
+        "title": "2025년 사업보고서 점검결과 공시설명회 자료",
+        "date": "2026-07-13",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=445",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8d418832018c493caecad9de1ee9b23b&fileSn=1",
+            "title": "2025년 사업보고서 점검결과 설명회 자료.pdf"
+          }
+        ]
+      }
+    },
+    "general-444": {
+      "id": "general-444",
+      "fingerprint": "87f2aca0dfe7137fe256730206e512e50ebc2e74ae423b96d8d995f3a8c36657",
+      "item": {
+        "id": "general-444",
+        "title": "기업공시서식 작성기준(2026.6.30. 시행)",
+        "date": "2026-06-30",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=444",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.6.30. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.6.30. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    "general-443": {
+      "id": "general-443",
+      "fingerprint": "ea004bd4a306c1dfa17528b7dffa6669b9ddc4dc903df514256869e7578e7f96",
+      "item": {
+        "id": "general-443",
+        "title": "기업공시서식 작성기준(2026.5.1. 시행)",
+        "date": "2026-04-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=443",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문비표교)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.5.1. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.5.1. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    "general-442": {
+      "id": "general-442",
+      "fingerprint": "c32729fa13dfb8a87a4f09a069d9ee232bc2722c937b74185dbd62e3caeae799",
+      "item": {
+        "id": "general-442",
+        "title": "기업공시서식 작성기준(2026.4.1. 시행)",
+        "date": "2026-03-31",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=442",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.4.1. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.4.1. 시행).pdf"
+          }
+        ]
+      }
+    },
+    "general-441": {
+      "id": "general-441",
+      "fingerprint": "0f38197e3349061541316eeec7eed184c98ecc50342d218bae4d21705061efa9",
+      "item": {
+        "id": "general-441",
+        "title": "2025.12월 지분공시제도 바로알기 게시",
+        "date": "2026-03-19",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=441",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=2dde40ef90314634be1764d98025d1cc&fileSn=1",
+            "title": "상장협자료 2025-04 지분공시제도 바로알기.pdf"
+          }
+        ]
+      }
+    },
+    "general-440": {
+      "id": "general-440",
+      "fingerprint": "fc7cbe4c3608bc845ebf94c733ab1e5439c14f9ab44c0848d8786464c6cd0e7b",
+      "item": {
+        "id": "general-440",
+        "title": "기업공시서식 작성기준(2026.3.17. 시행)",
+        "date": "2026-03-11",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=440",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정내용_요약.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용_본문.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용_신구조문대비표.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.3.17. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.3.17. 시행).pdf"
+          }
+        ]
+      }
+    },
+    "general-439": {
+      "id": "general-439",
+      "fingerprint": "c0c22b7bbe0892a5e3f79c6a80edba98043dd6f27e16fbe3be286dbe75ba5a47",
+      "item": {
+        "id": "general-439",
+        "title": "기업공시서식 작성기준(2026.3.1. 시행)",
+        "date": "2026-02-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=439",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.3.1. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.3.1. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    "general-438": {
+      "id": "general-438",
+      "fingerprint": "25eee3c5842b48be2a88600cd8d4fb57934cff4d45a8a9f0fa3304ba97ad9c62",
+      "item": {
+        "id": "general-438",
+        "title": "2025.12월 기업공시 실무안내 게시",
+        "date": "2026-01-30",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=438",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=28a7ed9a61924c82bf1df8082297938a&fileSn=1",
+            "title": "2025 기업공시 실무안내(최종).pdf"
+          }
+        ]
+      }
+    },
+    "general-437": {
+      "id": "general-437",
+      "fingerprint": "f41b3f8acfab998a9936ba7d44c73e6fa426dfce0e8027a2f57613c44975731d",
+      "item": {
+        "id": "general-437",
+        "title": "기업공시서식 작성기준(2025.12.30. 시행)",
+        "date": "2025-12-29",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=437",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9b44677dc2b14979bbbd06bb6a3032ea&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9b44677dc2b14979bbbd06bb6a3032ea&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9b44677dc2b14979bbbd06bb6a3032ea&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9b44677dc2b14979bbbd06bb6a3032ea&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2025.12.30. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9b44677dc2b14979bbbd06bb6a3032ea&fileSn=5",
+            "title": "(붙임5) 별지서식(2025.12.30. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    "general-435": {
+      "id": "general-435",
+      "fingerprint": "17eafb95607b62db339af217408ce2eb7d1335b393b082d7b2c4036dda913771",
+      "item": {
+        "id": "general-435",
+        "title": "기업공시서식 작성기준(2025.12.5. 시행)",
+        "date": "2025-12-03",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=435",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=99e21b8e93a3434a9e9d81473f5e0f67&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=99e21b8e93a3434a9e9d81473f5e0f67&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=99e21b8e93a3434a9e9d81473f5e0f67&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=99e21b8e93a3434a9e9d81473f5e0f67&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2025.12.5. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=99e21b8e93a3434a9e9d81473f5e0f67&fileSn=5",
+            "title": "(붙임5) 별지서식(2025.12.5. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    "caution-449": {
+      "id": "caution-449",
+      "fingerprint": "7aea5242baceabcb674c85a2122d516e48dda0fe620808aef267daf9113a471a",
+      "item": {
+        "id": "caution-449",
+        "title": "제약·바이오 기업 공시 모범사례",
+        "date": "2026-08-28",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
+            "title": "★제약바이오 기업 공시 모범사례('26.8월).hwp"
+          }
+        ]
+      }
+    },
+    "caution-436": {
+      "id": "caution-436",
+      "fingerprint": "ae49e436d84221754211dee97c2bab0eca63938112a2a626a66bf69d4a8e080f",
+      "item": {
+        "id": "caution-436",
+        "title": "「2024~2025 증권신고서 정정요구 사례집」 게시",
+        "date": "2025-12-23",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=436",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=a2c2a685942a4ea2aa7dbe2ef74574f8&fileSn=1",
+            "title": "2024~2025 증권신고서 정정요구 사례.pdf"
+          }
+        ]
+      }
+    },
+    "caution-433": {
+      "id": "caution-433",
+      "fingerprint": "8c1e6382dc206e490727dbd8eab1e0a681608618663d428edff7c76e99db9ac4",
+      "item": {
+        "id": "caution-433",
+        "title": "증권신고서 투자위험요소 기재요령 안내('25.9.)",
+        "date": "2025-09-04",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=433",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=f94e1b823aa041eb97a9915d93d9daa7&fileSn=1",
+            "title": "투자위험요소 기재요령 안내서('25.9.).pdf"
+          }
+        ]
+      }
+    },
+    "caution-407": {
+      "id": "caution-407",
+      "fingerprint": "c83488de1607607b599ea594ba0c9c396fd0a71d69661a88952c9b619214c949",
+      "item": {
+        "id": "caution-407",
+        "title": "「2023 증권신고서 정정요구 사례집」게시",
+        "date": "2024-01-23",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=407",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=fb71558343264b2b8a866f616aee51f1&fileSn=1",
+            "title": "2023 증권신고서 정정요구 사례.pdf"
+          }
+        ]
+      }
+    },
+    "caution-406": {
+      "id": "caution-406",
+      "fingerprint": "50f4318dc1a431ac7da5afdced2c5e9eb2e7b9a4b79715d854e2890e3b6f7703",
+      "item": {
+        "id": "caution-406",
+        "title": "증권신고서 투자위험요소 기재요령 안내('24.1.)",
+        "date": "2024-01-23",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=406",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=d7b9045b7208408a874cd1b3c37b423e&fileSn=1",
+            "title": "투자위험요소 기재요령 안내서('24.1.).pdf"
+          }
+        ]
+      }
+    },
+    "caution-404": {
+      "id": "caution-404",
+      "fingerprint": "7645137d51b08ec94239b30ac6576a8b4cd700a3d2cfdfd3bfc71815461d64ac",
+      "item": {
+        "id": "caution-404",
+        "title": "자산유동화 실무안내 개정본",
+        "date": "2024-01-08",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=404",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=983272c154124fd895937dcef6394c65&fileSn=1",
+            "title": "자산유동화실무안내_(홈페이지 게시용)F.pdf"
+          }
+        ]
+      }
+    },
+    "caution-377": {
+      "id": "caution-377",
+      "fingerprint": "bd76be8f54cde31fe7a1578bf123b2fdf57c6fb0a6d4c1a05fad0742e09f7eae",
+      "item": {
+        "id": "caution-377",
+        "title": "「2022 증권신고서 정정요구 사례집」 게시",
+        "date": "2022-12-14",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=377",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=464526d40ff44fc2a0dc279b8f80d03a&fileSn=1",
+            "title": "2022 증권신고서 정정요구 사례집F.pdf"
+          }
+        ]
+      }
+    },
+    "caution-376": {
+      "id": "caution-376",
+      "fingerprint": "03e86ff91770be36b1d446202e9818fb542b16c6fe3691c4230be69b5100a8a9",
+      "item": {
+        "id": "caution-376",
+        "title": "메타버스 사업 공시 모범사례",
+        "date": "2022-12-13",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=376",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9927b267608c47ac84379924d203c9e1&fileSn=1",
+            "title": "메타버스 사업 공시 모범사례.hwp"
+          }
+        ]
+      }
+    },
+    "caution-364": {
+      "id": "caution-364",
+      "fingerprint": "bbd7dda439ff94ef69c82fa4bd04bbebb3081cbcb452b1826a0281b4fe95081a",
+      "item": {
+        "id": "caution-364",
+        "title": "2021년 사업보고서 중점 점검사항 사전 예고",
+        "date": "2022-02-18",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=364",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=fec5b98256fd4a9092044d3b0a66cb78&fileSn=1",
+            "title": "220218 (보도자료) 조간_2021년 사업보고서 중점 점검사항 사전 예고.hwp"
+          }
+        ]
+      }
+    },
+    "caution-337": {
+      "id": "caution-337",
+      "fingerprint": "6b0aff4c3880f81f8bc6830366da503aa32f053991b4b19f490447346b0bd659",
+      "item": {
+        "id": "caution-337",
+        "title": "제약·바이오 기업 공시 개선 모범사례",
+        "date": "2021-01-06",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=337",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=28694c17bed376db352de50d2dade78c&fileSn=1",
+            "title": "제약바이오 기업 공시 개선 모범사례(2021.1월 개선).hwp"
+          }
+        ]
+      }
+    },
+    "caution-313": {
+      "id": "caution-313",
+      "fingerprint": "76acdd10671499655a240f3328f3f3389c22e930208297c45721a038aa3d6d02",
+      "item": {
+        "id": "caution-313",
+        "title": "「자본시장 불공정거래 및 기업공시 판례분석」 게시",
+        "date": "2020-01-06",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=313",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=262306b3e513d1e4c40eb5e79c51be6b&fileSn=1",
+            "title": "자본시장 불공정거래 및 기업공시 판례분석.zip"
+          }
+        ]
+      }
+    },
+    "caution-311": {
+      "id": "caution-311",
+      "fingerprint": "1a846a53e1dc56b253e118c9058de539d8f98c372d7b477734aff9fe231b2fe4",
+      "item": {
+        "id": "caution-311",
+        "title": "2019년 증권신고서 정정요구 사례집",
+        "date": "2019-12-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=311",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=a063773d4ac04da2c216d11c46acad1b&fileSn=1",
+            "title": "2019 증권신고서 정정요구 사례집(게시).pdf"
+          }
+        ]
+      }
+    },
+    "caution-305": {
+      "id": "caution-305",
+      "fingerprint": "e134c5718e72d7e8426c7339042a1ca5245942484eeca5ae985b169a44994f73",
+      "item": {
+        "id": "caution-305",
+        "title": "2018년 사업보고서 점검결과 설명회 자료 게시",
+        "date": "2019-06-17",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=305",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=2e0790088411789579dab878abe77ada&fileSn=1",
+            "title": "2018년 사업보고서 점검결과 설명회 자료.zip"
+          }
+        ]
+      }
+    },
+    "caution-295": {
+      "id": "caution-295",
+      "fingerprint": "d20a1a2c6a06df3fe7d17a66982a47fd2068baf7f7f05e4322394cab44481f16",
+      "item": {
+        "id": "caution-295",
+        "title": "2018년 하반기 공시설명회 강의자료 게시",
+        "date": "2018-10-18",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=295",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8e42b89b9d01330569e2d34312052665&fileSn=1",
+            "title": "설명회자료.zip"
+          }
+        ]
+      }
+    },
+    "caution-292": {
+      "id": "caution-292",
+      "fingerprint": "60ce5b5b25ca27d55459d57b125fb9bf3f1b0c5bc632468e8a91fcd16a126caa",
+      "item": {
+        "id": "caution-292",
+        "title": "제약 바이오 기업 사업보고서 기재 모범사례(개선)",
+        "date": "2018-08-20",
+        "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=292",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=21a8c792e385856d73c3953b233d1b97&fileSn=1",
+            "title": "2019년 제약바이오 기업 대상 모범사례.hwp"
+          }
+        ]
+      }
+    }
+  },
+  "documents": {
+    "june-diff": {
+      "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
+      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "reviewed_sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
+      "bytes": 3764098,
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3",
+      "changedFromReviewed": false
+    },
+    "current-body": {
+      "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
+      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "reviewed_sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
+      "bytes": 3046810,
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4",
+      "changedFromReviewed": false
+    },
+    "current-annex": {
+      "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
+      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "reviewed_sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
+      "bytes": 4455112,
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5",
+      "changedFromReviewed": false
+    },
+    "lecture": {
+      "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "reviewed_sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+      "bytes": 5783284,
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+      "changedFromReviewed": false
+    },
+    "fsc": {
+      "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
+      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "reviewed_sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
+      "bytes": 283732,
+      "url": "https://www.fsc.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=87169",
+      "changedFromReviewed": false
+    },
+    "bio-guidance": {
+      "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "reviewed_sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+      "bytes": 123904,
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
+      "changedFromReviewed": false
+    }
+  },
+  "queue": [
+    {
+      "id": "notice-general-447-3793acc6ecd2",
+      "kind": "notice_backlog",
+      "title": "기업공시서식 작성기준(2026.7.28. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=447",
+      "date": "2026-07-27",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정(신구조문대비표).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.7.28. 시행).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=5",
+          "title": "(붙임5) 별지서식(2026.7.28. 시행).pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-447",
+        "title": "기업공시서식 작성기준(2026.7.28. 시행)",
+        "date": "2026-07-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=447",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.7.28. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=153c97493dfd475e84e7a3a4e74eb9f2&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.7.28. 시행).pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-446-14898d62db22",
+      "kind": "notice_backlog",
+      "title": "기업공시서식 작성기준(2026.7.23. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=446",
+      "date": "2026-07-23",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.7.23. 시행).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=5",
+          "title": "(붙임5) 별지서식(2026.7.23. 시행).pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-446",
+        "title": "기업공시서식 작성기준(2026.7.23. 시행)",
+        "date": "2026-07-23",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=446",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.7.23. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4ad64d903c034757b5c0905479ba9781&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.7.23. 시행).pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-445-349c69354fd8",
+      "kind": "notice_backlog",
+      "title": "2025년 사업보고서 점검결과 공시설명회 자료",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=445",
+      "date": "2026-07-13",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8d418832018c493caecad9de1ee9b23b&fileSn=1",
+          "title": "2025년 사업보고서 점검결과 설명회 자료.pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-445",
+        "title": "2025년 사업보고서 점검결과 공시설명회 자료",
+        "date": "2026-07-13",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=445",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8d418832018c493caecad9de1ee9b23b&fileSn=1",
+            "title": "2025년 사업보고서 점검결과 설명회 자료.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-443-ea004bd4a306",
+      "kind": "notice_backlog",
+      "title": "기업공시서식 작성기준(2026.5.1. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=443",
+      "date": "2026-04-27",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문비표교)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.5.1. 시행)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=5",
+          "title": "(붙임5) 별지서식(2026.5.1. 시행)_F.pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-443",
+        "title": "기업공시서식 작성기준(2026.5.1. 시행)",
+        "date": "2026-04-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=443",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문비표교)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.5.1. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=4f6a4647bbc745e8b1b3c4335023047c&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.5.1. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-442-c32729fa13df",
+      "kind": "notice_backlog",
+      "title": "기업공시서식 작성기준(2026.4.1. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=442",
+      "date": "2026-03-31",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.4.1. 시행).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=5",
+          "title": "(붙임5) 별지서식(2026.4.1. 시행).pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-442",
+        "title": "기업공시서식 작성기준(2026.4.1. 시행)",
+        "date": "2026-03-31",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=442",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.4.1. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=8279bdf8f2c744f2a210ebd6f10fffcc&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.4.1. 시행).pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-441-0f38197e3349",
+      "kind": "notice_backlog",
+      "title": "2025.12월 지분공시제도 바로알기 게시",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=441",
+      "date": "2026-03-19",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=2dde40ef90314634be1764d98025d1cc&fileSn=1",
+          "title": "상장협자료 2025-04 지분공시제도 바로알기.pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-441",
+        "title": "2025.12월 지분공시제도 바로알기 게시",
+        "date": "2026-03-19",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=441",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=2dde40ef90314634be1764d98025d1cc&fileSn=1",
+            "title": "상장협자료 2025-04 지분공시제도 바로알기.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-440-fc7cbe4c3608",
+      "kind": "notice_backlog",
+      "title": "기업공시서식 작성기준(2026.3.17. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=440",
+      "date": "2026-03-11",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정내용_요약.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정내용_본문.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정내용_신구조문대비표.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.3.17. 시행).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=5",
+          "title": "(붙임5) 별지서식(2026.3.17. 시행).pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-440",
+        "title": "기업공시서식 작성기준(2026.3.17. 시행)",
+        "date": "2026-03-11",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=440",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정내용_요약.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용_본문.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용_신구조문대비표.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.3.17. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=36c4907513d44737b6f10a34cea01eaf&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.3.17. 시행).pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-439-c0c22b7bbe08",
+      "kind": "notice_backlog",
+      "title": "기업공시서식 작성기준(2026.3.1. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=439",
+      "date": "2026-02-27",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.3.1. 시행)_F.pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=5",
+          "title": "(붙임5) 별지서식(2026.3.1. 시행)_F.pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-439",
+        "title": "기업공시서식 작성기준(2026.3.1. 시행)",
+        "date": "2026-02-27",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=439",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정(본문)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.3.1. 시행)_F.pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=5a18151049174dd4bebf7de57f8bb2eb&fileSn=5",
+            "title": "(붙임5) 별지서식(2026.3.1. 시행)_F.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notice-general-438-25eee3c5842b",
+      "kind": "notice_backlog",
+      "title": "2025.12월 기업공시 실무안내 게시",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=438",
+      "date": "2026-01-30",
+      "firstSeenAt": "2026-10-16T16:30:53+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=28a7ed9a61924c82bf1df8082297938a&fileSn=1",
+          "title": "2025 기업공시 실무안내(최종).pdf"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-438",
+        "title": "2025.12월 기업공시 실무안내 게시",
+        "date": "2026-01-30",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=438",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=28a7ed9a61924c82bf1df8082297938a&fileSn=1",
+            "title": "2025 기업공시 실무안내(최종).pdf"
+          }
+        ]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "id": "20261016T163053+0900-local",
+      "at": "2026-10-16T16:30:53+09:00",
+      "status": "complete",
+      "ok": 11,
+      "total": 11,
+      "newCandidates": 9,
+      "workflowRunUrl": null
+    }
+  ],
+  "limits": [
+    "수집 완료는 선정된 경로의 성공이며 전체 법규·공시 본문 전수 검토 완료가 아닙니다.",
+    "금융위 신규 게시판·KRX 법규·상장협 상세·법령센터·OpenDART 키 기반 수집은 미연결입니다.",
+    "새 공시 본문·규정 첨부 해석 및 기존 판단의 자동 수정·메일 발송은 하지 않습니다."
+  ]
+}

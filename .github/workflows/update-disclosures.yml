@@ -1,0 +1,90 @@
+name: Collect disclosures and publish
+
+on:
+  workflow_dispatch:
+  schedule:
+    # UTC Sunday–Thursday 23:00 = Asia/Seoul Monday–Friday 08:00.
+    - cron: '0 23 * * 0-4'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'public/**'
+      - 'package*.json'
+      - 'monitoring/watch-documents.json'
+      - '.github/workflows/update-disclosures.yml'
+
+concurrency:
+  group: disclosure-pages-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pages: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Test collectors against failure fixtures
+        run: python3 -m unittest discover -s tests -v
+      - name: Collect official public sources
+        run: python3 scripts/collector.py
+      - name: Install and validate
+        run: |
+          npm ci
+          npm run check
+          npm run build
+      - name: Preserve monitoring state
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add monitoring/state.json public/data/operations.json docs
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update public collection status and review queue'
+            git push origin HEAD:main
+          fi
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+      - name: Preserve changed official files for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: changed-official-documents
+          path: monitoring/evidence/
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Report collection outcome
+        run: |
+          python3 - <<'PY'
+          import json, os
+          d=json.load(open('monitoring/state.json'))
+          lines=['## Public collection',f"Status: {d['lastRunStatus']}",f"Review queue: {len(d['queue'])}", 'No AI judgments or emails were sent.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('\n\n'.join(lines)+'\n')
+          if d['lastRunStatus']!='complete':print('::warning::Some official sources could not be collected; last good data retained.')
+          PY
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy verified artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

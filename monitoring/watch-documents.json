@@ -1,0 +1,44 @@
+[
+  {
+    "id": "june-diff",
+    "title": "6.30 개정 신구조문대비표",
+    "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3",
+    "format": "pdf",
+    "reviewed_sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356"
+  },
+  {
+    "id": "current-body",
+    "title": "현행 기업공시서식 작성기준(9.30)",
+    "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4",
+    "format": "pdf",
+    "reviewed_sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b"
+  },
+  {
+    "id": "current-annex",
+    "title": "현행 별지서식(9.30)",
+    "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5",
+    "format": "pdf",
+    "reviewed_sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5"
+  },
+  {
+    "id": "lecture",
+    "title": "3분기 기업공시 설명회",
+    "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+    "format": "pdf",
+    "reviewed_sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6"
+  },
+  {
+    "id": "fsc",
+    "title": "금융위 6.23 시행령 의결 보도자료",
+    "url": "https://www.fsc.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=87169",
+    "format": "pdf",
+    "reviewed_sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d"
+  },
+  {
+    "id": "bio-guidance",
+    "title": "제약·바이오 모범사례 2026.8 HWP",
+    "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
+    "format": "hwp",
+    "reviewed_sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a"
+  }
+]

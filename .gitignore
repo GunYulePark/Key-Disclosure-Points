@@ -3,3 +3,6 @@ node_modules/
 .env.*
 *.tsbuildinfo
 .DS_Store
+
+monitoring/evidence/
+__pycache__/
