@@ -8,8 +8,8 @@
     "execution": "cloud",
     "aiEngine": "not_connected"
   },
-  "lastAttemptAt": "2026-10-16T16:30:53+09:00",
-  "lastCompleteAt": "2026-10-16T16:30:53+09:00",
+  "lastAttemptAt": "2026-10-16T16:37:55+09:00",
+  "lastCompleteAt": "2026-10-16T16:37:55+09:00",
   "lastRunStatus": "complete",
   "collectionStart": "2026-01-01",
   "reviewBaseline": {
@@ -20,9 +20,9 @@
     {
       "id": "filings-ckd",
       "title": "종근당 공시 목록",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "total": 51,
         "pages": 1,
@@ -38,9 +38,9 @@
     {
       "id": "filings-hold",
       "title": "종근당홀딩스 공시 목록",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "total": 49,
         "pages": 1,
@@ -56,9 +56,9 @@
     {
       "id": "filings-kb",
       "title": "경보제약 공시 목록",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "total": 26,
         "pages": 1,
@@ -74,13 +74,13 @@
     {
       "id": "board-general",
       "title": "기업공시제도 일반",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "rows": 15,
         "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
-        "response_sha256": "fa05ccbc01a22d5dafc0d999e6b2ea0fc825228e1841a2db89a8c70fccb8efcd",
+        "response_sha256": "75cd84fd8031fa037e7e4d39a3e2408c4bdda68e70f3a9a12ade51342242af31",
         "oldest_date": "2025-12-03"
       },
       "error": null
@@ -88,9 +88,9 @@
     {
       "id": "board-caution",
       "title": "공시유의사항",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "rows": 15,
         "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
@@ -102,9 +102,9 @@
     {
       "id": "document-june-diff",
       "title": "6.30 개정 신구조문대비표",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
         "bytes": 3764098,
@@ -116,9 +116,9 @@
     {
       "id": "document-current-body",
       "title": "현행 기업공시서식 작성기준(9.30)",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
         "bytes": 3046810,
@@ -130,9 +130,9 @@
     {
       "id": "document-current-annex",
       "title": "현행 별지서식(9.30)",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
         "bytes": 4455112,
@@ -144,9 +144,9 @@
     {
       "id": "document-lecture",
       "title": "3분기 기업공시 설명회",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
         "bytes": 5783284,
@@ -158,9 +158,9 @@
     {
       "id": "document-fsc",
       "title": "금융위 6.23 시행령 의결 보도자료",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
         "bytes": 283732,
@@ -172,9 +172,9 @@
     {
       "id": "document-bio-guidance",
       "title": "제약·바이오 모범사례 2026.8 HWP",
-      "lastAttemptAt": "2026-10-16T16:30:53+09:00",
+      "lastAttemptAt": "2026-10-16T16:37:55+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-10-16T16:30:53+09:00",
+      "lastSuccessAt": "2026-10-16T16:37:55+09:00",
       "detail": {
         "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
         "bytes": 123904,
@@ -2119,7 +2119,7 @@
   "documents": {
     "june-diff": {
       "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
-      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "checkedAt": "2026-10-16T16:37:55+09:00",
       "reviewed_sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
       "bytes": 3764098,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3",
@@ -2127,7 +2127,7 @@
     },
     "current-body": {
       "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
-      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "checkedAt": "2026-10-16T16:37:55+09:00",
       "reviewed_sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
       "bytes": 3046810,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4",
@@ -2135,7 +2135,7 @@
     },
     "current-annex": {
       "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
-      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "checkedAt": "2026-10-16T16:37:55+09:00",
       "reviewed_sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
       "bytes": 4455112,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5",
@@ -2143,7 +2143,7 @@
     },
     "lecture": {
       "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
-      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "checkedAt": "2026-10-16T16:37:55+09:00",
       "reviewed_sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
       "bytes": 5783284,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
@@ -2151,7 +2151,7 @@
     },
     "fsc": {
       "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
-      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "checkedAt": "2026-10-16T16:37:55+09:00",
       "reviewed_sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
       "bytes": 283732,
       "url": "https://www.fsc.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=87169",
@@ -2159,7 +2159,7 @@
     },
     "bio-guidance": {
       "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
-      "checkedAt": "2026-10-16T16:30:53+09:00",
+      "checkedAt": "2026-10-16T16:37:55+09:00",
       "reviewed_sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
       "bytes": 123904,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
@@ -2631,6 +2631,15 @@
     }
   ],
   "runs": [
+    {
+      "id": "20261016T163755+0900-38868431142",
+      "at": "2026-10-16T16:37:55+09:00",
+      "status": "complete",
+      "ok": 11,
+      "total": 11,
+      "newCandidates": 0,
+      "workflowRunUrl": "https://github.com/GunYulePark/Key-Disclosure-Points/actions/runs/38868431142"
+    },
     {
       "id": "20261016T163053+0900-local",
       "at": "2026-10-16T16:30:53+09:00",
