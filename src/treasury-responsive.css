@@ -1,0 +1,1 @@
+.rule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rule-card,.treasury-table,.treasury-body,.treasury-documents article{min-width:0}.treasury-table{max-width:100%}.treasury-documents code{overflow-wrap:anywhere}@media(max-width:780px){.rule-grid{grid-template-columns:minmax(0,1fr)}}

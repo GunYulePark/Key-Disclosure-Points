@@ -1,6 +1,6 @@
 {
   "asOf": "2026-10-16",
-  "ruleVersion": "0.1.0",
+  "ruleVersion": "0.1.1",
   "findings": [
     {
       "id": "HOLD-BASELINE",
@@ -442,6 +442,81 @@
       "rule_version": "0.1.0",
       "candidate": false,
       "date": "2026-09-30"
+    },
+    {
+      "id": "CKD-TREASURY-EXEMPTION",
+      "company_id": "ckd",
+      "title": "자기주식보고서 종전 예외 종료·EB 미교환 주식 반영",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "정정 검토 필요 / 필요 확정 아님",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "기제출 반기보고서 우선 대조·현행 작성본 확정 전 점검",
+      "facts": {
+        "kind": "treasury_rule_change",
+        "reported_shares": 626712,
+        "issued_shares": 13802780,
+        "reported_ratio": "4.54",
+        "legacy_deemed_ratio": "0",
+        "old_threshold_percent": 1,
+        "current_threshold_removed": true,
+        "include_legacy_unexchanged_eb": true,
+        "quarter_report_attachment_omission_remains": true
+      },
+      "instructions": "종전 EB 처분간주·1% 미만 생략 근거를 현행 기준으로 보완한다. 기준일의 미교환 잔량을 별도 행·권리행사 기간과 함께 기재하고, 반기·사업보고서의 이사회 승인 자기주식보고서 첨부 및 기제출 반기 정정 필요를 검토한다. 분기 첨부 생략은 별도다.",
+      "evidence": [
+        {
+          "receipt_no": "20260814003547",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=7&offset=58685&length=34364&dtd=dart4.xsd",
+          "sha256": "4a7c094e6fbeb32f2c4ffdbf9fadddc6ee67097891762d8800a5ddfe758896a7",
+          "source_key": "ckd-treasury-current",
+          "location": "I. 회사의 개요 > 4. 주식의 총수 등 > 가. 주1·주2 / 바. 자기주식 보유현황",
+          "excerpt": "교환대상 자기주식을 발행일에 처분한 것으로 보아 … 발행주식총수의 100분의 1이상에 해당하는 자기주식을 보유하고 있지 않으므로 자기주식 보유현황 기재를 생략합니다.",
+          "region": "current_body"
+        },
+        {
+          "source_key": "june-diff",
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3#page=4",
+          "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
+          "receipt_no": "규정·서식",
+          "region": "rule_pdf",
+          "location": "6.30 개정 신구조문대비표 PDF 4, 7, 8, 11쪽 / 제3-4-2조 제4항·작성지침, 별지 제35-4호",
+          "excerpt": "1% 요건 삭제, 개정 전 EB 미교환 자기주식 별도 기재, 단기계획 기간 변경을 확인했다."
+        },
+        {
+          "source_key": "current-body",
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4#page=92",
+          "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
+          "receipt_no": "규정·서식",
+          "region": "rule_pdf",
+          "location": "현행 기업공시서식 작성기준(9.30) PDF 92, 93, 94, 95쪽 / 인쇄 86–89쪽 · 제3-4-2조 제4항 및 작성지침",
+          "excerpt": "미교환 EB 주식의 별도 행과 권리행사 기간, 이사회 승인 내용·보유처분계획·계획 및 이행현황을 대조했다."
+        },
+        {
+          "source_key": "current-annex",
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5#page=398",
+          "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
+          "receipt_no": "규정·서식",
+          "region": "rule_pdf",
+          "location": "현행 별지서식(9.30) PDF 398쪽 / 인쇄 393쪽 · 별지 제35-4호",
+          "excerpt": "반기말·사업연도말 자기주식 보유 시 보고서 작성 및 이사회 승인 대상이다. 1% 기준이 없다."
+        },
+        {
+          "source_key": "lecture",
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1#page=17",
+          "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+          "receipt_no": "규정·서식",
+          "region": "rule_pdf",
+          "location": "3분기 기업공시 설명회 PDF 17, 52쪽 / PDF 17쪽 첨부서류 / 52쪽 6.30 개정사항",
+          "excerpt": "자기주식보고서는 분기에 생략한다. 자기주식보유처분계획서는 분·반기에 직전 사업보고서 제출 후 변동 조건을 따로 확인한다."
+        }
+      ],
+      "origin": "assistant_pdf_and_filing_cross_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.1",
+      "candidate": true,
+      "date": "2026-08-14"
     }
   ],
   "filings": [
@@ -1729,13 +1804,20 @@
       "id": "TREASURY_ATTACHMENT",
       "title": "자기주식보고서 첨부 예외",
       "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=451",
-      "status": "official_lecture_reviewed_rule_text_crosscheck_pending",
+      "status": "selected_current_pdf_and_amendment_and_company_filing_cross_reviewed",
       "pdf_pages": [
         17,
         52
       ],
       "report_type_condition": "자기주식보고서는 분기에 생략. 자기주식보유처분계획서는 분반기에 직전 사업보고서 이후 변동 조건 확인.",
-      "company_action": "do_not_raise_q3_missing_attachment_from_half_year_case_alone"
+      "company_action": "ckd_legacy_exemption_not_reusable_review_half_year_correction_keep_quarter_exception_separate",
+      "effective_date": "2026-06-30",
+      "current_standard_pdf_pages": [
+        92,
+        93,
+        94,
+        95
+      ]
     },
     {
       "id": "INDEPENDENT_DIRECTOR_LABEL",
@@ -1867,5 +1949,185 @@
       "collection_route": "official_body_or_authorized_manual_import",
       "note": "현재 법령 본문·시행령·부칙의 모든 조항 확인이 끝난 것은 아님."
     }
-  ]
+  ],
+  "treasuryReview": {
+    "id": "TREASURY_ATTACHMENT",
+    "reviewed_on": "2026-10-16",
+    "effective_date": "2026-06-30",
+    "priority": "P1",
+    "headline": "종근당: 종전 예외를 그대로 적용할 수 없습니다",
+    "summary": "종근당 반기보고서는 EB 대상 주식을 처분으로 보아 1% 미만을 이유로 보유현황을 생략했습니다. 현행 PDF는 개정 전 EB의 미교환 자기주식도 포함하도록 하므로 해당 생략 근거를 재검토해야 합니다.",
+    "before": "종전: 1% 이상 보유 상장회사 대상. 종근당은 EB 대상 626,712주를 발행일 처분으로 간주해 보고서상 0%·1% 미만으로 생략했습니다.",
+    "after": "현행: 자기주식 보유 상장회사 대상. 2026.3.6. 이전 발행 EB의 미교환 자기주식도 보유현황에 별도 행으로 포함하고 권리행사 가능기간을 기재합니다.",
+    "company_rows": [
+      {
+        "company_id": "ckd",
+        "company": "종근당",
+        "basis": "2026.6.30 반기보고서: 발행주식 13,802,780주, 자기주식 626,712주(표시 4.54%). 주석은 처분간주 0%, 바. 보유현황은 1% 미만으로 생략.",
+        "judgment": "종전 면제 근거 사용 중단·P1 우선 점검",
+        "action": "미교환 수량과 교환청구 경과를 대조하여 보유현황·계획·이사회 승인 보고서를 작성/보완하고, 기제출 반기보고서의 본문과 첨부 누락 여부를 정정 검토한다.",
+        "receipt_no": "20260814003547",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=7&offset=58685&length=34364&dtd=dart4.xsd"
+      },
+      {
+        "company_id": "hold",
+        "company": "종근당홀딩스",
+        "basis": "2026.6.30 기준 249,303주(4.98%). 10.12 정정본에 자기주식보고서 추가.",
+        "judgment": "적용 대상·현재 정정본 기준 사용",
+        "action": "EB 미교환 별도 행·권리행사 기간을 대조한다. 기존 합계 행·날짜·연도 정정 후보와 함께 확인한다.",
+        "receipt_no": "20261012000414",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=9&offset=162209&length=63815&dtd=dart4.xsd"
+      },
+      {
+        "company_id": "kb",
+        "company": "경보제약",
+        "basis": "2026.6.30 반기보고서의 자기주식 항목에 해당사항 없음 명시. 대시를 임의로 0으로 환산하지 않았다.",
+        "judgment": "해당 기준일 보유 사실 없음으로 확인",
+        "action": "향후 기준일에 자기주식을 보유하면 규모와 관계없이 다시 판정한다. 현재 기준만으로 첨부 의무를 일괄 부과하지 않는다.",
+        "receipt_no": "20260814003323",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003323&dcmNo=11536681&eleId=7&offset=31111&length=9384&dtd=dart4.xsd"
+      }
+    ],
+    "period_rows": [
+      {
+        "report": "사업보고서",
+        "treasury": "사업연도말 보유 시 작성·이사회 승인 후 첨부",
+        "plan": "자기주식보유처분계획서는 별도로 첨부 해당 여부 확인"
+      },
+      {
+        "report": "반기보고서",
+        "treasury": "반기말 보유 시 작성·이사회 승인 후 첨부",
+        "plan": "직전 사업보고서 제출 후 변동이 있는 경우 첨부"
+      },
+      {
+        "report": "분기보고서",
+        "treasury": "자기주식보고서 첨부 생략 가능",
+        "plan": "직전 사업보고서 제출 후 변동이 있는 경우 첨부; 보고서 생략과 혼동 금지"
+      }
+    ],
+    "required_changes": [
+      {
+        "priority": "P1",
+        "title": "종전 생략 문구를 현행 작성본에 반복하지 않기",
+        "detail": "EB 발행일 처분간주·1% 미만만으로 자기주식 보유현황과 자기주식보고서 작성을 생략하는 문구를 삭제/보완한다. 과거에 실제 처분이 이루어졌는지와 공시상 보유현황 기재는 구분한다."
+      },
+      {
+        "priority": "P1",
+        "title": "미교환 EB 주식을 별도 행으로 기재",
+        "detail": "종근당이 공시한 626,712주는 기준 수량이다. 해당 작성기준일까지의 실제 교환청구·상환·반환을 대조해 미교환 잔량을 확인하고, 권리행사 가능기간(공시상 2025.11.14–2030.09.14)을 비고에 기재한다."
+      },
+      {
+        "priority": "P1",
+        "title": "본문과 이사회 승인 자기주식보고서를 함께 점검",
+        "detail": "보유현황, 취득·처분·소각 단기계획, 단기계획 이행현황, 장기계획, 기타 투자자 보호사항의 5개 항목을 작성하고 이사회 승인·첨부를 확인한다. 공개 첨부 목록에서는 반기검토·반기연결검토보고서만 확인됐다."
+      },
+      {
+        "priority": "P1",
+        "title": "기제출 반기보고서의 정정 필요 검토",
+        "detail": "종근당 2026.8.14 제출본에는 생략 문구가 남아 있다. 규정 적용과 실제 미교환 잔량, 첨부·승인 원본을 담당자가 대조하여 본문 및 자기주식보고서 추가 정정을 검토한다. 서비스가 정정 필요를 최종 확정하거나 제출하지 않는다."
+      },
+      {
+        "priority": "P1",
+        "title": "신규 서식의 추가 항목과 기간 적용",
+        "detail": "취득구분·주식종류·취득목적·취득연도별 보유현황, 소각기한, 주총 승인일·보유처분기한·목적, 당초 취득목적을 점검한다. 단기계획은 제출일이 속한 사업연도 1.1–12.31이며, 단기 이행현황의 대상기간과 구분한다."
+      },
+      {
+        "priority": "P2",
+        "title": "승인 예정 계획·이행률 차이·3분기 예외를 구분",
+        "detail": "주총 승인 전 계획은 부결·수정 시 정정 예정임을 부기한다. 전기 계획 대비 이행률 70% 미만 또는 130% 초과는 차이 사유를 기재한다. 3분기에는 자기주식보고서 첨부 생략과 보유처분계획서의 변동 시 첨부를 따로 판정한다."
+      }
+    ],
+    "filing_evidence": {
+      "receipt_no": "20260814003547",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=7&offset=58685&length=34364&dtd=dart4.xsd",
+      "location": "I. 회사의 개요 > 4. 주식의 총수 등 > 가. 주1·주2 / 바. 자기주식 보유현황",
+      "excerpt": "교환대상 자기주식을 발행일에 처분한 것으로 보아 … 발행주식총수의 100분의 1이상에 해당하는 자기주식을 보유하고 있지 않으므로 자기주식 보유현황 기재를 생략합니다.",
+      "sha256": "4a7c094e6fbeb32f2c4ffdbf9fadddc6ee67097891762d8800a5ddfe758896a7",
+      "attachment_labels_observed": [
+        "2026.08.14 반기검토보고서",
+        "2026.08.14 반기연결검토보고서"
+      ]
+    },
+    "documents": [
+      {
+        "key": "june-diff",
+        "title": "6.30 개정 신구조문대비표",
+        "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3",
+        "pdf_pages": [
+          4,
+          7,
+          8,
+          11
+        ],
+        "location": "제3-4-2조 제4항·작성지침, 별지 제35-4호",
+        "summary": "1% 요건 삭제, 개정 전 EB 미교환 자기주식 별도 기재, 단기계획 기간 변경을 확인했다.",
+        "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356"
+      },
+      {
+        "key": "current-body",
+        "title": "현행 기업공시서식 작성기준(9.30)",
+        "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4",
+        "pdf_pages": [
+          92,
+          93,
+          94,
+          95
+        ],
+        "location": "인쇄 86–89쪽 · 제3-4-2조 제4항 및 작성지침",
+        "summary": "미교환 EB 주식의 별도 행과 권리행사 기간, 이사회 승인 내용·보유처분계획·계획 및 이행현황을 대조했다.",
+        "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b"
+      },
+      {
+        "key": "current-annex",
+        "title": "현행 별지서식(9.30)",
+        "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5",
+        "pdf_pages": [
+          398
+        ],
+        "location": "인쇄 393쪽 · 별지 제35-4호",
+        "summary": "반기말·사업연도말 자기주식 보유 시 보고서 작성 및 이사회 승인 대상이다. 1% 기준이 없다.",
+        "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5"
+      },
+      {
+        "key": "lecture",
+        "title": "3분기 기업공시 설명회",
+        "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+        "pdf_pages": [
+          17,
+          52
+        ],
+        "location": "PDF 17쪽 첨부서류 / 52쪽 6.30 개정사항",
+        "summary": "자기주식보고서는 분기에 생략한다. 자기주식보유처분계획서는 분·반기에 직전 사업보고서 제출 후 변동 조건을 따로 확인한다.",
+        "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6"
+      },
+      {
+        "key": "fsc",
+        "title": "금융위 6.23 시행령 의결 보도자료",
+        "url": "https://www.fsc.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=87169",
+        "pdf_pages": [
+          1,
+          2,
+          4
+        ],
+        "location": "대상 확대·공시서식 정비·시행 예정 안내",
+        "summary": "1% 이상 보유 회사에서 자기주식 보유 모든 상장회사로 확대하는 취지와 6.30 동시 시행 계획을 확인했다. 시행 사실은 6.30 금감원 공고와 현행 서식으로 교차 확인했다.",
+        "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d"
+      }
+    ],
+    "figures": [
+      {
+        "src": "evidence/treasury-rule-change-p11.png",
+        "caption": "6.30 신구조문대비표 PDF 11쪽: 자기주식보고서 작성 대상에서 1% 기준 삭제"
+      },
+      {
+        "src": "evidence/treasury-eb-p7.png",
+        "caption": "6.30 신구조문대비표 PDF 7쪽: 개정 전 EB 미교환 자기주식 포함·별도 행·권리행사 가능기간"
+      },
+      {
+        "src": "evidence/treasury-quarter-p17.png",
+        "caption": "3분기 설명회 PDF 17쪽: 자기주식보고서와 자기주식보유처분계획서의 첨부 조건 구분"
+      }
+    ],
+    "limits": "선정 PDF 조항·서식 및 회사 공시 본문/공개 첨부 목록을 대조한 검토다. 회사 내부 초안·이사회 원본·실제 교환청구 내역·정정 제출은 확인하지 않았다. 기재 적용 판단과 제출본의 정정 필요 최종 결정은 구분한다."
+  }
 }
