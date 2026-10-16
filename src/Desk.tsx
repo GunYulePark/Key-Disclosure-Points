@@ -42,6 +42,10 @@ export default function Desk() {
     return()=>window.removeEventListener('hashchange',followHash);
   },[]);
   useEffect(()=>{if(tab==='rules'&&window.location.hash.startsWith('#rules-'))document.getElementById(window.location.hash.slice(1))?.scrollIntoView({block:'start'});},[tab]);
+  useEffect(()=>{
+    const followFinding=()=>{const h=window.location.hash;if(!h.startsWith('#finding='))return;let id='';try{id=decodeURIComponent(h.slice(9));}catch{return;}const f=data.findings.find(x=>x.id===id);if(f){setTab('issues');setSelected(f);}};
+    followFinding();window.addEventListener('hashchange',followFinding);return()=>window.removeEventListener('hashchange',followFinding);
+  },[]);
   useEffect(()=>{setPage(1);},[company,q,from,to]);
   useEffect(()=>{
     if(!selected)return;
