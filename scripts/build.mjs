@@ -1,0 +1,24 @@
+import {build} from 'esbuild';
+import {readFile, mkdir, writeFile, cp, rm} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(fileURLToPath(new URL('..',import.meta.url)));
+const out=path.join(root,'docs');
+if(path.dirname(out)!==root||path.basename(out)!=='docs')throw new Error('Invalid build output');
+await rm(out,{recursive:true,force:true});
+await mkdir(out,{recursive:true});
+const result=await build({absWorkingDir:root,entryPoints:['src/main.tsx'],bundle:true,minify:true,jsx:'automatic',format:'esm',target:['es2022'],outdir:'docs',entryNames:'assets/app-[hash]',metafile:true,define:{'process.env.NODE_ENV':'"production"'},legalComments:'linked'});
+const outputs=Object.keys(result.metafile.outputs);
+const js=outputs.find(p=>p.endsWith('.js'));
+const css=outputs.find(p=>p.endsWith('.css'));
+if(!js||!css)throw new Error('Expected JS and CSS output');
+await cp(path.join(root,'public'),out,{recursive:true});
+await writeFile(path.join(out,'.nojekyll'),'');
+const href=p=>'./'+path.relative('docs',p).replaceAll('\\','/');
+await writeFile(path.join(out,'index.html'),`<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="종근당·종근당홀딩스·경보제약 공시 점검 포인트, 중요도와 공식 원문 근거를 확인하세요."><title>공시 검토실 | Key Disclosure Points</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="${href(css)}"><script type="module" src="${href(js)}"></script></head><body><div id="root"></div><noscript>이 페이지의 검색과 필터에는 JavaScript가 필요합니다. <a href="./data/snapshot.json">공개 공시 자료 JSON 내려받기</a></noscript></body></html>\n`);
+await mkdir(path.join(out,'data'),{recursive:true});
+await cp(path.join(root,'src/snapshot.json'),path.join(out,'data/snapshot.json'));
+const client=await readFile(path.join(root,js),'utf8');
+for(const forbidden of ['/api/reviews','signin-with-chatgpt','reviewEvents','SITES_GIT_AUTHORIZATION','appgprj_'])if(client.includes(forbidden))throw new Error('Private implementation found in public build: '+forbidden);
+console.log('Built public GitHub Pages site in docs/ (relative assets; no private review API).');

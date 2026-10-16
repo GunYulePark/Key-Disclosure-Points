@@ -1,0 +1,1871 @@
+{
+  "asOf": "2026-10-16",
+  "ruleVersion": "0.1.0",
+  "findings": [
+    {
+      "id": "HOLD-BASELINE",
+      "company_id": "hold",
+      "title": "자기주식 정정본·추가 첨부를 다음 작성본 기준으로 연결",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "기존 정정 제출 확인 / 추가 정정 여부 별도",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "summary_common_total_unchanged": true,
+        "new_trade_inferred": false,
+        "declared_attachment_added": true,
+        "attachment_image_retrieved": true
+      },
+      "instructions": "8월 최초본의 기재방식을 복제하지 않도록 현재 본문과 추가 첨부를 연결한다. 이번 3분기 첨부 의무는 보고서 종류·적용조건을 따로 검토한다.",
+      "evidence": [
+        {
+          "source_key": "20261012000414-section-1",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=1&offset=892&length=71768&dtd=dart4.xsd",
+          "sha256": "ec74a1be4381b911bcd4fd0e7b5f78fc31992dcfae62ba9603e43540fe627f3c",
+          "receipt_no": "20261012000414",
+          "region": "correction_summary",
+          "location": "table[5]",
+          "excerpt": "자기주식보고서 미첨부"
+        },
+        {
+          "source_key": "20261012000414-section-9",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=9&offset=162209&length=63815&dtd=dart4.xsd",
+          "sha256": "40ac065b6faf8532eee636c0f5d391e7ad0cad86ca7cdde61a31713c2affdea2",
+          "receipt_no": "20261012000414",
+          "region": "current_body",
+          "location": "table[2]",
+          "excerpt": "249,303"
+        },
+        {
+          "key": "hold-treasury-attachment-image",
+          "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11610445&flNm=261012+-+%EC%9E%90%EA%B8%B0%EC%A3%BC%EC%8B%9D%EB%B3%B4%EA%B3%A0%EC%84%9C%28%EB%82%A0%EC%9D%B8%EB%B3%B8%29.jpeg",
+          "sha256": "d51fa01937e68515395ed870c56f62e62aa11acaea8d884759e2b7075595d875",
+          "receipt_no": "20260814003989",
+          "dcm_no": "11610445",
+          "region": "attachment_image",
+          "verification_level": "assistant_visual_transcription",
+          "location": "자기주식 보고서 1쪽: 보유현황·주2",
+          "excerpt": "보통주 249,303주; 권리행사 가능기간 종료 2030년 9월 23일"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": false,
+      "date": "2026-10-12"
+    },
+    {
+      "id": "HOLD-TOTAL",
+      "company_id": "hold",
+      "title": "자기주식 상세표 합계 행의 주식종류·수량 대조",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "정정 검토 필요 / 필요 확정 아님",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "kind": "share_class_total_mismatch",
+        "summary_common": "249303",
+        "detailed_common_display": "-",
+        "detailed_preferred": "249303",
+        "location": "table[4]",
+        "excerpt": "총 계(a+b+c)"
+      },
+      "instructions": "취득·처분 현황의 보통주/우선주 합계 행을 요약표·보유내역과 대조하고 정정 필요성을 판단한다. 대시를 0으로 간주하거나 행을 자동 수정하지 않는다.",
+      "evidence": [
+        {
+          "source_key": "20261012000414-section-9",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=9&offset=162209&length=63815&dtd=dart4.xsd",
+          "sha256": "40ac065b6faf8532eee636c0f5d391e7ad0cad86ca7cdde61a31713c2affdea2",
+          "receipt_no": "20261012000414",
+          "region": "current_body",
+          "location": "table[4]",
+          "excerpt": "총 계(a+b+c)"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": true,
+      "date": "2026-10-12"
+    },
+    {
+      "id": "HOLD-DATE",
+      "company_id": "hold",
+      "title": "교환사채 권리행사 종료일 표현 불일치",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "정정 검토 필요 / 필요 확정 아님",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "kind": "exchange_end_date_conflict",
+        "observed_dates": [
+          "2030-09-23",
+          "2030-09-30"
+        ],
+        "location": "본문 주석: 교환사채 권리행사 가능기간 / 계속보유 사유",
+        "excerpt": "2030. 09. 30"
+      },
+      "instructions": "본문의 2030.9.23과 2030.9.30을 사채 발행조건·계약 및 추가 첨부와 대조한다. 서비스가 임의로 맞는 날짜를 선택하지 않는다.",
+      "evidence": [
+        {
+          "source_key": "20261012000414-section-9",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=9&offset=162209&length=63815&dtd=dart4.xsd",
+          "sha256": "40ac065b6faf8532eee636c0f5d391e7ad0cad86ca7cdde61a31713c2affdea2",
+          "receipt_no": "20261012000414",
+          "region": "current_body",
+          "location": "본문 주석: 교환사채 권리행사 가능기간 / 계속보유 사유",
+          "excerpt": "2030. 09. 30"
+        },
+        {
+          "key": "hold-treasury-attachment-image",
+          "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11610445&flNm=261012+-+%EC%9E%90%EA%B8%B0%EC%A3%BC%EC%8B%9D%EB%B3%B4%EA%B3%A0%EC%84%9C%28%EB%82%A0%EC%9D%B8%EB%B3%B8%29.jpeg",
+          "sha256": "d51fa01937e68515395ed870c56f62e62aa11acaea8d884759e2b7075595d875",
+          "receipt_no": "20260814003989",
+          "dcm_no": "11610445",
+          "region": "attachment_image",
+          "verification_level": "assistant_visual_transcription",
+          "location": "1쪽 주2 및 계속보유 사유",
+          "excerpt": "2030년 9월 23일"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": true,
+      "date": "2026-10-12"
+    },
+    {
+      "id": "HOLD-YEAR",
+      "company_id": "hold",
+      "title": "취득 이력 주석의 연도 표기 확인",
+      "priority": "P2",
+      "action_type": "필수 점검",
+      "correction_status": "정정 검토 필요 / 필요 확정 아님",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "kind": "incomplete_year",
+        "observed": [
+          "202년 10월",
+          "202년 12월"
+        ],
+        "location": "자기주식 취득·처분 현황의 주1·주2",
+        "excerpt": "202년 10월"
+      },
+      "instructions": "본문의 202년 10월·202년 12월을 원거래 자료와 대조한다. 누락된 연도 자릿수를 추정해서 채우지 않는다.",
+      "evidence": [
+        {
+          "source_key": "20261012000414-section-9",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=9&offset=162209&length=63815&dtd=dart4.xsd",
+          "sha256": "40ac065b6faf8532eee636c0f5d391e7ad0cad86ca7cdde61a31713c2affdea2",
+          "receipt_no": "20261012000414",
+          "region": "current_body",
+          "location": "자기주식 취득·처분 현황의 주1·주2",
+          "excerpt": "202년 10월"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": true,
+      "date": "2026-10-12"
+    },
+    {
+      "id": "CKD-OWNERSHIP",
+      "company_id": "ckd",
+      "title": "합계 불변인 개인별 증여·수증 및 기준일 점검",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "후속 변동만으로 과거 보고서 정정 판단 금지",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "changes": [
+          {
+            "name": "이장한",
+            "transaction_date": "2026-10-02",
+            "reason": "증여(-)",
+            "share_class": "보통주식",
+            "before": 1318807,
+            "delta": -1318807,
+            "after": 0,
+            "location": "table[4]/row[5]",
+            "after_half_year_end": true,
+            "after_q3_end": true
+          },
+          {
+            "name": "이주원",
+            "transaction_date": "2026-10-02",
+            "reason": "수증(+)",
+            "share_class": "보통주식",
+            "before": 204813,
+            "delta": 528807,
+            "after": 733620,
+            "location": "table[5]/row[5]",
+            "after_half_year_end": true,
+            "after_q3_end": true
+          },
+          {
+            "name": "이주경",
+            "transaction_date": "2026-10-02",
+            "reason": "수증(+)",
+            "share_class": "보통주식",
+            "before": 162516,
+            "delta": 395000,
+            "after": 557516,
+            "location": "table[6]/row[5]",
+            "after_half_year_end": true,
+            "after_q3_end": true
+          },
+          {
+            "name": "이주아",
+            "transaction_date": "2026-10-02",
+            "reason": "수증(+)",
+            "share_class": "보통주식",
+            "before": 162516,
+            "delta": 395000,
+            "after": 557516,
+            "location": "table[7]/row[5]",
+            "after_half_year_end": true,
+            "after_q3_end": true
+          }
+        ],
+        "aggregate": {
+          "직전보고서제출일": {
+            "date": "2026-03-23",
+            "share_class": "보통주식",
+            "shares": 5542063,
+            "ratio": "40.15"
+          },
+          "이번보고서제출일": {
+            "date": "2026-10-08",
+            "share_class": "보통주식",
+            "shares": 5542063,
+            "ratio": "40.15"
+          }
+        },
+        "shareholder_baseline_period_end": "2026-06-30",
+        "new_event_alone_requires_old_report_correction": false,
+        "q3_end_snapshot_must_remain_date_accurate": true
+      },
+      "instructions": "개인별 변동과 작성기준일 이후 사항을 확인한다. 거래일은 10월 2일로 6월 말·9월 말 이후이므로 과거 기준일 주주표를 10월 보유량으로 덮어쓰지 않는다. 3분기 보고서의 작성기준일 이후 기재·관련 신고 연결 여부를 검토한다.",
+      "evidence": [
+        {
+          "source_key": "20261008800916-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261008800916&dcmNo=11608990&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "78dae0c7b47ed1c6b50198f274da4019045d9dfefb1cf0a1546a069cb954f0a0",
+          "receipt_no": "20261008800916",
+          "region": "mixed_correction_and_body",
+          "location": "table[3]",
+          "excerpt": "5,542,063"
+        },
+        {
+          "source_key": "20260814003547-section-117",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=117&offset=5059581&length=36029&dtd=dart4.xsd",
+          "sha256": "d2e03a0a6cb2ef961b067856736953616fefff3320dc51516d7187a0fbf40e33",
+          "receipt_no": "20260814003547",
+          "region": "current_body",
+          "location": "table[2]",
+          "excerpt": "1,318,807"
+        },
+        {
+          "source_key": "20261008800916-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261008800916&dcmNo=11608990&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "78dae0c7b47ed1c6b50198f274da4019045d9dfefb1cf0a1546a069cb954f0a0",
+          "receipt_no": "20261008800916",
+          "region": "mixed_correction_and_body",
+          "location": "table[4]/row[5]",
+          "excerpt": "이장한"
+        },
+        {
+          "source_key": "20261008800916-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261008800916&dcmNo=11608990&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "78dae0c7b47ed1c6b50198f274da4019045d9dfefb1cf0a1546a069cb954f0a0",
+          "receipt_no": "20261008800916",
+          "region": "mixed_correction_and_body",
+          "location": "table[5]/row[5]",
+          "excerpt": "이주원"
+        },
+        {
+          "source_key": "20261008800916-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261008800916&dcmNo=11608990&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "78dae0c7b47ed1c6b50198f274da4019045d9dfefb1cf0a1546a069cb954f0a0",
+          "receipt_no": "20261008800916",
+          "region": "mixed_correction_and_body",
+          "location": "table[6]/row[5]",
+          "excerpt": "이주경"
+        },
+        {
+          "source_key": "20261008800916-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261008800916&dcmNo=11608990&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "78dae0c7b47ed1c6b50198f274da4019045d9dfefb1cf0a1546a069cb954f0a0",
+          "receipt_no": "20261008800916",
+          "region": "mixed_correction_and_body",
+          "location": "table[7]/row[5]",
+          "excerpt": "이주아"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": false,
+      "date": "2026-10-08"
+    },
+    {
+      "id": "KB-FOLLOWUP",
+      "company_id": "kb",
+      "title": "집행정지 후속 경과 점검",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "후속사건 추적 / 추가 정정 필요 미확정",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "before": {
+          "stay_status": "planned",
+          "first_instance_loss_explicit": true,
+          "final_merits_result": null,
+          "end_condition": null,
+          "followup_required": true
+        },
+        "after": {
+          "stay_status": "granted",
+          "first_instance_loss_explicit": false,
+          "final_merits_result": null,
+          "end_condition": {
+            "anchor": "appeal_merits_judgment_date",
+            "offset_days": 30,
+            "end_date": null
+          },
+          "followup_required": true
+        },
+        "changed_fields": [
+          "5.향후대책",
+          "6.영업정지영향"
+        ],
+        "source_correction_submitted": true
+      },
+      "instructions": "집행정지 인용과 본안 최종 결과를 구분한다. 판결일 확인 후 종료일·재공시 검토를 갱신하고, 관련 정기보고서 경과와 대조한다. 두 회사의 조치 완료 상태는 따로 유지한다.",
+      "evidence": [
+        {
+          "source_key": "20260831001253-section-3",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260831001253&dcmNo=11560937&eleId=3&offset=6654&length=5986&dtd=dart4.xsd",
+          "sha256": "3b02de89b1fc16abe8f1c80cdc7f96b00d911ca8293f091a20af2a748fd230f9",
+          "receipt_no": "20260831001253",
+          "region": "current_body",
+          "location": "table[1]/5.향후대책",
+          "excerpt": "- 제1심 판결과 관련하여 당사는 2026년 8월 31일 판결문을 송달받아 이를 최종 확인하였음.-제1심 판결은 원고 패소의 판결이며, 주문은 아래와 같음.1. 원고의 청구를 기각한다.2. 소송비용은 원고가 부담한다.- 당사는 제1심 판결에 대해 항소를 제기하였고, 항소심 재판부에 품목허가취소처분에 대한 집행정지를 신청할 예정임.추후 항소법원의 집행정지 인용 결정 여부에 따라 재공시 예정임."
+        },
+        {
+          "source_key": "20260930000336-section-3",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260930000336&dcmNo=11596500&eleId=3&offset=7207&length=5919&dtd=dart4.xsd",
+          "sha256": "856eaafad46cd42ac0f14bb3194210432cb5abadab1e85b56ddce04700486b06",
+          "receipt_no": "20260930000336",
+          "region": "current_body",
+          "location": "table[1]/5.향후대책",
+          "excerpt": "-법원의 집행정지 인용이 결정되어 2026년 9월 30일 결정문을 송달받아 이를 최종 확인하였습니다.-주문은 아래와 같음1. 품목허가취소처분은 품목허가취소처분 취소 청구(항소심 본안) 사건의 판결 선고일로부터 30일이 되는 날까지 그 효력을 정지한다. -추후 항소법원의 본안 인용 결정 여부에 따라 재공시 예정임"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": false,
+      "date": "2026-09-30"
+    },
+    {
+      "id": "HOLD-KB-FOLLOWUP",
+      "company_id": "hold",
+      "title": "경보제약 후속 사건의 홀딩스 공시 연결",
+      "priority": "P1",
+      "action_type": "필수 점검",
+      "correction_status": "후속사건 추적 / 추가 정정 필요 미확정",
+      "mandatory_edit_confirmed": false,
+      "internal_draft_checked": false,
+      "due_condition": "제출본 확정 전 검토. 정정 후보는 담당자가 우선 확인.",
+      "facts": {
+        "before": {
+          "stay_status": "planned",
+          "first_instance_loss_explicit": true,
+          "final_merits_result": null,
+          "end_condition": null,
+          "followup_required": true
+        },
+        "after": {
+          "stay_status": "granted",
+          "first_instance_loss_explicit": false,
+          "final_merits_result": null,
+          "end_condition": {
+            "anchor": "appeal_merits_judgment_date",
+            "offset_days": 30,
+            "end_date": null
+          },
+          "followup_required": true
+        },
+        "changed_fields": [
+          "5.향후대책",
+          "6.영업정지영향"
+        ],
+        "source_correction_submitted": true
+      },
+      "instructions": "집행정지 인용과 본안 최종 결과를 구분한다. 판결일 확인 후 종료일·재공시 검토를 갱신하고, 관련 정기보고서 경과와 대조한다. 두 회사의 조치 완료 상태는 따로 유지한다.",
+      "evidence": [
+        {
+          "source_key": "20260831800474-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260831800474&dcmNo=11560948&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "94be587f63adfac08132ff193b4539e77186d2c53165b916596d87fa3d22b6e6",
+          "receipt_no": "20260831800474",
+          "region": "mixed_correction_and_body",
+          "location": "table[8]/5.향후대책",
+          "excerpt": "- 제1심 판결과 관련하여 당사는 2026년 8월 31일 판결문을 송달받아 이를 최종 확인하였음.-제1심 판결은 원고 패소의 판결이며, 주문은 아래와 같음.1. 원고의 청구를 기각한다.2. 소송비용은 원고가 부담한다.- 당사는 제1심 판결에 대해 항소를 제기하였고, 항소심 재판부에 품목허가취소처분에 대한 집행정지를 신청할 예정임.추후 항소법원의 집행정지 인용 결정 여부에 따라 재공시 예정임."
+        },
+        {
+          "source_key": "20260930800443-body",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260930800443&dcmNo=11596619&eleId=0&offset=0&length=0&dtd=HTML",
+          "sha256": "dba5d90ebc9d2d6f2fb9efbefecd7d80a40fcb438228d63d9786acb9d81fc45c",
+          "receipt_no": "20260930800443",
+          "region": "mixed_correction_and_body",
+          "location": "table[8]/5.향후대책",
+          "excerpt": "-법원의 집행정지 인용이 결정되어 2026년 9월 30일 결정문을 송달받아 이를 최종 확인하였습니다.-주문은 아래와 같음1. 품목허가취소처분은 품목허가취소처분 취소 청구(항소심 본안) 사건의 판결 선고일로부터 30일이 되는 날까지 그 효력을 정지한다. -추후 항소법원의 본안 인용 결정 여부에 따라 재공시 예정임"
+        }
+      ],
+      "origin": "deterministic_rule_with_assistant_source_review",
+      "human_review_completed": false,
+      "rule_version": "0.1.0",
+      "candidate": false,
+      "date": "2026-09-30"
+    }
+  ],
+  "filings": [
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008800916",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-10-08",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008800916"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000718",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000718"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000694",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "이주원",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000694"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000683",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "이장한",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000683"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20261008000669",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-10-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000669"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260930000763",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-09-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930000763"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260831001373",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-08-31",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260831001373"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260828001906",
+      "title": "임원ㆍ주요주주특정증권등거래계획보고서",
+      "filer": "이주원",
+      "received_date": "2026-08-28",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260828001906"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260828001861",
+      "title": "임원ㆍ주요주주특정증권등거래계획보고서",
+      "filer": "이장한",
+      "received_date": "2026-08-28",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260828001861"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260814003547",
+      "title": "반기보고서 (2026.06)",
+      "filer": "종근당",
+      "received_date": "2026-08-14",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003547"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260813001322",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "고촌재단",
+      "received_date": "2026-08-13",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001322"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260731800724",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "종근당",
+      "received_date": "2026-07-31",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731800724"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260727800806",
+      "title": "투자판단관련주요경영사항 (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인)",
+      "filer": "종근당",
+      "received_date": "2026-07-27",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727800806"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260722800459",
+      "title": "공정거래자율준수프로그램운영현황(안내공시)",
+      "filer": "종근당",
+      "received_date": "2026-07-22",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260722800459"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260716000389",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-07-16",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260716000389"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260701000355",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "국민연금공단",
+      "received_date": "2026-07-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000355"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260630800100",
+      "title": "지속가능경영보고서등관련사항(자율공시)",
+      "filer": "종근당",
+      "received_date": "2026-06-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630800100"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260626000723",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "KopernikGlobalInvestors,LLC",
+      "received_date": "2026-06-26",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260626000723"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260624000311",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-06-24",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260624000311"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260611800406",
+      "title": "신규시설투자등",
+      "filer": "종근당",
+      "received_date": "2026-06-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260611800406"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260610800422",
+      "title": "풍문또는보도에대한해명(미확정)",
+      "filer": "종근당",
+      "received_date": "2026-06-10",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610800422"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260601001904",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "KopernikGlobalInvestors,LLC",
+      "received_date": "2026-06-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601001904"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260601800818",
+      "title": "기업지배구조보고서공시",
+      "filer": "종근당",
+      "received_date": "2026-06-01",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601800818"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260515002659",
+      "title": "분기보고서 (2026.03)",
+      "filer": "종근당",
+      "received_date": "2026-05-15",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002659"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260514800849",
+      "title": "투자판단관련주요경영사항 (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인 신청)",
+      "filer": "종근당",
+      "received_date": "2026-05-14",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260514800849"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260430001234",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260430001234"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260429800623",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "종근당",
+      "received_date": "2026-04-29",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429800623"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260421000334",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-21",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260421000334"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260407002688",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-07",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260407002688"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260402001459",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-04-02",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260402001459"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260326801137",
+      "title": "정기주주총회결과",
+      "filer": "종근당",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326801137"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260323001384",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-23",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323001384"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260323801250",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-03-23",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323801250"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260323000966",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-03-23",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323000966"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260318001376",
+      "title": "사업보고서 (2025.12)",
+      "filer": "종근당",
+      "received_date": "2026-03-18",
+      "remarks": "연",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001376"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260316801566",
+      "title": "감사보고서제출",
+      "filer": "종근당",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316801566"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260313801944",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-03-13",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313801944"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260313001236",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-13",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001236"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311004068",
+      "title": "의결권대리행사권유참고서류",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311004068"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311003926",
+      "title": "주주총회소집공고",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311003926"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311800880",
+      "title": "현금ㆍ현물배당결정",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800880"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311800770",
+      "title": "주주총회소집결의",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800770"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260311800001",
+      "title": "투자판단관련주요경영사항 (듀비엠폴서방정(CKD383) 식품의약품안전처 국내 품목허가 승인)",
+      "filer": "종근당",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800001"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260305001322",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-05",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305001322"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260305801242",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당",
+      "received_date": "2026-03-05",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305801242"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260305001161",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-03-05",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305001161"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260203000313",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-02-03",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260203000313"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260202800941",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+      "filer": "종근당",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800941"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260130000653",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "KopernikGlobalInvestors,LLC",
+      "received_date": "2026-01-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260130000653"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260122800326",
+      "title": "공정거래자율준수프로그램운영현황(안내공시)",
+      "filer": "종근당",
+      "received_date": "2026-01-22",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260122800326"
+    },
+    {
+      "company_id": "ckd",
+      "corp_code": "00992871",
+      "receipt_no": "20260116000291",
+      "title": "임원ㆍ주요주주특정증권등거래계획보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-16",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260116000291"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20261012000414",
+      "title": "[기재정정]반기보고서 (2026.06)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-10-12",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012000414"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260930000601",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-09-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930000601"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260930800443",
+      "title": "[기재정정]주요사항보고서(영업정지) (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-09-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930800443"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260831800474",
+      "title": "[기재정정]주요사항보고서(영업정지) (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-08-31",
+      "remarks": "유정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260831800474"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260814803807",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-08-14",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814803807"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260814003989",
+      "title": "반기보고서 (2026.06)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-08-14",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003989"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260727800807",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항) (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-07-27",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260727800807"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260701000582",
+      "title": "증권발행실적보고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-07-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000582"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260701000007",
+      "title": "투자설명서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-07-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260701000007"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260630001061",
+      "title": "[발행조건확정]증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630001061"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260630800113",
+      "title": "지속가능경영보고서등관련사항(자율공시)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260630800113"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260625000593",
+      "title": "[발행조건확정]증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-25",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260625000593"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260625000581",
+      "title": "[기재정정]증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-25",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260625000581"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260624000321",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-06-24",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260624000321"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260619000632",
+      "title": "증권신고서(채무증권)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-19",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260619000632"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260611800425",
+      "title": "신규시설투자등 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260611800425"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260608800753",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-08",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608800753"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260608000276",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-06-08",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608000276"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260601801195",
+      "title": "기업지배구조보고서공시",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-06-01",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801195"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260528800651",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-05-28",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260528800651"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260528000635",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-05-28",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260528000635"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260515002752",
+      "title": "분기보고서 (2026.03)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-05-15",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002752"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260514800908",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항) (고혈압 치료제로 개발중인 CKD339의 식약처(MFDS) 제3상 임상시험 계획 승인 신청)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-05-14",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260514800908"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260410800731",
+      "title": "단일판매ㆍ공급계약해지 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-04-10",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410800731"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260401004359",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "filer": "국민연금공단",
+      "received_date": "2026-04-01",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260401004359"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260326001463",
+      "title": "독립이사의선임ㆍ해임또는중도퇴임에관한신고",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-26",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326001463"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260326803185",
+      "title": "정기주주총회결과",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326803185"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260323001446",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-03-23",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323001446"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260318001530",
+      "title": "사업보고서 (2025.12)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-18",
+      "remarks": "연",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001530"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316802779",
+      "title": "감사보고서제출 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316802779"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316802455",
+      "title": "감사보고서제출",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316802455"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316801659",
+      "title": "감사보고서제출 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316801659"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260316800994",
+      "title": "감사보고서제출 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316800994"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260311800881",
+      "title": "현금ㆍ현물배당결정 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800881"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260311800004",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항) (듀비엠폴서방정(CKD383) 식품의약품안전처 국내 품목허가 승인)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-03-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311800004"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225003274",
+      "title": "의결권대리행사권유참고서류",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225003274"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225003126",
+      "title": "주주총회소집공고",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225003126"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225800635",
+      "title": "현금ㆍ현물배당결정",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225800635"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225800628",
+      "title": "현금ㆍ현물배당을위한주주명부폐쇄(기준일)결정",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225800628"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260225800581",
+      "title": "주주총회소집결의",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-25",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225800581"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260224801324",
+      "title": "현금ㆍ현물배당결정 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-24",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260224801324"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260211801328",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211801328"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260202801620",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202801620"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260202800992",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800992"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260202800837",
+      "title": "[기재정정]신규시설투자등 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800837"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260130801149",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-30",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260130801149"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260119800979",
+      "title": "투자판단관련주요경영사항 (자회사의 주요경영사항)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-19",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260119800979"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260116800578",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-01-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260116800578"
+    },
+    {
+      "company_id": "hold",
+      "corp_code": "00149354",
+      "receipt_no": "20260116000264",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "이장한",
+      "received_date": "2026-01-16",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260116000264"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260930000336",
+      "title": "[기재정정]주요사항보고서(영업정지)",
+      "filer": "경보제약",
+      "received_date": "2026-09-30",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260930000336"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260831001253",
+      "title": "[기재정정]주요사항보고서(영업정지)",
+      "filer": "경보제약",
+      "received_date": "2026-08-31",
+      "remarks": "정",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260831001253"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260814003323",
+      "title": "반기보고서 (2026.06)",
+      "filer": "경보제약",
+      "received_date": "2026-08-14",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003323"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260731800820",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "경보제약",
+      "received_date": "2026-07-31",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260731800820"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260626800995",
+      "title": "지속가능경영보고서등관련사항(자율공시)",
+      "filer": "경보제약",
+      "received_date": "2026-06-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260626800995"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260601801393",
+      "title": "기업지배구조보고서공시",
+      "filer": "경보제약",
+      "received_date": "2026-06-01",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801393"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260515001275",
+      "title": "분기보고서 (2026.03)",
+      "filer": "경보제약",
+      "received_date": "2026-05-15",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001275"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260429800652",
+      "title": "영업(잠정)실적(공정공시)",
+      "filer": "경보제약",
+      "received_date": "2026-04-29",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260429800652"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260410800707",
+      "title": "단일판매ㆍ공급계약해지",
+      "filer": "경보제약",
+      "received_date": "2026-04-10",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410800707"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260326001153",
+      "title": "독립이사의선임ㆍ해임또는중도퇴임에관한신고",
+      "filer": "경보제약",
+      "received_date": "2026-03-26",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326001153"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260326802483",
+      "title": "기업가치제고계획(자율공시)",
+      "filer": "경보제약",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326802483"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260326802440",
+      "title": "정기주주총회결과",
+      "filer": "경보제약",
+      "received_date": "2026-03-26",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260326802440"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260319001207",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "홍성상",
+      "received_date": "2026-03-19",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260319001207"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260318001475",
+      "title": "사업보고서 (2025.12)",
+      "filer": "경보제약",
+      "received_date": "2026-03-18",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001475"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260316800944",
+      "title": "감사보고서제출",
+      "filer": "경보제약",
+      "received_date": "2026-03-16",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316800944"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260305000992",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "정희록",
+      "received_date": "2026-03-05",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260305000992"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260227007344",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "홍성상",
+      "received_date": "2026-02-27",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260227007344"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260225005056",
+      "title": "의결권대리행사권유참고서류",
+      "filer": "경보제약",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225005056"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260225004961",
+      "title": "주주총회소집공고",
+      "filer": "경보제약",
+      "received_date": "2026-02-25",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260225004961"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260224801313",
+      "title": "현금ㆍ현물배당결정",
+      "filer": "경보제약",
+      "received_date": "2026-02-24",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260224801313"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260224801182",
+      "title": "주주총회소집결의",
+      "filer": "경보제약",
+      "received_date": "2026-02-24",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260224801182"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260211800653",
+      "title": "최대주주등소유주식변동신고서",
+      "filer": "경보제약",
+      "received_date": "2026-02-11",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211800653"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260211000546",
+      "title": "주식등의대량보유상황보고서(일반)",
+      "filer": "종근당홀딩스",
+      "received_date": "2026-02-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000546"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260211000536",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filer": "김도경",
+      "received_date": "2026-02-11",
+      "remarks": "",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260211000536"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260202801559",
+      "title": "매출액또는손익구조30%(대규모법인은15%)이상변경",
+      "filer": "경보제약",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202801559"
+    },
+    {
+      "company_id": "kb",
+      "corp_code": "00101664",
+      "receipt_no": "20260202800827",
+      "title": "[기재정정]신규시설투자등",
+      "filer": "경보제약",
+      "received_date": "2026-02-02",
+      "remarks": "유",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260202800827"
+    }
+  ],
+  "rules": [
+    {
+      "id": "FORMAT_CURRENT",
+      "title": "기업공시서식 작성기준 2026.9.30 시행",
+      "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=450",
+      "effective_date": "2026-09-30",
+      "status": "full_file_downloaded_text_extracted_selected_sections_reviewed",
+      "scope_of_latest_amendment": "공모펀드 간이투자설명서 핵심위험 안내",
+      "company_action": "retain_as_current_compilation; do_not_flag_all_three_companies_for_latest_amendment"
+    },
+    {
+      "id": "FORMAT_PREVIOUS",
+      "title": "기업공시서식 작성기준 2026.8.3 시행",
+      "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=448",
+      "effective_date": "2026-08-03",
+      "status": "notice_and_summary_reviewed",
+      "scope": "종속회사 등 중복상장 관련 증권신고서 항목",
+      "company_action": "conditional_on_relevant_listing_and_filing_event"
+    },
+    {
+      "id": "TREASURY_ATTACHMENT",
+      "title": "자기주식보고서 첨부 예외",
+      "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=451",
+      "status": "official_lecture_reviewed_rule_text_crosscheck_pending",
+      "pdf_pages": [
+        17,
+        52
+      ],
+      "report_type_condition": "자기주식보고서는 분기에 생략. 자기주식보유처분계획서는 분반기에 직전 사업보고서 이후 변동 조건 확인.",
+      "company_action": "do_not_raise_q3_missing_attachment_from_half_year_case_alone"
+    },
+    {
+      "id": "INDEPENDENT_DIRECTOR_LABEL",
+      "title": "독립이사 관련 서식 용어 변경",
+      "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=451",
+      "effective_date": "2026-07-23",
+      "status": "official_lecture_reviewed_rule_text_crosscheck_pending",
+      "pdf_pages": [
+        50,
+        51
+      ],
+      "company_action": "check_applicable_form_version_and_labels_before_submission"
+    },
+    {
+      "id": "BIO_GUIDANCE",
+      "title": "제약·바이오 기업 공시 모범사례 2026.8월",
+      "notice_url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+      "published_date": "2026-08-28",
+      "status": "notice_reviewed_hwp_downloaded_full_text_review_pending",
+      "company_action": "review_sector_specific_items_in_next_stage"
+    }
+  ],
+  "sources": [
+    {
+      "id": "DART_PROFILE",
+      "name": "금감원 기업개황",
+      "url": "https://dart.fss.or.kr/dsae001/selectPopup.ax",
+      "kind": "company_profile",
+      "verification_status": "public_page_verified",
+      "collection_route": "official_profile",
+      "note": "기업 식별·시장·결산월. 고유번호는 회사별 URL 및 공시목록과 교차확인."
+    },
+    {
+      "id": "DART_SEARCH",
+      "name": "금감원 공시서류검색",
+      "url": "https://dart.fss.or.kr/dsab001/main.do",
+      "kind": "filings",
+      "verification_status": "public_query_verified",
+      "collection_route": "public_search_snapshot",
+      "note": "20260101~20261016, 정정포함, 3개 회사 검색응답 126건 대조. 운영용 API와 별개."
+    },
+    {
+      "id": "OPENDART",
+      "name": "금감원 OpenDART",
+      "url": "https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019001",
+      "kind": "filings_api",
+      "verification_status": "documentation_verified_key_not_configured",
+      "collection_route": "api_with_key",
+      "note": "운영 수집 우선 경로. list/company/document/corpCode API는 인증키 연결 후 확인."
+    },
+    {
+      "id": "DART_GENERAL",
+      "name": "금감원 기업공시제도 일반",
+      "url": "https://dart.fss.or.kr/info/searchGuide.do",
+      "kind": "rules_and_training",
+      "verification_status": "public_list_detail_and_selected_attachments_verified",
+      "collection_route": "public_web_and_files",
+      "note": "목록·게시물·첨부 모두 버전 확인. 기준 450, 이전 448, 교육451."
+    },
+    {
+      "id": "DART_CAUTION",
+      "name": "금감원 공시유의사항",
+      "url": "https://dart.fss.or.kr/info/searchGuide02.do",
+      "kind": "sector_guidance",
+      "verification_status": "selected_detail_and_hwp_download_verified",
+      "collection_route": "public_web_and_files",
+      "note": "제약·바이오 449 본문 확인 및 HWP 확보. HWP 전체 내용 분석은 다음 단계."
+    },
+    {
+      "id": "FSC_RELEASES",
+      "name": "금융위원회 보도자료",
+      "url": "https://www.fsc.go.kr/no010101",
+      "kind": "policy",
+      "verification_status": "public_list_verified",
+      "collection_route": "public_web",
+      "note": "계획·의결·공포·시행 구분. 이번 단계 전체 목록 전수 적재는 하지 않음."
+    },
+    {
+      "id": "FSC_RULES",
+      "name": "금융위원회 규정·고시",
+      "url": "https://www.fsc.go.kr/po040200",
+      "kind": "regulations",
+      "verification_status": "public_list_verified",
+      "collection_route": "public_web_and_files",
+      "note": "확정 고시·부칙 근거. 개별 관련 규정은 다음 단계 조항별 검토."
+    },
+    {
+      "id": "KRX_KIND",
+      "name": "한국거래소 KIND",
+      "url": "https://kind.krx.co.kr",
+      "kind": "exchange_disclosures",
+      "verification_status": "official_direct_filing_access_observed",
+      "collection_route": "public_web",
+      "note": "회사 공시 원문 확인 보완. 루트 응답만으로 수집 성공 처리 금지."
+    },
+    {
+      "id": "KRX_RULES",
+      "name": "한국거래소 법규서비스",
+      "url": "https://law.krx.co.kr",
+      "kind": "exchange_rules",
+      "verification_status": "timeout_during_probe",
+      "collection_route": "public_web_or_authorized_manual_import",
+      "note": "직접 접근 시간초과. 거래소 확정 규정 원문 확보 상태를 별도 경고."
+    },
+    {
+      "id": "KLCA_LAWS",
+      "name": "한국상장회사협의회 최신법규",
+      "url": "https://www.klca.or.kr/sub/law/legal_information.asp",
+      "kind": "laws_and_practice",
+      "verification_status": "public_list_verified_detail_login_required",
+      "collection_route": "list_monitor_and_authorized_upload",
+      "note": "최신 게시물 목록은 공개. 확인한 상세 2건은 로그인 화면으로 이동."
+    },
+    {
+      "id": "KLCA_TRAINING",
+      "name": "한국상장회사협의회 교육·설명회",
+      "url": "https://www.klca.or.kr/sub/seminar/application.asp?rNo=3026&rWork=TblRead",
+      "kind": "training",
+      "verification_status": "public_event_notice_verified",
+      "collection_route": "public_notice_and_authorized_materials",
+      "note": "2026년 3분기보고서 작성요령 온라인 설명회 10/12~10/16. 이수 여부는 내부 기록 필요."
+    },
+    {
+      "id": "LAW_CENTER",
+      "name": "국가법령정보센터",
+      "url": "https://www.law.go.kr/법령/자본시장과금융투자업에관한법률",
+      "kind": "statutes",
+      "verification_status": "dynamic_landing_only_body_not_validated",
+      "collection_route": "official_body_or_authorized_manual_import",
+      "note": "현재 법령 본문·시행령·부칙의 모든 조항 확인이 끝난 것은 아님."
+    }
+  ]
+}
