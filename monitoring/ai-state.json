@@ -8,7 +8,7 @@
   "provider": "Google Gemini API",
   "model": "gemini-3.8-flash",
   "promptVersion": "gemini-free-review-v2",
-  "lastAttemptAt": "2026-10-22T10:25:44+09:00",
+  "lastAttemptAt": "2026-10-23T10:23:42+09:00",
   "limits": {
     "model": "gemini-3.8-flash",
     "operatingMode": "free",
