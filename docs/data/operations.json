@@ -8,9 +8,9 @@
     "execution": "cloud",
     "aiEngine": "gemini_api_status_in_ai_analysis_json"
   },
-  "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+  "lastAttemptAt": "2026-11-03T12:53:58+09:00",
   "lastCompleteAt": "2026-11-02T11:17:17+09:00",
-  "lastRunStatus": "complete",
+  "lastRunStatus": "partial",
   "collectionStart": "2026-01-01",
   "reviewBaseline": {
     "asOf": "2026-10-16",
@@ -20,9 +20,9 @@
     {
       "id": "filings-ckd",
       "title": "종근당 공시 목록",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-02T11:17:17+09:00",
+      "lastSuccessAt": "2026-11-03T12:53:58+09:00",
       "detail": {
         "total": 55,
         "pages": 1,
@@ -30,7 +30,7 @@
           "d0e3a717820a139dc5a381042ca656ea11c8e990ad6bfa8a752c189cd663d8c0"
         ],
         "from_date": "2026-01-01",
-        "to_date": "2026-11-02",
+        "to_date": "2026-11-03",
         "mode": "public_search"
       },
       "error": null
@@ -38,9 +38,9 @@
     {
       "id": "filings-hold",
       "title": "종근당홀딩스 공시 목록",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-02T11:17:17+09:00",
+      "lastSuccessAt": "2026-11-03T12:53:58+09:00",
       "detail": {
         "total": 49,
         "pages": 1,
@@ -48,7 +48,7 @@
           "82290b7d31bcdf1c94420589a0e86b2b1a4298eca01b4f28b98e6be76b815aca"
         ],
         "from_date": "2026-01-01",
-        "to_date": "2026-11-02",
+        "to_date": "2026-11-03",
         "mode": "public_search"
       },
       "error": null
@@ -56,9 +56,9 @@
     {
       "id": "filings-kb",
       "title": "경보제약 공시 목록",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-02T11:17:17+09:00",
+      "lastSuccessAt": "2026-11-03T12:53:58+09:00",
       "detail": {
         "total": 27,
         "pages": 1,
@@ -66,7 +66,7 @@
           "2b323e0da650692200be83439b8390b80d52ed148b2f784682bcdd5e6a754ab7"
         ],
         "from_date": "2026-01-01",
-        "to_date": "2026-11-02",
+        "to_date": "2026-11-03",
         "mode": "public_search"
       },
       "error": null
@@ -74,13 +74,13 @@
     {
       "id": "board-general",
       "title": "기업공시제도 일반",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-02T11:17:17+09:00",
+      "lastSuccessAt": "2026-11-03T12:53:58+09:00",
       "detail": {
         "rows": 15,
         "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
-        "response_sha256": "8b942664fadae4aa5ae039e058af9202c632434f04c39d69db60751aaabf5c41",
+        "response_sha256": "dedc8ac6be65ac3884b7faa2bb3719fe40bd3959ed60c11b1e63a7672c6421be",
         "oldest_date": "2025-12-03"
       },
       "error": null
@@ -88,13 +88,13 @@
     {
       "id": "board-caution",
       "title": "공시유의사항",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-02T11:17:17+09:00",
+      "lastSuccessAt": "2026-11-03T12:53:58+09:00",
       "detail": {
         "rows": 15,
         "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
-        "response_sha256": "ced57151557efe6137a872485f0411107d74131f98b888c254dfb10fce3c9b1d",
+        "response_sha256": "f3104c928a41fa354ee03114cfa1d76230c52bd35b3fa106588b90cbdfa91932",
         "oldest_date": "2018-08-20"
       },
       "error": null
@@ -102,8 +102,8 @@
     {
       "id": "document-june-diff",
       "title": "6.30 개정 신구조문대비표",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
-      "status": "ok",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
+      "status": "failed",
       "lastSuccessAt": "2026-11-02T11:17:17+09:00",
       "detail": {
         "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
@@ -111,13 +111,13 @@
         "matches_reviewed": true,
         "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
       },
-      "error": null
+      "error": "official_source_unavailable"
     },
     {
       "id": "document-current-body",
       "title": "현행 기업공시서식 작성기준(9.30)",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
-      "status": "ok",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
+      "status": "failed",
       "lastSuccessAt": "2026-11-02T11:17:17+09:00",
       "detail": {
         "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
@@ -125,13 +125,13 @@
         "matches_reviewed": true,
         "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
       },
-      "error": null
+      "error": "official_source_unavailable"
     },
     {
       "id": "document-current-annex",
       "title": "현행 별지서식(9.30)",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
-      "status": "ok",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
+      "status": "failed",
       "lastSuccessAt": "2026-11-02T11:17:17+09:00",
       "detail": {
         "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
@@ -139,13 +139,13 @@
         "matches_reviewed": true,
         "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
       },
-      "error": null
+      "error": "official_source_unavailable"
     },
     {
       "id": "document-lecture",
       "title": "3분기 기업공시 설명회",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
-      "status": "ok",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
+      "status": "failed",
       "lastSuccessAt": "2026-11-02T11:17:17+09:00",
       "detail": {
         "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
@@ -153,14 +153,14 @@
         "matches_reviewed": true,
         "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
       },
-      "error": null
+      "error": "official_source_unavailable"
     },
     {
       "id": "document-fsc",
       "title": "금융위 6.23 시행령 의결 보도자료",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-02T11:17:17+09:00",
+      "lastSuccessAt": "2026-11-03T12:53:58+09:00",
       "detail": {
         "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
         "bytes": 283732,
@@ -172,8 +172,8 @@
     {
       "id": "document-bio-guidance",
       "title": "제약·바이오 모범사례 2026.8 HWP",
-      "lastAttemptAt": "2026-11-02T11:17:17+09:00",
-      "status": "ok",
+      "lastAttemptAt": "2026-11-03T12:53:58+09:00",
+      "status": "failed",
       "lastSuccessAt": "2026-11-02T11:17:17+09:00",
       "detail": {
         "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
@@ -181,7 +181,7 @@
         "matches_reviewed": true,
         "scope": "선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음"
       },
-      "error": null
+      "error": "official_source_unavailable"
     }
   ],
   "filings": [
@@ -2201,7 +2201,7 @@
     },
     "fsc": {
       "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
-      "checkedAt": "2026-11-02T11:17:17+09:00",
+      "checkedAt": "2026-11-03T12:53:58+09:00",
       "reviewed_sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
       "bytes": 283732,
       "url": "https://www.fsc.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=87169",
@@ -2828,6 +2828,15 @@
     }
   ],
   "runs": [
+    {
+      "id": "20261103T125358+0900-41574883594",
+      "at": "2026-11-03T12:53:58+09:00",
+      "status": "partial",
+      "ok": 6,
+      "total": 11,
+      "newCandidates": 0,
+      "workflowRunUrl": "https://github.com/GunYulePark/Key-Disclosure-Points/actions/runs/41574883594"
+    },
     {
       "id": "20261102T111717+0900-41376887760",
       "at": "2026-11-02T11:17:17+09:00",
