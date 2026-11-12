@@ -8,8 +8,8 @@
     "execution": "cloud",
     "aiEngine": "gemini_api_status_in_ai_analysis_json"
   },
-  "lastAttemptAt": "2026-11-11T11:40:13+09:00",
-  "lastCompleteAt": "2026-11-11T11:40:13+09:00",
+  "lastAttemptAt": "2026-11-12T12:43:20+09:00",
+  "lastCompleteAt": "2026-11-12T12:43:20+09:00",
   "lastRunStatus": "complete",
   "collectionStart": "2026-01-01",
   "reviewBaseline": {
@@ -20,9 +20,9 @@
     {
       "id": "filings-ckd",
       "title": "종근당 공시 목록",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "total": 55,
         "pages": 1,
@@ -30,7 +30,7 @@
           "d0e3a717820a139dc5a381042ca656ea11c8e990ad6bfa8a752c189cd663d8c0"
         ],
         "from_date": "2026-01-01",
-        "to_date": "2026-11-11",
+        "to_date": "2026-11-12",
         "mode": "public_search"
       },
       "error": null
@@ -38,9 +38,9 @@
     {
       "id": "filings-hold",
       "title": "종근당홀딩스 공시 목록",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "total": 49,
         "pages": 1,
@@ -48,7 +48,7 @@
           "82290b7d31bcdf1c94420589a0e86b2b1a4298eca01b4f28b98e6be76b815aca"
         ],
         "from_date": "2026-01-01",
-        "to_date": "2026-11-11",
+        "to_date": "2026-11-12",
         "mode": "public_search"
       },
       "error": null
@@ -56,9 +56,9 @@
     {
       "id": "filings-kb",
       "title": "경보제약 공시 목록",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "total": 27,
         "pages": 1,
@@ -66,7 +66,7 @@
           "2b323e0da650692200be83439b8390b80d52ed148b2f784682bcdd5e6a754ab7"
         ],
         "from_date": "2026-01-01",
-        "to_date": "2026-11-11",
+        "to_date": "2026-11-12",
         "mode": "public_search"
       },
       "error": null
@@ -74,27 +74,27 @@
     {
       "id": "board-general",
       "title": "기업공시제도 일반",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "rows": 15,
         "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
-        "response_sha256": "dada027e93d36d72c435472b93a8577a0df2b3620281d89bfc25f895d5fa5ad8",
-        "oldest_date": "2025-12-03"
+        "response_sha256": "9df2ddce6c4eff9f320b724387b233d653f60d3fce81ab4eb6edaf26a3fd3476",
+        "oldest_date": "2025-12-29"
       },
       "error": null
     },
     {
       "id": "board-caution",
       "title": "공시유의사항",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "rows": 15,
         "scope": "목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외",
-        "response_sha256": "e6a92dd20eee08579b97e09afe92cf99bceaae047fd2df9dd0c8c8773315b54d",
+        "response_sha256": "47bb3f3e10b58ed3f14d476890204918bc54be9cb1d3a34dad8e8bc599a1e1af",
         "oldest_date": "2018-08-20"
       },
       "error": null
@@ -102,9 +102,9 @@
     {
       "id": "document-june-diff",
       "title": "6.30 개정 신구조문대비표",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
         "bytes": 3764098,
@@ -116,9 +116,9 @@
     {
       "id": "document-current-body",
       "title": "현행 기업공시서식 작성기준(9.30)",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
         "bytes": 3046810,
@@ -130,9 +130,9 @@
     {
       "id": "document-current-annex",
       "title": "현행 별지서식(9.30)",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
         "bytes": 4455112,
@@ -144,9 +144,9 @@
     {
       "id": "document-lecture",
       "title": "3분기 기업공시 설명회",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
         "bytes": 5783284,
@@ -158,9 +158,9 @@
     {
       "id": "document-fsc",
       "title": "금융위 6.23 시행령 의결 보도자료",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
         "bytes": 283732,
@@ -172,9 +172,9 @@
     {
       "id": "document-bio-guidance",
       "title": "제약·바이오 모범사례 2026.8 HWP",
-      "lastAttemptAt": "2026-11-11T11:40:13+09:00",
+      "lastAttemptAt": "2026-11-12T12:43:20+09:00",
       "status": "ok",
-      "lastSuccessAt": "2026-11-11T11:40:13+09:00",
+      "lastSuccessAt": "2026-11-12T12:43:20+09:00",
       "detail": {
         "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
         "bytes": 123904,
@@ -2164,12 +2164,44 @@
           }
         ]
       }
+    },
+    "general-452": {
+      "id": "general-452",
+      "fingerprint": "49edf33eafc44c7ba63292fabdd36b1e0e653b7efec9e7b8374fe8fdd4bde4b7",
+      "item": {
+        "id": "general-452",
+        "title": "기업공시서식 작성기준(2026.11.13. 시행)",
+        "date": "2026-11-12",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.11.13. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=5",
+            "title": "(hwp파일)기업공시서식 작성기준 및 별지서식_261113.zip"
+          }
+        ]
+      }
     }
   },
   "documents": {
     "june-diff": {
       "sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
-      "checkedAt": "2026-11-11T11:40:13+09:00",
+      "checkedAt": "2026-11-12T12:43:20+09:00",
       "reviewed_sha256": "28bfefe82a2d66ec8f697f30d5fdcf989e877dcb6048660e065e01ac306ec356",
       "bytes": 3764098,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=9aca93e00afc41eca6b564f4c1f58804&fileSn=3",
@@ -2177,7 +2209,7 @@
     },
     "current-body": {
       "sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
-      "checkedAt": "2026-11-11T11:40:13+09:00",
+      "checkedAt": "2026-11-12T12:43:20+09:00",
       "reviewed_sha256": "776d455811672520dd5e27591c6bc8c9258230ecd704baf2622f22abeeb6113b",
       "bytes": 3046810,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=4",
@@ -2185,7 +2217,7 @@
     },
     "current-annex": {
       "sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
-      "checkedAt": "2026-11-11T11:40:13+09:00",
+      "checkedAt": "2026-11-12T12:43:20+09:00",
       "reviewed_sha256": "3ff4b09d20d8caf0f6cd32aec2f357415913377ab0bc7e23ba69bde94e2804c5",
       "bytes": 4455112,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=97a9f7ced3f4417a8e0bb142ce48d4a3&fileSn=5",
@@ -2193,7 +2225,7 @@
     },
     "lecture": {
       "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
-      "checkedAt": "2026-11-11T11:40:13+09:00",
+      "checkedAt": "2026-11-12T12:43:20+09:00",
       "reviewed_sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
       "bytes": 5783284,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
@@ -2201,7 +2233,7 @@
     },
     "fsc": {
       "sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
-      "checkedAt": "2026-11-11T11:40:13+09:00",
+      "checkedAt": "2026-11-12T12:43:20+09:00",
       "reviewed_sha256": "8f57ade1549a89f453b414ea893fdbab8854efccb4ed7ffd7495a3a45dc0354d",
       "bytes": 283732,
       "url": "https://www.fsc.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=87169",
@@ -2209,7 +2241,7 @@
     },
     "bio-guidance": {
       "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
-      "checkedAt": "2026-11-11T11:40:13+09:00",
+      "checkedAt": "2026-11-12T12:43:20+09:00",
       "reviewed_sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
       "bytes": 123904,
       "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
@@ -2217,6 +2249,68 @@
     }
   },
   "queue": [
+    {
+      "id": "notice-general-452-49edf33eafc4",
+      "kind": "notice",
+      "title": "기업공시서식 작성기준(2026.11.13. 시행)",
+      "company_id": "common",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+      "date": "2026-11-12",
+      "firstSeenAt": "2026-11-12T12:43:20+09:00",
+      "status": "awaiting_review",
+      "review": "게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토",
+      "attachments": [
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=1",
+          "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=2",
+          "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=3",
+          "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=4",
+          "title": "(붙임4) 기업공시서식 작성기준(2026.11.13. 시행).pdf"
+        },
+        {
+          "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=5",
+          "title": "(hwp파일)기업공시서식 작성기준 및 별지서식_261113.zip"
+        }
+      ],
+      "before": {},
+      "after": {
+        "id": "general-452",
+        "title": "기업공시서식 작성기준(2026.11.13. 시행)",
+        "date": "2026-11-12",
+        "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+        "attachments": [
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=1",
+            "title": "(붙임1) 기업공시서식 작성기준 개정(요약).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=2",
+            "title": "(붙임2) 기업공시서식 작성기준 개정내용(본문).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=3",
+            "title": "(붙임3) 기업공시서식 작성기준 개정내용(신구조문대비표).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=4",
+            "title": "(붙임4) 기업공시서식 작성기준(2026.11.13. 시행).pdf"
+          },
+          {
+            "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=5",
+            "title": "(hwp파일)기업공시서식 작성기준 및 별지서식_261113.zip"
+          }
+        ]
+      }
+    },
     {
       "id": "filing-20261030800726-8adc2b2e127b",
       "kind": "filing",
@@ -2828,6 +2922,15 @@
     }
   ],
   "runs": [
+    {
+      "id": "20261112T124320+0900-43150050434",
+      "at": "2026-11-12T12:43:20+09:00",
+      "status": "complete",
+      "ok": 11,
+      "total": 11,
+      "newCandidates": 1,
+      "workflowRunUrl": "https://github.com/GunYulePark/Key-Disclosure-Points/actions/runs/43150050434"
+    },
     {
       "id": "20261111T114013+0900-42947568253",
       "at": "2026-11-11T11:40:13+09:00",
