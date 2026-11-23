@@ -21,7 +21,7 @@ await cp(path.join(root,'node_modules/pdfjs-dist/LICENSE'),path.join(vendor,'PDF
 await writeFile(path.join(out,'.nojekyll'),'');
 const href=p=>'./'+path.relative('docs',p).replaceAll('\\','/');
 await writeFile(path.join(out,'index.html'),`<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="종근당·종근당홀딩스·경보제약 공시 점검 포인트, 중요도와 공식 원문 근거를 확인하세요."><title>공시 검토실 | Key Disclosure Points</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="${href(css)}"><script type="module" src="${href(js)}"></script></head><body><div id="root"></div><noscript>이 페이지의 검색과 필터에는 JavaScript가 필요합니다. <a href="./data/snapshot.json">공개 공시 자료 JSON 내려받기</a></noscript></body></html>\n`);
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="종근당·종근당홀딩스·경보제약 공시 및 공통 작성기준."><title>공시 검토실 | Key Disclosure Points</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="${href(css)}"><script type="module" src="${href(js)}"></script></head><body><div id="root"></div><noscript>이 페이지의 검색과 필터에는 JavaScript가 필요합니다. <a href="./data/snapshot.json">공개 공시 자료 JSON 내려받기</a></noscript></body></html>\n`);
 await mkdir(path.join(out,'data'),{recursive:true});
 for(const name of ['snapshot.json','rule-reviews.json','reference-catalog.json','rule-link-index.json'])await cp(path.join(root,'src',name),path.join(out,'data',name));
 const client=await readFile(path.join(root,js),'utf8');

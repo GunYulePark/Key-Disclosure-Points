@@ -8,7 +8,7 @@ export default function TreasuryReview() {
     <details className="treasury-details" open={typeof window!=='undefined'&&window.location.hash==='#rules-treasury'}>
       <summary>회사별 적용·필수 점검·PDF 근거 펼치기</summary>
       <div className="treasury-body">
-        <div className="review-stamp">P1 우선 점검 · {r.effective_date} 시행 · PDF·공시 대조 {r.reviewed_on}</div>
+        <div className="review-stamp">P1 우선 점검 · {r.effective_date} 시행</div>
         <h4>무엇이 바뀌었나요?</h4>
         <div className="rule-comparison"><div><small>개정 전 / 회사가 사용한 생략 근거</small><p>{r.before}</p></div><div><small>현행 기준 / 작성자가 바꿔야 할 내용</small><p>{r.after}</p></div></div>
         <div className="rule-filing"><b>종근당 공시에서 실제 확인한 문구</b><p>{r.filing_evidence.location}</p><blockquote>{r.filing_evidence.excerpt}</blockquote><a href={r.filing_evidence.url} target="_blank" rel="noopener noreferrer">종근당 3분기 정정본 해당 본문 <ArrowUpRight size={14}/></a><p>조회한 공개 첨부 목록: {r.filing_evidence.attachment_labels_observed.join(' · ')}. 첨부 원본·내부 승인자료는 추가 대조가 필요합니다.</p></div>
