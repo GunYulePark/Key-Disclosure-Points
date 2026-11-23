@@ -2,7 +2,7 @@
   {
     "id": "BIO-2026-07",
     "title": "제약·바이오 공시 개편 · 회사별 반영 검토",
-    "as_of": "2026-10-16",
+    "as_of": "2026-11-23",
     "source_title": "제약·바이오 공시, 투자자 눈높이로 전면 개편",
     "source_sha256": "deec44302ca7acb38025c94bd9ef4875c1cbfa2a206de96e0ea6e9f5fdabd2fb",
     "source_pages": 12,
@@ -11,7 +11,7 @@
     "guidance_posted_date": "2026-08-28",
     "guidance_url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
     "legal_status": "8월 모범사례는 참고용이며 양식·기재범위는 합리적 판단에 따라 조정할 수 있습니다. 기본 공시 의무와 모범사례의 예시 양식을 구분합니다. 일괄 시행일·소급 정정 의무는 확인되지 않았습니다.",
-    "coverage": "제공 PDF 12쪽 전체의 텍스트와 주요 표·각주, 후속 HWP 전문 텍스트, 세 회사 주요계약·연구개발 절을 대조했습니다. HWP 지면·전체 과거 파이프라인·내부 초안 및 거래소 최종 개정 여부는 추가 확인 대상입니다.",
+    "coverage": "2026년 3분기 선정 주요계약·연구개발 절을 11월 23일 재대조했습니다. 규정 원문 검토는 기존 10월 16일 자료 기준이며 이후 법규 전수 재검토·내부 대장·과거 3년 전체 파이프라인 대사는 미완료입니다.",
     "rules": [
       {
         "id": "BIO-HISTORY",
@@ -161,8 +161,8 @@
         "id": "ckd",
         "name": "종근당",
         "priority": "P1",
-        "observed": "2026 반기보고서의 주요계약·연구개발 절을 확인했습니다. CKD-510 총액 USD 1,305백만, 계약금 USD 80백만, 기수취 개발 마일스톤 USD 5백만이 구분돼 있습니다. 연구개발은 경쟁제품·시장규모가 별도 항목이며, 선택 절에서 새 이력관리 총괄표 제목과 ID 항목은 확인되지 않았습니다.",
-        "action": "기수취 구분은 유지하고 조건부 수취 투자유의·마일스톤 성격을 보완 검토합니다. 3년 이력/고유 ID, 실제 목표시장 및 직전 계획 대비 지연표를 준비합니다. 이미 있는 구분을 전부 누락으로 표시하지 않습니다.",
+        "observed": "CKD-508·CKD-510 등 이력관리 표와 파이프라인 ID가 기재됐다. CKD-510 총액 USD 1,305,000,000, 계약금 USD 80,000,000, 수취 마일스톤 USD 5,000,000 구분도 유지된다.",
+        "action": "신설된 표·ID를 이미 반영된 사항으로 관리합니다. 최근 3년 이력의 완전성, 세부표와 ID 연결, 지연·목표시장·계약 조건을 추가 대사합니다.",
         "rule_ids": [
           "BIO-HISTORY",
           "BIO-ID",
@@ -170,12 +170,12 @@
           "BIO-MARKET",
           "BIO-LICENSE"
         ],
-        "limitation": "반기 제출은 8월 후속 모범사례 게시 전입니다. 새 양식 미확인만으로 당시 위반이나 정정 의무를 확정하지 않습니다.",
+        "limitation": "2026.09.30 기준 선정 절 검토. 내부자료·3년 전체 이력·모범사례 전체 충족은 미확정.",
         "evidence": {
           "company": "ckd",
-          "receipt_no": "20260814003547",
-          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003547&dcmNo=11537548&eleId=15&offset=225350&length=144969&dtd=dart4.xsd",
-          "section": "6. 주요계약 및 연구개발활동",
+          "receipt_no": "20261116002243",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=17&offset=274968&length=163242&dtd=dart4.xsd",
+          "section": "2026년 3분기 주요계약 및 연구개발활동",
           "sha256": "1cfb026e12a0fe065109d0f2523b3262015fcd4d29c9b72445b883f8161807ba"
         },
         "mandatory_edit_confirmed": false,
@@ -185,20 +185,20 @@
         "id": "kb",
         "name": "경보제약",
         "priority": "P1",
-        "observed": "2026 반기보고서는 라이선스아웃 해당사항 없음, AFT·Can-Fite 등 라이선스인 계약을 표시합니다. 연구개발 절에는 2026년 7월/8월 발매 예정인 계획과 당뇨병 전체시장 전망이 있습니다. 선택 절에서 새 이력관리 표 제목·ID는 확인되지 않았습니다.",
-        "action": "7·8월 계획의 실제 발매 여부를 다음 보고서 기준일에 확인하고 이력표/목표시장 근거를 보완합니다. 1년 지연은 별도 비교 후 판단합니다. 현재 확인된 라이선스인에 아웃 계약의 수취금액 기준을 일괄 적용하지 않습니다.",
+        "observed": "이력관리 총괄표와 KB-001~KB-005 ID가 기재됐다. 라이선스아웃은 해당사항 없음이며 라이선스인 계약과 구분한다.",
+        "action": "신설된 표·ID를 이미 반영된 사항으로 관리합니다. 최근 3년 이력의 완전성, 세부표와 ID 연결, 지연·목표시장·계약 조건을 추가 대사합니다. 홀딩스와 발매월 차이도 대조합니다.",
         "rule_ids": [
           "BIO-HISTORY",
           "BIO-ID",
           "BIO-DELAY",
           "BIO-MARKET"
         ],
-        "limitation": "현재 자료만으로 발매 지연·개발 중단을 단정하지 않습니다. 거래 유형과 후속 기준 게시 시점을 함께 검토합니다.",
+        "limitation": "2026.09.30 기준 선정 절 검토. 내부자료·3년 전체 이력·모범사례 전체 충족은 미확정.",
         "evidence": {
           "company": "kb",
-          "receipt_no": "20260814003323",
-          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003323&dcmNo=11536681&eleId=15&offset=162709&length=78923&dtd=dart4.xsd",
-          "section": "6. 주요계약 및 연구개발활동",
+          "receipt_no": "20261116001891",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=15&offset=155107&length=79808&dtd=dart4.xsd",
+          "section": "2026년 3분기 주요계약 및 연구개발활동",
           "sha256": "ce95dc4e0f4c5d97542c19394cda164ccd7a4041c61a868e3e1fdb1f57dfefae"
         },
         "mandatory_edit_confirmed": false,
@@ -208,8 +208,8 @@
         "id": "hold",
         "name": "종근당홀딩스",
         "priority": "P1",
-        "observed": "2026.10.12 정정 반기보고서의 동일 절에 주요 종속회사 경보제약의 라이선스인과 관련 회사 종근당의 CKD-510 등이 기재돼 있습니다. 이 절에서 새 이력관리 표 제목·ID는 확인되지 않았습니다.",
-        "action": "자체 계약 해당사항 없음과 보고서에 실린 회사별 계약·연구개발 정보를 나누어 점검합니다. 경보제약/종근당 자료와 ID·기준일·개발 단계·계약 수치의 일치를 확인하고 소속·연결 범위를 명시합니다.",
+        "observed": "경보제약 주요 종속회사 구간에 이력관리 총괄표와 KB-001~KB-005가 기재됐다. 종근당의 자회사 공시와 연결 종속회사 공시 범위는 구분한다.",
+        "action": "신설된 표·ID를 이미 반영된 사항으로 관리합니다. 최근 3년 이력의 완전성, 세부표와 ID 연결, 지연·목표시장·계약 조건을 추가 대사합니다. 홀딩스와 발매월 차이도 대조합니다.",
         "rule_ids": [
           "BIO-HISTORY",
           "BIO-ID",
@@ -217,12 +217,12 @@
           "BIO-MARKET",
           "BIO-LICENSE"
         ],
-        "limitation": "10월 정정 제출일만으로 6월 말 작성기준을 새로 적용하거나 추가 정정 의무를 확정하지 않습니다. 종근당을 홀딩스의 종속회사라고 일괄 분류하지 않습니다.",
+        "limitation": "2026.09.30 기준 선정 절 검토. 내부자료·3년 전체 이력·모범사례 전체 충족은 미확정.",
         "evidence": {
           "company": "hold",
-          "receipt_no": "20261012000414",
-          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=17&offset=498129&length=465339&dtd=dart4.xsd",
-          "section": "6. 주요계약 및 연구개발활동",
+          "receipt_no": "20261116002123",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=15&offset=427079&length=499938&dtd=dart4.xsd",
+          "section": "2026년 3분기 주요계약 및 연구개발활동",
           "sha256": "61a49f9f4f1448d3e53ac597aed8539c604a168e41c6efc9afcf39bc09c78642"
         },
         "mandatory_edit_confirmed": false,

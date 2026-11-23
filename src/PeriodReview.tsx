@@ -1,0 +1,6 @@
+import review from './period-review.json';
+import type {OperationState} from './operations-types';
+export default function PeriodReview({operations}:{operations:OperationState|null}){
+ const newer=review.companies.filter(c=>(operations?.filings||[]).some(f=>{const p=f.title.match(/(?:분기|반기|사업)보고서\s*\((\d{4}\.\d{2})\)/);return f.company_id===c.id&&p&&p[1]>=review.period&&f.receipt_no>c.receipt_no;}));
+ return <section className="engine-note" aria-label="최신 보고기간 검토"><h3>2026년 3분기 본문 반영 · 검토 {review.asOf}</h3><p>보고 기준일 {review.reportDate} · 현재 점검 {review.findingCount}건 · 정정 검토 후보 {review.correctionCandidates}건(필요 미확정)</p><div className="ops-buttons">{review.companies.map(c=><a key={c.id} href={c.url} target="_blank" rel="noopener noreferrer">{c.name} · {c.receipt_no} ↗</a>)}</div><p>이력관리 표·ID 반영과 자기주식 표 보완을 확인했습니다. 홀딩스·경보제약 간 발매월 및 소송 후속 기재 차이를 새로 점검합니다.</p><p className="hint">{review.scope} 규정 근거 자료의 기존 검토일은 {review.ruleReferenceAsOf}입니다.</p>{newer.length>0&&<p className="ops-stale" role="status">더 새 정기공시가 수집됐습니다: {newer.map(c=>c.name).join(' / ')}. 해당 본문 적용 검토는 대기 중이며 위 검토일을 자동으로 올리지 않습니다.</p>}<p><a href="./data/review-2026-10-16.json" target="_blank" rel="noopener noreferrer">10월 16일 과거 검토 이력(JSON)</a> · 과거 반기 지적의 정정 완료 여부는 이번 분기 반영 확인과 구분합니다.</p></section>;
+}

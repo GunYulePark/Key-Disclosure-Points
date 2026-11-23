@@ -1,0 +1,230 @@
+[
+  {
+    "company_id": "ckd",
+    "corp_code": "00992871",
+    "receipt_no": "20261116002243",
+    "title": "[기재정정]분기보고서 (2026.09)",
+    "filer": "종근당",
+    "received_date": "2026-11-16",
+    "remarks": "",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116002243",
+    "sections": [
+      {
+        "title": "정 정 신 고 (보고)",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=1&offset=952&length=22327&dtd=dart4.xsd",
+        "sha256": "82b8eafcc2e857f92dd7c5205c1ee51248bc3f09b1fc22ad5545c00fac0a4e06",
+        "chars": 2438
+      },
+      {
+        "title": "정 정 신 고 (보고)",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=1&offset=952&length=22327&dtd=dart4.xsd",
+        "sha256": "82b8eafcc2e857f92dd7c5205c1ee51248bc3f09b1fc22ad5545c00fac0a4e06",
+        "chars": 2438
+      },
+      {
+        "title": "4. 주식의 총수 등",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=9&offset=82790&length=59577&dtd=dart4.xsd",
+        "sha256": "63e48abc210615ef1e5abb91b2555ce333e966927985708af0f8ed1f79f5333d",
+        "chars": 5275
+      },
+      {
+        "title": "5. 정관에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=10&offset=142371&length=16735&dtd=dart4.xsd",
+        "sha256": "4f832db9e60a072abbee7d6885d7b43eec1268d21f38b2b62e84b932bc82839a",
+        "chars": 2724
+      },
+      {
+        "title": "1. 사업의 개요",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=12&offset=159504&length=4173&dtd=dart4.xsd",
+        "sha256": "1e7f9cd29715fde64eb9e6ff7aa9e0b1a2688820b62f2a5aafb19d767960425e",
+        "chars": 1567
+      },
+      {
+        "title": "6. 주요계약 및 연구개발활동",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=17&offset=274968&length=163242&dtd=dart4.xsd",
+        "sha256": "e2a58e94a62c04ba7f0049a8f303e5eabceb4a7b01d8adbd99f931137fe75097",
+        "chars": 28440
+      },
+      {
+        "title": "6. 배당에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=100&offset=5028350&length=20400&dtd=dart4.xsd",
+        "sha256": "fa9665cba7441dfaedd3080d1f17bdcb31713ac0330dc60c34fe0ed1872e4efc",
+        "chars": 2447
+      },
+      {
+        "title": "1. 이사회에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=116&offset=5224828&length=36362&dtd=dart4.xsd",
+        "sha256": "9622d6ce0baff85b6d6cb73abc274e316a51782235367ae8fec95a391b15d09e",
+        "chars": 4349
+      },
+      {
+        "title": "3. 주주총회 등에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=118&offset=5287108&length=37771&dtd=dart4.xsd",
+        "sha256": "a7655d9eeb33d24ee70f3986b2a878ad362cdac4d85476e0f80381bc5d698689",
+        "chars": 5311
+      },
+      {
+        "title": "1. 임원 및 직원 등의 현황",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=121&offset=5362707&length=69818&dtd=dart4.xsd",
+        "sha256": "0b4c1941fa1307c3386dfbc85b7b1f62d9879fbf8e876ca439982b28a0228506",
+        "chars": 5457
+      },
+      {
+        "title": "2. 임원의 보수 등",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=122&offset=5432529&length=1047&dtd=dart4.xsd",
+        "sha256": "470989fbc133c4c3787b94ee3a89192e62375091e3bbc722bbf46369121989bc",
+        "chars": 58
+      },
+      {
+        "title": "3. 제재 등과 관련된 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=128&offset=5457788&length=2905&dtd=dart4.xsd",
+        "sha256": "d69e1a9c40901abf30620ab1b6a698b883941862cb9f5a89fcf95ed31b51b435",
+        "chars": 806
+      }
+    ]
+  },
+  {
+    "company_id": "hold",
+    "corp_code": "00149354",
+    "receipt_no": "20261116002123",
+    "title": "분기보고서 (2026.09)",
+    "filer": "종근당홀딩스",
+    "received_date": "2026-11-16",
+    "remarks": "",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116002123",
+    "sections": [
+      {
+        "title": "4. 주식의 총수 등",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=7&offset=90874&length=64048&dtd=dart4.xsd",
+        "sha256": "2ffe8dc3914e497d6765cfde73a6795fe4ee9baf3aa20d77a7dcf4d6c47b60cb",
+        "chars": 5444
+      },
+      {
+        "title": "5. 정관에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=8&offset=154926&length=15104&dtd=dart4.xsd",
+        "sha256": "b2a18d8eb12543680816c6975cbef7aa18850c213b3d7da4c84b64ed01e45753",
+        "chars": 1580
+      },
+      {
+        "title": "1. 사업의 개요",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=10&offset=170471&length=19060&dtd=dart4.xsd",
+        "sha256": "82352605e3f0e5d942a91d9f91dc13f6afa5f43f00d46a3b7d8a00a5495916f7",
+        "chars": 7021
+      },
+      {
+        "title": "6. 주요계약 및 연구개발활동",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=15&offset=427079&length=499938&dtd=dart4.xsd",
+        "sha256": "cfe16f5a031c4e136c2abdd36c758163665753efd2af940256028d114c429e71",
+        "chars": 76386
+      },
+      {
+        "title": "6. 배당에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=106&offset=2124610&length=21090&dtd=dart4.xsd",
+        "sha256": "1723b61e6a5c9b639bfb826081a93a1800717a0bc50d0bf2681879be50e0e332",
+        "chars": 3102
+      },
+      {
+        "title": "1. 이사회에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=122&offset=2330064&length=28958&dtd=dart4.xsd",
+        "sha256": "42d8d07a41efc0b181dcb96ef71250f445191456962bcfa472bbdf563d597909",
+        "chars": 4994
+      },
+      {
+        "title": "3. 주주총회 등에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=124&offset=2376522&length=41033&dtd=dart4.xsd",
+        "sha256": "dfcc2038dfc69e4489b01ea9ba64d7f9364ebb0f496873eb828bab499ef59c02",
+        "chars": 6264
+      },
+      {
+        "title": "1. 임원 및 직원 등의 현황",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=127&offset=2441351&length=45129&dtd=dart4.xsd",
+        "sha256": "f9c73b3344ba15183dd57fd4aa7509ad463f0e117ab1d243bc599e2b9716ba6d",
+        "chars": 3919
+      },
+      {
+        "title": "2. 임원의 보수 등",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=128&offset=2486484&length=116524&dtd=dart4.xsd",
+        "sha256": "62c78833dde2d5d554060c48250e534a21f6fd7ef611911a5f8b96a3e38eb83a",
+        "chars": 9497
+      },
+      {
+        "title": "3. 제재 등과 관련된 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=134&offset=2639468&length=24843&dtd=dart4.xsd",
+        "sha256": "4789574d8a56a67c5bf62d54623023edd6d45dd05202e845d34ce3641d941aef",
+        "chars": 7232
+      }
+    ]
+  },
+  {
+    "company_id": "kb",
+    "corp_code": "00101664",
+    "receipt_no": "20261116001891",
+    "title": "분기보고서 (2026.09)",
+    "filer": "경보제약",
+    "received_date": "2026-11-16",
+    "remarks": "",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001891",
+    "sections": [
+      {
+        "title": "4. 주식의 총수 등",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=7&offset=32232&length=9624&dtd=dart4.xsd",
+        "sha256": "4ecdd4b53f46b797c5f76dcf8ecdc0d19483f9df98671ba9b633e0c7be7c9532",
+        "chars": 591
+      },
+      {
+        "title": "5. 정관에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=8&offset=41860&length=10088&dtd=dart4.xsd",
+        "sha256": "4cc3bc7032b32323133ae07ad5a79dc2a73e2446f1c487e3564334e5903755b8",
+        "chars": 876
+      },
+      {
+        "title": "1. 사업의 개요",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=10&offset=52346&length=1501&dtd=dart4.xsd",
+        "sha256": "99b1ad7ecb407423d302ac9c97a071c536d3424e09ed153d78f8f63096fd5e9c",
+        "chars": 1075
+      },
+      {
+        "title": "6. 주요계약 및 연구개발활동",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=15&offset=155107&length=79808&dtd=dart4.xsd",
+        "sha256": "66d5131b6a6a100bbbfbcaf34c600d12e80d51ab1a6f6e6fca7f40c6135c8f99",
+        "chars": 13883
+      },
+      {
+        "title": "6. 배당에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=52&offset=717733&length=20502&dtd=dart4.xsd",
+        "sha256": "b454b0064237f915aaed39dbd9c135717674284b8c28349c5aa44a0a4dc73db8",
+        "chars": 2872
+      },
+      {
+        "title": "1. 이사회에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=68&offset=862801&length=27381&dtd=dart4.xsd",
+        "sha256": "f4e8bc51a068243b6c6d93fca6233d03d6c379e5052ca41337e4b8be794708cf",
+        "chars": 4308
+      },
+      {
+        "title": "3. 주주총회 등에 관한 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=70&offset=902455&length=30912&dtd=dart4.xsd",
+        "sha256": "ab71ac366448476cd7d77e0f38c1f67a3f466c59f48d830e817efe0e8ad0c202",
+        "chars": 5388
+      },
+      {
+        "title": "1. 임원 및 직원 등의 현황",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=73&offset=966582&length=48065&dtd=dart4.xsd",
+        "sha256": "0c2462ce00a9052b6475b7e2a0130f4253e7eade2cc417146dcda1eae277b264",
+        "chars": 4082
+      },
+      {
+        "title": "2. 임원의 보수 등",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=74&offset=1014651&length=94573&dtd=dart4.xsd",
+        "sha256": "bfd664fe46ec95043b1b5800ffca2713552bcd546128e597c1add424fbf0c2a6",
+        "chars": 5579
+      },
+      {
+        "title": "3. 제재 등과 관련된 사항",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=80&offset=1127634&length=18698&dtd=dart4.xsd",
+        "sha256": "3284899cef3903cadb95f48c4a1a9ed0c4f900a32d8aaa573132dd7027df409f",
+        "chars": 6421
+      }
+    ]
+  }
+]

@@ -105,3 +105,11 @@ API 429 응답 시 즉시 호출을 멈추고 24시간의 재시도 금지 시�
 검증: `python3 -m pip install -r requirements.txt`, `python3 -m unittest discover -s tests -v`, `npm run check`, `npm run build`. 모킹한 API 테스트는 실제 공개 분석에 포함하지 않습니다. 실제 Gemini 응답·프로젝트 무료 할당량은 키 등록 후 실행 이력과 AI 패널로 검증합니다.
 
 공식 문서: [모델](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash), [PDF](https://ai.google.dev/gemini-api/docs/document-processing), [한도](https://ai.google.dev/gemini-api/docs/rate-limits), [요금](https://ai.google.dev/gemini-api/docs/pricing).
+
+## 2026년 3분기 본문 갱신 (2026-11-23)
+
+최신 선정 본문 검토는 `src/period-review.json`과 `src/snapshot.json`을 기준으로 합니다. 종근당은 20261116002243 정정본, 홀딩스는 20261116002123, 경보제약은 20261116001891을 대조했습니다. 원문 절 URL·SHA-256·접수번호는 공개 `data/q3-evidence-manifest.json`에 보관합니다. 정정요약·주식 총수·주요계약/연구개발·제재 등 선정 절이며 전체 보고서/첨부/내부자료 전수 검토가 아닙니다.
+
+현재 점검 9건(정정 검토 후보 2건)으로 갱신했습니다. 이력관리 표·ID 기재 및 홀딩스 자기주식 합계/종료일/연도 반영을 확인했고, 홀딩스·경보제약의 발매월 차이와 소송 후속 경과 기재 차이를 새 후보로 올렸습니다. 자동 정정 확정은 하지 않습니다. 기존 10월 16일 검토 11건은 공개 `data/review-2026-10-16.json`과 `historicalFindings`로 보존하며 기존 항목 링크도 유지합니다. 과거 반기 지적의 정정 완료 여부를 이번 분기 반영만으로 확정하지 않습니다.
+
+화면 검토일의 하드코딩을 제거했습니다. 검토본보다 새 정기보고서/정정본이 수집되면 본문 검토 대기 경고를 표시하며 검토일을 자동으로 올리지 않습니다. 수집 성공과 본문 적용 검토를 구분합니다. Gemini 키 미등록 시 예약 본문 AI 분석은 실행되지 않으므로 자동 갱신 완료로 오인하지 마세요. 이번 갱신은 공식 원문을 직접 대조한 검토이며 Gemini 실응답으로 만든 결과가 아닙니다.

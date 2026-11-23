@@ -6,7 +6,7 @@ export default function RuleReviews({compact=false}:{compact?:boolean}) {
  return <section className="review-library" id="rules-bio">
   <div className="section-heading"><div><h2>규정 변경 → 회사별 반영사항</h2><p>원문·후속 기준·회사 공시를 연결한 검토 기록입니다. 중요도와 법적 수정 의무를 구분합니다.</p></div></div>
   {reviews.map(review=><article className="review-document" key={review.id}>
-   <div className="review-heading"><span className="priority P1">P1</span><div><h3>{review.title}</h3><p>배포 {review.distributed_date} · 보도 {review.release_date} · 후속 모범사례 게시 {review.guidance_posted_date}</p></div></div>
+   <div className="review-heading"><span className="priority P1">P1</span><div><h3>{review.title}</h3><p>회사 본문 대조 {review.as_of} · 배포 {review.distributed_date} · 보도 {review.release_date} · 후속 모범사례 게시 {review.guidance_posted_date}</p></div></div>
    <p className="review-status">{review.legal_status}</p>
    <div className="company-tabs" aria-label="규정 적용 회사">{[['all','전체'],...review.companies.map(c=>[c.id,c.name])].map(([id,name])=><button key={id} className={company===id?'selected':''} onClick={()=>setCompany(id)}>{name}</button>)}</div>
    <div className="company-review-grid">{review.companies.filter(c=>company==='all'||c.id===company).map(c=><article key={c.id}>

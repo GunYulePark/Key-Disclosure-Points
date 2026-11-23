@@ -1,0 +1,32 @@
+{
+  "asOf": "2026-11-23",
+  "period": "2026.09",
+  "reportDate": "2026-09-30",
+  "scope": "정정요약·자기주식·연구개발·제재 등 선정 절 대조. 전체 보고서·첨부 원본·내부 초안 전수 검토 아님.",
+  "companies": [
+    {
+      "id": "ckd",
+      "name": "[기재정정]분기보고서 (2026.09) · 종근당",
+      "receipt_no": "20261116002243",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116002243",
+      "sections": 11
+    },
+    {
+      "id": "hold",
+      "name": "분기보고서 (2026.09) · 종근당홀딩스",
+      "receipt_no": "20261116002123",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116002123",
+      "sections": 10
+    },
+    {
+      "id": "kb",
+      "name": "분기보고서 (2026.09) · 경보제약",
+      "receipt_no": "20261116001891",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001891",
+      "sections": 10
+    }
+  ],
+  "findingCount": 9,
+  "correctionCandidates": 2,
+  "ruleReferenceAsOf": "2026-10-16"
+}
