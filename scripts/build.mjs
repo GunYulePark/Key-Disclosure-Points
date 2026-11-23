@@ -25,5 +25,5 @@ await writeFile(path.join(out,'index.html'),`<!doctype html>
 await mkdir(path.join(out,'data'),{recursive:true});
 for(const name of ['snapshot.json','rule-reviews.json','reference-catalog.json','rule-link-index.json'])await cp(path.join(root,'src',name),path.join(out,'data',name));
 const client=await readFile(path.join(root,js),'utf8');
-for(const forbidden of ['/api/reviews','signin-with-chatgpt','reviewEvents','SITES_GIT_AUTHORIZATION','appgprj_'])if(client.includes(forbidden))throw new Error('Private implementation found in public build: '+forbidden);
+for(const forbidden of ['/api/reviews','signin-with-chatgpt','reviewEvents','SITES_GIT_AUTHORIZATION','appgprj_','GEMINI_API_KEY','API 키 등록 대기','수집·운영 현황'])if(client.includes(forbidden))throw new Error('Private implementation found in public build: '+forbidden);
 console.log('Built public GitHub Pages site in docs/ (relative assets; no private review API).');
