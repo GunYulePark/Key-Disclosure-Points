@@ -2,6 +2,8 @@
 
 ## 새 PC / 새 Codex 세션
 
+현재 공유 범위·집 PC 재개 문구·원본 미공유 제약은 [HOME_PC_HANDOFF.md](HOME_PC_HANDOFF.md)를 먼저 확인한다.
+
 아래는 저장소 루트에서 실행한다. Node 24.x(기존 Actions 기준), Python 3.12.x 권장. 런타임 버전을 설치한 뒤 먼저 `node --version`, `python --version`, `git --version`을 확인한다. `package-lock.json`과 `requirements.txt`를 유지한다.
 
 ```powershell

@@ -1,5 +1,7 @@
 # 다음 작업 — TASK 01
 
+집 PC에서 시작한다면 먼저 `HOME_PC_HANDOFF.md`를 읽는다. 개발 브랜치 clone만으로 원본 76개가 복구되지 않는다. 우선순위는 독립 개발 환경 확보·TASK 01 승인 범위 확인과 중앙 DB/private Storage 구축이며, 사례 추가로 중앙 공유 구축을 완료한 것으로 대신하지 않는다.
+
 ## 병행 준비 — 사용자 요청 사례 목록
 
 최신 기준은 `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json`이다. 3월 개정 정관 전문·3사 자산 5개·39개 연구개발 절과 종근당 반기 후속 0500 접수를 확보했다. 1차의 정관 전문 미확보·0303만 확인한 상태를 최신 상태로 반복하지 않는다.
