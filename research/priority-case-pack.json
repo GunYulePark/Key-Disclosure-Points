@@ -1,0 +1,828 @@
+{
+  "schema_version": 1,
+  "classification": "public_research_inputs",
+  "as_of": "2026-11-24",
+  "sources": [
+    {
+      "id": "form-1113",
+      "title": "기업공시서식 작성기준",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=4",
+      "format": "pdf",
+      "version_label": "2026.11.13 시행 통합본",
+      "verified_on": "2026-11-24",
+      "sha256": "69b8d7a8d69cb0f353032dbf75877a5470ba83651031f4847acda14034b112f8",
+      "bytes": 3023200,
+      "cache_key": "69b8d7a8d69cb0f353032dbf75877a5470ba83651031f4847acda14034b112f8.pdf",
+      "anchors": [
+        {
+          "id": "form-1113:1",
+          "kind": "text",
+          "text": "자기주식보유현황",
+          "start": 69,
+          "pdf_page": 94
+        },
+        {
+          "id": "form-1113:2",
+          "kind": "text",
+          "text": "2026.3.6.",
+          "start": 299,
+          "pdf_page": 96
+        },
+        {
+          "id": "form-1113:3",
+          "kind": "text",
+          "text": "2026.11.13.",
+          "start": 255,
+          "pdf_page": 410
+        }
+      ]
+    },
+    {
+      "id": "q3-lecture",
+      "title": "2026년 3분기 기업공시 설명회",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+      "format": "pdf",
+      "version_label": "2026.10.12 게시",
+      "verified_on": "2026-11-24",
+      "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+      "bytes": 5783284,
+      "cache_key": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6.pdf",
+      "anchors": [
+        {
+          "id": "q3-lecture:1",
+          "kind": "text",
+          "text": "분기에는 생략",
+          "start": 333,
+          "pdf_page": 17
+        },
+        {
+          "id": "q3-lecture:2",
+          "kind": "text",
+          "text": "자기주식보유처분계획서",
+          "start": 341,
+          "pdf_page": 17
+        }
+      ]
+    },
+    {
+      "id": "form-notice-1113",
+      "title": "작성기준 최신 게시 안내",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+      "format": "html",
+      "version_label": "2026.11.12 게시/11.13 시행",
+      "verified_on": "2026-11-24",
+      "sha256": "f0e76255055102fdd13484da9930e42c51c09713e7cd63ee1ab8f0d7c4df9a3b",
+      "bytes": 31069,
+      "cache_key": "f0e76255055102fdd13484da9930e42c51c09713e7cd63ee1ab8f0d7c4df9a3b.html",
+      "anchors": [
+        {
+          "id": "form-notice-1113:1",
+          "kind": "text",
+          "text": "2026.11.13. 시행",
+          "start": 239
+        }
+      ]
+    },
+    {
+      "id": "ckd-half-correction",
+      "title": "종근당 반기 정정 요약",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000303&dcmNo=11623761&eleId=1&offset=893&length=73055&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "2026.10.22/20261022000303",
+      "verified_on": "2026-11-24",
+      "sha256": "aa7fd95049cdd8d5347403d275ff48f0f81b75c835dd0dc9b2890b3c93e81c55",
+      "bytes": 70407,
+      "cache_key": "aa7fd95049cdd8d5347403d275ff48f0f81b75c835dd0dc9b2890b3c93e81c55.html",
+      "anchors": [
+        {
+          "id": "ckd-half-correction:1",
+          "kind": "text",
+          "text": "자기주식보고서 미첨부",
+          "start": 118
+        },
+        {
+          "id": "ckd-half-correction:2",
+          "kind": "text",
+          "text": "(주2) 첨부",
+          "start": 137
+        }
+      ]
+    },
+    {
+      "id": "ckd-half-attach-signed",
+      "title": "종근당 반기 첨부 자기주식보고서",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11623928&flNm=%EC%9E%90%EA%B8%B0%EC%A3%BC%EC%8B%9D%EB%B3%B4%EA%B3%A0%EC%84%9C%2826%EB%85%84%EC%83%81%EB%B0%98%EA%B8%B0%29_%EB%82%A0%EC%9D%B8%EB%B3%B8.jpg",
+      "format": "jpg",
+      "version_label": "첨부 표시 2026.10.22/문서일 2026.10.15",
+      "verified_on": "2026-11-24",
+      "sha256": "30b48d33318311975e8214bfa4abb20f27d542955e9396f26b1cf217f2747743",
+      "bytes": 292686,
+      "cache_key": "30b48d33318311975e8214bfa4abb20f27d542955e9396f26b1cf217f2747743.jpg",
+      "anchors": [
+        {
+          "id": "ckd-half-attach-signed:1",
+          "kind": "visual",
+          "location": "보유현황 합계·권리행사 기간 각주·날인란 시각 확인",
+          "reviewed_on": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-stock",
+      "title": "종근당 3분기 주식의 총수",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=9&offset=82790&length=59577&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "63e48abc210615ef1e5abb91b2555ce333e966927985708af0f8ed1f79f5333d",
+      "bytes": 43209,
+      "cache_key": "63e48abc210615ef1e5abb91b2555ce333e966927985708af0f8ed1f79f5333d.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-stock:1",
+          "kind": "text",
+          "text": "626,712",
+          "start": 279
+        },
+        {
+          "id": "ckd-q3-stock:2",
+          "kind": "text",
+          "text": "권리행사",
+          "start": 2844
+        }
+      ]
+    },
+    {
+      "id": "samsung-gm-proposal-2026",
+      "title": "삼성전자 정정 소집공고",
+      "url": "https://www.samsung.com/sec/ir/reports-disclosures/public-disclosure/3755/",
+      "format": "html",
+      "version_label": "2026.03.12 정정",
+      "verified_on": "2026-11-24",
+      "sha256": "afd57e7b84765ab375490ab30004da3f268ece6672b1936f78d39adf1afd9d54",
+      "bytes": 1251222,
+      "cache_key": "afd57e7b84765ab375490ab30004da3f268ece6672b1936f78d39adf1afd9d54.html",
+      "anchors": [
+        {
+          "id": "samsung-gm-proposal-2026:1",
+          "kind": "text",
+          "text": "제1-1호: 집중투표제",
+          "start": 3684
+        },
+        {
+          "id": "samsung-gm-proposal-2026:2",
+          "kind": "text",
+          "text": "제24조 (이사의 선임)",
+          "start": 23467
+        }
+      ]
+    },
+    {
+      "id": "samsung-gm-results-2026",
+      "title": "삼성전자 57기 주총 결과",
+      "url": "https://www.samsung.com/sec/ir/governance-csr/general-meeting-of-shareholders/",
+      "format": "html",
+      "version_label": "2026.03.18 주총/공식 IR 게시",
+      "verified_on": "2026-11-24",
+      "sha256": "590055f7b7b093796e60884e4b4df94511eb01f653ee2f21de143775b94b99ff",
+      "bytes": 551273,
+      "cache_key": "590055f7b7b093796e60884e4b4df94511eb01f653ee2f21de143775b94b99ff.html",
+      "anchors": [
+        {
+          "id": "samsung-gm-results-2026:1",
+          "kind": "text",
+          "text": "집중투표제 배제 조항 삭제",
+          "start": 1170
+        },
+        {
+          "id": "samsung-gm-results-2026:2",
+          "kind": "text",
+          "text": "99.95%",
+          "start": 1182
+        }
+      ]
+    },
+    {
+      "id": "hansae-gm-proposal-2026",
+      "title": "한세실업 정정 소집공고",
+      "url": "https://kind.krx.co.kr/external/2026/03/05/001871/20260305004158/00591.htm",
+      "format": "html",
+      "version_label": "2026.03.05 정정",
+      "verified_on": "2026-11-24",
+      "sha256": "075e013311048f85a253d0f92c0eaa2289fbd6ce8dd6c023361f81faa9a6ab66",
+      "bytes": 272075,
+      "cache_key": "075e013311048f85a253d0f92c0eaa2289fbd6ce8dd6c023361f81faa9a6ab66.html",
+      "anchors": [
+        {
+          "id": "hansae-gm-proposal-2026:1",
+          "kind": "text",
+          "text": "2조원 이상인 경우",
+          "start": 28318
+        },
+        {
+          "id": "hansae-gm-proposal-2026:2",
+          "kind": "text",
+          "text": "제29조(이사의 선임)",
+          "start": 28177
+        }
+      ]
+    },
+    {
+      "id": "hansae-governance-2026",
+      "title": "한세실업 기업지배구조보고서",
+      "url": "https://kind.krx.co.kr/external/2026/05/28/001057/20260528002304/99667.htm",
+      "format": "html",
+      "version_label": "2026.05.28 제출",
+      "verified_on": "2026-11-24",
+      "sha256": "6ca02364f784b0dbe20ac8cf71085056b573eb812ad3e4c0c627b07295c622f0",
+      "bytes": 1193969,
+      "cache_key": "6ca02364f784b0dbe20ac8cf71085056b573eb812ad3e4c0c627b07295c622f0.html",
+      "anchors": [
+        {
+          "id": "hansae-governance-2026:1",
+          "kind": "text",
+          "text": "제17기 주주총회에서 가결되었습니다",
+          "start": 40167
+        },
+        {
+          "id": "hansae-governance-2026:2",
+          "kind": "text",
+          "text": "집중투표제 채택",
+          "start": 1340
+        }
+      ]
+    },
+    {
+      "id": "commercial-amendments",
+      "title": "상법 공포 개정문·부칙 모음",
+      "url": "https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702",
+      "format": "html",
+      "version_label": "인용 판: 법률 제21044호/2025.09.09 공포",
+      "verified_on": "2026-11-24",
+      "sha256": "64bdf231df25b1eb997861167ffe16986849d430e65862e3e18b033874889994",
+      "bytes": 664862,
+      "cache_key": "64bdf231df25b1eb997861167ffe16986849d430e65862e3e18b033874889994.html",
+      "anchors": [
+        {
+          "id": "commercial-amendments:1",
+          "kind": "text",
+          "text": "법률 제21044호",
+          "start": 4170
+        },
+        {
+          "id": "commercial-amendments:2",
+          "kind": "text",
+          "text": "집중투표에 관한 적용례",
+          "start": 4592
+        }
+      ]
+    },
+    {
+      "id": "bio-notice-0828",
+      "title": "제약·바이오 모범사례 게시 안내",
+      "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+      "format": "html",
+      "version_label": "2026.08.28 게시",
+      "verified_on": "2026-11-24",
+      "sha256": "ecd16019bf1b1b6b7ad72754c690e90acc90e9d5fd6cd0355e46928440c40e3b",
+      "bytes": 28681,
+      "cache_key": "ecd16019bf1b1b6b7ad72754c690e90acc90e9d5fd6cd0355e46928440c40e3b.html",
+      "anchors": [
+        {
+          "id": "bio-notice-0828:1",
+          "kind": "text",
+          "text": "2026.08.28",
+          "start": 267
+        },
+        {
+          "id": "bio-notice-0828:2",
+          "kind": "text",
+          "text": "모범사례",
+          "start": 236
+        }
+      ]
+    },
+    {
+      "id": "bio-0828",
+      "title": "제약·바이오 모범사례 첨부",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
+      "format": "hwp",
+      "version_label": "2026.8월 개선본",
+      "verified_on": "2026-11-24",
+      "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+      "bytes": 123904,
+      "cache_key": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a.hwp",
+      "anchors": [
+        {
+          "id": "bio-0828:1",
+          "kind": "text",
+          "text": "합리적 판단",
+          "start": 89
+        },
+        {
+          "id": "bio-0828:2",
+          "kind": "text",
+          "text": "파이프라인 ID",
+          "start": 1544
+        },
+        {
+          "id": "bio-0828:3",
+          "kind": "text",
+          "text": "1년 이상 지연",
+          "start": 2270
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-rd",
+      "title": "종근당 주요계약·연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=17&offset=274968&length=163242&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "e2a58e94a62c04ba7f0049a8f303e5eabceb4a7b01d8adbd99f931137fe75097",
+      "bytes": 159271,
+      "cache_key": "e2a58e94a62c04ba7f0049a8f303e5eabceb4a7b01d8adbd99f931137fe75097.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-rd:1",
+          "kind": "text",
+          "text": "CKD-510",
+          "start": 298
+        },
+        {
+          "id": "ckd-q3-rd:2",
+          "kind": "text",
+          "text": "1,305,000,000",
+          "start": 392
+        },
+        {
+          "id": "ckd-q3-rd:3",
+          "kind": "text",
+          "text": "5,000,000",
+          "start": 396
+        }
+      ]
+    },
+    {
+      "id": "hold-q3-rd",
+      "title": "종근당홀딩스 주요계약·연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=15&offset=427079&length=499938&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002123/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "cfe16f5a031c4e136c2abdd36c758163665753efd2af940256028d114c429e71",
+      "bytes": 525824,
+      "cache_key": "cfe16f5a031c4e136c2abdd36c758163665753efd2af940256028d114c429e71.html",
+      "anchors": [
+        {
+          "id": "hold-q3-rd:1",
+          "kind": "text",
+          "text": "KB-001",
+          "start": 23772
+        },
+        {
+          "id": "hold-q3-rd:2",
+          "kind": "text",
+          "text": "이력관리",
+          "start": 23732
+        }
+      ]
+    },
+    {
+      "id": "kb-q3-rd",
+      "title": "경보제약 주요계약·연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=15&offset=155107&length=79808&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116001891/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "66d5131b6a6a100bbbfbcaf34c600d12e80d51ab1a6f6e6fca7f40c6135c8f99",
+      "bytes": 85306,
+      "cache_key": "66d5131b6a6a100bbbfbcaf34c600d12e80d51ab1a6f6e6fca7f40c6135c8f99.html",
+      "anchors": [
+        {
+          "id": "kb-q3-rd:1",
+          "kind": "text",
+          "text": "KB-001",
+          "start": 5698
+        },
+        {
+          "id": "kb-q3-rd:2",
+          "kind": "text",
+          "text": "라이선스",
+          "start": 25
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-dividend",
+      "title": "종근당 3분기 배당절",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=100&offset=5028350&length=20400&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "fa9665cba7441dfaedd3080d1f17bdcb31713ac0330dc60c34fe0ed1872e4efc",
+      "bytes": 15748,
+      "cache_key": "fa9665cba7441dfaedd3080d1f17bdcb31713ac0330dc60c34fe0ed1872e4efc.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-dividend:1",
+          "kind": "text",
+          "text": "정관상 배당기준일",
+          "start": 495
+        },
+        {
+          "id": "ckd-q3-dividend:2",
+          "kind": "text",
+          "text": "매결산기말",
+          "start": 1016
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-charter-history",
+      "title": "종근당 3분기 정관 변경 이력",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=10&offset=142371&length=16735&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "4f832db9e60a072abbee7d6885d7b43eec1268d21f38b2b62e84b932bc82839a",
+      "bytes": 15342,
+      "cache_key": "4f832db9e60a072abbee7d6885d7b43eec1268d21f38b2b62e84b932bc82839a.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-charter-history:1",
+          "kind": "text",
+          "text": "2024년 03월 28일",
+          "start": 134
+        },
+        {
+          "id": "ckd-q3-charter-history:2",
+          "kind": "text",
+          "text": "배당기준일 변경",
+          "start": 170
+        }
+      ]
+    },
+    {
+      "id": "ckd-charter-page-15",
+      "title": "사업보고서 첨부 정관 15쪽",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11142294&flNm=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%A0%95%EA%B4%80_15.jpg",
+      "format": "jpg",
+      "version_label": "2026.03.18 첨부/최종 부칙 2024.03.28",
+      "verified_on": "2026-11-24",
+      "sha256": "f93baeafa9a502e6a77b3acf207b9af65cb9c6c2b1142b68789d3ece5aa58417",
+      "bytes": 194980,
+      "cache_key": "f93baeafa9a502e6a77b3acf207b9af65cb9c6c2b1142b68789d3ece5aa58417.jpg",
+      "anchors": [
+        {
+          "id": "ckd-charter-page-15:1",
+          "kind": "visual",
+          "location": "제42조 제2항 시각 확인",
+          "reviewed_on": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "id": "ckd-charter-page-17",
+      "title": "사업보고서 첨부 정관 17쪽",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11142294&flNm=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%A0%95%EA%B4%80_17.jpg",
+      "format": "jpg",
+      "version_label": "2026.03.18 첨부/최종 부칙 2024.03.28",
+      "verified_on": "2026-11-24",
+      "sha256": "7e7b24a182c8a2bc64d6ca4f5fee94a4d8f12c0f83195965a2b9c63c1e16fae4",
+      "bytes": 83060,
+      "cache_key": "7e7b24a182c8a2bc64d6ca4f5fee94a4d8f12c0f83195965a2b9c63c1e16fae4.jpg",
+      "anchors": [
+        {
+          "id": "ckd-charter-page-17:1",
+          "kind": "visual",
+          "location": "마지막 부칙 제11기 주총 2024.03.28 시각 확인",
+          "reviewed_on": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "id": "ckd-gm-notice-2026",
+      "title": "종근당 13기 주총 소집공고",
+      "url": "https://kind.krx.co.kr/external/2026/03/11/001286/20260311003182/00591.htm",
+      "format": "html",
+      "version_label": "2026.03.11 제출/03.26 주총 예정",
+      "verified_on": "2026-11-24",
+      "sha256": "23cb42a0cf16bafa46fc65dcbb9c307cd1fa09e9331d56c6f6bdbb26b62e4e27",
+      "bytes": 1194482,
+      "cache_key": "23cb42a0cf16bafa46fc65dcbb9c307cd1fa09e9331d56c6f6bdbb26b62e4e27.html",
+      "anchors": [
+        {
+          "id": "ckd-gm-notice-2026:1",
+          "kind": "text",
+          "text": "이사의 임기",
+          "start": 532
+        },
+        {
+          "id": "ckd-gm-notice-2026:2",
+          "kind": "text",
+          "text": "사업목적",
+          "start": 502
+        }
+      ]
+    },
+    {
+      "id": "ckd-gm-results-2026",
+      "title": "종근당 13기 주총 결과",
+      "url": "https://www.ckdpharm.com/esg/csm_cg01.do",
+      "format": "html",
+      "version_label": "공식 홈페이지 제13기 의결권 행사현황",
+      "verified_on": "2026-11-24",
+      "sha256": "0b7844c177f57e86db59b5f2a4e02279d3d4d3497f3cb2efc6d9e5c225d9b02f",
+      "bytes": 34671,
+      "cache_key": "0b7844c177f57e86db59b5f2a4e02279d3d4d3497f3cb2efc6d9e5c225d9b02f.html",
+      "anchors": [
+        {
+          "id": "ckd-gm-results-2026:1",
+          "kind": "text",
+          "text": "정관 일부 변경의 건(이사의 임기변경)",
+          "start": 1421
+        },
+        {
+          "id": "ckd-gm-results-2026:2",
+          "kind": "text",
+          "text": "정관 일부 변경의 건(사업목적추가)",
+          "start": 1351
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "C01",
+      "title": "자기주식 규정 변경·정정 추적",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "form-1113",
+        "q3-lecture",
+        "form-notice-1113",
+        "ckd-half-correction",
+        "ckd-half-attach-signed",
+        "ckd-q3-stock"
+      ],
+      "questions": [
+        {
+          "id": "C01-Q01",
+          "text": "최초 반기보고서의 미첨부 지적을 2026.11.24에도 미해결로 표시할 수 있는가?",
+          "source_ids": [
+            "ckd-half-correction",
+            "ckd-half-attach-signed"
+          ],
+          "missing_facts": [
+            "후속 정정·철회 전수 조회"
+          ]
+        },
+        {
+          "id": "C01-Q02",
+          "text": "반기·사업과 분기의 자기주식보고서 첨부 조건을 어떻게 구분하는가?",
+          "source_ids": [
+            "q3-lecture",
+            "form-1113"
+          ],
+          "missing_facts": [
+            "검토 대상 보고서 종류"
+          ]
+        },
+        {
+          "id": "C01-Q03",
+          "text": "자기주식보고서와 자기주식보유처분계획서의 첨부 조건은 같은가?",
+          "source_ids": [
+            "q3-lecture"
+          ],
+          "missing_facts": [
+            "직전 사업보고서 제출 후 변동 사실"
+          ]
+        },
+        {
+          "id": "C01-Q04",
+          "text": "개정 전 발행 EB의 미교환 주식과 권리행사 기간을 어디에 반영하는가?",
+          "source_ids": [
+            "form-1113",
+            "ckd-q3-stock"
+          ],
+          "missing_facts": [
+            "실제 교환 잔량 대장"
+          ]
+        }
+      ],
+      "followup": [
+        "반기 최종 정정본 전수 확인",
+        "첨부 날인과 내부 이사회 결의 원본의 진위/내용 일치 검토는 별도",
+        "현재 기재가 모든 규정을 충족하는지 단정하지 않기"
+      ]
+    },
+    {
+      "id": "C03",
+      "title": "집중투표 정관·가결·회사 규모",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "commercial-amendments",
+        "samsung-gm-proposal-2026",
+        "samsung-gm-results-2026",
+        "hansae-gm-proposal-2026",
+        "hansae-governance-2026"
+      ],
+      "questions": [
+        {
+          "id": "C03-Q01",
+          "text": "삼성전자와 한세실업이 같은 상법 개정에 서로 다른 정관 문구를 사용한 이유는 무엇인가?",
+          "source_ids": [
+            "samsung-gm-proposal-2026",
+            "hansae-gm-proposal-2026"
+          ],
+          "missing_facts": [
+            "우리 회사 기준 자산규모"
+          ]
+        },
+        {
+          "id": "C03-Q02",
+          "text": "자산과 주총 소집일을 제공하지 않은 우리 회사에 배제 조항 삭제를 확정 권고할 수 있는가?",
+          "source_ids": [
+            "commercial-amendments",
+            "hansae-gm-proposal-2026"
+          ],
+          "missing_facts": [
+            "자산 산정 기준/수치",
+            "이사 선임 주총 소집 사실"
+          ]
+        },
+        {
+          "id": "C03-Q03",
+          "text": "소집공고의 변경안과 주총 이후 승인 사실을 어떻게 연결하는가?",
+          "source_ids": [
+            "samsung-gm-proposal-2026",
+            "samsung-gm-results-2026",
+            "hansae-governance-2026"
+          ],
+          "missing_facts": [
+            "최종 전문 정관"
+          ]
+        },
+        {
+          "id": "C03-Q04",
+          "text": "2026.9.10 시행과 최초 이사 선임 주총 소집 적용례를 구분하는가?",
+          "source_ids": [
+            "commercial-amendments"
+          ],
+          "missing_facts": [
+            "회사별 소집일/안건"
+          ]
+        }
+      ],
+      "followup": [
+        "3사 자산 기준과 수치·시장·해당 시점 시행령 확보",
+        "각 회사 최신 정관 전문 확보",
+        "안건 상정·가결·시행을 별도 상태로 보관"
+      ]
+    },
+    {
+      "id": "C08",
+      "title": "제약·바이오 지침과 3사 실제 반영",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "bio-notice-0828",
+        "bio-0828",
+        "ckd-q3-rd",
+        "hold-q3-rd",
+        "kb-q3-rd"
+      ],
+      "questions": [
+        {
+          "id": "C08-Q01",
+          "text": "이미 공시된 파이프라인 ID와 이력표를 다시 누락으로 판단하지 않는가?",
+          "source_ids": [
+            "bio-0828",
+            "ckd-q3-rd",
+            "hold-q3-rd",
+            "kb-q3-rd"
+          ],
+          "missing_facts": [
+            "과거 3년 전체 파이프라인 대장"
+          ]
+        },
+        {
+          "id": "C08-Q02",
+          "text": "CKD-510의 총계약액·수취액·미래 조건부 금액은 각각 어떻게 확인하는가?",
+          "source_ids": [
+            "bio-0828",
+            "ckd-q3-rd"
+          ],
+          "missing_facts": [
+            "기준일 이후 수취 사실"
+          ]
+        },
+        {
+          "id": "C08-Q03",
+          "text": "경보제약의 라이선스인에 라이선스아웃의 모든 예시를 그대로 적용하는가?",
+          "source_ids": [
+            "bio-0828",
+            "kb-q3-rd"
+          ],
+          "missing_facts": [
+            "계약별 종류/비공개 범위"
+          ]
+        },
+        {
+          "id": "C08-Q04",
+          "text": "직전 일정 자료 없이 1년 이상 지연이나 소급 정정 의무를 확정할 수 있는가?",
+          "source_ids": [
+            "bio-0828"
+          ],
+          "missing_facts": [
+            "직전 공시 일정",
+            "실제 변경 일정/사유",
+            "적용 법정 기재의무"
+          ]
+        }
+      ],
+      "followup": [
+        "3년 이력과 적응증별 ID/별칭 대사",
+        "양식 권고와 기본 공시 의무 구분",
+        "완료·반영·미확인 항목 별도 기록"
+      ]
+    },
+    {
+      "id": "C09",
+      "title": "배당절 정관 인용과 실제 정관 이미지",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "ckd-q3-dividend",
+        "ckd-q3-charter-history",
+        "ckd-charter-page-15",
+        "ckd-charter-page-17",
+        "ckd-gm-notice-2026",
+        "ckd-gm-results-2026"
+      ],
+      "questions": [
+        {
+          "id": "C09-Q01",
+          "text": "3분기 배당절의 인용 제42조와 첨부 정관 이미지의 제42조는 일치하는가?",
+          "source_ids": [
+            "ckd-q3-dividend",
+            "ckd-charter-page-15"
+          ],
+          "missing_facts": [
+            "2026.03.26 이후 최종 정관 전문"
+          ]
+        },
+        {
+          "id": "C09-Q02",
+          "text": "정관상 개선 가능 O와 실제 배당 예측가능성 X를 바로 모순으로 판단할 수 있는가?",
+          "source_ids": [
+            "ckd-q3-dividend"
+          ],
+          "missing_facts": [
+            "각 배당의 결의/기준일 공고"
+          ]
+        },
+        {
+          "id": "C09-Q03",
+          "text": "첨부 날짜와 정관 자체의 개정일을 어떻게 구분하는가?",
+          "source_ids": [
+            "ckd-charter-page-17",
+            "ckd-q3-charter-history"
+          ],
+          "missing_facts": [
+            "후속 정관 전문"
+          ]
+        },
+        {
+          "id": "C09-Q04",
+          "text": "2026년 소집안과 주총 결과로 확인할 수 있는 범위 및 정정 판단에 추가로 필요한 자료는 무엇인가?",
+          "source_ids": [
+            "ckd-gm-notice-2026",
+            "ckd-gm-results-2026",
+            "ckd-q3-dividend"
+          ],
+          "missing_facts": [
+            "최신 정관 진본",
+            "담당자 중요성/정정 판단"
+          ]
+        }
+      ],
+      "followup": [
+        "배당절 정관 인용문 우선 대조·보완 검토",
+        "2026년 변경 후 정관 전문 확보",
+        "실제 배당절차 변경 여부와 정관 가능 여부 분리"
+      ]
+    }
+  ]
+}
