@@ -1,0 +1,1957 @@
+{
+  "schema_version": 1,
+  "classification": "public_research_inputs",
+  "as_of": "2026-11-24",
+  "sources": [
+    {
+      "id": "form-1113",
+      "title": "기업공시서식 작성기준",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=4",
+      "format": "pdf",
+      "version_label": "2026.11.13 시행 통합본",
+      "verified_on": "2026-11-24",
+      "sha256": "69b8d7a8d69cb0f353032dbf75877a5470ba83651031f4847acda14034b112f8",
+      "bytes": 3023200,
+      "cache_key": "69b8d7a8d69cb0f353032dbf75877a5470ba83651031f4847acda14034b112f8.pdf",
+      "anchors": [
+        {
+          "id": "form-1113:1",
+          "kind": "text",
+          "text": "자기주식보유현황",
+          "start": 69,
+          "pdf_page": 94
+        },
+        {
+          "id": "form-1113:2",
+          "kind": "text",
+          "text": "2026.3.6.",
+          "start": 299,
+          "pdf_page": 96
+        },
+        {
+          "id": "form-1113:3",
+          "kind": "text",
+          "text": "2026.11.13.",
+          "start": 255,
+          "pdf_page": 410
+        }
+      ]
+    },
+    {
+      "id": "q3-lecture",
+      "title": "2026년 3분기 기업공시 설명회",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+      "format": "pdf",
+      "version_label": "2026.10.12 게시",
+      "verified_on": "2026-11-24",
+      "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+      "bytes": 5783284,
+      "cache_key": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6.pdf",
+      "anchors": [
+        {
+          "id": "q3-lecture:1",
+          "kind": "text",
+          "text": "분기에는 생략",
+          "start": 333,
+          "pdf_page": 17
+        },
+        {
+          "id": "q3-lecture:2",
+          "kind": "text",
+          "text": "자기주식보유처분계획서",
+          "start": 341,
+          "pdf_page": 17
+        }
+      ]
+    },
+    {
+      "id": "form-notice-1113",
+      "title": "작성기준 최신 게시 안내",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+      "format": "html",
+      "version_label": "2026.11.12 게시/11.13 시행",
+      "verified_on": "2026-11-24",
+      "sha256": "f0e76255055102fdd13484da9930e42c51c09713e7cd63ee1ab8f0d7c4df9a3b",
+      "bytes": 31069,
+      "cache_key": "f0e76255055102fdd13484da9930e42c51c09713e7cd63ee1ab8f0d7c4df9a3b.html",
+      "anchors": [
+        {
+          "id": "form-notice-1113:1",
+          "kind": "text",
+          "text": "2026.11.13. 시행",
+          "start": 239
+        }
+      ]
+    },
+    {
+      "id": "ckd-half-correction",
+      "title": "종근당 반기 정정 요약",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000303&dcmNo=11623761&eleId=1&offset=893&length=73055&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "2026.10.22/20261022000303",
+      "verified_on": "2026-11-24",
+      "sha256": "aa7fd95049cdd8d5347403d275ff48f0f81b75c835dd0dc9b2890b3c93e81c55",
+      "bytes": 70407,
+      "cache_key": "aa7fd95049cdd8d5347403d275ff48f0f81b75c835dd0dc9b2890b3c93e81c55.html",
+      "anchors": [
+        {
+          "id": "ckd-half-correction:1",
+          "kind": "text",
+          "text": "자기주식보고서 미첨부",
+          "start": 118
+        },
+        {
+          "id": "ckd-half-correction:2",
+          "kind": "text",
+          "text": "(주2) 첨부",
+          "start": 137
+        }
+      ]
+    },
+    {
+      "id": "ckd-half-attach-signed",
+      "title": "종근당 반기 첨부 자기주식보고서",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11623928&flNm=%EC%9E%90%EA%B8%B0%EC%A3%BC%EC%8B%9D%EB%B3%B4%EA%B3%A0%EC%84%9C%2826%EB%85%84%EC%83%81%EB%B0%98%EA%B8%B0%29_%EB%82%A0%EC%9D%B8%EB%B3%B8.jpg",
+      "format": "jpg",
+      "version_label": "첨부 표시 2026.10.22/문서일 2026.10.15",
+      "verified_on": "2026-11-24",
+      "sha256": "30b48d33318311975e8214bfa4abb20f27d542955e9396f26b1cf217f2747743",
+      "bytes": 292686,
+      "cache_key": "30b48d33318311975e8214bfa4abb20f27d542955e9396f26b1cf217f2747743.jpg",
+      "anchors": [
+        {
+          "id": "ckd-half-attach-signed:1",
+          "kind": "visual",
+          "location": "보유현황 합계·권리행사 기간 각주·날인란 시각 확인",
+          "reviewed_on": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-stock",
+      "title": "종근당 3분기 주식의 총수",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=9&offset=82790&length=59577&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "63e48abc210615ef1e5abb91b2555ce333e966927985708af0f8ed1f79f5333d",
+      "bytes": 43209,
+      "cache_key": "63e48abc210615ef1e5abb91b2555ce333e966927985708af0f8ed1f79f5333d.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-stock:1",
+          "kind": "text",
+          "text": "626,712",
+          "start": 279
+        },
+        {
+          "id": "ckd-q3-stock:2",
+          "kind": "text",
+          "text": "권리행사",
+          "start": 2844
+        }
+      ]
+    },
+    {
+      "id": "samsung-gm-proposal-2026",
+      "title": "삼성전자 정정 소집공고",
+      "url": "https://www.samsung.com/sec/ir/reports-disclosures/public-disclosure/3755/",
+      "format": "html",
+      "version_label": "2026.03.12 정정",
+      "verified_on": "2026-11-24",
+      "sha256": "afd57e7b84765ab375490ab30004da3f268ece6672b1936f78d39adf1afd9d54",
+      "bytes": 1251222,
+      "cache_key": "afd57e7b84765ab375490ab30004da3f268ece6672b1936f78d39adf1afd9d54.html",
+      "anchors": [
+        {
+          "id": "samsung-gm-proposal-2026:1",
+          "kind": "text",
+          "text": "제1-1호: 집중투표제",
+          "start": 3684
+        },
+        {
+          "id": "samsung-gm-proposal-2026:2",
+          "kind": "text",
+          "text": "제24조 (이사의 선임)",
+          "start": 23467
+        }
+      ]
+    },
+    {
+      "id": "samsung-gm-results-2026",
+      "title": "삼성전자 57기 주총 결과",
+      "url": "https://www.samsung.com/sec/ir/governance-csr/general-meeting-of-shareholders/",
+      "format": "html",
+      "version_label": "2026.03.18 주총/공식 IR 게시",
+      "verified_on": "2026-11-24",
+      "sha256": "590055f7b7b093796e60884e4b4df94511eb01f653ee2f21de143775b94b99ff",
+      "bytes": 551273,
+      "cache_key": "590055f7b7b093796e60884e4b4df94511eb01f653ee2f21de143775b94b99ff.html",
+      "anchors": [
+        {
+          "id": "samsung-gm-results-2026:1",
+          "kind": "text",
+          "text": "집중투표제 배제 조항 삭제",
+          "start": 1170
+        },
+        {
+          "id": "samsung-gm-results-2026:2",
+          "kind": "text",
+          "text": "99.95%",
+          "start": 1182
+        }
+      ]
+    },
+    {
+      "id": "hansae-gm-proposal-2026",
+      "title": "한세실업 정정 소집공고",
+      "url": "https://kind.krx.co.kr/external/2026/03/05/001871/20260305004158/00591.htm",
+      "format": "html",
+      "version_label": "2026.03.05 정정",
+      "verified_on": "2026-11-24",
+      "sha256": "075e013311048f85a253d0f92c0eaa2289fbd6ce8dd6c023361f81faa9a6ab66",
+      "bytes": 272075,
+      "cache_key": "075e013311048f85a253d0f92c0eaa2289fbd6ce8dd6c023361f81faa9a6ab66.html",
+      "anchors": [
+        {
+          "id": "hansae-gm-proposal-2026:1",
+          "kind": "text",
+          "text": "2조원 이상인 경우",
+          "start": 28318
+        },
+        {
+          "id": "hansae-gm-proposal-2026:2",
+          "kind": "text",
+          "text": "제29조(이사의 선임)",
+          "start": 28177
+        }
+      ]
+    },
+    {
+      "id": "hansae-governance-2026",
+      "title": "한세실업 기업지배구조보고서",
+      "url": "https://kind.krx.co.kr/external/2026/05/28/001057/20260528002304/99667.htm",
+      "format": "html",
+      "version_label": "2026.05.28 제출",
+      "verified_on": "2026-11-24",
+      "sha256": "6ca02364f784b0dbe20ac8cf71085056b573eb812ad3e4c0c627b07295c622f0",
+      "bytes": 1193969,
+      "cache_key": "6ca02364f784b0dbe20ac8cf71085056b573eb812ad3e4c0c627b07295c622f0.html",
+      "anchors": [
+        {
+          "id": "hansae-governance-2026:1",
+          "kind": "text",
+          "text": "제17기 주주총회에서 가결되었습니다",
+          "start": 40167
+        },
+        {
+          "id": "hansae-governance-2026:2",
+          "kind": "text",
+          "text": "집중투표제 채택",
+          "start": 1340
+        }
+      ]
+    },
+    {
+      "id": "commercial-amendments",
+      "title": "상법 공포 개정문·부칙 모음",
+      "url": "https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702",
+      "format": "html",
+      "version_label": "인용 판: 법률 제21044호/2025.09.09 공포",
+      "verified_on": "2026-11-24",
+      "sha256": "64bdf231df25b1eb997861167ffe16986849d430e65862e3e18b033874889994",
+      "bytes": 664862,
+      "cache_key": "64bdf231df25b1eb997861167ffe16986849d430e65862e3e18b033874889994.html",
+      "anchors": [
+        {
+          "id": "commercial-amendments:1",
+          "kind": "text",
+          "text": "법률 제21044호",
+          "start": 4170
+        },
+        {
+          "id": "commercial-amendments:2",
+          "kind": "text",
+          "text": "집중투표에 관한 적용례",
+          "start": 4592
+        }
+      ]
+    },
+    {
+      "id": "bio-notice-0828",
+      "title": "제약·바이오 모범사례 게시 안내",
+      "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+      "format": "html",
+      "version_label": "2026.08.28 게시",
+      "verified_on": "2026-11-24",
+      "sha256": "ecd16019bf1b1b6b7ad72754c690e90acc90e9d5fd6cd0355e46928440c40e3b",
+      "bytes": 28681,
+      "cache_key": "ecd16019bf1b1b6b7ad72754c690e90acc90e9d5fd6cd0355e46928440c40e3b.html",
+      "anchors": [
+        {
+          "id": "bio-notice-0828:1",
+          "kind": "text",
+          "text": "2026.08.28",
+          "start": 267
+        },
+        {
+          "id": "bio-notice-0828:2",
+          "kind": "text",
+          "text": "모범사례",
+          "start": 236
+        }
+      ]
+    },
+    {
+      "id": "bio-0828",
+      "title": "제약·바이오 모범사례 첨부",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
+      "format": "hwp",
+      "version_label": "2026.8월 개선본",
+      "verified_on": "2026-11-24",
+      "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+      "bytes": 123904,
+      "cache_key": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a.hwp",
+      "anchors": [
+        {
+          "id": "bio-0828:1",
+          "kind": "text",
+          "text": "합리적 판단",
+          "start": 89
+        },
+        {
+          "id": "bio-0828:2",
+          "kind": "text",
+          "text": "파이프라인 ID",
+          "start": 1544
+        },
+        {
+          "id": "bio-0828:3",
+          "kind": "text",
+          "text": "1년 이상 지연",
+          "start": 2270
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-rd",
+      "title": "종근당 주요계약·연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=17&offset=274968&length=163242&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "e2a58e94a62c04ba7f0049a8f303e5eabceb4a7b01d8adbd99f931137fe75097",
+      "bytes": 159271,
+      "cache_key": "e2a58e94a62c04ba7f0049a8f303e5eabceb4a7b01d8adbd99f931137fe75097.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-rd:1",
+          "kind": "text",
+          "text": "CKD-510",
+          "start": 298
+        },
+        {
+          "id": "ckd-q3-rd:2",
+          "kind": "text",
+          "text": "1,305,000,000",
+          "start": 392
+        },
+        {
+          "id": "ckd-q3-rd:3",
+          "kind": "text",
+          "text": "5,000,000",
+          "start": 396
+        }
+      ]
+    },
+    {
+      "id": "hold-q3-rd",
+      "title": "종근당홀딩스 주요계약·연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=15&offset=427079&length=499938&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002123/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "cfe16f5a031c4e136c2abdd36c758163665753efd2af940256028d114c429e71",
+      "bytes": 525824,
+      "cache_key": "cfe16f5a031c4e136c2abdd36c758163665753efd2af940256028d114c429e71.html",
+      "anchors": [
+        {
+          "id": "hold-q3-rd:1",
+          "kind": "text",
+          "text": "KB-001",
+          "start": 23772
+        },
+        {
+          "id": "hold-q3-rd:2",
+          "kind": "text",
+          "text": "이력관리",
+          "start": 23732
+        }
+      ]
+    },
+    {
+      "id": "kb-q3-rd",
+      "title": "경보제약 주요계약·연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=15&offset=155107&length=79808&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116001891/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "66d5131b6a6a100bbbfbcaf34c600d12e80d51ab1a6f6e6fca7f40c6135c8f99",
+      "bytes": 85306,
+      "cache_key": "66d5131b6a6a100bbbfbcaf34c600d12e80d51ab1a6f6e6fca7f40c6135c8f99.html",
+      "anchors": [
+        {
+          "id": "kb-q3-rd:1",
+          "kind": "text",
+          "text": "KB-001",
+          "start": 5698
+        },
+        {
+          "id": "kb-q3-rd:2",
+          "kind": "text",
+          "text": "라이선스",
+          "start": 25
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-dividend",
+      "title": "종근당 3분기 배당절",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=100&offset=5028350&length=20400&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "fa9665cba7441dfaedd3080d1f17bdcb31713ac0330dc60c34fe0ed1872e4efc",
+      "bytes": 15748,
+      "cache_key": "fa9665cba7441dfaedd3080d1f17bdcb31713ac0330dc60c34fe0ed1872e4efc.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-dividend:1",
+          "kind": "text",
+          "text": "정관상 배당기준일",
+          "start": 495
+        },
+        {
+          "id": "ckd-q3-dividend:2",
+          "kind": "text",
+          "text": "매결산기말",
+          "start": 1016
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-charter-history",
+      "title": "종근당 3분기 정관 변경 이력",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=10&offset=142371&length=16735&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/기준일 2026.09.30",
+      "verified_on": "2026-11-24",
+      "sha256": "4f832db9e60a072abbee7d6885d7b43eec1268d21f38b2b62e84b932bc82839a",
+      "bytes": 15342,
+      "cache_key": "4f832db9e60a072abbee7d6885d7b43eec1268d21f38b2b62e84b932bc82839a.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-charter-history:1",
+          "kind": "text",
+          "text": "2024년 03월 28일",
+          "start": 134
+        },
+        {
+          "id": "ckd-q3-charter-history:2",
+          "kind": "text",
+          "text": "배당기준일 변경",
+          "start": 170
+        }
+      ]
+    },
+    {
+      "id": "ckd-charter-page-15",
+      "title": "사업보고서 첨부 정관 15쪽",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11142294&flNm=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%A0%95%EA%B4%80_15.jpg",
+      "format": "jpg",
+      "version_label": "2026.03.18 첨부/최종 부칙 2024.03.28",
+      "verified_on": "2026-11-24",
+      "sha256": "f93baeafa9a502e6a77b3acf207b9af65cb9c6c2b1142b68789d3ece5aa58417",
+      "bytes": 194980,
+      "cache_key": "f93baeafa9a502e6a77b3acf207b9af65cb9c6c2b1142b68789d3ece5aa58417.jpg",
+      "anchors": [
+        {
+          "id": "ckd-charter-page-15:1",
+          "kind": "visual",
+          "location": "제42조 제2항 시각 확인",
+          "reviewed_on": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "id": "ckd-charter-page-17",
+      "title": "사업보고서 첨부 정관 17쪽",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11142294&flNm=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%A0%95%EA%B4%80_17.jpg",
+      "format": "jpg",
+      "version_label": "2026.03.18 첨부/최종 부칙 2024.03.28",
+      "verified_on": "2026-11-24",
+      "sha256": "7e7b24a182c8a2bc64d6ca4f5fee94a4d8f12c0f83195965a2b9c63c1e16fae4",
+      "bytes": 83060,
+      "cache_key": "7e7b24a182c8a2bc64d6ca4f5fee94a4d8f12c0f83195965a2b9c63c1e16fae4.jpg",
+      "anchors": [
+        {
+          "id": "ckd-charter-page-17:1",
+          "kind": "visual",
+          "location": "마지막 부칙 제11기 주총 2024.03.28 시각 확인",
+          "reviewed_on": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "id": "ckd-gm-notice-2026",
+      "title": "종근당 13기 주총 소집공고",
+      "url": "https://kind.krx.co.kr/external/2026/03/11/001286/20260311003182/00591.htm",
+      "format": "html",
+      "version_label": "2026.03.11 제출/03.26 주총 예정",
+      "verified_on": "2026-11-24",
+      "sha256": "23cb42a0cf16bafa46fc65dcbb9c307cd1fa09e9331d56c6f6bdbb26b62e4e27",
+      "bytes": 1194482,
+      "cache_key": "23cb42a0cf16bafa46fc65dcbb9c307cd1fa09e9331d56c6f6bdbb26b62e4e27.html",
+      "anchors": [
+        {
+          "id": "ckd-gm-notice-2026:1",
+          "kind": "text",
+          "text": "이사의 임기",
+          "start": 532
+        },
+        {
+          "id": "ckd-gm-notice-2026:2",
+          "kind": "text",
+          "text": "사업목적",
+          "start": 502
+        }
+      ]
+    },
+    {
+      "id": "ckd-gm-results-2026",
+      "title": "종근당 13기 주총 결과",
+      "url": "https://www.ckdpharm.com/esg/csm_cg01.do",
+      "format": "html",
+      "version_label": "공식 홈페이지 제13기 의결권 행사현황",
+      "verified_on": "2026-11-24",
+      "sha256": "0b7844c177f57e86db59b5f2a4e02279d3d4d3497f3cb2efc6d9e5c225d9b02f",
+      "bytes": 34671,
+      "cache_key": "0b7844c177f57e86db59b5f2a4e02279d3d4d3497f3cb2efc6d9e5c225d9b02f.html",
+      "anchors": [
+        {
+          "id": "ckd-gm-results-2026:1",
+          "kind": "text",
+          "text": "정관 일부 변경의 건(이사의 임기변경)",
+          "start": 1421
+        },
+        {
+          "id": "ckd-gm-results-2026:2",
+          "kind": "text",
+          "text": "정관 일부 변경의 건(사업목적추가)",
+          "start": 1351
+        }
+      ]
+    },
+    {
+      "id": "rd-20231114001956",
+      "title": "ckd 2023.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20231114001956&dcmNo=9497749&eleId=15&offset=191902&length=112184&dtd=dart3.xsd",
+      "format": "html",
+      "version_label": "20231114001956/2023.09",
+      "verified_on": "2026-11-24",
+      "sha256": "52f5606a860241e7f80ec1877fdbf0f54795f310007b2e32c5abc5f235886ed1",
+      "bytes": 110878,
+      "cache_key": "52f5606a860241e7f80ec1877fdbf0f54795f310007b2e32c5abc5f235886ed1.html",
+      "anchors": [
+        {
+          "id": "rd-20231114001956:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240320001136",
+      "title": "ckd 2023.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240320001136&dcmNo=9738452&eleId=15&offset=194509&length=121921&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240320001136/2023.12",
+      "verified_on": "2026-11-24",
+      "sha256": "b646b2c9cffcbd9e4525f423287c75be091c442810cdd4ab18b00d3fa91e69a4",
+      "bytes": 121626,
+      "cache_key": "b646b2c9cffcbd9e4525f423287c75be091c442810cdd4ab18b00d3fa91e69a4.html",
+      "anchors": [
+        {
+          "id": "rd-20240320001136:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240516001324",
+      "title": "ckd 2024.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240516001324&dcmNo=9949543&eleId=15&offset=199371&length=118608&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240516001324/2024.03",
+      "verified_on": "2026-11-24",
+      "sha256": "fe82cbccb49a7b851774a062557a1c91064a8674a063b3de7e10c54fca1268e3",
+      "bytes": 118891,
+      "cache_key": "fe82cbccb49a7b851774a062557a1c91064a8674a063b3de7e10c54fca1268e3.html",
+      "anchors": [
+        {
+          "id": "rd-20240516001324:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240814003373",
+      "title": "ckd 2024.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240814003373&dcmNo=10071253&eleId=15&offset=198838&length=123190&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240814003373/2024.06",
+      "verified_on": "2026-11-24",
+      "sha256": "a05b53c13b27366c62c5ee92ce862aef6fd0785a191836cf02f581457861d58a",
+      "bytes": 123589,
+      "cache_key": "a05b53c13b27366c62c5ee92ce862aef6fd0785a191836cf02f581457861d58a.html",
+      "anchors": [
+        {
+          "id": "rd-20240814003373:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20241114001222",
+      "title": "ckd 2024.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20241114001222&dcmNo=10182418&eleId=15&offset=206678&length=130496&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20241114001222/2024.09",
+      "verified_on": "2026-11-24",
+      "sha256": "f5671aeab71cde038bad6cf1c9947dab45fce1c0afe574e08b014d16aca0951b",
+      "bytes": 130468,
+      "cache_key": "f5671aeab71cde038bad6cf1c9947dab45fce1c0afe574e08b014d16aca0951b.html",
+      "anchors": [
+        {
+          "id": "rd-20241114001222:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250325000403",
+      "title": "ckd 2024.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250325000403&dcmNo=10456377&eleId=17&offset=220423&length=136568&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250325000403/2024.12",
+      "verified_on": "2026-11-24",
+      "sha256": "c1cad12ccadc87c2b0f90b981f78ed9aeb2c40c8df8c79c86fad82cfddd8002b",
+      "bytes": 136340,
+      "cache_key": "c1cad12ccadc87c2b0f90b981f78ed9aeb2c40c8df8c79c86fad82cfddd8002b.html",
+      "anchors": [
+        {
+          "id": "rd-20250325000403:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250515001363",
+      "title": "ckd 2025.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250515001363&dcmNo=10644373&eleId=15&offset=210109&length=124018&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250515001363/2025.03",
+      "verified_on": "2026-11-24",
+      "sha256": "fade4f696a80228ce8f063f6fa515b21f5d48bf73dd634e0d2a09c2941110a09",
+      "bytes": 124523,
+      "cache_key": "fade4f696a80228ce8f063f6fa515b21f5d48bf73dd634e0d2a09c2941110a09.html",
+      "anchors": [
+        {
+          "id": "rd-20250515001363:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250814002097",
+      "title": "ckd 2025.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250814002097&dcmNo=10766846&eleId=15&offset=210166&length=128890&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250814002097/2025.06",
+      "verified_on": "2026-11-24",
+      "sha256": "295441c06d14ec91ff185b54ddc63c76f5efeaff0018a3a8fbcfbe099939a34c",
+      "bytes": 128362,
+      "cache_key": "295441c06d14ec91ff185b54ddc63c76f5efeaff0018a3a8fbcfbe099939a34c.html",
+      "anchors": [
+        {
+          "id": "rd-20250814002097:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20251114001538",
+      "title": "ckd 2025.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114001538&dcmNo=10880856&eleId=15&offset=214333&length=141126&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20251114001538/2025.09",
+      "verified_on": "2026-11-24",
+      "sha256": "0a4a15d5babb0bee2b603970b81bd4c261fd32590f60d6807e3883c3474c4e0f",
+      "bytes": 139607,
+      "cache_key": "0a4a15d5babb0bee2b603970b81bd4c261fd32590f60d6807e3883c3474c4e0f.html",
+      "anchors": [
+        {
+          "id": "rd-20251114001538:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260318001376",
+      "title": "ckd 2025.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001376&dcmNo=11142292&eleId=15&offset=223930&length=157190&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001376/2025.12",
+      "verified_on": "2026-11-24",
+      "sha256": "650355f040e4e9ae079fa8b42cc70be09ba2ee042c16aa47d0ec0e7e4ac8906e",
+      "bytes": 154823,
+      "cache_key": "650355f040e4e9ae079fa8b42cc70be09ba2ee042c16aa47d0ec0e7e4ac8906e.html",
+      "anchors": [
+        {
+          "id": "rd-20260318001376:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260515002659",
+      "title": "ckd 2026.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260515002659&dcmNo=11387501&eleId=15&offset=226237&length=135499&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260515002659/2026.03",
+      "verified_on": "2026-11-24",
+      "sha256": "ef4e73f431bef738471fdc3729e6c8c218f38266a3db9dd2e05b76227975e629",
+      "bytes": 134573,
+      "cache_key": "ef4e73f431bef738471fdc3729e6c8c218f38266a3db9dd2e05b76227975e629.html",
+      "anchors": [
+        {
+          "id": "rd-20260515002659:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20261022000500",
+      "title": "ckd 2026.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000500&dcmNo=11624747&eleId=17&offset=323943&length=144969&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261022000500/2026.06",
+      "verified_on": "2026-11-24",
+      "sha256": "1cfb026e12a0fe065109d0f2523b3262015fcd4d29c9b72445b883f8161807ba",
+      "bytes": 143533,
+      "cache_key": "1cfb026e12a0fe065109d0f2523b3262015fcd4d29c9b72445b883f8161807ba.html",
+      "anchors": [
+        {
+          "id": "rd-20261022000500:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20231201000260",
+      "title": "hold 2023.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20231201000260&dcmNo=9524229&eleId=17&offset=392552&length=418757&dtd=dart3.xsd",
+      "format": "html",
+      "version_label": "20231201000260/2023.09",
+      "verified_on": "2026-11-24",
+      "sha256": "8e3a0ad88c8b31ffdfdb038eef9eab1659c0d3519170511657f417145b6a19e5",
+      "bytes": 450367,
+      "cache_key": "8e3a0ad88c8b31ffdfdb038eef9eab1659c0d3519170511657f417145b6a19e5.html",
+      "anchors": [
+        {
+          "id": "rd-20231201000260:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240320001873",
+      "title": "hold 2023.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240320001873&dcmNo=9743718&eleId=15&offset=401968&length=430176&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240320001873/2023.12",
+      "verified_on": "2026-11-24",
+      "sha256": "3f58dbedfb90e1c76a4f24806044fb191ef27fb73f719687e87609cbb10605b8",
+      "bytes": 474308,
+      "cache_key": "3f58dbedfb90e1c76a4f24806044fb191ef27fb73f719687e87609cbb10605b8.html",
+      "anchors": [
+        {
+          "id": "rd-20240320001873:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240516002179",
+      "title": "hold 2024.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240516002179&dcmNo=9951984&eleId=15&offset=415954&length=430600&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240516002179/2024.03",
+      "verified_on": "2026-11-24",
+      "sha256": "69f55d167904b570930ef6cc7f425c381217c141f80e40ddc6d7847ead7f9fee",
+      "bytes": 478861,
+      "cache_key": "69f55d167904b570930ef6cc7f425c381217c141f80e40ddc6d7847ead7f9fee.html",
+      "anchors": [
+        {
+          "id": "rd-20240516002179:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240814004549",
+      "title": "hold 2024.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240814004549&dcmNo=10075488&eleId=15&offset=415914&length=452622&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240814004549/2024.06",
+      "verified_on": "2026-11-24",
+      "sha256": "5c1c0c1db1ed7f880a85fdb43d918a5dd84a93687a35e1649c7ac6f306e0fd80",
+      "bytes": 503531,
+      "cache_key": "5c1c0c1db1ed7f880a85fdb43d918a5dd84a93687a35e1649c7ac6f306e0fd80.html",
+      "anchors": [
+        {
+          "id": "rd-20240814004549:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20241114002390",
+      "title": "hold 2024.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20241114002390&dcmNo=10185448&eleId=15&offset=418841&length=464589&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20241114002390/2024.09",
+      "verified_on": "2026-11-24",
+      "sha256": "e2142ecf6821a10ae359b11a3c82a3218e5f6e88ed0a93b1084ffbfe6a19ab49",
+      "bytes": 502580,
+      "cache_key": "e2142ecf6821a10ae359b11a3c82a3218e5f6e88ed0a93b1084ffbfe6a19ab49.html",
+      "anchors": [
+        {
+          "id": "rd-20241114002390:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250318001235",
+      "title": "hold 2024.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250318001235&dcmNo=10424335&eleId=15&offset=408041&length=477877&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250318001235/2024.12",
+      "verified_on": "2026-11-24",
+      "sha256": "4b3bd48071d9acc7f3e6cc8b91fb38e95f8e4cf669a839eba659cc6ab20e9bd8",
+      "bytes": 512797,
+      "cache_key": "4b3bd48071d9acc7f3e6cc8b91fb38e95f8e4cf669a839eba659cc6ab20e9bd8.html",
+      "anchors": [
+        {
+          "id": "rd-20250318001235:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250515002230",
+      "title": "hold 2025.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250515002230&dcmNo=10646684&eleId=15&offset=404735&length=408046&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250515002230/2025.03",
+      "verified_on": "2026-11-24",
+      "sha256": "6b76eedad55e22cbd3ee83a254789217949f510d13af7f40e9f26cac5e0a1510",
+      "bytes": 440975,
+      "cache_key": "6b76eedad55e22cbd3ee83a254789217949f510d13af7f40e9f26cac5e0a1510.html",
+      "anchors": [
+        {
+          "id": "rd-20250515002230:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250814003680",
+      "title": "hold 2025.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250814003680&dcmNo=10772175&eleId=15&offset=405933&length=435117&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250814003680/2025.06",
+      "verified_on": "2026-11-24",
+      "sha256": "ececda741867c2fce1f62d34d8c6ad4c78b7b2b25dd4b4128e25771675daccc0",
+      "bytes": 469448,
+      "cache_key": "ececda741867c2fce1f62d34d8c6ad4c78b7b2b25dd4b4128e25771675daccc0.html",
+      "anchors": [
+        {
+          "id": "rd-20250814003680:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20251114002391",
+      "title": "hold 2025.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114002391&dcmNo=10883099&eleId=15&offset=410362&length=448709&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20251114002391/2025.09",
+      "verified_on": "2026-11-24",
+      "sha256": "42e0cb93ca4ce6642754efc58e41d27b19433161f67c0b90e5371b096b2db56f",
+      "bytes": 482829,
+      "cache_key": "42e0cb93ca4ce6642754efc58e41d27b19433161f67c0b90e5371b096b2db56f.html",
+      "anchors": [
+        {
+          "id": "rd-20251114002391:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260318001530",
+      "title": "hold 2025.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001530&dcmNo=11143531&eleId=15&offset=396493&length=468852&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001530/2025.12",
+      "verified_on": "2026-11-24",
+      "sha256": "5fff6fc7bb473c12d168cd7f64ef7164900ab61e38dade1210ca302be308a205",
+      "bytes": 506097,
+      "cache_key": "5fff6fc7bb473c12d168cd7f64ef7164900ab61e38dade1210ca302be308a205.html",
+      "anchors": [
+        {
+          "id": "rd-20260318001530:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260515002752",
+      "title": "hold 2026.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260515002752&dcmNo=11387789&eleId=15&offset=398776&length=425974&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260515002752/2026.03",
+      "verified_on": "2026-11-24",
+      "sha256": "3490de047b9dbaf43461f2bb3790f4294a96e8f84e056f76911bcd571271227b",
+      "bytes": 458824,
+      "cache_key": "3490de047b9dbaf43461f2bb3790f4294a96e8f84e056f76911bcd571271227b.html",
+      "anchors": [
+        {
+          "id": "rd-20260515002752:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20261012000414",
+      "title": "hold 2026.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=17&offset=498129&length=465339&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261012000414/2026.06",
+      "verified_on": "2026-11-24",
+      "sha256": "61a49f9f4f1448d3e53ac597aed8539c604a168e41c6efc9afcf39bc09c78642",
+      "bytes": 497726,
+      "cache_key": "61a49f9f4f1448d3e53ac597aed8539c604a168e41c6efc9afcf39bc09c78642.html",
+      "anchors": [
+        {
+          "id": "rd-20261012000414:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20231114002289",
+      "title": "kb 2023.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20231114002289&dcmNo=9498641&eleId=15&offset=155819&length=78064&dtd=dart3.xsd",
+      "format": "html",
+      "version_label": "20231114002289/2023.09",
+      "verified_on": "2026-11-24",
+      "sha256": "a4ea8bb15b2c1adc9d9cdc7b1a4ee860802ab04ce4e9b9c761b1a6995b819def",
+      "bytes": 75998,
+      "cache_key": "a4ea8bb15b2c1adc9d9cdc7b1a4ee860802ab04ce4e9b9c761b1a6995b819def.html",
+      "anchors": [
+        {
+          "id": "rd-20231114002289:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240318000672",
+      "title": "kb 2023.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240318000672&dcmNo=9726371&eleId=15&offset=152575&length=76873&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240318000672/2023.12",
+      "verified_on": "2026-11-24",
+      "sha256": "323b88732c6ac49840be0457de4d89e87d304d8a7114aeee3f2c3796da89c662",
+      "bytes": 81065,
+      "cache_key": "323b88732c6ac49840be0457de4d89e87d304d8a7114aeee3f2c3796da89c662.html",
+      "anchors": [
+        {
+          "id": "rd-20240318000672:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240516001741",
+      "title": "kb 2024.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240516001741&dcmNo=9950703&eleId=15&offset=151339&length=67426&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240516001741/2024.03",
+      "verified_on": "2026-11-24",
+      "sha256": "b57f2a078579e4289a5237b89261983406a411469ae2c23d878fee887992a28e",
+      "bytes": 82564,
+      "cache_key": "b57f2a078579e4289a5237b89261983406a411469ae2c23d878fee887992a28e.html",
+      "anchors": [
+        {
+          "id": "rd-20240516001741:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20240814004147",
+      "title": "kb 2024.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240814004147&dcmNo=10074040&eleId=15&offset=152253&length=68958&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20240814004147/2024.06",
+      "verified_on": "2026-11-24",
+      "sha256": "5cbd5730cbbd20ef417aec622f91e1b77f55c0786ca07d80e71086cd372370f6",
+      "bytes": 84049,
+      "cache_key": "5cbd5730cbbd20ef417aec622f91e1b77f55c0786ca07d80e71086cd372370f6.html",
+      "anchors": [
+        {
+          "id": "rd-20240814004147:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20241114002275",
+      "title": "kb 2024.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20241114002275&dcmNo=10185144&eleId=15&offset=156708&length=72554&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20241114002275/2024.09",
+      "verified_on": "2026-11-24",
+      "sha256": "7544c25af7c9dd4d12eadd46f888fd9490629069a9a16b573dd598183e325490",
+      "bytes": 85716,
+      "cache_key": "7544c25af7c9dd4d12eadd46f888fd9490629069a9a16b573dd598183e325490.html",
+      "anchors": [
+        {
+          "id": "rd-20241114002275:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250318001404",
+      "title": "kb 2024.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250318001404&dcmNo=10425574&eleId=15&offset=159922&length=68464&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250318001404/2024.12",
+      "verified_on": "2026-11-24",
+      "sha256": "d6225eb7045f5250813a80149d88adea8b8ad57e7727a93dc5bdc9f08ccccf45",
+      "bytes": 80558,
+      "cache_key": "d6225eb7045f5250813a80149d88adea8b8ad57e7727a93dc5bdc9f08ccccf45.html",
+      "anchors": [
+        {
+          "id": "rd-20250318001404:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250515001770",
+      "title": "kb 2025.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250515001770&dcmNo=10645472&eleId=15&offset=163214&length=62248&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250515001770/2025.03",
+      "verified_on": "2026-11-24",
+      "sha256": "fe00828150656502e560f255d81509e30b2fbc0b50fc8d49d505724833cc3066",
+      "bytes": 71541,
+      "cache_key": "fe00828150656502e560f255d81509e30b2fbc0b50fc8d49d505724833cc3066.html",
+      "anchors": [
+        {
+          "id": "rd-20250515001770:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20250814002932",
+      "title": "kb 2025.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250814002932&dcmNo=10769671&eleId=15&offset=161992&length=80108&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20250814002932/2025.06",
+      "verified_on": "2026-11-24",
+      "sha256": "05d5080e98e1a1533570e6b2158ba0d5cfd18ba3634eed632a42f2087854b938",
+      "bytes": 88905,
+      "cache_key": "05d5080e98e1a1533570e6b2158ba0d5cfd18ba3634eed632a42f2087854b938.html",
+      "anchors": [
+        {
+          "id": "rd-20250814002932:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20251114002597",
+      "title": "kb 2025.09 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114002597&dcmNo=10883663&eleId=15&offset=163671&length=79944&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20251114002597/2025.09",
+      "verified_on": "2026-11-24",
+      "sha256": "bd5398000edd225acf2742dac8b60c595ac797bef3b1261018cff77ac1fc406b",
+      "bytes": 88525,
+      "cache_key": "bd5398000edd225acf2742dac8b60c595ac797bef3b1261018cff77ac1fc406b.html",
+      "anchors": [
+        {
+          "id": "rd-20251114002597:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260318001475",
+      "title": "kb 2025.12 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=15&offset=164854&length=80493&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001475/2025.12",
+      "verified_on": "2026-11-24",
+      "sha256": "af26b445ad83194a71939abae707e403f85616773b9d881e111d7cea26dfb53f",
+      "bytes": 89082,
+      "cache_key": "af26b445ad83194a71939abae707e403f85616773b9d881e111d7cea26dfb53f.html",
+      "anchors": [
+        {
+          "id": "rd-20260318001475:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260515001275",
+      "title": "kb 2026.03 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260515001275&dcmNo=11383784&eleId=15&offset=165281&length=81634&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260515001275/2026.03",
+      "verified_on": "2026-11-24",
+      "sha256": "cf334578f88f4d493dbfda02d7e76c57858a425e5f7845ab3984125d6af3b8e2",
+      "bytes": 89643,
+      "cache_key": "cf334578f88f4d493dbfda02d7e76c57858a425e5f7845ab3984125d6af3b8e2.html",
+      "anchors": [
+        {
+          "id": "rd-20260515001275:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "rd-20260814003323",
+      "title": "kb 2026.06 연구개발",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003323&dcmNo=11536681&eleId=15&offset=162709&length=78923&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260814003323/2026.06",
+      "verified_on": "2026-11-24",
+      "sha256": "ce95dc4e0f4c5d97542c19394cda164ccd7a4041c61a868e3e1fdb1f57dfefae",
+      "bytes": 86432,
+      "cache_key": "ce95dc4e0f4c5d97542c19394cda164ccd7a4041c61a868e3e1fdb1f57dfefae.html",
+      "anchors": [
+        {
+          "id": "rd-20260814003323:1",
+          "kind": "text",
+          "text": "6. 주요계약 및 연구개발활동",
+          "start": 0
+        }
+      ]
+    },
+    {
+      "id": "ckd-2025-assets",
+      "title": "ckd 요약재무정보",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001376&dcmNo=11142292&eleId=18&offset=393656&length=31544&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001376/요약재무정보",
+      "verified_on": "2026-11-24",
+      "sha256": "291bbdb8700fab000e74cee507280a06c90b568f076e01f99e7054e649ed7573",
+      "bytes": 29340,
+      "cache_key": "291bbdb8700fab000e74cee507280a06c90b568f076e01f99e7054e649ed7573.html",
+      "anchors": [
+        {
+          "id": "ckd-2025-assets:1",
+          "kind": "text",
+          "text": "자산총계",
+          "start": 528
+        }
+      ]
+    },
+    {
+      "id": "ckd-q3-assets",
+      "title": "ckd 요약재무정보",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=20&offset=450747&length=22910&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002243/요약재무정보",
+      "verified_on": "2026-11-24",
+      "sha256": "92432a900b1c4f06b74a77852d7d37f8c15ccd6f9f0608467caa1cbc17cdeaa3",
+      "bytes": 19892,
+      "cache_key": "92432a900b1c4f06b74a77852d7d37f8c15ccd6f9f0608467caa1cbc17cdeaa3.html",
+      "anchors": [
+        {
+          "id": "ckd-q3-assets:1",
+          "kind": "text",
+          "text": "자산총계",
+          "start": 431
+        }
+      ]
+    },
+    {
+      "id": "hold-2025-assets",
+      "title": "hold 요약재무정보",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001530&dcmNo=11143531&eleId=18&offset=939727&length=31103&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001530/요약재무정보",
+      "verified_on": "2026-11-24",
+      "sha256": "6324ce98b83bb6efecd5cbdbcde1854e0caef15227090d47839391474e083d55",
+      "bytes": 28246,
+      "cache_key": "6324ce98b83bb6efecd5cbdbcde1854e0caef15227090d47839391474e083d55.html",
+      "anchors": [
+        {
+          "id": "hold-2025-assets:1",
+          "kind": "text",
+          "text": "자산총계",
+          "start": 538
+        }
+      ]
+    },
+    {
+      "id": "hold-q3-assets",
+      "title": "hold 요약재무정보",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=18&offset=1002270&length=31246&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116002123/요약재무정보",
+      "verified_on": "2026-11-24",
+      "sha256": "88367df65c5e186f4d73c425c7cfc6c88c840ba1edec10a5b2f5a0e98f00e0e1",
+      "bytes": 27436,
+      "cache_key": "88367df65c5e186f4d73c425c7cfc6c88c840ba1edec10a5b2f5a0e98f00e0e1.html",
+      "anchors": [
+        {
+          "id": "hold-q3-assets:1",
+          "kind": "text",
+          "text": "자산총계",
+          "start": 537
+        }
+      ]
+    },
+    {
+      "id": "kb-2025-assets",
+      "title": "kb 요약재무정보",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=18&offset=308856&length=13005&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001475/요약재무정보",
+      "verified_on": "2026-11-24",
+      "sha256": "5995066433cb24f35a1e7f7567fd69d9cf8a9bc1b56a6cb404d31e49013b456b",
+      "bytes": 15624,
+      "cache_key": "5995066433cb24f35a1e7f7567fd69d9cf8a9bc1b56a6cb404d31e49013b456b.html",
+      "anchors": [
+        {
+          "id": "kb-2025-assets:1",
+          "kind": "text",
+          "text": "자산총계",
+          "start": 576
+        }
+      ]
+    },
+    {
+      "id": "kb-q3-assets",
+      "title": "kb 요약재무정보",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=18&offset=301784&length=13507&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261116001891/요약재무정보",
+      "verified_on": "2026-11-24",
+      "sha256": "d939252af57a2572216192426d9de8252b783f90e958fce028107ed97aa59426",
+      "bytes": 14320,
+      "cache_key": "d939252af57a2572216192426d9de8252b783f90e958fce028107ed97aa59426.html",
+      "anchors": [
+        {
+          "id": "kb-q3-assets:1",
+          "kind": "text",
+          "text": "자산총계",
+          "start": 602
+        }
+      ]
+    },
+    {
+      "id": "ckd-gov-2026",
+      "title": "종근당 기업지배구조보고서",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260601800818&dcmNo=11413142&eleId=0&offset=0&length=0&dtd=HTML",
+      "format": "html",
+      "version_label": "20260601800818/2026.06.01",
+      "verified_on": "2026-11-24",
+      "sha256": "decd3591e7bb245d12f2f51f5c4e26afc0affe89163ae9bddb7849dd82503406",
+      "bytes": 1831373,
+      "cache_key": "decd3591e7bb245d12f2f51f5c4e26afc0affe89163ae9bddb7849dd82503406.html",
+      "anchors": [
+        {
+          "id": "ckd-gov-2026:1",
+          "kind": "text",
+          "text": "첨부1. 정관",
+          "start": 60717
+        }
+      ]
+    },
+    {
+      "id": "ckd-gov-attachment-2026",
+      "title": "종근당 기타공개첨부서류",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260601800818&dcmNo=11413140&eleId=0&offset=0&length=0&dtd=HTML",
+      "format": "html",
+      "version_label": "2026.06.01 첨부 목록",
+      "verified_on": "2026-11-24",
+      "sha256": "232152b7d0c663b2572589d84b48e097e9c9a3d0c288ada4ecdff7ae320cf046",
+      "bytes": 63046,
+      "cache_key": "232152b7d0c663b2572589d84b48e097e9c9a3d0c288ada4ecdff7ae320cf046.html",
+      "anchors": [
+        {
+          "id": "ckd-gov-attachment-2026:1",
+          "kind": "text",
+          "text": "첨부1. 정관.pdf",
+          "start": 97
+        }
+      ]
+    },
+    {
+      "id": "ckd-charter-20260326",
+      "title": "종근당 개정 정관 전문",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11413140&flNm=%EC%B2%A8%EB%B6%801.+%EC%A0%95%EA%B4%80.pdf",
+      "format": "pdf",
+      "version_label": "부칙 2026.03.26/2026.06.01 첨부",
+      "verified_on": "2026-11-24",
+      "sha256": "4991ab5efa9f2157d3bbfcf6b935927f9b4b2834e7c2ebe4d5b34adf79b9ca22",
+      "bytes": 326251,
+      "cache_key": "4991ab5efa9f2157d3bbfcf6b935927f9b4b2834e7c2ebe4d5b34adf79b9ca22.pdf",
+      "anchors": [
+        {
+          "id": "ckd-charter-20260326:1",
+          "kind": "text",
+          "text": "기준일을 정할 수 있으며",
+          "start": 133,
+          "pdf_page": 15
+        },
+        {
+          "id": "ckd-charter-20260326:2",
+          "kind": "text",
+          "text": "2026년3월26일",
+          "start": 248,
+          "pdf_page": 17
+        }
+      ]
+    },
+    {
+      "id": "commercial-decree-33",
+      "title": "상법 시행령 제33조",
+      "url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=75811",
+      "format": "html",
+      "version_label": "2026.07.23 시행/대통령령 제36511호",
+      "verified_on": "2026-11-24",
+      "sha256": "e6904b7bed3fe1b92b34add154957fec2d337b69a4cd5dd02188fb4beee39167",
+      "bytes": 14867,
+      "cache_key": "e6904b7bed3fe1b92b34add154957fec2d337b69a4cd5dd02188fb4beee39167.html",
+      "anchors": [
+        {
+          "id": "commercial-decree-33:1",
+          "kind": "text",
+          "text": "제33조",
+          "start": 83
+        },
+        {
+          "id": "commercial-decree-33:2",
+          "kind": "text",
+          "text": "2조원 이상",
+          "start": 229
+        }
+      ]
+    },
+    {
+      "id": "ckd-half-correction-final-observed",
+      "title": "종근당 반기 정정 요약 후속 접수",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000500&dcmNo=11624747&eleId=1&offset=893&length=73036&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20261022000500/2026.10.22",
+      "verified_on": "2026-11-24",
+      "sha256": "cc017dcbbcfa84849fdc9ba0abbb36223417f6a01885695ab0c213b95cf4bdee",
+      "bytes": 70392,
+      "cache_key": "cc017dcbbcfa84849fdc9ba0abbb36223417f6a01885695ab0c213b95cf4bdee.html",
+      "anchors": [
+        {
+          "id": "ckd-half-correction-final-observed:1",
+          "kind": "text",
+          "text": "자기주식보고서 미첨부",
+          "start": 118
+        },
+        {
+          "id": "ckd-half-correction-final-observed:2",
+          "kind": "text",
+          "text": "(주2) 첨부",
+          "start": 137
+        }
+      ]
+    },
+    {
+      "id": "kb-2025-consolidation-na",
+      "title": "경보제약 연결재무제표 해당 없음",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=19&offset=322104&length=177&dtd=dart4.xsd",
+      "format": "html",
+      "version_label": "20260318001475/2025.12",
+      "verified_on": "2026-11-24",
+      "sha256": "0c024589476b6c7c5b604b5135f362f08127c473c312183c1f03c4b9b6fa09e4",
+      "bytes": 587,
+      "cache_key": "0c024589476b6c7c5b604b5135f362f08127c473c312183c1f03c4b9b6fa09e4.html",
+      "anchors": [
+        {
+          "id": "kb-2025-consolidation-na:1",
+          "kind": "text",
+          "text": "해당사항 없습니다.",
+          "start": 8
+        }
+      ]
+    },
+    {
+      "id": "ckd-listing-page-1",
+      "title": "공시목록 조회 응답",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00992871&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "version_label": "2023.09.30~2026.11.24 조회/1쪽",
+      "verified_on": "2026-11-24",
+      "sha256": "c7913fc9e131ce6600c37a93d15dbd1da5636b52e6addd8579166f2ecb2ba7c1",
+      "bytes": 120123,
+      "cache_key": "c7913fc9e131ce6600c37a93d15dbd1da5636b52e6addd8579166f2ecb2ba7c1.html",
+      "anchors": [
+        {
+          "id": "ckd-listing-page-1:1",
+          "kind": "text",
+          "text": "총 178 건",
+          "start": 4559
+        }
+      ]
+    },
+    {
+      "id": "ckd-listing-page-2",
+      "title": "공시목록 조회 응답",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=2&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00992871&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "version_label": "2023.09.30~2026.11.24 조회/2쪽",
+      "verified_on": "2026-11-24",
+      "sha256": "d95efd858fc65403726750758fb972a5881c7f115e17fc996dbd0277e3ab858e",
+      "bytes": 94433,
+      "cache_key": "d95efd858fc65403726750758fb972a5881c7f115e17fc996dbd0277e3ab858e.html",
+      "anchors": [
+        {
+          "id": "ckd-listing-page-2:1",
+          "kind": "text",
+          "text": "총 178 건",
+          "start": 3558
+        }
+      ]
+    },
+    {
+      "id": "hold-listing-page-1",
+      "title": "공시목록 조회 응답",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00149354&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "version_label": "2023.09.30~2026.11.24 조회/1쪽",
+      "verified_on": "2026-11-24",
+      "sha256": "0c10665cbed48ddda3409bd1fa9ee5e595f902c642a5f8f8c535c39c4b9f183a",
+      "bytes": 128780,
+      "cache_key": "0c10665cbed48ddda3409bd1fa9ee5e595f902c642a5f8f8c535c39c4b9f183a.html",
+      "anchors": [
+        {
+          "id": "hold-listing-page-1:1",
+          "kind": "text",
+          "text": "총 183 건",
+          "start": 5562
+        }
+      ]
+    },
+    {
+      "id": "hold-listing-page-2",
+      "title": "공시목록 조회 응답",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=2&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00149354&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "version_label": "2023.09.30~2026.11.24 조회/2쪽",
+      "verified_on": "2026-11-24",
+      "sha256": "60977bc3ec0be8f3af8524ce3f29dd711866d3a6e0a674502118f6dc2f260997",
+      "bytes": 105075,
+      "cache_key": "60977bc3ec0be8f3af8524ce3f29dd711866d3a6e0a674502118f6dc2f260997.html",
+      "anchors": [
+        {
+          "id": "hold-listing-page-2:1",
+          "kind": "text",
+          "text": "총 183 건",
+          "start": 4513
+        }
+      ]
+    },
+    {
+      "id": "kb-listing-page-1",
+      "title": "공시목록 조회 응답",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00101664&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "version_label": "2023.09.30~2026.11.24 조회/1쪽",
+      "verified_on": "2026-11-24",
+      "sha256": "b6cbf081ea7b28e0f01cf459dedab89544b89907fca1b4ff322953c01d0f4ccb",
+      "bytes": 119204,
+      "cache_key": "b6cbf081ea7b28e0f01cf459dedab89544b89907fca1b4ff322953c01d0f4ccb.html",
+      "anchors": [
+        {
+          "id": "kb-listing-page-1:1",
+          "kind": "text",
+          "text": "총 121 건",
+          "start": 4384
+        }
+      ]
+    },
+    {
+      "id": "kb-listing-page-2",
+      "title": "공시목록 조회 응답",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=2&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00101664&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "version_label": "2023.09.30~2026.11.24 조회/2쪽",
+      "verified_on": "2026-11-24",
+      "sha256": "8bf155fc7bdb3dbe96e04a6c823c2b370f0523df07328e86428615fbdf819791",
+      "bytes": 26949,
+      "cache_key": "8bf155fc7bdb3dbe96e04a6c823c2b370f0523df07328e86428615fbdf819791.html",
+      "anchors": [
+        {
+          "id": "kb-listing-page-2:1",
+          "kind": "text",
+          "text": "총 121 건",
+          "start": 984
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "C01",
+      "title": "자기주식 규정 변경·정정 추적",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "form-1113",
+        "q3-lecture",
+        "form-notice-1113",
+        "ckd-half-correction",
+        "ckd-half-attach-signed",
+        "ckd-q3-stock",
+        "ckd-half-correction-final-observed"
+      ],
+      "questions": [
+        {
+          "id": "C01-Q01",
+          "text": "최초 반기보고서의 미첨부 지적을 2026.11.24에도 미해결로 표시할 수 있는가?",
+          "source_ids": [
+            "ckd-half-correction",
+            "ckd-half-attach-signed",
+            "ckd-half-correction-final-observed"
+          ],
+          "missing_facts": [
+            "후속 정정·철회 전수 조회"
+          ]
+        },
+        {
+          "id": "C01-Q02",
+          "text": "반기·사업과 분기의 자기주식보고서 첨부 조건을 어떻게 구분하는가?",
+          "source_ids": [
+            "q3-lecture",
+            "form-1113"
+          ],
+          "missing_facts": [
+            "검토 대상 보고서 종류"
+          ]
+        },
+        {
+          "id": "C01-Q03",
+          "text": "자기주식보고서와 자기주식보유처분계획서의 첨부 조건은 같은가?",
+          "source_ids": [
+            "q3-lecture"
+          ],
+          "missing_facts": [
+            "직전 사업보고서 제출 후 변동 사실"
+          ]
+        },
+        {
+          "id": "C01-Q04",
+          "text": "개정 전 발행 EB의 미교환 주식과 권리행사 기간을 어디에 반영하는가?",
+          "source_ids": [
+            "form-1113",
+            "ckd-q3-stock"
+          ],
+          "missing_facts": [
+            "실제 교환 잔량 대장"
+          ]
+        }
+      ],
+      "followup": [
+        "반기 최종 정정본 전수 확인",
+        "첨부 날인과 내부 이사회 결의 원본의 진위/내용 일치 검토는 별도",
+        "현재 기재가 모든 규정을 충족하는지 단정하지 않기"
+      ]
+    },
+    {
+      "id": "C03",
+      "title": "집중투표 정관·가결·회사 규모",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "commercial-amendments",
+        "samsung-gm-proposal-2026",
+        "samsung-gm-results-2026",
+        "hansae-gm-proposal-2026",
+        "hansae-governance-2026",
+        "ckd-2025-assets",
+        "ckd-q3-assets",
+        "hold-2025-assets",
+        "hold-q3-assets",
+        "kb-2025-assets",
+        "kb-q3-assets",
+        "commercial-decree-33",
+        "kb-2025-consolidation-na",
+        "ckd-listing-page-1",
+        "ckd-listing-page-2",
+        "hold-listing-page-1",
+        "hold-listing-page-2",
+        "kb-listing-page-1",
+        "kb-listing-page-2"
+      ],
+      "questions": [
+        {
+          "id": "C03-Q01",
+          "text": "삼성전자와 한세실업이 같은 상법 개정에 서로 다른 정관 문구를 사용한 이유는 무엇인가?",
+          "source_ids": [
+            "samsung-gm-proposal-2026",
+            "hansae-gm-proposal-2026",
+            "ckd-2025-assets",
+            "ckd-q3-assets",
+            "hold-2025-assets",
+            "hold-q3-assets",
+            "kb-2025-assets",
+            "kb-q3-assets",
+            "commercial-decree-33",
+            "kb-2025-consolidation-na",
+            "ckd-listing-page-1",
+            "ckd-listing-page-2",
+            "hold-listing-page-1",
+            "hold-listing-page-2",
+            "kb-listing-page-1",
+            "kb-listing-page-2"
+          ],
+          "missing_facts": [
+            "우리 회사 기준 자산규모"
+          ]
+        },
+        {
+          "id": "C03-Q02",
+          "text": "자산과 주총 소집일을 제공하지 않은 우리 회사에 배제 조항 삭제를 확정 권고할 수 있는가?",
+          "source_ids": [
+            "commercial-amendments",
+            "hansae-gm-proposal-2026",
+            "ckd-2025-assets",
+            "ckd-q3-assets",
+            "hold-2025-assets",
+            "hold-q3-assets",
+            "kb-2025-assets",
+            "kb-q3-assets",
+            "commercial-decree-33",
+            "kb-2025-consolidation-na",
+            "ckd-listing-page-1",
+            "ckd-listing-page-2",
+            "hold-listing-page-1",
+            "hold-listing-page-2",
+            "kb-listing-page-1",
+            "kb-listing-page-2"
+          ],
+          "missing_facts": [
+            "자산 산정 기준/수치",
+            "이사 선임 주총 소집 사실"
+          ]
+        },
+        {
+          "id": "C03-Q03",
+          "text": "소집공고의 변경안과 주총 이후 승인 사실을 어떻게 연결하는가?",
+          "source_ids": [
+            "samsung-gm-proposal-2026",
+            "samsung-gm-results-2026",
+            "hansae-governance-2026"
+          ],
+          "missing_facts": [
+            "최종 전문 정관"
+          ]
+        },
+        {
+          "id": "C03-Q04",
+          "text": "2026.9.10 시행과 최초 이사 선임 주총 소집 적용례를 구분하는가?",
+          "source_ids": [
+            "commercial-amendments"
+          ],
+          "missing_facts": [
+            "회사별 소집일/안건"
+          ]
+        }
+      ],
+      "followup": [
+        "3사 자산 기준과 수치·시장·해당 시점 시행령 확보",
+        "각 회사 최신 정관 전문 확보",
+        "안건 상정·가결·시행을 별도 상태로 보관"
+      ]
+    },
+    {
+      "id": "C08",
+      "title": "제약·바이오 지침과 3사 실제 반영",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "bio-notice-0828",
+        "bio-0828",
+        "ckd-q3-rd",
+        "hold-q3-rd",
+        "kb-q3-rd",
+        "rd-20231114001956",
+        "rd-20240320001136",
+        "rd-20240516001324",
+        "rd-20240814003373",
+        "rd-20241114001222",
+        "rd-20250325000403",
+        "rd-20250515001363",
+        "rd-20250814002097",
+        "rd-20251114001538",
+        "rd-20260318001376",
+        "rd-20260515002659",
+        "rd-20261022000500",
+        "rd-20231201000260",
+        "rd-20240320001873",
+        "rd-20240516002179",
+        "rd-20240814004549",
+        "rd-20241114002390",
+        "rd-20250318001235",
+        "rd-20250515002230",
+        "rd-20250814003680",
+        "rd-20251114002391",
+        "rd-20260318001530",
+        "rd-20260515002752",
+        "rd-20261012000414",
+        "rd-20231114002289",
+        "rd-20240318000672",
+        "rd-20240516001741",
+        "rd-20240814004147",
+        "rd-20241114002275",
+        "rd-20250318001404",
+        "rd-20250515001770",
+        "rd-20250814002932",
+        "rd-20251114002597",
+        "rd-20260318001475",
+        "rd-20260515001275",
+        "rd-20260814003323"
+      ],
+      "questions": [
+        {
+          "id": "C08-Q01",
+          "text": "이미 공시된 파이프라인 ID와 이력표를 다시 누락으로 판단하지 않는가?",
+          "source_ids": [
+            "bio-0828",
+            "ckd-q3-rd",
+            "hold-q3-rd",
+            "kb-q3-rd"
+          ],
+          "missing_facts": [
+            "과거 3년 전체 파이프라인 대장"
+          ]
+        },
+        {
+          "id": "C08-Q02",
+          "text": "CKD-510의 총계약액·수취액·미래 조건부 금액은 각각 어떻게 확인하는가?",
+          "source_ids": [
+            "bio-0828",
+            "ckd-q3-rd"
+          ],
+          "missing_facts": [
+            "기준일 이후 수취 사실"
+          ]
+        },
+        {
+          "id": "C08-Q03",
+          "text": "경보제약의 라이선스인에 라이선스아웃의 모든 예시를 그대로 적용하는가?",
+          "source_ids": [
+            "bio-0828",
+            "kb-q3-rd"
+          ],
+          "missing_facts": [
+            "계약별 종류/비공개 범위"
+          ]
+        },
+        {
+          "id": "C08-Q04",
+          "text": "직전 일정 자료 없이 1년 이상 지연이나 소급 정정 의무를 확정할 수 있는가?",
+          "source_ids": [
+            "bio-0828"
+          ],
+          "missing_facts": [
+            "직전 공시 일정",
+            "실제 변경 일정/사유",
+            "적용 법정 기재의무"
+          ]
+        }
+      ],
+      "followup": [
+        "3년 이력과 적응증별 ID/별칭 대사",
+        "양식 권고와 기본 공시 의무 구분",
+        "완료·반영·미확인 항목 별도 기록"
+      ]
+    },
+    {
+      "id": "C09",
+      "title": "배당절 정관 인용과 실제 정관 이미지",
+      "priority": "P1",
+      "state": "draft",
+      "human_approved": false,
+      "active_rule": false,
+      "source_ids": [
+        "ckd-q3-dividend",
+        "ckd-q3-charter-history",
+        "ckd-charter-page-15",
+        "ckd-charter-page-17",
+        "ckd-gm-notice-2026",
+        "ckd-gm-results-2026",
+        "ckd-gov-2026",
+        "ckd-gov-attachment-2026",
+        "ckd-charter-20260326"
+      ],
+      "questions": [
+        {
+          "id": "C09-Q01",
+          "text": "3분기 배당절의 인용 제42조와 첨부 정관 이미지의 제42조는 일치하는가?",
+          "source_ids": [
+            "ckd-q3-dividend",
+            "ckd-charter-page-15",
+            "ckd-charter-20260326"
+          ],
+          "missing_facts": []
+        },
+        {
+          "id": "C09-Q02",
+          "text": "정관상 개선 가능 O와 실제 배당 예측가능성 X를 바로 모순으로 판단할 수 있는가?",
+          "source_ids": [
+            "ckd-q3-dividend",
+            "ckd-charter-20260326"
+          ],
+          "missing_facts": [
+            "각 배당의 결의/기준일 공고"
+          ]
+        },
+        {
+          "id": "C09-Q03",
+          "text": "첨부 날짜와 정관 자체의 개정일을 어떻게 구분하는가?",
+          "source_ids": [
+            "ckd-charter-page-17",
+            "ckd-q3-charter-history",
+            "ckd-charter-20260326"
+          ],
+          "missing_facts": []
+        },
+        {
+          "id": "C09-Q04",
+          "text": "2026년 소집안과 주총 결과로 확인할 수 있는 범위 및 정정 판단에 추가로 필요한 자료는 무엇인가?",
+          "source_ids": [
+            "ckd-gm-notice-2026",
+            "ckd-gm-results-2026",
+            "ckd-q3-dividend",
+            "ckd-charter-20260326"
+          ],
+          "missing_facts": [
+            "담당자 중요성/정정 판단"
+          ]
+        }
+      ],
+      "followup": [
+        "후속 정관 변경 여부와 담당자 중요성·정정 판단",
+        "최신 확보 정관에 맞춘 인용문 보완 검토"
+      ]
+    }
+  ],
+  "parent_pack_canonical_sha256": "6ed6fe603f2a44f48d04fb622f3370ba7074a95add456bfd851f711b9f3653c9",
+  "revision": "followup-2026-11-24"
+}

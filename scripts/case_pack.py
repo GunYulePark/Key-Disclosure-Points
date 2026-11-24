@@ -27,6 +27,16 @@ def compact(text):
     return re.sub(r'\s+', '', text)
 
 
+def pack_fingerprint(pack):
+    """Metadata identity survives Git LF/CRLF and JSON key/indent changes.
+
+    This is NOT the byte hash of an original PDF/HWP/HTML/image.
+    """
+    canonical = json.dumps(pack, ensure_ascii=False, sort_keys=True,
+                           separators=(',', ':'), allow_nan=False).encode('utf-8')
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)

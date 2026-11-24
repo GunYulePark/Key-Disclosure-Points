@@ -1,0 +1,1855 @@
+{
+  "schema_version": 1,
+  "classification": "public_research_inputs",
+  "as_of": "2026-11-24",
+  "source_pack": "priority-case-pack-v2.json",
+  "coverage": {
+    "ckd": {
+      "total": 178,
+      "pages": 2,
+      "response_hashes": [
+        "c7913fc9e131ce6600c37a93d15dbd1da5636b52e6addd8579166f2ecb2ba7c1",
+        "d95efd858fc65403726750758fb972a5881c7f115e17fc996dbd0277e3ab858e"
+      ],
+      "from_date": "2023-09-30",
+      "to_date": "2026-11-24",
+      "mode": "public_search"
+    },
+    "hold": {
+      "total": 183,
+      "pages": 2,
+      "response_hashes": [
+        "0c10665cbed48ddda3409bd1fa9ee5e595f902c642a5f8f8c535c39c4b9f183a",
+        "60977bc3ec0be8f3af8524ce3f29dd711866d3a6e0a674502118f6dc2f260997"
+      ],
+      "from_date": "2023-09-30",
+      "to_date": "2026-11-24",
+      "mode": "public_search"
+    },
+    "kb": {
+      "total": 121,
+      "pages": 2,
+      "response_hashes": [
+        "b6cbf081ea7b28e0f01cf459dedab89544b89907fca1b4ff322953c01d0f4ccb",
+        "8bf155fc7bdb3dbe96e04a6c823c2b370f0523df07328e86428615fbdf819791"
+      ],
+      "from_date": "2023-09-30",
+      "to_date": "2026-11-24",
+      "mode": "public_search"
+    }
+  },
+  "baseline_period": "2023.09",
+  "development_history_window": [
+    "2023-10-01",
+    "2026-09-30"
+  ],
+  "selected_periods_per_company": 13,
+  "post_effective_gm_notice_queries": [
+    {
+      "company_id": "ckd",
+      "from_date": "2026-09-10",
+      "to_date": "2026-11-24",
+      "observed_notices": [],
+      "absence_is_not_proof_of_no_meeting": true
+    },
+    {
+      "company_id": "hold",
+      "from_date": "2026-09-10",
+      "to_date": "2026-11-24",
+      "observed_notices": [],
+      "absence_is_not_proof_of_no_meeting": true
+    },
+    {
+      "company_id": "kb",
+      "from_date": "2026-09-10",
+      "to_date": "2026-11-24",
+      "observed_notices": [],
+      "absence_is_not_proof_of_no_meeting": true
+    }
+  ],
+  "listing_source_ids": [
+    "ckd-listing-page-1",
+    "ckd-listing-page-2",
+    "hold-listing-page-1",
+    "hold-listing-page-2",
+    "kb-listing-page-1",
+    "kb-listing-page-2"
+  ],
+  "selected_sections_captured": 39,
+  "full_pipeline_reconciliation_complete": false,
+  "all_event_disclosures_reviewed": false,
+  "asset_facts": [
+    {
+      "company_id": "ckd",
+      "accounting_scope": "consolidated",
+      "fiscal_year_end": "2025-12-31",
+      "unit": "백만원",
+      "displayed": "1,800,298",
+      "display_decimal": "1800298",
+      "annual": {
+        "source_id": "ckd-2025-assets",
+        "table_index": 1,
+        "row_index": 14,
+        "cell_index": 1
+      },
+      "q3_comparative": {
+        "source_id": "ckd-q3-assets",
+        "table_index": 1,
+        "row_index": 14,
+        "cell_index": 2
+      },
+      "agreement": true,
+      "comparison": {
+        "display_scaled_won": "1800298000000",
+        "relation_on_displayed_value": "below",
+        "unit": "백만원",
+        "legal_applicability": "not_determined",
+        "presentation_precision_requires_review": true
+      },
+      "additional_basis_source_ids": [],
+      "legal_basis_definition_verified": false
+    },
+    {
+      "company_id": "ckd",
+      "accounting_scope": "separate",
+      "fiscal_year_end": "2025-12-31",
+      "unit": "백만원",
+      "displayed": "1,786,938",
+      "display_decimal": "1786938",
+      "annual": {
+        "source_id": "ckd-2025-assets",
+        "table_index": 3,
+        "row_index": 15,
+        "cell_index": 1
+      },
+      "q3_comparative": {
+        "source_id": "ckd-q3-assets",
+        "table_index": 3,
+        "row_index": 15,
+        "cell_index": 2
+      },
+      "agreement": true,
+      "comparison": {
+        "display_scaled_won": "1786938000000",
+        "relation_on_displayed_value": "below",
+        "unit": "백만원",
+        "legal_applicability": "not_determined",
+        "presentation_precision_requires_review": true
+      },
+      "additional_basis_source_ids": [],
+      "legal_basis_definition_verified": false
+    },
+    {
+      "company_id": "hold",
+      "accounting_scope": "consolidated",
+      "fiscal_year_end": "2025-12-31",
+      "unit": "백만원",
+      "displayed": "1,628,781",
+      "display_decimal": "1628781",
+      "annual": {
+        "source_id": "hold-2025-assets",
+        "table_index": 1,
+        "row_index": 16,
+        "cell_index": 1
+      },
+      "q3_comparative": {
+        "source_id": "hold-q3-assets",
+        "table_index": 1,
+        "row_index": 16,
+        "cell_index": 2
+      },
+      "agreement": true,
+      "comparison": {
+        "display_scaled_won": "1628781000000",
+        "relation_on_displayed_value": "below",
+        "unit": "백만원",
+        "legal_applicability": "not_determined",
+        "presentation_precision_requires_review": true
+      },
+      "additional_basis_source_ids": [],
+      "legal_basis_definition_verified": false
+    },
+    {
+      "company_id": "hold",
+      "accounting_scope": "separate",
+      "fiscal_year_end": "2025-12-31",
+      "unit": "백만원",
+      "displayed": "444,745",
+      "display_decimal": "444745",
+      "annual": {
+        "source_id": "hold-2025-assets",
+        "table_index": 5,
+        "row_index": 14,
+        "cell_index": 1
+      },
+      "q3_comparative": {
+        "source_id": "hold-q3-assets",
+        "table_index": 5,
+        "row_index": 15,
+        "cell_index": 2
+      },
+      "agreement": true,
+      "comparison": {
+        "display_scaled_won": "444745000000",
+        "relation_on_displayed_value": "below",
+        "unit": "백만원",
+        "legal_applicability": "not_determined",
+        "presentation_precision_requires_review": true
+      },
+      "additional_basis_source_ids": [],
+      "legal_basis_definition_verified": false
+    },
+    {
+      "company_id": "kb",
+      "accounting_scope": "individual",
+      "fiscal_year_end": "2025-12-31",
+      "unit": "백만원",
+      "displayed": "319,538",
+      "display_decimal": "319538",
+      "annual": {
+        "source_id": "kb-2025-assets",
+        "table_index": 1,
+        "row_index": 20,
+        "cell_index": 1
+      },
+      "q3_comparative": {
+        "source_id": "kb-q3-assets",
+        "table_index": 1,
+        "row_index": 21,
+        "cell_index": 2
+      },
+      "agreement": true,
+      "comparison": {
+        "display_scaled_won": "319538000000",
+        "relation_on_displayed_value": "below",
+        "unit": "백만원",
+        "legal_applicability": "not_determined",
+        "presentation_precision_requires_review": true
+      },
+      "additional_basis_source_ids": [
+        "kb-2025-consolidation-na"
+      ],
+      "legal_basis_definition_verified": false
+    }
+  ],
+  "rd_timeline": [
+    {
+      "company_id": "ckd",
+      "period": "2023.09",
+      "receipt_no": "20231114001956",
+      "source_id": "rd-20231114001956",
+      "versions": [
+        "20231114001956"
+      ],
+      "mentions": [
+        "CKD-333",
+        "CKD-348",
+        "CKD-351",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-391",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-701",
+        "CKD-702",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2023.12",
+      "receipt_no": "20240320001136",
+      "source_id": "rd-20240320001136",
+      "versions": [
+        "20240320001136"
+      ],
+      "mentions": [
+        "CKD-333",
+        "CKD-348",
+        "CKD-351",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-391",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2024.03",
+      "receipt_no": "20240516001324",
+      "source_id": "rd-20240516001324",
+      "versions": [
+        "20240516001324"
+      ],
+      "mentions": [
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2024.06",
+      "receipt_no": "20240814003373",
+      "source_id": "rd-20240814003373",
+      "versions": [
+        "20240814003373"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-333",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2024.09",
+      "receipt_no": "20241114001222",
+      "source_id": "rd-20241114001222",
+      "versions": [
+        "20241114001222"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2024.12",
+      "receipt_no": "20250325000403",
+      "source_id": "rd-20250325000403",
+      "versions": [
+        "20250325000403",
+        "20250318001450"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2025.03",
+      "receipt_no": "20250515001363",
+      "source_id": "rd-20250515001363",
+      "versions": [
+        "20250515001363"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2025.06",
+      "receipt_no": "20250814002097",
+      "source_id": "rd-20250814002097",
+      "versions": [
+        "20250814002097"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2025.09",
+      "receipt_no": "20251114001538",
+      "source_id": "rd-20251114001538",
+      "versions": [
+        "20251114001538"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2025.12",
+      "receipt_no": "20260318001376",
+      "source_id": "rd-20260318001376",
+      "versions": [
+        "20260318001376"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2026.03",
+      "receipt_no": "20260515002659",
+      "source_id": "rd-20260515002659",
+      "versions": [
+        "20260515002659"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2026.06",
+      "receipt_no": "20261022000500",
+      "source_id": "rd-20261022000500",
+      "versions": [
+        "20261022000500",
+        "20261022000477",
+        "20261022000303",
+        "20260814003547"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "ckd",
+      "period": "2026.09",
+      "receipt_no": "20261116002243",
+      "source_id": "ckd-q3-rd",
+      "versions": [
+        "20261116002243",
+        "20261116001990"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-339",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951",
+        "CKD-953",
+        "CKD-974"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2023.09",
+      "receipt_no": "20231201000260",
+      "source_id": "rd-20231201000260",
+      "versions": [
+        "20231201000260",
+        "20231114002403"
+      ],
+      "mentions": [
+        "CKD-333",
+        "CKD-348",
+        "CKD-351",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-391",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-701",
+        "CKD-702",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2023.12",
+      "receipt_no": "20240320001873",
+      "source_id": "rd-20240320001873",
+      "versions": [
+        "20240320001873"
+      ],
+      "mentions": [
+        "CKD-333",
+        "CKD-348",
+        "CKD-351",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-391",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2024.03",
+      "receipt_no": "20240516002179",
+      "source_id": "rd-20240516002179",
+      "versions": [
+        "20240516002179"
+      ],
+      "mentions": [
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2024.06",
+      "receipt_no": "20240814004549",
+      "source_id": "rd-20240814004549",
+      "versions": [
+        "20240814004549"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-333",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-841",
+        "CKD-843",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2024.09",
+      "receipt_no": "20241114002390",
+      "source_id": "rd-20241114002390",
+      "versions": [
+        "20241114002390"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2024.12",
+      "receipt_no": "20250318001235",
+      "source_id": "rd-20250318001235",
+      "versions": [
+        "20250318001235"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2025.03",
+      "receipt_no": "20250515002230",
+      "source_id": "rd-20250515002230",
+      "versions": [
+        "20250515002230"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-333",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2025.06",
+      "receipt_no": "20250814003680",
+      "source_id": "rd-20250814003680",
+      "versions": [
+        "20250814003680"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-232",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2025.09",
+      "receipt_no": "20251114002391",
+      "source_id": "rd-20251114002391",
+      "versions": [
+        "20251114002391"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2025.12",
+      "receipt_no": "20260318001530",
+      "source_id": "rd-20260318001530",
+      "versions": [
+        "20260318001530"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-386",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2026.03",
+      "receipt_no": "20260515002752",
+      "source_id": "rd-20260515002752",
+      "versions": [
+        "20260515002752"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2026.06",
+      "receipt_no": "20261012000414",
+      "source_id": "rd-20261012000414",
+      "versions": [
+        "20261012000414",
+        "20260814003989"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951"
+      ]
+    },
+    {
+      "company_id": "hold",
+      "period": "2026.09",
+      "receipt_no": "20261116002123",
+      "source_id": "hold-q3-rd",
+      "versions": [
+        "20261116002123"
+      ],
+      "mentions": [
+        "CKD-101",
+        "CKD-339",
+        "CKD-348",
+        "CKD-371",
+        "CKD-379",
+        "CKD-383",
+        "CKD-389",
+        "CKD-393",
+        "CKD-396",
+        "CKD-398",
+        "CKD-495",
+        "CKD-508",
+        "CKD-510",
+        "CKD-512",
+        "CKD-701",
+        "CKD-702",
+        "CKD-703",
+        "CKD-704",
+        "CKD-706",
+        "CKD-828",
+        "CKD-843",
+        "CKD-920",
+        "CKD-943",
+        "CKD-950",
+        "CKD-951",
+        "CKD-953",
+        "CKD-974",
+        "KB-001",
+        "KB-002",
+        "KB-003",
+        "KB-004",
+        "KB-005"
+      ]
+    },
+    {
+      "company_id": "kb",
+      "period": "2023.09",
+      "receipt_no": "20231114002289",
+      "source_id": "rd-20231114002289",
+      "versions": [
+        "20231114002289"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2023.12",
+      "receipt_no": "20240318000672",
+      "source_id": "rd-20240318000672",
+      "versions": [
+        "20240318000672"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2024.03",
+      "receipt_no": "20240516001741",
+      "source_id": "rd-20240516001741",
+      "versions": [
+        "20240516001741"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2024.06",
+      "receipt_no": "20240814004147",
+      "source_id": "rd-20240814004147",
+      "versions": [
+        "20240814004147"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2024.09",
+      "receipt_no": "20241114002275",
+      "source_id": "rd-20241114002275",
+      "versions": [
+        "20241114002275"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2024.12",
+      "receipt_no": "20250318001404",
+      "source_id": "rd-20250318001404",
+      "versions": [
+        "20250318001404"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2025.03",
+      "receipt_no": "20250515001770",
+      "source_id": "rd-20250515001770",
+      "versions": [
+        "20250515001770"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2025.06",
+      "receipt_no": "20250814002932",
+      "source_id": "rd-20250814002932",
+      "versions": [
+        "20250814002932"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2025.09",
+      "receipt_no": "20251114002597",
+      "source_id": "rd-20251114002597",
+      "versions": [
+        "20251114002597"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2025.12",
+      "receipt_no": "20260318001475",
+      "source_id": "rd-20260318001475",
+      "versions": [
+        "20260318001475"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2026.03",
+      "receipt_no": "20260515001275",
+      "source_id": "rd-20260515001275",
+      "versions": [
+        "20260515001275"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2026.06",
+      "receipt_no": "20260814003323",
+      "source_id": "rd-20260814003323",
+      "versions": [
+        "20260814003323"
+      ],
+      "mentions": []
+    },
+    {
+      "company_id": "kb",
+      "period": "2026.09",
+      "receipt_no": "20261116001891",
+      "source_id": "kb-q3-rd",
+      "versions": [
+        "20261116001891"
+      ],
+      "mentions": [
+        "KB-001",
+        "KB-002",
+        "KB-003",
+        "KB-004",
+        "KB-005"
+      ]
+    }
+  ],
+  "literal_mention_changes": [
+    {
+      "company_id": "ckd",
+      "from_period": "2023.09",
+      "to_period": "2023.12",
+      "source_ids": [
+        "rd-20231114001956",
+        "rd-20240320001136"
+      ],
+      "new_mentions": [
+        "CKD-512",
+        "CKD-703"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2023.12",
+      "to_period": "2024.03",
+      "source_ids": [
+        "rd-20240320001136",
+        "rd-20240516001324"
+      ],
+      "new_mentions": [
+        "CKD-232"
+      ],
+      "not_observed_in_next_selected_section": [
+        "CKD-351",
+        "CKD-391"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2024.03",
+      "to_period": "2024.06",
+      "source_ids": [
+        "rd-20240516001324",
+        "rd-20240814003373"
+      ],
+      "new_mentions": [
+        "CKD-101"
+      ],
+      "not_observed_in_next_selected_section": [
+        "CKD-232"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2024.06",
+      "to_period": "2024.09",
+      "source_ids": [
+        "rd-20240814003373",
+        "rd-20241114001222"
+      ],
+      "new_mentions": [
+        "CKD-232",
+        "CKD-943"
+      ],
+      "not_observed_in_next_selected_section": [
+        "CKD-371",
+        "CKD-379",
+        "CKD-841"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2024.09",
+      "to_period": "2024.12",
+      "source_ids": [
+        "rd-20241114001222",
+        "rd-20250325000403"
+      ],
+      "new_mentions": [
+        "CKD-920"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2024.12",
+      "to_period": "2025.03",
+      "source_ids": [
+        "rd-20250325000403",
+        "rd-20250515001363"
+      ],
+      "new_mentions": [
+        "CKD-371",
+        "CKD-379"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2025.03",
+      "to_period": "2025.06",
+      "source_ids": [
+        "rd-20250515001363",
+        "rd-20250814002097"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [
+        "CKD-333"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2025.06",
+      "to_period": "2025.09",
+      "source_ids": [
+        "rd-20250814002097",
+        "rd-20251114001538"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [
+        "CKD-232"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2025.09",
+      "to_period": "2025.12",
+      "source_ids": [
+        "rd-20251114001538",
+        "rd-20260318001376"
+      ],
+      "new_mentions": [
+        "CKD-704",
+        "CKD-706"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2025.12",
+      "to_period": "2026.03",
+      "source_ids": [
+        "rd-20260318001376",
+        "rd-20260515002659"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [
+        "CKD-386"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2026.03",
+      "to_period": "2026.06",
+      "source_ids": [
+        "rd-20260515002659",
+        "rd-20261022000500"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "ckd",
+      "from_period": "2026.06",
+      "to_period": "2026.09",
+      "source_ids": [
+        "rd-20261022000500",
+        "ckd-q3-rd"
+      ],
+      "new_mentions": [
+        "CKD-339",
+        "CKD-953",
+        "CKD-974"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2023.09",
+      "to_period": "2023.12",
+      "source_ids": [
+        "rd-20231201000260",
+        "rd-20240320001873"
+      ],
+      "new_mentions": [
+        "CKD-512",
+        "CKD-703"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2023.12",
+      "to_period": "2024.03",
+      "source_ids": [
+        "rd-20240320001873",
+        "rd-20240516002179"
+      ],
+      "new_mentions": [
+        "CKD-232"
+      ],
+      "not_observed_in_next_selected_section": [
+        "CKD-351",
+        "CKD-391"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2024.03",
+      "to_period": "2024.06",
+      "source_ids": [
+        "rd-20240516002179",
+        "rd-20240814004549"
+      ],
+      "new_mentions": [
+        "CKD-101"
+      ],
+      "not_observed_in_next_selected_section": [
+        "CKD-232"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2024.06",
+      "to_period": "2024.09",
+      "source_ids": [
+        "rd-20240814004549",
+        "rd-20241114002390"
+      ],
+      "new_mentions": [
+        "CKD-232",
+        "CKD-943"
+      ],
+      "not_observed_in_next_selected_section": [
+        "CKD-371",
+        "CKD-379",
+        "CKD-841"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2024.09",
+      "to_period": "2024.12",
+      "source_ids": [
+        "rd-20241114002390",
+        "rd-20250318001235"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2024.12",
+      "to_period": "2025.03",
+      "source_ids": [
+        "rd-20250318001235",
+        "rd-20250515002230"
+      ],
+      "new_mentions": [
+        "CKD-371",
+        "CKD-379",
+        "CKD-920"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2025.03",
+      "to_period": "2025.06",
+      "source_ids": [
+        "rd-20250515002230",
+        "rd-20250814003680"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [
+        "CKD-333"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2025.06",
+      "to_period": "2025.09",
+      "source_ids": [
+        "rd-20250814003680",
+        "rd-20251114002391"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [
+        "CKD-232"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2025.09",
+      "to_period": "2025.12",
+      "source_ids": [
+        "rd-20251114002391",
+        "rd-20260318001530"
+      ],
+      "new_mentions": [
+        "CKD-704",
+        "CKD-706"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2025.12",
+      "to_period": "2026.03",
+      "source_ids": [
+        "rd-20260318001530",
+        "rd-20260515002752"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [
+        "CKD-386"
+      ],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2026.03",
+      "to_period": "2026.06",
+      "source_ids": [
+        "rd-20260515002752",
+        "rd-20261012000414"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "hold",
+      "from_period": "2026.06",
+      "to_period": "2026.09",
+      "source_ids": [
+        "rd-20261012000414",
+        "hold-q3-rd"
+      ],
+      "new_mentions": [
+        "CKD-339",
+        "CKD-953",
+        "CKD-974",
+        "KB-001",
+        "KB-002",
+        "KB-003",
+        "KB-004",
+        "KB-005"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2023.09",
+      "to_period": "2023.12",
+      "source_ids": [
+        "rd-20231114002289",
+        "rd-20240318000672"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2023.12",
+      "to_period": "2024.03",
+      "source_ids": [
+        "rd-20240318000672",
+        "rd-20240516001741"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2024.03",
+      "to_period": "2024.06",
+      "source_ids": [
+        "rd-20240516001741",
+        "rd-20240814004147"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2024.06",
+      "to_period": "2024.09",
+      "source_ids": [
+        "rd-20240814004147",
+        "rd-20241114002275"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2024.09",
+      "to_period": "2024.12",
+      "source_ids": [
+        "rd-20241114002275",
+        "rd-20250318001404"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2024.12",
+      "to_period": "2025.03",
+      "source_ids": [
+        "rd-20250318001404",
+        "rd-20250515001770"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2025.03",
+      "to_period": "2025.06",
+      "source_ids": [
+        "rd-20250515001770",
+        "rd-20250814002932"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2025.06",
+      "to_period": "2025.09",
+      "source_ids": [
+        "rd-20250814002932",
+        "rd-20251114002597"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2025.09",
+      "to_period": "2025.12",
+      "source_ids": [
+        "rd-20251114002597",
+        "rd-20260318001475"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2025.12",
+      "to_period": "2026.03",
+      "source_ids": [
+        "rd-20260318001475",
+        "rd-20260515001275"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2026.03",
+      "to_period": "2026.06",
+      "source_ids": [
+        "rd-20260515001275",
+        "rd-20260814003323"
+      ],
+      "new_mentions": [],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    },
+    {
+      "company_id": "kb",
+      "from_period": "2026.06",
+      "to_period": "2026.09",
+      "source_ids": [
+        "rd-20260814003323",
+        "kb-q3-rd"
+      ],
+      "new_mentions": [
+        "KB-001",
+        "KB-002",
+        "KB-003",
+        "KB-004",
+        "KB-005"
+      ],
+      "not_observed_in_next_selected_section": [],
+      "clinical_discontinuation_confirmed": false
+    }
+  ],
+  "review_observations": [
+    {
+      "id": "C09-TEXT-ALIGNMENT",
+      "case_id": "C09",
+      "company_id": "ckd",
+      "priority": "P1",
+      "state": "draft_review",
+      "source_ids": [
+        "ckd-q3-dividend",
+        "ckd-charter-20260326",
+        "ckd-gov-attachment-2026",
+        "ckd-gov-2026"
+      ],
+      "observation": "확보한 2026.03.26 개정 정관과 배당절 인용 문구의 차이 확인",
+      "action": "작성본의 제42조 제2항 인용문을 실제 정관과 일치시키도록 보완 검토",
+      "mandatory_legal_correction_confirmed": false
+    },
+    {
+      "id": "C08-CKD386-MENTION",
+      "case_id": "C08",
+      "company_id": "ckd",
+      "priority": "P2",
+      "state": "context_check",
+      "source_ids": [
+        "rd-20260318001376",
+        "rd-20260515002659"
+      ],
+      "observation": "CKD-386은 전기 자료에 2022년 품목발매로 기재; 다음 선정 절에서 코드가 관찰되지 않음",
+      "action": "판매·완료 시점과 별칭을 확인하고 코드 미관찰을 개발중단으로 자동 분류하지 않기",
+      "mandatory_legal_correction_confirmed": false
+    },
+    {
+      "id": "C08-KB005-UNCHANGED-PLAN",
+      "case_id": "C08",
+      "company_id": "kb",
+      "priority": "P2",
+      "state": "context_check",
+      "source_ids": [
+        "rd-20251114002597",
+        "kb-q3-rd"
+      ],
+      "observation": "P-CAB 신규염2의 두 시점 향후계획에 같은 2031년 8월 발매 예정 기재",
+      "action": "기준일에서 멀리 있다는 이유만으로 지연 연수를 계산하지 않고 직전 계획 대비 변경 여부를 대조",
+      "mandatory_legal_correction_confirmed": false
+    }
+  ],
+  "human_approved": false,
+  "active_rule": false,
+  "source_pack_canonical_sha256": "9fef64c82d92e2ef21375fd8b2c7a6757e42f60da2661fcdbf97da8fc50657e5"
+}

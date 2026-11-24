@@ -2,9 +2,21 @@
 
 ## 병행 준비 — 사용자 요청 사례 목록
 
+최신 기준은 `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json`이다. 3월 개정 정관 전문·3사 자산 5개·39개 연구개발 절과 종근당 반기 후속 0500 접수를 확보했다. 1차의 정관 전문 미확보·0303만 확인한 상태를 최신 상태로 반복하지 않는다.
+
+```powershell
+python scripts/case_pack.py --pack research/priority-case-pack-v2.json
+python scripts/case_followup.py
+# 이 PC의 hash-named 원본이 있을 때만:
+python scripts/case_followup.py --cache .local/case-research/originals
+python -m unittest discover -s tests -v
+```
+
+다음은 (1) C09 인용문 보완 후보의 원문 대조·담당자 검토 자료 마련, (2) C08 품목명/적응증/별칭별 3년 의미 대사와 직전 계획·수시공시 연결, (3) C03 공식 자산 산정 범위/새 사업연도 수치·소집 사건의 갱신 검토다. 39개 절 확보를 전체 연구개발 누락 검증 완료로 표시하지 않는다. 이미 바뀐 코드·판매 시점·장기 예정일만으로 중단/지연을 확정하지 않는다. 중앙 환경·이관·배포는 아래 승인 경계를 유지한다.
+
 1차 근거 대조는 `CASE_REVIEW_01.md`를 우선 읽는다. `research/priority-case-pack.json`에 22개 공개 자료 메타데이터와 질문 16개가 있고, `python scripts/case_pack.py`로 clone 직후 구조를 검사할 수 있다. 같은 원본이 이 PC의 `.local/case-research/originals/`에 있으면 `--cache .local/case-research/originals`로 원본·텍스트 위치도 검사한다. 캐시는 Git에 없고 중앙 공유도 아직 미구현이다. 원본 없음을 성공으로 간주하지 않는다.
 
-다음 수집 우선순위: (1) C09 2026년 변경 후 정관 전문 및 배당 인용 보완 검토, (2) C03 3사 자산 산정 기준/수치·주총 소집 사실, (3) C08 3년 전체 이력/직전 일정. C01은 10.22 정정·추가 첨부를 확인했으므로 과거 미첨부 지적을 현재 미해결로 반복하지 않는다. 후속 정정 전수 조회와 전체 적정성 판단은 남아 있다. 실제 승인 QA는 비공개 환경에서 담당자 검토 뒤 만든다. LLM 점수/법률 규칙을 자동 승인하지 않는다.
+1차 조사에서 남겼던 수집 항목은 위 2차 기록으로 보강되었다. C01의 과거 미첨부 지적은 현재 미해결로 반복하지 않는다. 실제 승인 QA는 비공개 환경에서 담당자 검토 뒤 만든다. LLM 점수/법률 규칙을 자동 승인하지 않는다.
 
 `CASE_CANDIDATES.md`의 공개 후보 10개는 전체 수집 후보 목록으로 유지한다. 4종의 최신 완료/미완료는 위 후속 기록을 따른다. 검토 질문은 공개 후보이고 승인 정답은 아니며 비공개 평가 데이터나 운영 규칙으로 자동 등록하지 않는다. 원격 구축·업로드·배포 승인 경계와 TASK 순서는 유지한다.
 

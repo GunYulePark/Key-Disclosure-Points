@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from case_pack import compact, validate_pack, verify_cache, verify_source
+from case_pack import compact, validate_pack, verify_cache, verify_source, pack_fingerprint
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,6 +27,18 @@ def fixture():
 
 
 class CasePackTests(unittest.TestCase):
+    def test_metadata_fingerprint_survives_windows_newlines_but_detects_changed_content(self):
+        pack, _ = fixture()
+        lf = json.dumps(pack, ensure_ascii=False, indent=2)
+        crlf = lf.replace('\n', '\r\n')
+        self.assertNotEqual(hashlib.sha256(lf.encode()).hexdigest(), hashlib.sha256(crlf.encode()).hexdigest())
+        self.assertEqual(pack_fingerprint(json.loads(lf)), pack_fingerprint(json.loads(crlf)))
+        reordered = dict(reversed(list(pack.items())))
+        self.assertEqual(pack_fingerprint(pack), pack_fingerprint(reordered))
+        changed = copy.deepcopy(pack)
+        changed['cases'][0]['questions'][0]['text'] = 'Changed question'
+        self.assertNotEqual(pack_fingerprint(pack), pack_fingerprint(changed))
+
     def test_real_metadata_pack_is_draft_and_has_four_cases(self):
         pack = json.loads((ROOT/'research/priority-case-pack.json').read_text(encoding='utf-8'))
         result = validate_pack(pack)
