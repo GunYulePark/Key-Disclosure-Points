@@ -10,3 +10,7 @@
 - 기존 UI/기능·데이터·Pages/Actions·private Sites/D1 및 의존성 버전은 변경하지 않았다.
 
 기존 배포 이력/콘텐츠 변경은 기존 README와 Git history를 따른다. 이 기록 추가를 운영 배포 승인으로 해석하지 않는다.
+
+### 추가 재현 확인
+
+`67fc2bc`의 깨끗한 로컬 Git clone, 독립 Python venv/requirements 설치와 npm ci/lockfile 설치 후 30개 테스트·TS·빌드 통과. 기존 esbuild low advisory 1건을 발견해 STATUS/SECURITY/NEXT_TASK에 기록했으며 의존성/운영 환경은 변경하지 않았다. 실제 집 PC·중앙 DB 공유는 미검증이다.

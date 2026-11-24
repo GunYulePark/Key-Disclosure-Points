@@ -32,12 +32,18 @@
 | private Sites `tsc --noEmit --incremental false` | 통과 | 소스 형 검사만. Worker/메일 API/D1 재검증 아님 |
 | DB migration/RLS/advisors/Storage E2E | 미실행 | 개발 ref 미선정, CLI/Docker/psql 미확인 |
 | IndexedDB·remote D1 데이터 용량/내용 | 미조사 | 위치/schema만 확인, 실제 0건으로 보고하지 않음 |
-| 새 PC clean clone | 다음 검증 대기 | 운영 가이드 작성. clone에 legacy/private 소스 없음 |
+| 깨끗한 Git clone + 새 venv/npm ci | 통과 | 로컬 clone 67fc2bc에서 30개 테스트·TS·build 재현. 실제 집 PC/중앙 DB 공유 검증은 아님 |
 
 TASK 00 이후 구현이 필요한 항목: 중앙 연결·API/Auth/RLS·원본 Storage·실 DB 동시성/복원·좌표/표셀 Viewer·Advanced RAG·평가 정답/실행·승인 Rule Engine. 기존 Gemini는 조사 시 키 미등록이며 실응답 결과 0건이다.
 
 ## 파일/진행 기록 방법
 
-작업 종료마다 다음 문서와 마지막 개발 커밋을 갱신한다. 현재 세션 기록 커밋은 `git log --oneline --grep='TASK 00'`로 찾는다. root 문서는 Pages build에 복사되지 않으며 민감한 inventory/실제 private 프로젝트 식별자는 쓰지 않는다.
+작업 종료마다 다음 문서와 마지막 개발 커밋을 갱신한다. 첫 TASK 00 코드/설계 커밋은 `67fc2bc`다. 실제 DB migration ID는 아직 없다. 현재 세션 기록 커밋은 `git log --oneline --grep='TASK 00'`로 찾는다. root 문서는 Pages build에 복사되지 않으며 민감한 inventory/실제 private 프로젝트 식별자는 쓰지 않는다.
 
 다음 세션은 `NEXT_TASK.md`의 승인 경계부터 확인한다. 사용자 승인 없이 TASK 01 원격 작업을 진행하지 않는다.
+
+## 확인된 후속 점검
+
+깨끗한 clone의 `npm ci`/`npm audit --json`에서 기존 `esbuild 0.28.0`에 low 1건을 보고했다. advisory `GHSA-g7r4-m6w7-qqqr`, Windows development server 관련, audit가 제시한 수정 버전은 0.28.2다. 현재 코드의 esbuild 사용은 build API이며 배포 사이트가 즉시 영향받는다고 단정하지 않는다. 자동 `audit fix --force`는 하지 않았다. 승인 범위 내 후속 개발에서 패치 적용·회귀 테스트를 검토한다. 높은/중간 등급은 이번 audit 결과 0건이지만 전체 보안 검증 완료를 뜻하지 않는다.
+
+재현 도구: 현재 PC의 지원 런타임을 사용해 로컬 clone + 별도 Python venv + lockfile 설치로 확인했다. 임시 clone은 `.local/task00/clean-clone`에 남아 있고 커밋/이관 대상이 아니다. 다른 PC는 GitHub 개발 브랜치를 clone하고 `OPERATIONS.md`를 따라 설치한다.

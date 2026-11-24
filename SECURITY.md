@@ -34,3 +34,7 @@ TASK 00: 원격 프로젝트 목록·plan·public schema 메타데이터만 읽�
 - [Storage access control](https://supabase.com/docs/guides/storage/security/access-control)
 - [Private buckets](https://supabase.com/docs/guides/storage/buckets/fundamentals)
 - [CLI v3 변경](https://supabase.com/changelog/supabase-cli-v3): local 기본값/remote 대상/확인 절차 변경. 기존 CLI v2 예시를 그대로 실행하지 않는다.
+
+## 기존 의존성 audit
+
+2026-11-24 clean clone에서 npm audit: low 1건(esbuild 0.28.0, [GHSA-g7r4-m6w7-qqqr](https://github.com/advisories/GHSA-g7r4-m6w7-qqqr)). Windows 개발 서버 관련 advisory이며 자동 강제 수정 없이 기록했다. 현재 build API 사용과 advisory 적용 범위를 확인하고 후속 패치에서 회귀 검증한다. audit 결과만으로 전체 애플리케이션 보안 통과를 주장하지 않는다.
