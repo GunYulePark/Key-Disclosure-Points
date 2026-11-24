@@ -1,5 +1,7 @@
 # 아키텍처 및 TASK 00 진단
 
+TASK 01 최신 상태: 중앙 구축 및 TEST 조직 전용 무료 환경 생성은 사용자 승인됐으나 무료 활성 프로젝트 2개 한도로 신규 생성이 거절됐다. core migration/로컬 PostgreSQL 권한 검사와 개발 target 제한·원본 복원 도구를 준비했다. 실제 원격 프로젝트/DB/Storage는 미연결이며 `supabase/README.md`를 따른다. 아래 TASK 00 기록과 목표 구성을 원격 구축 완료로 해석하지 않는다.
+
 ## 기준 저장소와 기존 기능
 
 Git 기준 루트는 이 문서가 있는 `Key-Disclosure-Points`다. 기존 작업 환경에서는 상위 `github-pages/Key-Disclosure-Points`에 중첩돼 있었고, 작업 최상위 Git에는 추적 커밋·remote가 없었다. 요구사항 원본은 상위 파일을 해시 동일하게 복사해 이 저장소에 보관한다. 별도 private Sites 소스와 legacy 분석기/원본은 상위 폴더에만 있어 **현재 Git clone만으로 복구되지 않는다**. 이를 공개 저장소로 통째 복사하지 않는다.

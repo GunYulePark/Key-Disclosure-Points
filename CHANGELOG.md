@@ -1,5 +1,12 @@
 # 변경 기록
 
+## 2026-11-24 — TASK 01 core 로컬 구현과 생성 한도 확인
+
+- 사용자 승인으로 TEST 조직의 월 $0 전용 개발 프로젝트 생성을 시도했으나 계정 무료 active 2개 한도로 거절됐다. 다른 프로젝트/요금/운영은 변경하지 않았다.
+- CLI 3.3.0 생성 migration에 core 9개 테이블, tenant RLS/FK, 서버 전용 metadata 쓰기, 원본 불변·revision·ready 검증 및 private Storage 정책을 추가했다. DB/bucket 원격 적용은 하지 않았다.
+- offline plan·명시적 bucket 생성·인증된 원본 복원 도구와 target/키 노출/원본 손상·덮어쓰기 방지 테스트를 추가했다. Python 63개·PostgreSQL/WASM SQL 24개 통과; 76원본 약 27MB offline 확인.
+- 로컬 Auth/Storage fixture와 hosted 검증을 구분하고 환경 확보·이관/인증/백업/두 PC 검증을 다음 작업으로 기록했다. 원본·키·CLI 임시 파일은 Git에서 제외한다.
+
 ## 2026-11-24 — 집 PC 인수인계 안내
 
 - 개발 브랜치 받기·새 Codex 시작 문구·PC 전환 절차를 `HOME_PC_HANDOFF.md`에 정리하고 운영/상태/다음 작업 문서에 연결했다.

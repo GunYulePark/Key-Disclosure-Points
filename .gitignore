@@ -9,6 +9,8 @@ monitoring/evidence/
 __pycache__/
 
 .local/
+supabase/.temp/
+supabase/.branches/
 .venv/
 *.py[cod]
 *.pem

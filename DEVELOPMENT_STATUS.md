@@ -1,5 +1,13 @@
 # 개발 진행 상황
 
+## 2026-11-24 — TASK 01 로컬 구현 / 무료 프로젝트 생성 거절
+
+사용자가 중앙 DB/비공개 원본 저장소 구축 및 TEST 조직의 전용 Free 프로젝트 생성을 승인했다. 신규 비용은 월 $0 조회됐고 `key-disclosure-points-dev` 서울 리전 생성을 시도했으나 계정의 active Free 프로젝트 2개 한도로 Supabase가 거절했다. **원격 DB/bucket 생성·migration·자료 업로드는 0건**이다. 기존 프로젝트는 변경하지 않았다. 환경 확보 방식(다른 사용 가능한 개발 환경/사용자가 지정할 중지 가능한 기존 프로젝트/유료 비용 비교)을 질문했으며 답변을 확인해야 한다. 기존 구축 승인을 다시 요구하지 않는다.
+
+로컬 준비: Supabase CLI 3.3.0 help 확인·`migration new`로 core SQL 후보 생성, 9개 테이블/RLS·명시 권한·복합 FK·원본 identity 불변·revision·ready 차단·private Storage 정책 구현. `central_sync.py`는 기본 offline plan, 승인된 전용 개발 target/URL 제한, bucket 확인/명시 생성, 인증 reader의 manifest/원본/인용 위치 검증 복원을 제공한다. DB seed/ingestion 업로드 adapter·Auth bootstrap·실제 HTTP/권한/advisors·백업 복원·두 PC 검증은 아직 남아 있다.
+
+검증: Python 전체 **63/63 통과**(기존 52+동기화 도구 11). 최종 Python 수정 후 해당 11개 재검증 통과. PGlite PostgreSQL/WASM **24/24 SQL 검사 통과**(Auth/Storage는 fixture). 실제 로컬 76원본 **27,024,097 bytes**의 hash/길이·텍스트 위치를 offline 이관 계획에서 재확인했다. 네트워크 전송·승인 승격 없음. CLI 기본 local `migration list`는 stack 미기동으로 연결 거절됐고 hosted 성공으로 표시하지 않는다. 앱 dependency/운영 UI/Actions/배포는 변경하지 않았다. 재현·다음 명령은 `supabase/README.md`.
+
 ## 2026-11-24 — 집 PC 재개 안내
 
 `HOME_PC_HANDOFF.md`에 clone할 개발 브랜치, 새 세션 문구, PC 전환 절차와 실제 공유 범위를 기록했다. 기존 개발 커밋 `1993b69`의 원격 브랜치 일치를 확인했다. 코드·메타데이터는 GitHub로 재개할 수 있으나 76원본 약 27MB는 회사 PC 로컬에만 있다. 중앙 DB/Storage와 실제 집 PC 재현은 미검증이다. 연결된 무료 조직의 active 프로젝트 2개는 다른 업무용임을 재확인했으며 생성/연결/업로드/운영/배포는 하지 않았다. 문서 변경만으로 diff·문서 참조·workflow trigger를 확인하고 소스 테스트는 반복하지 않았다.

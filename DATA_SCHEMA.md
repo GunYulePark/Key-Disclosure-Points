@@ -1,6 +1,6 @@
 # 중앙 DB·원본 저장소 설계 초안
 
-상태: TASK 00 설계 / SQL 미적용 / 중앙 개발 프로젝트 미선정. TASK 01의 로컬 PostgreSQL 및 승인된 개발 DB에서 검증 후 migration을 확정한다.
+상태: TASK 01 core migration 후보·로컬 PostgreSQL/WASM 검증. 원격 SQL 미적용 / 중앙 개발 프로젝트 미선정(무료 2개 한도로 생성 거절). 실행 범위는 `supabase/README.md`와 migration을 기준으로 한다. 아래 ERD의 sections/chunks 등은 후속 설계이며 아직 구현하지 않았다. 초기 authenticated metadata 권한은 읽기 전용이고 쓰기/승인은 trusted server에 한정한다.
 
 ## 최소 ERD (TASK 01~02)
 
@@ -64,4 +64,4 @@ Storage와 PostgreSQL은 하나의 ACID transaction으로 묶이지 않는다. `
 4. 개발 DB 적용 전 advisors, PUBLIC/anon/authenticated 권한 및 workspace 간 접근 거부 테스트. 실 적용은 별도 승인.
 5. 문서 관계/근거 alias/샘플 ready 검증. 운영 migration은 TASK 10 승인 전 금지.
 
-현재 CLI·Docker·psql이 PATH에서 확인되지 않아 실제 migration 생성/DB 테스트는 수행하지 않았다. 임의 timestamp migration 파일을 만들지 않았다.
+TASK 00에서는 CLI·Docker·psql이 PATH에 없어 migration 미생성이었다. TASK 01에서 npm 경유 CLI 3.3.0 help를 확인하고 `migration new`로 파일을 생성했다. 로컬 PostgreSQL/WASM 검증은 추가됐으나 Docker Supabase stack/원격 migration list·advisors·Auth/Storage HTTP는 아직 검증하지 않았다.

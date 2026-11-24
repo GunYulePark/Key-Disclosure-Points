@@ -4,6 +4,8 @@
 
 현재 공유 범위·집 PC 재개 문구·원본 미공유 제약은 [HOME_PC_HANDOFF.md](HOME_PC_HANDOFF.md)를 먼저 확인한다.
 
+TASK 01 로컬 migration/SQL 검사·원본 plan/bucket/복원 명령은 [supabase/README.md](supabase/README.md)에 있다. 구축/TEST 조직 전용 Free 생성은 승인됐지만 active Free 2개 한도로 생성이 거절돼 환경 확보 답변을 기다린다. 원격 연결 성공으로 표시하지 않는다.
+
 아래는 저장소 루트에서 실행한다. Node 24.x(기존 Actions 기준), Python 3.12.x 권장. 런타임 버전을 설치한 뒤 먼저 `node --version`, `python --version`, `git --version`을 확인한다. `package-lock.json`과 `requirements.txt`를 유지한다.
 
 ```powershell
@@ -58,4 +60,4 @@ stdout은 집계만, 상세 파일/샘플 경로는 `.local/task00/`에 저장�
 
 ## 다음 세션 시작 문구
 
-> PROJECT_REQUIREMENTS.md, AGENTS.md, ROADMAP.md, DEVELOPMENT_STATUS.md, NEXT_TASK.md를 읽고 현재 브랜치와 승인된 개발 환경을 확인해라. TASK 01 승인이 없거나 개발 프로젝트가 미선정이면 로컬 설계/fixture 작업까지만 진행해라. 원본·기존 ID·현재 운영을 보존하고 비공개 자료·holdout·Secret을 노출하지 마라. 작업 결과와 다음 단계를 MD에 기록해라.
+> PROJECT_REQUIREMENTS.md, AGENTS.md, ROADMAP.md, DEVELOPMENT_STATUS.md, NEXT_TASK.md와 supabase/README.md를 읽고 현재 브랜치와 승인된 개발 환경을 확인해라. TASK 01 구축/TEST 조직 전용 Free 생성은 승인됐지만 한도로 생성이 거절됐다. 환경 확보 질문의 답변부터 확인하고 기존 구축 승인을 다시 묻지 마라. 대상 미선정이면 로컬 준비만 진행하고, 원본·기존 ID·현재 운영을 보존하며 비공개 자료·holdout·Secret을 노출하지 마라. 작업 결과와 다음 단계를 MD에 기록해라.
