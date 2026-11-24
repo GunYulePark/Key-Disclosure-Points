@@ -1,3 +1,5 @@
+> **2.0 개발 재개:** [요구사항](PROJECT_REQUIREMENTS.md) → [작업 규칙](AGENTS.md) → [현재 상태](DEVELOPMENT_STATUS.md) → [다음 TASK](NEXT_TASK.md). 회사·집 설치 및 환경설정은 [OPERATIONS.md](OPERATIONS.md). 현재 중앙 개발 DB는 미연결이며 TASK 00 설계 단계입니다. main push는 배포를 유발하므로 승인 전에는 개발 브랜치만 사용합니다.
+
 # 공시 검토실 · Key Disclosure Points
 
 종근당·종근당홀딩스·경보제약의 공시 변경사항, 점검 포인트와 공식 원문 근거를 공개 열람하는 사이트입니다.
