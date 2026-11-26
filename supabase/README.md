@@ -2,7 +2,7 @@
 
 2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 월 $0으로 생성했다. 전용 개발 DB/core 9개 테이블·RLS·Storage SELECT/INSERT 정책·workspace 1개와 FK 인덱스 적용/검증 완료. 실제 ref/UUID는 공개 문서에 기록하지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 보관한다. 기존 계정의 11월 24일 생성 한도 실패는 과거 기록이다.
 
-Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들었다. 원격 SQL로 `public=false`, 10MiB 제한, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 버킷 메타데이터 요청은 HTTP 400 `Bucket not found`를 반환했다. 원본과 프로젝트 Auth 사용자·membership은 각각 0개다.
+Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들었다. 원격 SQL로 `public=false`, 10MiB 제한, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 버킷 메타데이터 요청은 HTTP 400 `Bucket not found`를 반환했다. 원본 객체는 0개다. 프로젝트 Auth 사용자 1개를 승인 workspace에 `viewer`로 등록했다. 원격 SQL에서 해당 사용자의 승인 workspace 조회와 쓰기 제한을 확인했다. 실제 Auth 로그인과 Storage 원본 접근 검증이 남아 있다.
 
 ## 원격 적용 및 검증 이력
 
@@ -22,7 +22,7 @@ advisors: security/health 0, performance FK 누락 1건은 전체 복합 인덱�
 - CLI 3.3.0의 `migration new kdp_central_core`로 생성한 core migration: workspaces/members, sources, documents/versions/files, evidence, legacy map, ingestion jobs의 9개 테이블.
 - workspace 복합 FK·인덱스, RLS/명시 GRANT, 관리자만 membership/승인 변경, 원본 identity 불변, revision 증가·조건 갱신, 미검증 원본·근거의 ready 전환 차단.
 - 비공개 Storage SELECT/INSERT 정책. 검증된 파일만 읽고, 승인된 사전 등록 경로만 editor가 업로드할 수 있다. 사용자 UPDATE/DELETE/upsert는 허용하지 않는다. 버킷은 SQL insert 대신 Storage API로 생성한다.
-- `central_sync.py`: 기본 offline plan, 승인된 전용 개발 target 검사, 비공개 bucket 확인/명시 생성, 인증된 reader로 DB manifest와 원본 hash/길이·인용 위치를 대조한 복원. 개발 workspace bootstrap만 수행했다. 업로드·자료 DB seed/import·Auth membership bootstrap은 아직 구현/실행하지 않았다.
+- `central_sync.py`: 기본 offline plan, 승인된 전용 개발 target 검사, 비공개 bucket 확인/명시 생성, 인증된 reader로 DB manifest와 원본 hash/길이·인용 위치를 대조한 복원. 개발 workspace와 첫 viewer membership을 구성했다. 업로드와 자료 DB seed/import는 미완료다.
 - metadata는 authenticated workspace member의 읽기만 허용한다. 초기 수집/승인 쓰기는 서버 전용이다. 화면 편집·API·회원 가입/로그인 흐름은 이번 core에 포함되지 않는다.
 
 ## 재현 가능한 로컬 검증

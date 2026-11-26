@@ -1,5 +1,9 @@
 # 변경 기록
 
+## 2026-11-26 — 개발 프로젝트 Auth의 workspace 읽기 권한 등록
+
+- 사용자가 만든 프로젝트 Auth 계정에 승인 workspace의 `viewer` 권한을 등록했다. 원격 SQL에서 읽기 허용과 쓰기 제한을 확인했다.
+
 ## 2026-11-26 — 집 PC 개발 DB 연결 확인 명령
 
 - 개발자가 프로젝트 Auth로 로그인해 승인 workspace의 역할과 DB 읽기를 확인할 수 있도록 `central_sync.py check`와 집 PC 설정 절차를 추가했다.

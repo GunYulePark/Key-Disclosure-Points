@@ -4,9 +4,9 @@
 
 2026-11-26: 추가 연결 계정에서 사용자 지정 조직의 Free/프로젝트 0개·월 $0을 확인하고 서울 `key-disclosure-points-dev`를 생성했다. 전용 DB `ACTIVE_HEALTHY`, core 9개 테이블/RLS·Storage 정책, workspace 1개와 FK 보완 인덱스까지 적용했다. 기존 구축/조직 승인을 다시 묻거나 다른 프로젝트를 중지·재사용·삭제하지 않는다. 실제 account/ref/workspace는 공개 MD에 쓰지 않으며 이 PC의 `.local/task01/approved-target.json`, `cloud-state.json`을 확인한다. 다른 PC에 이 ignored 파일과 credential은 자동 복제되지 않는다.
 
-Supabase 대시보드에서 `kdp-dev-originals`를 생성했다. 원격 SQL로 `public=false`, 10MiB, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 정책 2개를 확인했다. 익명 Storage HTTP 요청은 버킷 메타데이터를 받지 못했다. 다음 단계에서 프로젝트 Auth 사용자와 workspace membership을 구성하고 실제 JWT로 원본 접근을 검증한다.
+Supabase 대시보드에서 `kdp-dev-originals`를 생성했다. 원격 SQL로 `public=false`, 10MiB, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 정책 2개를 확인했다. 익명 Storage HTTP 요청은 버킷 메타데이터를 받지 못했다. 프로젝트 Auth 계정 1개의 `viewer` membership을 등록하고 원격 SQL에서 승인 workspace 조회와 쓰기 제한을 확인했다. 다음 단계는 실제 로그인 세션으로 `central_sync.py check`를 실행하고 이관 후 원본 접근을 검증하는 것이다.
 
-hosted migration 두 개, SQL rollback 검사 15개, 익명 REST 401/42501, PGlite 26개·Python 63개 통과. 보안/health 지적 0, performance 미사용 인덱스 INFO 4. **비공개 버킷 1개를 생성했다. Auth 사용자·문서·객체는 0개다.** 서버 ingestion·실자료 upload·backup/restore·다중 PC 조회·TASK 01 전체 완료는 미검증이다. SQL 실행 순서/이력은 `supabase/README.md`.
+hosted migration 두 개, SQL rollback 검사 15개, 익명 REST 401/42501, PGlite 26개·Python 63개 통과. 보안/health 지적 0, performance 미사용 인덱스 INFO 4. **비공개 버킷, 프로젝트 Auth 사용자, viewer membership을 각각 1개 확인했다. 문서와 원본 객체는 0개다.** 서버 ingestion·실자료 upload·backup/restore·다중 PC 조회·TASK 01 전체 완료는 미검증이다. SQL 실행 순서/이력은 `supabase/README.md`.
 
 11월 24일 기존 계정 Free 2개 한도로 실패했던 기록은 과거 이력이다. 76원본 약 27MB의 offline 검증은 원격 이전이 아니다. 출처별 보관 권리·승인 샘플 범위 확인을 건너뛰지 않는다. 집 PC는 먼저 `HOME_PC_HANDOFF.md`를 읽고 코드 clone과 원본/credential 공유를 구분한다.
 
@@ -60,7 +60,8 @@ Get-Content DEVELOPMENT_STATUS.md
 - [x] 실제 개발 Supabase에 core와 인덱스 migration 적용, hosted SQL 15개/익명 REST 거부·advisors 검증.
 - [x] 비공개 버킷 생성, 파일 제한·정책과 익명 버킷 메타데이터 미노출 확인.
 - [x] 개발 브랜치를 별도 폴더에 GitHub에서 새로 clone하고 집 PC용 Auth/workspace 연결 확인 명령을 준비했다.
-- [ ] 개발자가 프로젝트 Auth 계정을 만든 뒤 trusted administrator가 승인 workspace membership을 등록하고 `central_sync.py check`를 실제 계정으로 실행한다.
+- [x] 프로젝트 Auth 계정과 승인 workspace의 viewer membership을 등록하고 원격 SQL에서 읽기 허용·쓰기 제한 확인.
+- [ ] 프로젝트 Auth 로그인으로 `central_sync.py check`를 실행하고 집 PC에서도 같은 workspace를 조회.
 - [ ] 실제 Auth/Storage API의 member 허용·anon/다른 workspace 원본 접근 거부.
 - [x] trusted membership, workspace 복합 FK, revision 조건 갱신/증가, sources/documents/versions/files/legacy map/jobs와 Storage INSERT/SELECT SQL 구현·로컬 검사.
 - [ ] `central_sync.py`의 기본 offline plan/target 제한/bucket/reader 복원에 더해 멱등 DB seed·승인 자료 server ingestion/upload adapter를 구현·실 검증한다. 기존 `central_contract.py`는 순수 함수로 유지한다.

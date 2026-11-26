@@ -1,5 +1,9 @@
 # 개발 진행 상황
 
+## 2026-11-26 — 개발 Auth 계정 및 workspace 읽기 권한 등록
+
+사용자가 만든 개발 프로젝트 Auth 계정의 이메일 확인 상태를 대조해 승인 workspace에 `viewer`를 등록했다. 해당 사용자의 인증 컨텍스트를 적용한 원격 SQL 검사에서 승인 workspace 1개 조회, 비대상 workspace 조회 제한, 쓰기 및 테이블 수정 제한을 확인했다. 검증 당시 실제 로그인 세션과 버킷 원본은 각각 0개다. 다음은 해당 프로젝트 계정으로 `central_sync.py check`를 실행하는 단계다.
+
 ## 2026-11-26 — 집 PC 개발 연결 준비
 
 회사 PC의 별도 폴더에 GitHub 개발 브랜치를 새로 복제했다. Supabase 연결에서 서울 개발 프로젝트 정상 상태, workspace 1개, Auth 사용자·membership·원본 객체 각각 0개를 확인했다. `central_sync.py check`는 프로젝트 Auth 세션과 승인 workspace 읽기를 검사한다. Python 65개 테스트에서 로그인 요청과 회원·비회원 응답을 fixture로 검증했다. 집 PC 전체 설정은 `HOME_PC_HANDOFF.md`에 기록했다. 실제 Auth 사용자 등록, 인증된 원본 접근과 물리적인 집 PC 검증이 남아 있다.

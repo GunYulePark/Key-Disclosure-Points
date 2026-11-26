@@ -9,7 +9,7 @@
 | 코드·요구사항·진행 기록·검토 결과·테스트·연구 메타데이터 | Git clone으로 확보 가능 |
 | 최신 사례 결과 | `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json` |
 | 조사 원본 76개, 27,024,097 bytes | 회사 PC의 ignored `.local/case-research/originals/`에만 있음. clone에 없음 |
-| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성·검증 완료. Auth·원본 이관·두 PC 공유 검증 예정 |
+| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성 완료. 프로젝트 Auth 계정에 viewer 등록. 실제 로그인과 원본 이관·두 PC 조회 검증 예정 |
 | 환경변수·인증·API 키·브라우저 개인 업로드 | Git으로 공유하지 않음. 집 PC에서 필요한 연결을 별도 설정 |
 | 저장소 밖 legacy/private Sites 소스·로컬 데이터 | 이 저장소의 clone에 포함되지 않음 |
 
@@ -43,7 +43,7 @@ git log -1 --oneline
 
 ### 집 PC에서 개발 DB 연결 확인
 
-1. Supabase 대시보드에서 기존 `key-disclosure-points-dev`를 열어 Project URL과 publishable key를 확인한다. 대시보드에서 같은 DB의 테이블을 조회할 수 있다. 앱 수준 조회에는 해당 프로젝트의 Auth 사용자와 workspace membership이 필요하다.
+1. Supabase 대시보드에서 기존 `key-disclosure-points-dev`를 열어 Project URL과 publishable key를 확인한다. 대시보드에서 같은 DB의 테이블을 조회할 수 있다. 앱 수준 조회에는 개발 프로젝트에서 만든 Auth 계정을 사용한다. 해당 계정의 workspace 역할은 `viewer`다.
 2. 회사 PC의 `.local/task01/approved-target.json`을 승인된 경로로 집 PC의 같은 위치에 복사한다. 이 파일에는 대상 식별자만 들어 있다. 파일을 복사할 수 없으면 프로젝트 관리자에게 승인된 ref와 workspace UUID를 받아 `supabase/README.md`의 형식으로 작성한다.
 3. 집 PC의 PowerShell에서 아래 명령을 실행한다. 표시된 placeholder에는 개발 프로젝트의 publishable key를 넣고, 로그인 프롬프트에는 프로젝트 Auth 사용자가 직접 입력한다.
 
