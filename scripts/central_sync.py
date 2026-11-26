@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import getpass
+import hashlib
 import json
 import os
 import re
@@ -150,6 +151,16 @@ class Client:
         if not isinstance(token, str) or not token:
             raise SyncError('auth_session_not_available')
         self.token = token
+        return response.get('expires_in')
+
+    def download_original(self, source):
+        """Read with the current user's Storage policies and verify bytes."""
+        item = identity(source, self.workspace)
+        raw = self.request('/storage/v1/object/authenticated/' + BUCKET + '/'
+                           + quote(item['object_path'], safe='/'))
+        if len(raw) != source['bytes'] or hashlib.sha256(raw).hexdigest() != source['sha256']:
+            raise ValueError('original_hash_or_size_mismatch')
+        return raw
 
     def check_workspace(self):
         user = self.json('/auth/v1/user')
@@ -207,8 +218,7 @@ class Client:
                         'byte_length': item['bytes'], 'verification_status': 'verified'}
             if expected not in rows:
                 raise SyncError('verified_file_manifest_not_available')
-            raw = self.request('/storage/v1/object/authenticated/' + BUCKET + '/'
-                               + quote(item['object_path'], safe='/'))
+            raw = self.download_original(source)
             verify_source(source, raw)
             # Exclusive create preserves concurrent workers and existing bytes.
             # Each retry verifies the cached file; partial writes cannot pass.

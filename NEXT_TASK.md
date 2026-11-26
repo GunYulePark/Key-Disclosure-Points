@@ -2,13 +2,15 @@
 
 ## 현재 우선 작업 — 집 PC 복원과 후속 원본 이관
 
-2026-11-27 회사 PC의 실제 Auth 복원 성공. 승인 workspace에 `viewer`로 접근해 빈 폴더로 법령 2개(679,729바이트)를 복원하고 SHA-256·인용 4개·공개 접근 거부 2개를 확인했다. 이 PC의 결과는 ignored `.local/task01/viewer-restore-check.json`에 있다. 성공 후 동일한 임시 URL이 연결 거부로 표시되는 것은 로컬 검사 서버 종료 때문이다. 남은 작업은 [집 PC 인수인계](HOME_PC_HANDOFF.md)에 따라 독립된 집 PC에서 같은 복원을 확인하고, 뷰어에서 인증해 Supabase 원본을 읽도록 연결하는 것이다.
+2026-11-27 [원문 뷰어 Supabase 모드](EVIDENCE_VIEWER.md#supabase-원본-직접-열기)를 구현했다. 회사 PC의 `http://127.0.0.1:8768/`에서 시작하며 개발 프로젝트 Auth 계정으로 로그인한다. 실제 전용 프로젝트 DB에서 이관된 원본 2개와 인용 4개를 읽기 전용으로 다시 확인했다. 뷰어의 실제 사용자 세션 검증과 집 PC 재현을 이어간다. 이후 작업은 구조화 좌표의 DB 저장과 버전 대조·검토 메모다.
+
+2026-11-27 회사 PC의 실제 Auth 복원 성공. 승인 workspace에 `viewer`로 접근해 빈 폴더로 법령 2개(679,729바이트)를 복원하고 SHA-256·인용 4개·공개 접근 거부 2개를 확인했다. 이 PC의 결과는 ignored `.local/task01/viewer-restore-check.json`에 있다. 성공 후 동일한 임시 URL이 연결 거부로 표시되는 것은 로컬 검사 서버 종료 때문이다. [집 PC 인수인계](HOME_PC_HANDOFF.md)에 따라 독립된 집 PC에서 같은 복원을 확인한다.
 
 브라우저 검사 서버를 재시작한 뒤에는 `/verify`를 새로고침하지 말고 `http://127.0.0.1:8767/`에서 새 양식을 연다. 기존 Chromium 403은 로컬 양식의 Origin 검사에서 발생했고 수정했다. 실제 Auth/원본 단계의 오류는 화면에 표시된 단계명으로 구분한다.
 
 이 주소는 같은 PC에서 검사 스크립트가 실행되는 동안 활성화된다. `verify_original_restore.py`의 기본 대기 시간은 20분이며 `--wait-minutes 120`으로 늘릴 수 있다. 검사 페이지가 닫혀 있으면 스크립트를 다시 실행하거나 [집 PC 인수인계](HOME_PC_HANDOFF.md)의 PowerShell 직접 복원을 사용한다.
 
-[로컬 원문 뷰어](EVIDENCE_VIEWER.md)는 구현·브라우저 검증했다. TASK 02 다음 개발 범위는 인증된 서버 연결·DB 구조화 위치 저장·버전 대조와 검토/메모다. [74개 권리 검토 기록](research/original-retention-review.json)의 각 SHA는 보류 상태다. 새 근거(해당 파일의 이용표시, 실제 권리자의 허락 또는 범위가 명확한 별도 API 응답)가 확인된 항목만 이관 순서에 올린다.
+[74개 권리 검토 기록](research/original-retention-review.json)의 각 SHA는 보류 상태다. 새 근거(해당 파일의 이용표시, 실제 권리자의 허락 또는 범위가 명확한 별도 API 응답)가 확인된 항목만 이관 순서에 올린다.
 
 2026-11-26: 추가 연결 계정에서 사용자 지정 조직의 Free/프로젝트 0개·월 $0을 확인하고 서울 `key-disclosure-points-dev`를 생성했다. 전용 DB `ACTIVE_HEALTHY`, core 9개 테이블/RLS·Storage 정책, workspace 1개와 FK 보완 인덱스까지 적용했다. 기존 구축/조직 승인을 다시 묻거나 다른 프로젝트를 중지·재사용·삭제하지 않는다. 실제 account/ref/workspace는 공개 MD에 쓰지 않으며 이 PC의 `.local/task01/approved-target.json`, `cloud-state.json`을 확인한다. 다른 PC에 이 ignored 파일과 credential은 자동 복제되지 않는다.
 

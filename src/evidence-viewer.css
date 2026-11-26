@@ -16,6 +16,18 @@ a { color: #145d82; }
 .ev-brand { display: flex; align-items: center; gap: 8px; color: #526b7b; font-weight: 700; }
 .ev-top h1 { margin: 0 auto 0 0; font-size: 1.7rem; letter-spacing: -.04em; }
 .ev-mode { color: #375e70; font-size: .78rem; border: 1px solid #b9cbd4; padding: 4px 8px; white-space: nowrap; }
+.ev-session-button { color: #f9fcff; background: #203f56; border: 1px solid #203f56; border-radius: 2px;
+  padding: 6px 10px; cursor: pointer; white-space: nowrap; }
+.ev-session-button:not(:disabled):hover { background: #2f5a72; }
+.ev-session-button:disabled { opacity: .58; }
+.ev-signin { margin: 24px 0; max-width: 460px; padding: 24px; background: white; border: 1px solid #cad7df; }
+.ev-signin h2 { margin: 0 0 10px; font-size: 1.36rem; }
+.ev-signin p { margin: 0 0 20px; color: #4d687a; }
+.ev-signin form { display: grid; gap: 12px; }
+.ev-signin label { display: grid; gap: 5px; font-weight: 600; }
+.ev-signin input { width: 100%; padding: 7px; border: 1px solid #b8cad5; font-weight: 400; }
+.ev-signin form button { justify-self: start; margin-top: 3px; }
+.ev-signin .ev-signin-error { color: #812d20; margin: 14px 0 0; }
 .ev-layout { display: grid; grid-template-columns: minmax(220px, 290px) minmax(0, 1fr); margin-top: 18px; gap: 14px; }
 .ev-sidebar, .ev-document { align-self: start; min-width: 0; background: #fff; border: 1px solid #d0dbe2; }
 .ev-sidebar { align-self: start; padding: 14px; }

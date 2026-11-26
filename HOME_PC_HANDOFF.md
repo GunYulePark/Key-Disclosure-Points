@@ -69,6 +69,8 @@ $env:SUPABASE_DEV_PUBLISHABLE_KEY = '<development-publishable-key>'
 
 복원한 원본은 [원문 검토 로컬 미리보기](EVIDENCE_VIEWER.md)에서 바로 열 수 있다. 로컬 미리보기 서버는 캐시를 읽으므로 두 파일을 Supabase에서 받은 뒤 시작한다. 원격 복원 여부를 별도로 증명하려면 새로운 빈 캐시 폴더로 두 파일을 받거나, `verify_original_restore.py`에서 임시 빈 폴더를 사용하는 인증 검사를 실행한다.
 
+화면에서 원본을 읽기만 할 때는 위와 같은 개발 환경변수로 [Supabase 원본 모드](EVIDENCE_VIEWER.md#supabase-원본-직접-열기)를 실행하면 된다. Auth 로그인 후 필요한 원본을 서버에서 직접 읽는다. 집 PC의 직접 읽기와 빈 폴더 복원은 각각 확인한다.
+
 2026-11-27 회사 PC에서는 임시 검사로 원본 2개·679,729바이트, 인용 4개, 공개 접근 거부 2개를 확인했다. 임시 검사 서버는 성공 결과를 저장하면 종료한다. 주소가 이후 열리지 않아도 `.local/task01/viewer-restore-check.json`에서 검증 결과를 확인할 수 있다. 이 결과는 집 PC에서의 검증과 별개다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.

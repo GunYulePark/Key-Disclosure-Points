@@ -1,4 +1,4 @@
-import {createElement, useEffect, useRef, useState, type ReactNode} from 'react';
+import {createElement, useCallback, useEffect, useRef, useState, type FormEvent, type ReactNode} from 'react';
 import {createRoot} from 'react-dom/client';
 import {ArrowDownToLine, ExternalLink, FileSearch, RotateCw, Search} from 'lucide-react';
 import type {PDFDocumentProxy} from 'pdfjs-dist';
@@ -6,6 +6,7 @@ import './evidence-viewer.css';
 
 type Anchor = {id: string; label: string; page?: number; kind: 'visual' | 'text'};
 type Source = {id: string; version_id: string; title: string; version_label: string; format: string; anchors: Anchor[]};
+type ViewerSession = {mode: 'cache'; signed_in: true} | {mode: 'supabase'; signed_in: boolean; csrf: string};
 type InertNode = {text: string; marked?: boolean} |
   {tag: string; id?: string; children: InertNode[]; rowspan?: number; colspan?: number};
 type Meta = {source_id: string; version_id: string; anchor_id: string; title: string; sha256: string;
@@ -23,6 +24,11 @@ const message: Record<string, string> = {
   original_unavailable: '이 원본이 이 PC에 없습니다. 복원한 뒤 다시 열어주세요.',
   version_or_anchor_not_found: '이 문서 버전에 해당 근거가 없습니다.',
   original_or_anchor_verification_failed: '원본의 해시 또는 인용 위치가 일치하지 않습니다.',
+  cloud_request_failed: 'Supabase에 연결하지 못했습니다. 잠시 뒤 다시 시도하세요.',
+  workspace_access_denied: '이 계정에는 개발 작업공간 접근 권한이 없습니다.',
+  auth_signin_failed: '개발 프로젝트 Auth 이메일과 비밀번호를 확인하세요.',
+  invalid_login_form: '이메일과 비밀번호를 입력하세요.',
+  local_origin_required: '브라우저에서 이 페이지를 다시 연 뒤 시도하세요.',
 };
 
 function readRoute() {
@@ -37,8 +43,8 @@ function linkTo(version: string, anchor: string) {
   return '#viewer/' + encodeURIComponent(version) + '/' + encodeURIComponent(anchor);
 }
 
-async function json<T>(path: string, signal: AbortSignal): Promise<T> {
-  const response = await fetch(path, {signal});
+async function json<T>(path: string, options: RequestInit): Promise<T> {
+  const response = await fetch(path, options);
   const body = await response.json();
   if (!response.ok) throw new Error(body.error || 'request_failed');
   return body as T;
@@ -182,29 +188,39 @@ function PdfDocument({data}: {data: Extract<Evidence, {kind: 'pdf'}>}) {
   </div>;
 }
 
-function EvidenceApp() {
+function EvidenceApp({cloud, onAuthRequired, onLogout}: {
+  cloud: boolean; onAuthRequired: () => void; onLogout: () => Promise<void>;
+}) {
   const [sources, setSources] = useState<Source[]>([]);
   const [route, setRoute] = useState(readRoute);
   const [data, setData] = useState<Evidence | null>(null);
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
   const [catalogError, setCatalogError] = useState(false);
+  const [catalogReady, setCatalogReady] = useState(false);
+  const [logoutPending, setLogoutPending] = useState(false);
+  const [logoutError, setLogoutError] = useState(false);
   const navigation = useRef<HTMLElement>(null);
   useEffect(() => {
     const controller = new AbortController();
     const onHash = () => setRoute(readRoute());
     window.addEventListener('hashchange', onHash);
-    json<{sources: Source[]}>('/api/catalog', controller.signal).then(result => {
+    json<{sources: Source[]}>('/api/catalog', {signal: controller.signal}).then(result => {
       setSources(result.sources);
+      setCatalogReady(true);
       const initial = result.sources.find(s => s.id === 'commercial-decree-33') || result.sources[0];
       if (initial && !window.location.hash) {
         const anchor = initial.anchors.find(item => item.id === 'commercial-decree-33:2') || initial.anchors[0];
         history.replaceState(null, '', linkTo(initial.version_id, anchor.id));
         onHash();
       }
-    }).catch(() => {if (!controller.signal.aborted) setCatalogError(true);});
+    }).catch((error: Error) => {
+      if (controller.signal.aborted) return;
+      if (cloud && error.message === 'auth_required') onAuthRequired();
+      else setCatalogError(true);
+    });
     return () => {controller.abort(); window.removeEventListener('hashchange', onHash);};
-  }, []);
+  }, [cloud, onAuthRequired]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -212,12 +228,15 @@ function EvidenceApp() {
     setError('');
     if (route) {
       json<Evidence>('/api/evidence/' + encodeURIComponent(route.version) + '/' + encodeURIComponent(route.anchor),
-        controller.signal).then(setData).catch((error: Error) => {
-          if (!controller.signal.aborted) setError(message[error.message] || '원문을 여는 중 오류가 발생했습니다.');
+        {signal: controller.signal}).then(setData).catch((error: Error) => {
+          if (controller.signal.aborted) return;
+          if (cloud && error.message === 'auth_required') onAuthRequired();
+          else if (cloud && error.message === 'original_unavailable') setError('이 원본은 비공개 저장소에서 열 수 없습니다.');
+          else setError(message[error.message] || '원문을 여는 중 오류가 발생했습니다.');
         });
     }
     return () => controller.abort();
-  }, [route]);
+  }, [route, cloud, onAuthRequired]);
 
   const selected = sources.find(s => s.version_id === route?.version);
   useEffect(() => {
@@ -225,9 +244,19 @@ function EvidenceApp() {
       navigation.current?.querySelector('[aria-current=location]') || null);
   }, [sources, route, query]);
   const filtered = sources.filter(s => `${s.title} ${s.version_label} ${s.id}`.toLowerCase().includes(query.trim().toLowerCase()));
+  async function signOut() {
+    setLogoutPending(true);
+    setLogoutError(false);
+    try {await onLogout();}
+    catch {setLogoutError(true);}
+    finally {setLogoutPending(false);}
+  }
   return <main className="ev-app">
     <header className="ev-top"><div className="ev-brand"><FileSearch size={23} aria-hidden/><span>공시 검토실</span></div>
-      <h1>원문 검토</h1><span className="ev-mode">개발 미리보기</span></header>
+      <h1>원문 검토</h1><span className="ev-mode">{cloud ? 'Supabase 원본' : '개발 미리보기'}</span>
+      {cloud && <button className="ev-session-button" disabled={logoutPending} onClick={() => void signOut()}>로그아웃</button>}
+    </header>
+    {logoutError && <p className="ev-notice" role="alert">로그아웃하지 못했습니다. 다시 시도하세요.</p>}
     <div className="ev-layout">
       <aside className="ev-sidebar" aria-label="문서와 근거">
         <div className="ev-side-head"><h2>문서</h2><span>{sources.length}개</span></div>
@@ -248,7 +277,9 @@ function EvidenceApp() {
                 {anchor.page && <span>{anchor.page}쪽</span>}{anchor.label}
               </a></li>)}</ul>}
           </div>)}
-          {!filtered.length && !catalogError && <p>{sources.length ? '검색 결과가 없습니다.' : '목록을 읽는 중…'}</p>}
+          {!filtered.length && !catalogError && <p>{
+            !catalogReady ? '목록을 읽는 중…' : sources.length ? '검색 결과가 없습니다.' : '열 수 있는 원본이 없습니다.'
+          }</p>}
         </nav>
       </aside>
       <section className="ev-document" aria-label="선택한 원문">
@@ -282,4 +313,69 @@ function EvidenceApp() {
   </main>;
 }
 
-createRoot(document.getElementById('evidence-root')!).render(<EvidenceApp/>);
+function SignIn({csrf, completed}: {csrf: string; completed: (value: ViewerSession) => void}) {
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState('');
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const fields = new FormData(form);
+    setPending(true);
+    setError('');
+    try {
+      const session = await json<ViewerSession>('/api/session', {
+        method: 'POST', headers: {'Content-Type': 'application/json', 'X-KDP-CSRF': csrf},
+        body: JSON.stringify({email: fields.get('email'), password: fields.get('password')}),
+      });
+      form.reset();
+      completed(session);
+    } catch (cause) {
+      const password = form.elements.namedItem('password');
+      if (password instanceof HTMLInputElement) password.value = '';
+      setError(message[(cause as Error).message] || '로그인하지 못했습니다.');
+    } finally {setPending(false);}
+  }
+  return <main className="ev-app">
+    <header className="ev-top"><div className="ev-brand"><FileSearch size={23} aria-hidden/><span>공시 검토실</span></div>
+      <h1>원문 검토</h1><span className="ev-mode">Supabase 원본</span></header>
+    <section className="ev-signin" aria-labelledby="ev-signin-title">
+      <h2 id="ev-signin-title">프로젝트 Auth 로그인</h2>
+      <p>개발 프로젝트에 등록한 계정으로 비공개 원본을 엽니다.</p>
+      <form onSubmit={e => void submit(e)}>
+        <label>이메일<input name="email" type="email" required autoComplete="username"/></label>
+        <label>비밀번호<input name="password" type="password" required autoComplete="current-password"/></label>
+        <button className="ev-session-button" type="submit" disabled={pending}>{pending ? '확인 중…' : '로그인'}</button>
+      </form>
+      {error && <p className="ev-signin-error" role="alert">{error}</p>}
+    </section>
+  </main>;
+}
+
+function ViewerRoot() {
+  const [session, setSession] = useState<ViewerSession | null>(null);
+  const [unavailable, setUnavailable] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    json<ViewerSession>('/api/session', {signal: controller.signal}).then(setSession)
+      .catch(() => {if (!controller.signal.aborted) setUnavailable(true);});
+    return () => controller.abort();
+  }, []);
+  const requireLogin = useCallback(() => {
+    setSession(current => current?.mode === 'supabase' ? {...current, signed_in: false} : current);
+  }, []);
+  async function logout() {
+    if (session?.mode === 'supabase') {
+      setSession(await json<ViewerSession>('/api/session/logout', {
+        method: 'POST', headers: {'X-KDP-CSRF': session.csrf},
+      }));
+    }
+  }
+  if (!session) return <p className="ev-notice" role={unavailable ? 'alert' : 'status'}>
+    {unavailable ? '원문 검토 서버에 연결하지 못했습니다.' : '원문 검토 여는 중…'}</p>;
+  if (session.mode === 'supabase' && !session.signed_in) {
+    return <SignIn csrf={session.csrf} completed={setSession}/>;
+  }
+  return <EvidenceApp cloud={session.mode === 'supabase'} onAuthRequired={requireLogin} onLogout={logout}/>;
+}
+
+createRoot(document.getElementById('evidence-root')!).render(<ViewerRoot/>);
