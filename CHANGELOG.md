@@ -1,5 +1,10 @@
 # 변경 기록
 
+## 2026-11-26 — 집 PC 개발 DB 연결 확인 명령
+
+- 개발자가 프로젝트 Auth로 로그인해 승인 workspace의 역할과 DB 읽기를 확인할 수 있도록 `central_sync.py check`와 집 PC 설정 절차를 추가했다.
+- GitHub 개발 브랜치의 새 clone과 Python 65개 테스트를 확인했다. 실제 개발자 계정과 집 PC 검증이 남아 있다.
+
 ## 2026-11-26 — 비공개 원본 버킷 생성
 
 - `kdp-dev-originals` 생성 후 비공개 설정, 10MiB 제한, MIME 4종과 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 요청은 버킷 메타데이터를 받지 못했다.

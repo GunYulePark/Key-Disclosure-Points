@@ -59,6 +59,8 @@ Get-Content DEVELOPMENT_STATUS.md
 - [x] 사용자 지정 추가 연결 조직의 Free·월 $0·빈 전용 개발 ref·health와 사용량 확인. 실제 식별자는 ignored 승인 기록.
 - [x] 실제 개발 Supabase에 core와 인덱스 migration 적용, hosted SQL 15개/익명 REST 거부·advisors 검증.
 - [x] 비공개 버킷 생성, 파일 제한·정책과 익명 버킷 메타데이터 미노출 확인.
+- [x] 개발 브랜치를 별도 폴더에 GitHub에서 새로 clone하고 집 PC용 Auth/workspace 연결 확인 명령을 준비했다.
+- [ ] 개발자가 프로젝트 Auth 계정을 만든 뒤 trusted administrator가 승인 workspace membership을 등록하고 `central_sync.py check`를 실제 계정으로 실행한다.
 - [ ] 실제 Auth/Storage API의 member 허용·anon/다른 workspace 원본 접근 거부.
 - [x] trusted membership, workspace 복합 FK, revision 조건 갱신/증가, sources/documents/versions/files/legacy map/jobs와 Storage INSERT/SELECT SQL 구현·로컬 검사.
 - [ ] `central_sync.py`의 기본 offline plan/target 제한/bucket/reader 복원에 더해 멱등 DB seed·승인 자료 server ingestion/upload adapter를 구현·실 검증한다. 기존 `central_contract.py`는 순수 함수로 유지한다.

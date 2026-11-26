@@ -47,7 +47,7 @@ PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixt
 ## 다음 연결 및 Storage·이관 검증
 
 1. 전용 project 생성과 core 검증은 완료했다. 이 PC의 ignored 승인 기록과 현재 ref/health를 대조해 재개한다. 이미 적용한 migration을 다시 실행하지 않는다. 다른 PC에서는 승인 경로로 대상 정보와 credential을 별도 구성한다.
-2. 기존 개발 workspace를 재사용하고 실제 Auth 사용자·membership을 bootstrap한다. 가짜 Auth 사용자를 운영 계정으로 추가하지 않는다. workspace_members는 trusted administrator만 등록한다.
+2. 기존 개발 workspace를 재사용한다. 개발 프로젝트 대시보드의 Authentication → Users에서 실제 개발자가 자신의 프로젝트 Auth 계정을 설정한다. 관리자가 해당 Auth 사용자의 UUID를 확인해 기존 workspace에 필요한 역할로 등록한다. 파일·DB 읽기 검증은 `viewer` 권한으로 가능하다.
 3. `.local/task01/approved-target.json`에 다음 구조로 **실제 승인된 개발 ref와 workspace UUID**를 기록한다. 비밀 키는 넣지 않는다. 아래 표시는 복사해 실행 가능한 target이 아니다.
 
 ```json
@@ -62,6 +62,8 @@ PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixt
 4. 각 PC의 환경변수에 `.env.example`의 APP_ENV, CENTRAL_STORE_MODE, 개발 URL/ref/workspace를 설정한다. 실제 연결 시에만 `CENTRAL_STORE_MODE=supabase`로 변경한다. `central_sync.py`는 `.env`를 자동 로드하지 않는다. reader는 publishable key와 Auth access JWT, bucket 관리는 server secret을 사용한다. 키/토큰은 Git/채팅/Pages에 넣지 않는다. 만료된 JWT는 다시 인증해 갱신한다.
 
 ```powershell
+# 승인된 개발 workspace를 프로젝트 Auth 자격증명으로 읽기:
+.venv/Scripts/python.exe scripts/central_sync.py check --target .local/task01/approved-target.json --password-login
 # 기본값은 기존 비공개 bucket 검사만 한다.
 .venv/Scripts/python.exe scripts/central_sync.py bucket --target .local/task01/approved-target.json
 # 승인된 개발 환경에서만 신규 private bucket 생성:
@@ -69,6 +71,8 @@ PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixt
 # 서버 이관·검증 DB 기록이 만들어진 뒤 집 PC 복원:
 .venv/Scripts/python.exe scripts/central_sync.py restore --target .local/task01/approved-target.json --cache .local/case-research/originals
 ```
+
+`check`는 프로젝트 Auth 사용자와 해당 workspace의 membership 및 읽기 여부를 확인한다. 명령에서 `--password-login`을 생략하면 현재 프로세스의 `SUPABASE_DEV_ACCESS_TOKEN`을 사용한다. 권한이 확인되면 `workspace_visible: true`와 역할을 출력한다. 파일 복원에는 이관 완료된 원본과 manifest가 필요하다.
 
 5. 출처별 보관 권리와 승인 범위를 확인한 샘플로 staging → upload(upsert=false) → 별도 실행에서 다운로드/hash → evidence → ready를 검증한다. HTTP에서 누락 버킷의 상태 코드가 fixture와 다르면 실제 응답/공식 API를 확인하고 수정한다. 400 오류를 일괄 '없음'으로 취급하지 않는다.
 6. ingestion adapter/멱등 seed, 실패 재개, 원본·metadata의 독립 백업/복원, 실제 Auth·다른 workspace·anon 접근 거부, advisors를 확인한다. 회사와 두 번째 깨끗한 환경의 byte hash·버전을 대조하고 실제 집 PC 검증을 별도로 기록한다.

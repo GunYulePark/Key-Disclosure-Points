@@ -1,6 +1,6 @@
 # 집 PC에서 개발 이어가기
 
-확인일: 2026-11-24. 회사 PC를 켜 둘 필요는 없다. GitHub의 개발 브랜치를 집 PC에 받아 작업하고, 작업을 마치면 같은 개발 브랜치에 commit/push한다. PC의 로컬 파일이나 실행 중인 Codex 작업이 자동으로 다른 PC로 옮겨지는 것은 아니다.
+확인일 2026-11-26. 집 PC는 GitHub의 개발 브랜치와 서울의 같은 Supabase 개발 프로젝트를 사용한다. 회사 PC를 켜 둘 필요는 없다. 변경한 코드는 개발 브랜치에 commit/push한다. 각 PC의 로컬 설정과 원본 캐시는 별도로 관리한다.
 
 ## 현재 공유되는 범위
 
@@ -40,6 +40,25 @@ git log -1 --oneline
 ## 중앙 공유 구축의 다음 단계
 
 최신 상태(2026-11-26): 추가 연결 계정에서 사용자 지정 Free 조직의 서울 전용 개발 DB/core를 생성·검증했다. 비공개 버킷을 생성하고 크기 및 MIME 제한을 확인했다. `supabase/README.md`에 실제 migration 이력·검증·다음 절차가 있다. ignored 승인 ref/workspace와 credential은 clone으로 공유되지 않으므로 승인 경로로 집 PC에 별도 구성한다. 같은 이름의 프로젝트를 새로 생성하거나 다른 업무 프로젝트를 변경하지 않는다.
+
+### 집 PC에서 개발 DB 연결 확인
+
+1. Supabase 대시보드에서 기존 `key-disclosure-points-dev`를 열어 Project URL과 publishable key를 확인한다. 대시보드에서 같은 DB의 테이블을 조회할 수 있다. 앱 수준 조회에는 해당 프로젝트의 Auth 사용자와 workspace membership이 필요하다.
+2. 회사 PC의 `.local/task01/approved-target.json`을 승인된 경로로 집 PC의 같은 위치에 복사한다. 이 파일에는 대상 식별자만 들어 있다. 파일을 복사할 수 없으면 프로젝트 관리자에게 승인된 ref와 workspace UUID를 받아 `supabase/README.md`의 형식으로 작성한다.
+3. 집 PC의 PowerShell에서 아래 명령을 실행한다. 표시된 placeholder에는 개발 프로젝트의 publishable key를 넣고, 로그인 프롬프트에는 프로젝트 Auth 사용자가 직접 입력한다.
+
+```powershell
+$kdpTarget = Get-Content -Raw .local/task01/approved-target.json | ConvertFrom-Json
+$env:APP_ENV = 'development'
+$env:CENTRAL_STORE_MODE = 'supabase'
+$env:SUPABASE_DEV_PROJECT_REF = $kdpTarget.project_ref
+$env:SUPABASE_DEV_URL = 'https://' + $kdpTarget.project_ref + '.supabase.co'
+$env:SUPABASE_DEV_WORKSPACE_ID = $kdpTarget.workspace_id
+$env:SUPABASE_DEV_PUBLISHABLE_KEY = '<development-publishable-key>'
+.\.venv\Scripts\python.exe scripts/central_sync.py check --target .local/task01/approved-target.json --password-login
+```
+
+`workspace_visible: true`와 자신의 `member_role`이 출력되면 집 PC의 프로젝트 Auth 세션으로 승인된 workspace를 읽은 것이다. 이 확인에는 원본 파일이 필요 없다. 원본 이관 후에는 양쪽 PC에서 같은 원본의 해시와 버전을 대조한다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 

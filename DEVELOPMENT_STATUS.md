@@ -1,5 +1,9 @@
 # 개발 진행 상황
 
+## 2026-11-26 — 집 PC 개발 연결 준비
+
+회사 PC의 별도 폴더에 GitHub 개발 브랜치를 새로 복제했다. Supabase 연결에서 서울 개발 프로젝트 정상 상태, workspace 1개, Auth 사용자·membership·원본 객체 각각 0개를 확인했다. `central_sync.py check`는 프로젝트 Auth 세션과 승인 workspace 읽기를 검사한다. Python 65개 테스트에서 로그인 요청과 회원·비회원 응답을 fixture로 검증했다. 집 PC 전체 설정은 `HOME_PC_HANDOFF.md`에 기록했다. 실제 Auth 사용자 등록, 인증된 원본 접근과 물리적인 집 PC 검증이 남아 있다.
+
 ## 2026-11-26 — 전용 Free 개발 DB와 비공개 원본 버킷 구축
 
 사용자가 지정한 추가 연결 계정의 조직 1개는 Free이며 조회 프로젝트는 0개였다. 해당 조직에 생성을 명시적으로 지정받고 월 $0 비용을 확인해 서울 리전에 `key-disclosure-points-dev`를 생성했다. `ACTIVE_HEALTHY`, 기존 public table/migration 없음 확인 후 core 9개 테이블·RLS/FK·Storage SELECT/INSERT 정책을 적용했다. 개발 workspace 1개를 bootstrap했으며 Auth 사용자·membership, 문서·원본 객체는 0개다. 계정 이메일·실제 ref/UUID는 공개 문서에 쓰지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 기록했다. 새로운 계정/조직 승인을 다시 요구하거나 다른 업무 프로젝트를 변경하지 않는다.

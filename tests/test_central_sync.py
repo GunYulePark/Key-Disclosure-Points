@@ -106,6 +106,43 @@ class SyncTests(unittest.TestCase):
         with self.assertRaisesRegex(SyncError, 'invalid_cache_key'):
             safe_target('.', '../outside.html')
 
+    def test_password_session_checks_only_the_approved_workspace_as_the_signed_in_user(self):
+        client = Client(target(), env())
+        user_id = '22222222-2222-4222-8222-222222222222'
+        responses = [
+            {'access_token': 'new-user-token', 'refresh_token': 'never-saved'},
+            {'id': user_id, 'is_anonymous': False},
+            [{'member_role': 'viewer'}],
+            [{'id': WS}],
+        ]
+        requests = []
+
+        def open_fixture(request, timeout):
+            requests.append(request)
+            return io.BytesIO(json.dumps(responses.pop(0)).encode())
+
+        client.opener.open = open_fixture
+        client.sign_in_with_password('reader@example.test', 'fixture-password')
+        self.assertEqual(client.check_workspace(), {
+            'workspace_visible': True, 'member_role': 'viewer',
+            'bucket_id': 'kdp-dev-originals', 'cloud_data_writes': 0,
+        })
+        self.assertEqual(requests[0].full_url, client.url + '/auth/v1/token?grant_type=password')
+        self.assertEqual(requests[0].get_method(), 'POST')
+        self.assertIsNone(requests[0].get_header('Authorization'))
+        for request in requests[1:]:
+            self.assertEqual(request.get_method(), 'GET')
+            self.assertEqual(request.get_header('Apikey'), 'fixture-publishable')
+            self.assertEqual(request.get_header('Authorization'), 'Bearer new-user-token')
+        self.assertIn(f'workspace_id=eq.{WS}&user_id=eq.{user_id}', requests[2].full_url)
+
+    def test_signed_in_nonmember_cannot_report_a_successful_connection(self):
+        client = Client(target(), env())
+        with patch.object(client, 'json', side_effect=[{'id': WS}, []]) as request:
+            with self.assertRaisesRegex(SyncError, 'approved_workspace_membership_required'):
+                client.check_workspace()
+            self.assertEqual(request.call_count, 2)
+
     def test_restore_verifies_db_manifest_bytes_anchors_and_preserves_existing(self):
         pack, raw = fixture()
         client = Client(target(), env())

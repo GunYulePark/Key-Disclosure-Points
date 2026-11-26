@@ -6,11 +6,13 @@ Hosted ingestion/bootstrap of DB memberships is a separate approved step.
 from __future__ import annotations
 
 import argparse
+import getpass
 import json
 import os
 import re
 import sys
 import uuid
+import warnings
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote
@@ -103,7 +105,10 @@ class Client:
         self.opener = build_opener(NoRedirect())
 
     def request(self, path, *, method='GET', body=None, server=False):
-        if not path.startswith(('/rest/v1/', '/storage/v1/')) or '..' in path or '#' in path:
+        password_login = path == '/auth/v1/token?grant_type=password' and method == 'POST'
+        auth_user = path == '/auth/v1/user' and method == 'GET'
+        if (not path.startswith(('/rest/v1/', '/storage/v1/'))
+                and not (password_login or auth_user)) or '..' in path or '#' in path:
             raise SyncError('invalid_api_path')
         if server:
             if not self.secret:
@@ -112,6 +117,10 @@ class Client:
             # Legacy service_role JWT compatibility; new sb_secret keys are not JWTs.
             if self.secret.count('.') == 2:
                 headers['Authorization'] = 'Bearer ' + self.secret
+        elif password_login:
+            if not self.key:
+                raise SyncError('publishable_key_required')
+            headers = {'apikey': self.key}
         else:
             if not self.key or not self.token:
                 raise SyncError('authenticated_reader_credentials_required')
@@ -133,6 +142,30 @@ class Client:
 
     def json(self, path, **kwargs):
         return json.loads(self.request(path, **kwargs))
+
+    def sign_in_with_password(self, email, password):
+        response = self.json('/auth/v1/token?grant_type=password', method='POST',
+                             body={'email': email, 'password': password})
+        token = response.get('access_token')
+        if not isinstance(token, str) or not token:
+            raise SyncError('auth_session_not_available')
+        self.token = token
+
+    def check_workspace(self):
+        user = self.json('/auth/v1/user')
+        if user.get('is_anonymous') is True:
+            raise SyncError('permanent_auth_user_required')
+        user_id = str(uuid.UUID(user['id']))
+        members = self.json('/rest/v1/kdp_workspace_members?select=member_role'
+                            f'&workspace_id=eq.{self.workspace}&user_id=eq.{user_id}')
+        if len(members) != 1 or members[0]['member_role'] not in ('owner', 'editor', 'viewer'):
+            raise SyncError('approved_workspace_membership_required')
+        rows = self.json('/rest/v1/kdp_workspaces?select=id'
+                         f'&id=eq.{self.workspace}')
+        if rows != [{'id': self.workspace}]:
+            raise SyncError('approved_workspace_not_visible')
+        return {'workspace_visible': True, 'member_role': members[0]['member_role'],
+                'bucket_id': BUCKET, 'cloud_data_writes': 0}
 
     def check_bucket(self, *, create=False):
         path = '/storage/v1/bucket/' + BUCKET
@@ -188,21 +221,41 @@ class Client:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['plan', 'bucket', 'restore'], nargs='?', default='plan')
+    parser.add_argument('action', choices=['plan', 'bucket', 'check', 'restore'],
+                        nargs='?', default='plan')
     parser.add_argument('--pack', type=Path, default=Path('research/priority-case-pack-v2.json'))
     parser.add_argument('--workspace', help='Approved UUID; required for offline plan')
     parser.add_argument('--cache', type=Path)
     parser.add_argument('--target', type=Path, help='Ignored local approved-target JSON, no keys')
     parser.add_argument('--apply', action='store_true', help='Explicit bucket creation only')
+    parser.add_argument('--password-login', action='store_true',
+                        help='Prompt for an existing project Auth account without saving the password or token')
     parser.add_argument('--output', type=Path, help='Optional local plan JSON (not a transfer approval)')
     args = parser.parse_args()
     if args.apply and args.action != 'bucket':
         parser.error('--apply is supported only with bucket')
-    if args.action == 'bucket':
+    if args.password_login and args.action not in ('check', 'restore'):
+        parser.error('--password-login is supported only with check or restore')
+    if args.action != 'plan':
         if not args.target:
             parser.error('--target is required')
         client = Client(json.loads(args.target.read_text(encoding='utf-8-sig')))
+        if args.password_login:
+            if not sys.stdin.isatty():
+                raise SyncError('interactive_terminal_required')
+            email = input('Supabase project Auth email: ').strip()
+            with warnings.catch_warnings():
+                warnings.simplefilter('error', getpass.GetPassWarning)
+                try:
+                    password = getpass.getpass('Supabase project Auth password: ')
+                except getpass.GetPassWarning:
+                    raise SyncError('hidden_password_input_unavailable') from None
+            client.sign_in_with_password(email, password)
+            del password
+    if args.action == 'bucket':
         result = client.check_bucket(create=args.apply)
+    elif args.action == 'check':
+        result = client.check_workspace()
     else:
         pack = json.loads(args.pack.read_text(encoding='utf-8-sig'))
         if args.action == 'plan':
@@ -210,9 +263,8 @@ def main():
                 parser.error('--workspace is required')
             result = make_plan(pack, args.workspace, args.cache)
         else:
-            if not args.target or not args.cache:
-                parser.error('--target and --cache are required')
-            client = Client(json.loads(args.target.read_text(encoding='utf-8-sig')))
+            if not args.cache:
+                parser.error('--cache is required for restore')
             result = client.restore(pack, args.cache)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
