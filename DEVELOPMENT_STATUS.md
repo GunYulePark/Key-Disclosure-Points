@@ -1,5 +1,9 @@
 # 개발 진행 상황
 
+## 2026-11-26 — 인증 복원 양식의 로컬 403 수정
+
+Chromium에서 기존 `no-referrer` 정책 때문에 양식 POST가 `Origin: null`로 전송되어 Supabase 로그인 요청 전에 로컬 서버가 403을 반환하는 현상을 재현했다. `same-origin` 정책으로 바꾸고 출처·CSRF 검사와 다른 출처에 대한 차단을 유지했다. Chrome의 합성 Auth/복원 응답 검사에서 정상 양식은 200, 다른 출처·null Origin·만료 토큰은 403을 확인했다. 수정한 검사 페이지를 다시 열었다. 실제 원격 Auth/복원 성공 여부는 로컬 검사 결과 파일로 별도 확인한다.
+
 ## 2026-11-26 — TASK 02 로컬 원문 뷰어와 74개 이관 후보 검토
 
 `ba2a36f` 이후 JUNG 계정의 전용 개발 프로젝트 상태를 확인했다. 원격 SQL 조회 결과 ready 버전 2개·근거 4개·비공개 객체 2개·viewer 1개다. 실제 Auth 복원은 `verify_original_restore.py`로 준비했다. 프로젝트 Auth 로그인 후 빈 임시 폴더로 두 원본을 읽어 길이·SHA-256·4개 인용을 검사하고 공개 요청 거부를 확인한다. 실행 결과는 ignored `.local/task01/viewer-restore-check.json`에서 확인한다. 최초 준비 시 로그인 결과는 미수신이었다.

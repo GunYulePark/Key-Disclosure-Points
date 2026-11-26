@@ -4,6 +4,8 @@
 
 `ba2a36f` 이후 개발 DB에서 ready 버전 2개·근거 4개·비공개 객체 2개를 다시 확인했다. 이 PC에서 실제 Auth 복원 결과는 `.local/task01/viewer-restore-check.json`을 먼저 확인한다. 파일이 없으면 로그인 기반 복원 검사가 미완료다. [집 PC 인수인계](HOME_PC_HANDOFF.md)에서 이미 설정한 Auth 계정으로 인증한 뒤 빈 캐시 복원을 실행한다. 대시보드 로그인이나 기존 로컬 캐시 조회를 viewer HTTP 성공으로 표시하지 않는다.
 
+브라우저 검사 서버를 재시작한 뒤에는 `/verify`를 새로고침하지 말고 `http://127.0.0.1:8767/`에서 새 양식을 연다. 기존 Chromium 403은 로컬 양식의 Origin 검사에서 발생했고 수정했다. 실제 Auth/원본 단계의 오류는 화면에 표시된 단계명으로 구분한다.
+
 [로컬 원문 뷰어](EVIDENCE_VIEWER.md)는 구현·브라우저 검증했다. TASK 02 다음 개발 범위는 인증된 서버 연결·DB 구조화 위치 저장·버전 대조와 검토/메모다. [74개 권리 검토 기록](research/original-retention-review.json)의 각 SHA는 보류 상태다. 새 근거(해당 파일의 이용표시, 실제 권리자의 허락 또는 범위가 명확한 별도 API 응답)가 확인된 항목만 이관 순서에 올린다.
 
 2026-11-26: 추가 연결 계정에서 사용자 지정 조직의 Free/프로젝트 0개·월 $0을 확인하고 서울 `key-disclosure-points-dev`를 생성했다. 전용 DB `ACTIVE_HEALTHY`, core 9개 테이블/RLS·Storage 정책, workspace 1개와 FK 보완 인덱스까지 적용했다. 기존 구축/조직 승인을 다시 묻거나 다른 프로젝트를 중지·재사용·삭제하지 않는다. 실제 account/ref/workspace는 공개 MD에 쓰지 않으며 이 PC의 `.local/task01/approved-target.json`, `cloud-state.json`을 확인한다. 다른 PC에 이 ignored 파일과 credential은 자동 복제되지 않는다.

@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import html
 import json
-import os
 import secrets
 import tempfile
 import time
@@ -82,7 +81,9 @@ def main():
             self.send_header('Content-Length', str(len(page)))
             self.send_header('Cache-Control', 'no-store')
             self.send_header('X-Content-Type-Options', 'nosniff')
-            self.send_header('Referrer-Policy', 'no-referrer')
+            # A no-referrer policy makes Chromium send Origin: null for this
+            # navigation POST. Keep the same-origin header for our strict check.
+            self.send_header('Referrer-Policy', 'same-origin')
             self.send_header('Content-Security-Policy', "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'")
             self.end_headers()
             self.wfile.write(page)
@@ -106,23 +107,29 @@ def main():
             nonlocal completed
             if (self.path != '/verify' or not self.valid_host()
                     or self.headers.get('Origin') != origin):
-                self.send_error(403)
+                self.reply('복원 검사 페이지를 다시 여세요',
+                           '<p>이 PC에서 검사 양식을 새로 연 뒤 제출해 주세요.</p><p><a href="/">검사 페이지 열기</a></p>', 403)
                 return
+            phase = '양식 확인'
             try:
                 size = int(self.headers.get('Content-Length', '0'))
                 if not 0 < size < 8192:
                     raise ValueError()
                 fields = parse_qs(self.rfile.read(size).decode(), strict_parsing=True, max_num_fields=3)
                 if not secrets.compare_digest(fields['csrf'][0], token):
-                    raise ValueError()
+                    self.reply('검사 양식이 만료됐습니다', '<p><a href="/">새 양식 열기</a></p>', 403)
+                    return
+                phase = '프로젝트 Auth 로그인'
                 client.sign_in_with_password(fields['email'][0], fields['password'][0])
+                phase = '원본 복원 및 접근 확인'
                 result = verify(client, pack, args.report.parent, source_ids)
                 with args.report.open('x', encoding='utf8') as stream:
                     json.dump(result, stream, ensure_ascii=False, indent=2)
                 completed = True
                 self.reply('복원 검사 완료', '<p>원본 해시와 인용 위치가 일치합니다. 이 창을 닫아도 됩니다.</p>')
             except SyncError as exc:
-                self.reply('복원 검사 실패', f'<p><code>{html.escape(str(exc))}</code></p><p><a href="/">다시 시도</a></p>', 400)
+                self.reply('복원 검사 실패',
+                           f'<p>{phase} <code>{html.escape(str(exc))}</code></p><p><a href="/">다시 시도</a></p>', 400)
             except (KeyError, ValueError, OSError):
                 self.reply('복원 검사 실패', '<p>입력 또는 원본 검증 오류입니다.</p><p><a href="/">다시 시도</a></p>', 400)
             finally:
