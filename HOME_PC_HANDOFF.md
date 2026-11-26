@@ -8,8 +8,8 @@
 |---|---|
 | 코드·요구사항·진행 기록·검토 결과·테스트·연구 메타데이터 | Git clone으로 확보 가능 |
 | 최신 사례 결과 | `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json` |
-| 조사 원본 76개, 27,024,097 bytes | 회사 PC의 ignored `.local/case-research/originals/`에만 있음. clone에 없음 |
-| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성 완료. 프로젝트 Auth 계정에 viewer 등록. 실제 로그인과 원본 이관·두 PC 조회 검증 예정 |
+| 조사 원본 76개, 27,024,097 bytes | 회사 PC 캐시에 76개 보관. 집 PC에서 Supabase로부터 법령 HTML 2개 복원 가능. 나머지 74개는 보관 근거 확인 중 |
+| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성 완료. viewer 등록 및 법령 원본 2개 재다운로드 검증 완료. 집 PC의 실제 로그인·복원 검증 예정 |
 | 환경변수·인증·API 키·브라우저 개인 업로드 | Git으로 공유하지 않음. 집 PC에서 필요한 연결을 별도 설정 |
 | 저장소 밖 legacy/private Sites 소스·로컬 데이터 | 이 저장소의 clone에 포함되지 않음 |
 
@@ -58,7 +58,14 @@ $env:SUPABASE_DEV_PUBLISHABLE_KEY = '<development-publishable-key>'
 .\.venv\Scripts\python.exe scripts/central_sync.py check --target .local/task01/approved-target.json --password-login
 ```
 
-`workspace_visible: true`와 자신의 `member_role`이 출력되면 집 PC의 프로젝트 Auth 세션으로 승인된 workspace를 읽은 것이다. 이 확인에는 원본 파일이 필요 없다. 원본 이관 후에는 양쪽 PC에서 같은 원본의 해시와 버전을 대조한다.
+`workspace_visible: true`와 자신의 `member_role`이 출력되면 집 PC의 프로젝트 Auth 세션으로 승인된 workspace를 읽은 것이다. 아래 명령을 같은 PowerShell에서 실행하면 이미 이관한 두 원본을 내려받으며, 해시·길이·인용 위치를 대조한다.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/central_sync.py restore --target .local/task01/approved-target.json --cache .local/case-research/originals --password-login --source commercial-amendments --source commercial-decree-33
+.\.venv\Scripts\python.exe scripts/case_pack.py --pack research/priority-case-pack-v2.json --cache .local/case-research/originals --anchor commercial-decree-33:1
+```
+
+처음 복원하면 `restored: 2`, 이미 같은 파일이 캐시에 있으면 `cached_verified`로 기록된다. 좌표 조회는 이관된 원문 버전·SHA-256·정규화한 문자 범위를 출력한다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 

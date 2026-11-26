@@ -1,6 +1,6 @@
 # 중앙 DB·원본 저장소 설계 초안
 
-상태: TASK 01 core migration 후보·로컬 PostgreSQL/WASM 검증. 원격 SQL 미적용 / 중앙 개발 프로젝트 미선정(무료 2개 한도로 생성 거절). 실행 범위는 `supabase/README.md`와 migration을 기준으로 한다. 아래 ERD의 sections/chunks 등은 후속 설계이며 아직 구현하지 않았다. 초기 authenticated metadata 권한은 읽기 전용이고 쓰기/승인은 trusted server에 한정한다.
+상태: TASK 01 core를 전용 개발 DB에 적용했다. 법령 원본 2개와 버전·근거·기존 ID의 연결을 검증했다. TASK 02에서는 `scripts/case_pack.py --anchor`로 원본 해시, 버전, PDF의 0부터 시작하는 페이지 인덱스, 공백을 제거한 텍스트의 인용 범위를 조회한다. 화면의 PDF 좌표와 HTML 문단·표·셀 위치는 후속 작업이다. 실제 적용 이력과 권한은 `supabase/README.md`를 따른다.
 
 ## 최소 ERD (TASK 01~02)
 

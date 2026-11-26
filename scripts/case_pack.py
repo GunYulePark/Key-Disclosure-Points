@@ -105,7 +105,7 @@ def validate_pack(pack):
             'human_approved': 0, 'active_rules': 0}
 
 
-def verify_source(s, raw):
+def verified_pages(s, raw):
     require(len(raw) == s['bytes'] and hashlib.sha256(raw).hexdigest() == s['sha256'],
             'original_hash_or_size_mismatch:' + s['id'])
     if s['format'] == 'pdf':
@@ -129,6 +129,38 @@ def verify_source(s, raw):
         needle = compact(a['text'])
         require(pages[index][a['start']:a['start'] + len(needle)] == needle,
                 'anchor_mismatch:' + a['id'])
+    return pages
+
+
+def verify_source(s, raw):
+    verified_pages(s, raw)
+
+
+def locate_anchor(pack, cache, anchor_id):
+    """Resolve a pack anchor against a hash-verified local original."""
+    validate_pack(pack)
+    root = Path(cache).resolve()
+    for source in pack['sources']:
+        for anchor in source['anchors']:
+            if anchor['id'] != anchor_id:
+                continue
+            original = (root / source['cache_key']).resolve()
+            require(original.parent == root, 'cache_path_escape')
+            pages = verified_pages(source, original.read_bytes())
+            result = {'anchor_id': anchor_id, 'source_id': source['id'],
+                      'source_url': source['url'], 'version_label': source['version_label'],
+                      'sha256': source['sha256'], 'format': source['format']}
+            if anchor['kind'] == 'visual':
+                return {**result, 'location_note': anchor['location'],
+                        'status': 'visual_review_recorded'}
+            start = anchor['start']
+            end = start + len(compact(anchor['text']))
+            page_index = anchor['pdf_page'] - 1 if 'pdf_page' in anchor else None
+            page = pages[page_index if page_index is not None else 0]
+            return {**result, 'status': 'text_verified', 'text': anchor['text'],
+                    'page_index': page_index, 'normalized_start': start, 'normalized_end': end,
+                    'before': page[max(0, start - 40):start], 'after': page[end:end + 40]}
+    raise ValueError('unknown_anchor_id')
 
 
 def verify_cache(pack, root):
@@ -145,9 +177,15 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--pack', type=Path, default=Path('research/priority-case-pack.json'))
     p.add_argument('--cache', type=Path, help='Optional ignored directory of hash-named originals')
+    p.add_argument('--anchor', help='Resolve a specific text or visual anchor against the cached original')
     args = p.parse_args()
+    if args.anchor and args.cache is None:
+        p.error('--anchor requires --cache')
     pack = json.loads(args.pack.read_text(encoding='utf-8-sig'))
-    result = verify_cache(pack, args.cache) if args.cache else validate_pack(pack)
+    if args.anchor:
+        result = locate_anchor(pack, args.cache, args.anchor)
+    else:
+        result = verify_cache(pack, args.cache) if args.cache else validate_pack(pack)
     print(json.dumps(result, ensure_ascii=False))
 
 

@@ -1,5 +1,13 @@
 # 개발 진행 상황
 
+## 2026-11-26 — 비공개 원본 2개 이관과 근거 위치 조회
+
+사용자가 파일 이전을 요청했다. 연구 캐시 76개를 해시·길이·텍스트 인용 위치로 재검증했다. 국가법령정보센터의 이용정책을 확인해 상법 제정·개정문과 상법 시행령 제33조 HTML 2개(679,729 bytes)를 서울 개발 프로젝트의 `kdp-dev-originals`에 이관했다. 나머지 연구 캐시 74개와 별도 3.06MB PDF·DART 후보는 파일별 보관 근거 확인을 계속한다. [국가법령정보센터 이용정책](https://www.law.go.kr/LSW/legalCopyright.do?menuId=803&subMenuId=79) · [Open DART 이용약관](https://opendart.fss.or.kr/intro/terms.do)
+
+`central_ingest.py`로 승인 배치의 사본과 staging SQL을 만들었다. 중복 staging과 최종 처리가 같은 결과를 내는 것을 hosted SQL로 확인했다. 대시보드의 긴 로컬 경로 파일 선택이 0바이트로 실패해 짧은 기존 캐시 경로를 사용했다. 대시보드에서 다시 받은 두 파일의 SHA-256·길이·인용 위치가 원본과 일치했다. 실제 개발 DB에서 ready 버전 2개, 검증 파일 2개, 인용 위치 4개, 기존 ID 연결 2개를 확인했다. 기존 viewer와 비회원의 권한을 원격 SQL에서 점검했고, 두 원본의 익명 공개 HTTP 요청은 모두 400을 반환했다. 실제 viewer 로그인과 물리적인 집 PC 복원은 검증 전이다.
+
+부분 복원 `central_sync.py restore --source`와 TASK 02의 원문 위치 조회 `case_pack.py --anchor`를 추가했다. 다운로드한 HTML 두 종류와 로컬 PDF에서 문서 버전·해시·정규화 범위를 확인했다. Python 69개 통과. 문단·표·셀 하이라이트와 PDF 좌표 뷰어는 다음 개발 범위다.
+
 ## 2026-11-26 — 개발 Auth 계정 및 workspace 읽기 권한 등록
 
 사용자가 만든 개발 프로젝트 Auth 계정의 이메일 확인 상태를 대조해 승인 workspace에 `viewer`를 등록했다. 해당 사용자의 인증 컨텍스트를 적용한 원격 SQL 검사에서 승인 workspace 1개 조회, 비대상 workspace 조회 제한, 쓰기 및 테이블 수정 제한을 확인했다. 검증 당시 실제 로그인 세션과 버킷 원본은 각각 0개다. 다음은 해당 프로젝트 계정으로 `central_sync.py check`를 실행하는 단계다.

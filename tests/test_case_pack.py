@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from case_pack import compact, validate_pack, verify_cache, verify_source, pack_fingerprint
+from case_pack import compact, locate_anchor, validate_pack, verify_cache, verify_source, pack_fingerprint
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,6 +27,19 @@ def fixture():
 
 
 class CasePackTests(unittest.TestCase):
+    def test_locator_reports_versioned_offsets_only_for_exact_original(self):
+        pack, raw = fixture()
+        with tempfile.TemporaryDirectory() as folder:
+            source = pack['sources'][0]
+            path = Path(folder) / source['cache_key']
+            path.write_bytes(raw)
+            location = locate_anchor(pack, folder, 'a1')
+            self.assertEqual(location['sha256'], source['sha256'])
+            self.assertEqual((location['normalized_start'], location['normalized_end']), (0, 21))
+            self.assertIsNone(location['page_index'])
+            path.write_bytes(raw + b'changed')
+            with self.assertRaisesRegex(ValueError, 'original_hash_or_size_mismatch'):
+                locate_anchor(pack, folder, 'a1')
     def test_metadata_fingerprint_survives_windows_newlines_but_detects_changed_content(self):
         pack, _ = fixture()
         lf = json.dumps(pack, ensure_ascii=False, indent=2)

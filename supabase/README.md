@@ -2,7 +2,7 @@
 
 2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 월 $0으로 생성했다. 전용 개발 DB/core 9개 테이블·RLS·Storage SELECT/INSERT 정책·workspace 1개와 FK 인덱스 적용/검증 완료. 실제 ref/UUID는 공개 문서에 기록하지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 보관한다. 기존 계정의 11월 24일 생성 한도 실패는 과거 기록이다.
 
-Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들었다. 원격 SQL로 `public=false`, 10MiB 제한, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 버킷 메타데이터 요청은 HTTP 400 `Bucket not found`를 반환했다. 원본 객체는 0개다. 프로젝트 Auth 사용자 1개를 승인 workspace에 `viewer`로 등록했다. 원격 SQL에서 해당 사용자의 승인 workspace 조회와 쓰기 제한을 확인했다. 실제 Auth 로그인과 Storage 원본 접근 검증이 남아 있다.
+Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들고 법령 HTML 2개를 이관했다. 원격 SQL로 `public=false`, 10MiB 제한과 인증 사용자용 SELECT/INSERT 정책을 확인했다. 두 원본을 별도로 다운로드해 SHA-256·길이·인용 위치를 검증했다. 프로젝트 Auth 사용자 1개를 승인 workspace에 `viewer`로 등록했다. 두 객체의 익명 공개 HTTP 요청은 400을 반환했고, 원격 SQL에서 viewer의 접근과 비회원 차단을 확인했다. 실제 viewer 이메일 로그인과 집 PC 복원 검증이 남아 있다.
 
 ## 원격 적용 및 검증 이력
 
@@ -22,7 +22,8 @@ advisors: security/health 0, performance FK 누락 1건은 전체 복합 인덱�
 - CLI 3.3.0의 `migration new kdp_central_core`로 생성한 core migration: workspaces/members, sources, documents/versions/files, evidence, legacy map, ingestion jobs의 9개 테이블.
 - workspace 복합 FK·인덱스, RLS/명시 GRANT, 관리자만 membership/승인 변경, 원본 identity 불변, revision 증가·조건 갱신, 미검증 원본·근거의 ready 전환 차단.
 - 비공개 Storage SELECT/INSERT 정책. 검증된 파일만 읽고, 승인된 사전 등록 경로만 editor가 업로드할 수 있다. 사용자 UPDATE/DELETE/upsert는 허용하지 않는다. 버킷은 SQL insert 대신 Storage API로 생성한다.
-- `central_sync.py`: 기본 offline plan, 승인된 전용 개발 target 검사, 비공개 bucket 확인/명시 생성, 인증된 reader로 DB manifest와 원본 hash/길이·인용 위치를 대조한 복원. 개발 workspace와 첫 viewer membership을 구성했다. 업로드와 자료 DB seed/import는 미완료다.
+- `central_sync.py`: 기본 offline plan, 승인된 전용 개발 target 검사, 비공개 bucket 확인/명시 생성, 인증된 reader로 DB manifest와 원본 hash/길이·인용 위치를 대조한 복원. `--source`를 반복해 이관된 파일만 선택할 수 있다.
+- `central_ingest.py`: 명시적인 승인 배치의 원본·locator 검증, 멱등 staging·finish SQL 생성. 파일 전송은 개발 Storage 관리자 세션에서 수행했고, 다시 받은 바이트로 확인한 뒤 ready를 기록했다.
 - metadata는 authenticated workspace member의 읽기만 허용한다. 초기 수집/승인 쓰기는 서버 전용이다. 화면 편집·API·회원 가입/로그인 흐름은 이번 core에 포함되지 않는다.
 
 ## 재현 가능한 로컬 검증
@@ -68,13 +69,19 @@ PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixt
 .venv/Scripts/python.exe scripts/central_sync.py bucket --target .local/task01/approved-target.json
 # 승인된 개발 환경에서만 신규 private bucket 생성:
 .venv/Scripts/python.exe scripts/central_sync.py bucket --target .local/task01/approved-target.json --apply
-# 서버 이관·검증 DB 기록이 만들어진 뒤 집 PC 복원:
-.venv/Scripts/python.exe scripts/central_sync.py restore --target .local/task01/approved-target.json --cache .local/case-research/originals
+# 이관한 연구 원본 두 개를 Auth 계정으로 집 PC 복원:
+.venv/Scripts/python.exe scripts/central_sync.py restore --target .local/task01/approved-target.json --cache .local/case-research/originals --password-login --source commercial-amendments --source commercial-decree-33
 ```
 
 `check`는 프로젝트 Auth 사용자와 해당 workspace의 membership 및 읽기 여부를 확인한다. 명령에서 `--password-login`을 생략하면 현재 프로세스의 `SUPABASE_DEV_ACCESS_TOKEN`을 사용한다. 권한이 확인되면 `workspace_visible: true`와 역할을 출력한다. 파일 복원에는 이관 완료된 원본과 manifest가 필요하다.
 
 5. 출처별 보관 권리와 승인 범위를 확인한 샘플로 staging → upload(upsert=false) → 별도 실행에서 다운로드/hash → evidence → ready를 검증한다. HTTP에서 누락 버킷의 상태 코드가 fixture와 다르면 실제 응답/공식 API를 확인하고 수정한다. 400 오류를 일괄 '없음'으로 취급하지 않는다.
 6. ingestion adapter/멱등 seed, 실패 재개, 원본·metadata의 독립 백업/복원, 실제 Auth·다른 workspace·anon 접근 거부, advisors를 확인한다. 회사와 두 번째 깨끗한 환경의 byte hash·버전을 대조하고 실제 집 PC 검증을 별도로 기록한다.
+
+### 다음 승인 배치 이관 절차
+
+1. 무시 경로의 승인 JSON에 `project_ref`, `workspace_id`, `pack_fingerprint`, `transfer_approved: true`, `approved_by`, `sources`를 기록한다. `sources`는 source ID별 SHA-256, 권리 근거 `rights_url`, `publisher`, `document_type`을 담는다.
+2. `central_ingest.py stage --pack <pack> --target <target> --approval <approval> --files <original-cache> --out <new-.local-folder>`로 사본과 SQL을 생성한다. 승인된 개발 DB에서 `stage.sql`을 실행한 후 `batch.json`에 기록된 경로에 각 파일을 덮어쓰기 없이 업로드한다. Windows 대시보드 파일 선택은 긴 로컬 경로에서 0바이트로 실패할 수 있으므로 원본 캐시의 짧은 파일 경로를 사용한다.
+3. 별도 폴더에 버킷 객체를 다시 다운로드한다. 같은 옵션으로 `finish`를 실행하되 `--files`에 다운로드 폴더를, `--out`에 새 폴더를 지정한다. `finish.sql`을 실행하고 버전·작업 상태, 원본 해시·길이, 근거 수를 확인한다. 시각 근거는 담당자 검증 전 `unverified`다.
 
 정적 Pages, 운영 Actions, 기존 D1/브라우저 업로드는 아직 중앙 저장소로 전환하지 않는다. 원격 프로젝트 확보만으로 TASK 01 완료가 아니다.

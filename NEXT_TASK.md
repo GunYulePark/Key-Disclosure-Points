@@ -1,12 +1,14 @@
 # 다음 작업 — TASK 01
 
-## 현재 우선 작업 — 실제 Auth와 Storage 권한 검증
+## 현재 우선 작업 — 집 PC 복원과 후속 원본 이관
 
 2026-11-26: 추가 연결 계정에서 사용자 지정 조직의 Free/프로젝트 0개·월 $0을 확인하고 서울 `key-disclosure-points-dev`를 생성했다. 전용 DB `ACTIVE_HEALTHY`, core 9개 테이블/RLS·Storage 정책, workspace 1개와 FK 보완 인덱스까지 적용했다. 기존 구축/조직 승인을 다시 묻거나 다른 프로젝트를 중지·재사용·삭제하지 않는다. 실제 account/ref/workspace는 공개 MD에 쓰지 않으며 이 PC의 `.local/task01/approved-target.json`, `cloud-state.json`을 확인한다. 다른 PC에 이 ignored 파일과 credential은 자동 복제되지 않는다.
 
 Supabase 대시보드에서 `kdp-dev-originals`를 생성했다. 원격 SQL로 `public=false`, 10MiB, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 정책 2개를 확인했다. 익명 Storage HTTP 요청은 버킷 메타데이터를 받지 못했다. 프로젝트 Auth 계정 1개의 `viewer` membership을 등록하고 원격 SQL에서 승인 workspace 조회와 쓰기 제한을 확인했다. 다음 단계는 실제 로그인 세션으로 `central_sync.py check`를 실행하고 이관 후 원본 접근을 검증하는 것이다.
 
-hosted migration 두 개, SQL rollback 검사 15개, 익명 REST 401/42501, PGlite 26개·Python 63개 통과. 보안/health 지적 0, performance 미사용 인덱스 INFO 4. **비공개 버킷, 프로젝트 Auth 사용자, viewer membership을 각각 1개 확인했다. 문서와 원본 객체는 0개다.** 서버 ingestion·실자료 upload·backup/restore·다중 PC 조회·TASK 01 전체 완료는 미검증이다. SQL 실행 순서/이력은 `supabase/README.md`.
+비공개 버킷과 프로젝트 Auth viewer membership을 구성했다. **법령 HTML 원본 2개, 679,729바이트 이관과 재다운로드 검증 완료.** ready 문서 버전 2개, 근거 4개, 기존 ID 연결 2개를 원격에서 확인했다. Python 69개 통과. 집 PC에서는 `HOME_PC_HANDOFF.md`의 두 원본 부분 복원을 실행한다. 나머지 자료는 `DATA_SOURCES.md`의 보관 근거 확인 후 같은 순서로 이관한다. 실제 viewer HTTP 로그인, 백업/복원·두 PC 검증은 남아 있다.
+
+TASK 02는 `scripts/case_pack.py --anchor`로 원본 해시·버전·정규화 인용 위치 조회부터 시작했다. PDF 좌표와 HTML 문단·표·셀 위치 모델을 다음에 구현한다.
 
 11월 24일 기존 계정 Free 2개 한도로 실패했던 기록은 과거 이력이다. 76원본 약 27MB의 offline 검증은 원격 이전이 아니다. 출처별 보관 권리·승인 샘플 범위 확인을 건너뛰지 않는다. 집 PC는 먼저 `HOME_PC_HANDOFF.md`를 읽고 코드 clone과 원본/credential 공유를 구분한다.
 
@@ -64,8 +66,9 @@ Get-Content DEVELOPMENT_STATUS.md
 - [ ] 프로젝트 Auth 로그인으로 `central_sync.py check`를 실행하고 집 PC에서도 같은 workspace를 조회.
 - [ ] 실제 Auth/Storage API의 member 허용·anon/다른 workspace 원본 접근 거부.
 - [x] trusted membership, workspace 복합 FK, revision 조건 갱신/증가, sources/documents/versions/files/legacy map/jobs와 Storage INSERT/SELECT SQL 구현·로컬 검사.
-- [ ] `central_sync.py`의 기본 offline plan/target 제한/bucket/reader 복원에 더해 멱등 DB seed·승인 자료 server ingestion/upload adapter를 구현·실 검증한다. 기존 `central_contract.py`는 순수 함수로 유지한다.
-- [ ] 이전 후보의 원본/URL/기존 ID/해시 재확인 → 백업 → staging → upload → 독립 download SHA/길이 검증 → 기존 근거 alias/FK → ready 순서 검증.
+- [x] 법령 2개에서 승인 배치 staging → 비공개 업로드 → 독립 다운로드 SHA/길이 → 기존 ID/FK → ready 순서 검증.
+- [x] `central_ingest.py`의 멱등 staging/finish와 `central_sync.py` 부분 복원 구현. 대시보드 업로드 경로 검증.
+- [ ] 권리 확인 후 나머지 74개 연구 원본 및 별도 PDF/DART 후보 이관. 승인 계정의 API 전송 및 전체 backup/restore 검증.
 - [ ] 재실행 중복 방지, 다중 PC 동시 편집 충돌, 실패 후 재개, anon/다른 workspace 접근 거부 및 QA/holdout 격리 테스트.
 - [ ] 두 번째 깨끗한 개발 환경에서 같은 데이터/원본 조회. 실제 집 PC 검증이 없으면 시뮬레이션과 구분.
 - [ ] DB와 Storage를 각각 백업·복원해 검증. 이전 로컬 데이터는 보존.

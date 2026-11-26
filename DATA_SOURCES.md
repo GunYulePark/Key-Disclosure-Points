@@ -2,6 +2,12 @@
 
 조사일 2026-11-24 / 실제 업로드 0건. 상세 inventory는 민감한 파일명 가능성 때문에 `.local/task00/inventory.json`에만 보관하며 Git/Pages에 올리지 않는다.
 
+## 2026-11-26 — 연구 원본 첫 배치
+
+연구 캐시 76개를 다시 검증했다. 국가법령정보센터의 제정·개정문과 상법 시행령 제33조 HTML 2개(679,729바이트)는 공식 이용정책과 저작권법 제7조를 근거로 개발 전용 비공개 버킷에 이관했다. 출처 URL, 버전, 해시, 기존 ID와 4개 인용 위치를 DB에 연결했다. [국가법령정보센터 이용정책](https://www.law.go.kr/LSW/legalCopyright.do?menuId=803&subMenuId=79) · [저작권법 제7조](https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1029423769)
+
+남은 연구 캐시 74개는 DART 65개, 금감원 PDF·HWP 3개, KIND 3개, 기업 사이트 3개다. Open DART는 원문 API 활용을 안내한다. 이번 캐시에 있는 뷰어 HTML·첨부 이미지·PDF에는 해당 파일의 출처와 사용 범위를 대조하고 이관한다. 아래 별도 3.06MB 샘플은 별개의 후보로 유지한다. [Open DART 서비스 소개](https://opendart.fss.or.kr/intro/main.do) · [Open DART 이용약관](https://opendart.fss.or.kr/intro/terms.do)
+
 ## 저장 위치
 
 | 위치 | 내용 | 동기화/권리 상태 |

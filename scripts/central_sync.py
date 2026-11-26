@@ -184,12 +184,17 @@ class Client:
             raise SyncError('bucket_is_not_private_development_bucket')
         return {'bucket_id': BUCKET, 'private': True}
 
-    def restore(self, pack, destination):
+    def restore(self, pack, destination, source_ids=None):
         plan = make_plan(pack, self.workspace)
+        if source_ids and not set(source_ids) <= {source['id'] for source in pack['sources']}:
+            raise SyncError('requested_source_not_in_pack')
         destination = Path(destination)
         destination.mkdir(parents=True, exist_ok=True)
-        restored, cached = 0, 0
+        restored, cached, selected = 0, 0, 0
         for source, item in zip(pack['sources'], plan['items']):
+            if source_ids and source['id'] not in source_ids:
+                continue
+            selected += 1
             path = safe_target(destination, source['cache_key'])
             if path.exists():
                 verify_source(source, path.read_bytes())
@@ -215,7 +220,7 @@ class Client:
                 cached += 1
                 continue
             restored += 1
-        return {'restored': restored, 'cached_verified': cached, 'sources': len(plan['items']),
+        return {'restored': restored, 'cached_verified': cached, 'sources': selected,
                 'cloud_writes': 0, 'hosted_validation_claimed': False}
 
 
@@ -226,6 +231,7 @@ def main():
     parser.add_argument('--pack', type=Path, default=Path('research/priority-case-pack-v2.json'))
     parser.add_argument('--workspace', help='Approved UUID; required for offline plan')
     parser.add_argument('--cache', type=Path)
+    parser.add_argument('--source', action='append', help='Limit restore to this source ID. Repeat as needed.')
     parser.add_argument('--target', type=Path, help='Ignored local approved-target JSON, no keys')
     parser.add_argument('--apply', action='store_true', help='Explicit bucket creation only')
     parser.add_argument('--password-login', action='store_true',
@@ -236,6 +242,8 @@ def main():
         parser.error('--apply is supported only with bucket')
     if args.password_login and args.action not in ('check', 'restore'):
         parser.error('--password-login is supported only with check or restore')
+    if args.source and args.action != 'restore':
+        parser.error('--source is supported only with restore')
     if args.action != 'plan':
         if not args.target:
             parser.error('--target is required')
@@ -265,7 +273,7 @@ def main():
         else:
             if not args.cache:
                 parser.error('--cache is required for restore')
-            result = client.restore(pack, args.cache)
+            result = client.restore(pack, args.cache, args.source)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open('x', encoding='utf-8') as stream:

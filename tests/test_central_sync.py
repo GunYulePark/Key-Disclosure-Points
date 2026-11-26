@@ -1,3 +1,4 @@
+import copy
 import io
 import json
 import sys
@@ -174,6 +175,23 @@ class SyncTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'hash_or_size'):
                 client.restore(pack, folder)
             self.assertEqual(list(Path(folder).iterdir()), [])
+
+    def test_partial_restore_does_not_request_held_sources(self):
+        pack, raw = fixture()
+        held = copy.deepcopy(pack['sources'][0])
+        held.update(id='held', anchors=[{**held['anchors'][0], 'id': 'held:1'}])
+        pack['sources'].insert(0, held)
+        client = Client(target(), env())
+        item = make_plan(pack, WS)['items'][1]
+        row = {'object_path': item['object_path'], 'sha256': item['sha256'],
+               'byte_length': item['bytes'], 'verification_status': 'verified'}
+        with tempfile.TemporaryDirectory() as folder, patch.object(client, 'json', return_value=[row]) as lookup, \
+                patch.object(client, 'request', return_value=raw) as fetch:
+            with self.assertRaisesRegex(SyncError, 'requested_source_not_in_pack'):
+                client.restore(pack, folder, ['not-found'])
+            self.assertEqual(client.restore(pack, folder, ['s1'])['sources'], 1)
+            lookup.assert_called_once()
+            fetch.assert_called_once()
 
 
 if __name__ == '__main__':
