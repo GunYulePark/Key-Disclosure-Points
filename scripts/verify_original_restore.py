@@ -52,7 +52,11 @@ def main():
     parser.add_argument('--source', action='append', required=True)
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--port', type=int, default=8767)
+    parser.add_argument('--wait-minutes', type=int, default=20,
+                        help='How long the local page accepts login attempts (1–120, default 20)')
     args = parser.parse_args()
+    if not 1 <= args.wait_minutes <= 120:
+        parser.error('--wait-minutes must be between 1 and 120')
     config, pack = read_json(args.target), read_json(args.pack)
     source_ids = set(args.source)
     if not source_ids <= {s['id'] for s in pack['sources']}:
@@ -138,7 +142,7 @@ def main():
     with HTTPServer(('127.0.0.1', args.port), Handler) as server:
         server.timeout = 1
         print(origin, flush=True)
-        deadline = time.monotonic() + 1200
+        deadline = time.monotonic() + args.wait_minutes * 60
         while not completed and time.monotonic() < deadline:
             server.handle_request()
     if not completed:
