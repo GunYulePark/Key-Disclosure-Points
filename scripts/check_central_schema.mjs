@@ -1,7 +1,7 @@
 // Local PostgreSQL/WASM check. Supabase Auth/Storage tables below are fixtures;
 // this does NOT verify hosted Auth, Storage HTTP, advisors, or two physical PCs.
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 const dependencyRoot = resolve(process.env.KDP_SQL_CHECK_DEPS || '.local/task01/sql-check');
@@ -30,7 +30,7 @@ const version='55555555-5555-4555-8555-555555555555';
 const file='66666666-6666-4666-8666-666666666666';
 const hash='a'.repeat(64);
 const object=`${ws}/originals/${doc}/${version}/${hash}.pdf`;
-const migration = resolve('supabase/migrations/20261124080839_kdp_central_core.sql');
+const migrationRoot = resolve('supabase/migrations');
 try {
   await db.exec(`
     create role anon; create role authenticated; create role service_role bypassrls;
@@ -44,7 +44,21 @@ try {
     alter table storage.objects enable row level security;
     grant select,insert,update,delete on storage.objects to anon,authenticated,service_role;
   `);
-  await test('migration executes in PostgreSQL', async()=>db.exec(await readFile(migration,'utf8')));
+  await test('all migrations execute in PostgreSQL', async()=>{
+    for (const filename of (await readdir(migrationRoot)).filter(x=>x.endsWith('.sql')).sort()) {
+      await db.exec(await readFile(resolve(migrationRoot,filename),'utf8'));
+    }
+  });
+  await test('complete file identity FK has a covering index',async()=>{
+    const r=await db.query("select indexdef from pg_indexes where schemaname='public' and indexname='kdp_files_version_identity_idx'");
+    assert.equal(r.rows.length,1);
+    assert.match(r.rows[0].indexdef,/\(workspace_id, document_version_id, sha256, byte_length\)/);
+  });
+  await test('hosted SQL verification script executes and rolls back fixtures',async()=>{
+    await db.exec(await readFile(resolve('scripts/check_hosted_central.sql'),'utf8'));
+    assert.equal((await db.query('select count(*)::int n from auth.users')).rows[0].n,0);
+    assert.equal((await db.query('select count(*)::int n from public.kdp_workspaces')).rows[0].n,0);
+  });
   await db.exec(`
     insert into auth.users values ('${user}'),('${viewer}'),('${outsider}');
     insert into public.kdp_workspaces(id,slug,name) values ('${ws}','test-a','Fixture A'),('${other}','test-b','Fixture B');

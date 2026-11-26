@@ -1,5 +1,12 @@
 # 변경 기록
 
+## 2026-11-26 — 전용 Free 개발 DB·core 원격 적용
+
+- 사용자 지정 추가 연결 조직에서 Free/월 $0 확인 후 서울 전용 개발 DB를 생성하고 core 9개 RLS 테이블·workspace·Storage 정책을 적용했다. 실제 ref/계정은 ignored 승인 기록에만 남겼다.
+- hosted advisors의 복합 FK 인덱스 누락을 CLI 생성 additive migration으로 보완했다. SQL history/SHA 대응과 중복 적용 방지를 기록했다.
+- hosted SQL rollback fixture 15개, 실제 익명 REST 접근 거부(401/42501), PGlite 26개·Python 63개 통과. 보안/health 지적 0, unused_index INFO 4건.
+- private bucket은 대시보드 로그인 대기이며 Auth/membership·실원본 업로드·backup/restore·두 PC 조회는 미완료다. 운영/배포·기존 업무 프로젝트·유료 요금은 변경하지 않았다.
+
 ## 2026-11-24 — TASK 01 core 로컬 구현과 생성 한도 확인
 
 - 사용자 승인으로 TEST 조직의 월 $0 전용 개발 프로젝트 생성을 시도했으나 계정 무료 active 2개 한도로 거절됐다. 다른 프로젝트/요금/운영은 변경하지 않았다.

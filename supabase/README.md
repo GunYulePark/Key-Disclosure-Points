@@ -1,18 +1,35 @@
 # TASK 01 중앙 개발 기반
 
-2026-11-24 현재 **원격 프로젝트/DB/bucket 미생성**. 사용자가 중앙 DB·비공개 저장소 구축과 연결된 TEST 조직의 전용 Free 개발 프로젝트 생성을 승인했다. 신규 생성 비용 조회는 월 $0이었으나 `create_project`가 active Free 프로젝트 2개 한도로 거절됐다. 기존 다른 업무 프로젝트는 변경하지 않았다. 대상 개발 환경 확보 방식에 대한 사용자 답변이 다음 작업이다. 추가 조직만 만들면 계정 한도가 초기화된다고 가정하지 않는다.
+2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 월 $0으로 생성했다. 전용 개발 DB/core 9개 테이블·RLS·Storage SELECT/INSERT 정책·workspace 1개와 FK 인덱스 적용/검증 완료. 실제 ref/UUID는 공개 문서에 기록하지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 보관한다. 기존 계정의 11월 24일 생성 한도 실패는 과거 기록이다.
+
+**현재 private bucket은 미생성**이다. connector에는 Storage 생성/관리자 credential 조회 도구가 없고 대시보드가 로그인 화면이다. 사용자 로그인 뒤 Storage API/UI로 `kdp-dev-originals`를 public=false·10MiB·허용 MIME 4종으로 생성한다. 원본 0건, 실제 프로젝트 Auth 사용자·membership 0건. 운영 연결/실자료 공유/두 PC 검증 완료가 아니다.
+
+## 원격 적용 및 검증 이력
+
+| 로컬 CLI 생성 파일 | Hosted version / 이름 | SQL SHA-256 |
+|---|---|---|
+| `20261124080839_kdp_central_core.sql` | `20261126042013 kdp_central_core` | `589472a414ba912c788fb80ea1ef9b19337cbcd7b6dea313b5400cc06260b388` |
+| `20261126042319_kdp_file_identity_index.sql` | `20261126042450 kdp_file_identity_index` | `8151942f15c6e8bbb8e21101ea9c2efc965ba885baf4a763956c12ad3c6473e3` |
+
+MCP `apply_migration`은 적용 시각으로 이력을 생성하므로 로컬 파일명과 다르다. 같은 SQL을 `db push`로 중복 적용하지 않는다. CLI 연결 전 migration history 대응을 확인하고 필요 시 `migration repair --help`와 실제 history를 검토한다. 현재 적용 SQL은 로컬 SHA와 같다. core 파일의 NOT applied 주석은 생성 당시 기록이며 hash 보존을 위해 바꾸지 않았다.
+
+`scripts/check_hosted_central.sql`은 **승인된 전용 개발 project에서만** MCP `execute_sql`로 실행한다. 실제 PostgreSQL의 15개 권한/FK/불변/revision/ready 검사를 수행하며 가상 Auth 사용자·metadata는 전부 transaction rollback한다. Storage 테이블/객체를 쓰지 않으며 실제 로그인/Storage HTTP/hash 성공을 주장하지 않는다. 실행 뒤 Auth 사용자 0·workspace 1·문서/객체 0 확인. 익명 publishable key REST 조회는 실제 HTTP 401/42501로 거부됐다.
+
+advisors: security/health 0, performance FK 누락 1건은 전체 복합 인덱스로 보완. 남은 unused_index INFO 4건은 신규 DB 사용 실적이 없어 삭제하지 않았다. [미사용 인덱스 안내](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index). DB 약 12MB, 업로드 0건. 초기 empty project 확인이 이관 전 baseline이며 DB/Storage backup·restore 실증은 별도 미완료다. 되돌릴 때는 개발 쓰기를 중단하고 로컬 원본을 보존한다. 프로젝트/테이블 삭제는 별도 승인 없이 하지 않는다.
 
 ## 구현 범위
 
 - CLI 3.3.0의 `migration new kdp_central_core`로 생성한 core migration: workspaces/members, sources, documents/versions/files, evidence, legacy map, ingestion jobs의 9개 테이블.
 - workspace 복합 FK·인덱스, RLS/명시 GRANT, 관리자만 membership/승인 변경, 원본 identity 불변, revision 증가·조건 갱신, 미검증 원본·근거의 ready 전환 차단.
 - 비공개 Storage SELECT/INSERT 정책. 검증된 파일만 읽고, 승인된 사전 등록 경로만 editor가 업로드할 수 있다. 사용자 UPDATE/DELETE/upsert는 허용하지 않는다. 버킷은 SQL insert 대신 Storage API로 생성한다.
-- `central_sync.py`: 기본 offline plan, 승인된 전용 개발 target 검사, 비공개 bucket 확인/명시 생성, 인증된 reader로 DB manifest와 원본 hash/길이·인용 위치를 대조한 복원. 업로드·DB seed/import·Auth membership bootstrap은 아직 구현/실행하지 않았다.
+- `central_sync.py`: 기본 offline plan, 승인된 전용 개발 target 검사, 비공개 bucket 확인/명시 생성, 인증된 reader로 DB manifest와 원본 hash/길이·인용 위치를 대조한 복원. 개발 workspace bootstrap만 수행했다. 업로드·자료 DB seed/import·Auth membership bootstrap은 아직 구현/실행하지 않았다.
 - metadata는 authenticated workspace member의 읽기만 허용한다. 초기 수집/승인 쓰기는 서버 전용이다. 화면 편집·API·회원 가입/로그인 흐름은 이번 core에 포함되지 않는다.
 
 ## 재현 가능한 로컬 검증
 
 기존 `requirements.txt` 설치 후 저장소 루트에서 실행한다. PGlite는 별도 ignored 디렉터리에만 설치하며 기존 앱의 dependency/lockfile을 변경하지 않는다.
+
+이번 PC는 Python 3.13의 격리 `.venv`에 기존 pinned requirements를 설치해 Python 63개 통과했다. `check_central_schema.mjs`는 migration 전체와 hosted 검사 SQL의 rollback 동작을 포함해 26개 통과했다. 아래 PGlite Auth/Storage는 fixture이며 실제 hosted SQL/REST 결과는 위 별도 기록을 따른다.
 
 ```powershell
 npm.cmd install --prefix .local/task01/sql-check --no-audit --no-fund --save-exact @electric-sql/pglite@0.6.0
@@ -25,12 +42,12 @@ node scripts/check_central_schema.mjs
 .venv/Scripts/python.exe scripts/central_sync.py plan --workspace 00000000-0000-4000-8000-000000000000 --cache .local/case-research/originals
 ```
 
-PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixture다. SQL/RLS 검사는 실제 PostgreSQL에서 실행하지만 hosted Supabase Auth·Storage HTTP/advisors·두 PC 검증을 대신하지 않는다. CLI `migration list`는 기본 local target `127.0.0.1:54322` 연결을 시도했으나 로컬 stack 미기동으로 실패했다. Docker stack이나 원격 migration history 조회 성공으로 표시하지 않는다. CLI로 생성한 migration 파일은 후보이며 hosted 적용 전 실제 빈 개발 프로젝트에서 다시 검증한다.
+PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixture다. SQL/RLS 검사는 실제 PostgreSQL에서 실행하지만 hosted Supabase Auth·Storage HTTP/advisors·두 PC 검증을 대신하지 않는다. 과거 CLI local `migration list`는 stack 미기동으로 실패했다. 현재 hosted migration history는 별도 MCP 조회로 위 두 항목을 확인했다. Docker stack 검증은 미완료다. 추가 migration도 적용 전 개발 대상과 SQL을 검증한다.
 
-## 개발 환경이 확보된 뒤
+## 다음 연결 및 Storage·이관 검증
 
-1. 실제 project ref·용도·Free 비용·health를 확인하고 기존 테이블/권한을 읽기 전용 검사한다. 다른 업무/운영 프로젝트에 적용하지 않는다. 원격 migration은 MCP `apply_migration`으로 기록하고 로컬 파일과 SQL을 일치시킨다.
-2. 실제 개발 Auth 사용자와 workspace를 bootstrap한다. 가짜 Auth 사용자를 운영 계정으로 추가하지 않는다. workspace_members는 trusted administrator만 등록한다.
+1. 전용 project 생성과 core 검증은 완료했다. 이 PC의 ignored 승인 기록과 현재 ref/health를 대조해 재개한다. 이미 적용한 migration을 다시 실행하지 않는다. 다른 PC에서는 승인 경로로 대상 정보와 credential을 별도 구성한다.
+2. 기존 개발 workspace를 재사용하고 실제 Auth 사용자·membership을 bootstrap한다. 가짜 Auth 사용자를 운영 계정으로 추가하지 않는다. workspace_members는 trusted administrator만 등록한다.
 3. `.local/task01/approved-target.json`에 다음 구조로 **실제 승인된 개발 ref와 workspace UUID**를 기록한다. 비밀 키는 넣지 않는다. 아래 표시는 복사해 실행 가능한 target이 아니다.
 
 ```json

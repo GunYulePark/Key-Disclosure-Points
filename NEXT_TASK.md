@@ -1,16 +1,14 @@
 # 다음 작업 — TASK 01
 
-## 현재 우선 작업 — 승인된 구축의 환경 확보
+## 현재 우선 작업 — private Storage 생성과 실제 Auth 검증
 
-플러그인 화면에서 추가 Supabase 계정을 확인했으나 이 Codex 채팅의 조회는 기존 연결만 반환했다. 새 Codex 채팅에서 사용자가 추가한 계정을 명시하고 조직과 프로젝트를 읽기 전용으로 먼저 확인한다. 계정 이메일이나 실제 프로젝트 ref는 공개 개발 문서에 기록하지 않는다.
+2026-11-26: 추가 연결 계정에서 사용자 지정 조직의 Free/프로젝트 0개·월 $0을 확인하고 서울 `key-disclosure-points-dev`를 생성했다. 전용 DB `ACTIVE_HEALTHY`, core 9개 테이블/RLS·Storage 정책, workspace 1개와 FK 보완 인덱스까지 적용했다. 기존 구축/조직 승인을 다시 묻거나 다른 프로젝트를 중지·재사용·삭제하지 않는다. 실제 account/ref/workspace는 공개 MD에 쓰지 않으며 이 PC의 `.local/task01/approved-target.json`, `cloud-state.json`을 확인한다. 다른 PC에 이 ignored 파일과 credential은 자동 복제되지 않는다.
 
-2026-11-26 재확인. 같은 계정의 새 조직도 무료 프로젝트 한도를 공유한다. 무료 여유가 있는 별도 Supabase 계정에서 전용 환경을 확보할 수 있다. 새 계정이 연결되면 조직·프로젝트 목록과 비용을 확인해 승인 대상 ref를 고정한다. 기존 두 프로젝트는 용도가 있고 최근 로그도 있어 현 상태에서 임의 중지·재사용 대상이 아니다. 조사 범위는 `DEVELOPMENT_STATUS.md`를 참고한다.
+다음은 열린 Supabase 대시보드에 승인 계정으로 사용자 로그인 → `kdp-dev-originals` private bucket 생성이다. connector에는 Storage 생성/secret 조회 도구가 없다. SQL로 storage metadata를 직접 삽입하지 않는다. 로그인 완료 뒤 같은 프로젝트인지 확인하고 Storage API/UI에서 public=false, fileSizeLimit=10MiB, MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`로 만든다. 서비스 account 로그인과 프로젝트 Auth membership은 별개이므로 사용자 Auth bootstrap·실제 JWT·Storage 접근 거부/허용도 이어서 검증한다. 키/비밀번호는 채팅/공개 MD/browser code에 넣지 않는다.
 
-2026-11-24 중앙 DB/private 원본 저장소 구축과 TEST 조직 전용 Free 프로젝트 생성은 사용자 승인됐다. get_cost 월 $0 → 서울 `key-disclosure-points-dev` create 시도 → 계정 active Free 2개 한도 거절. 신규 프로젝트/원격 migration/bucket/업로드는 없다. 환경 확보 방식 질문의 답변부터 확인한다. 기존 구축/조직 승인을 다시 묻지 않는다. 다른 업무 프로젝트 중지·재사용·삭제나 유료 전환은 승인되지 않았다.
+hosted migration 두 개, SQL rollback 검사 15개, 익명 REST 401/42501, PGlite 26개·Python 63개 통과. 보안/health 지적 0, performance 미사용 인덱스 INFO 4. **bucket/Auth 사용자/문서/객체는 아직 0**이다. 서버 ingestion·실자료 upload·backup/restore·다중 PC 조회·TASK 01 전체 완료는 미검증이다. SQL 실행 순서/이력은 `supabase/README.md`.
 
-`supabase/README.md`와 `20261124080839_kdp_central_core.sql`이 최신 로컬 구현 기준이다. core 9개 테이블·RLS/FK·private Storage 정책, offline plan/bucket 검사·명시 생성/인증 reader 복원 도구까지 준비했다. Python 63개와 PostgreSQL/WASM SQL 24개 통과. 실제 76원본 offline 검증. 원격 bootstrap·server ingestion adapter·샘플 이관·advisors·Auth/Storage HTTP·백업 복원·두 PC 동일 조회는 남아 있다. CLI `migration list`는 local stack 미기동으로 실패했다.
-
-집 PC에서 시작한다면 먼저 `HOME_PC_HANDOFF.md`를 읽는다. 개발 브랜치 clone만으로 원본 76개가 복구되지 않는다. 우선순위는 독립 개발 환경 확보·TASK 01 승인 범위 확인과 중앙 DB/private Storage 구축이며, 사례 추가로 중앙 공유 구축을 완료한 것으로 대신하지 않는다.
+11월 24일 기존 계정 Free 2개 한도로 실패했던 기록은 과거 이력이다. 76원본 약 27MB의 offline 검증은 원격 이전이 아니다. 출처별 보관 권리·승인 샘플 범위 확인을 건너뛰지 않는다. 집 PC는 먼저 `HOME_PC_HANDOFF.md`를 읽고 코드 clone과 원본/credential 공유를 구분한다.
 
 ## 병행 준비 — 사용자 요청 사례 목록
 
@@ -32,7 +30,7 @@ python -m unittest discover -s tests -v
 
 `CASE_CANDIDATES.md`의 공개 후보 10개는 전체 수집 후보 목록으로 유지한다. 4종의 최신 완료/미완료는 위 후속 기록을 따른다. 검토 질문은 공개 후보이고 승인 정답은 아니며 비공개 평가 데이터나 운영 규칙으로 자동 등록하지 않는다. 원격 구축·업로드·배포 승인 경계와 TASK 순서는 유지한다.
 
-기록일 2026-11-24. TASK 00 코드/설계 기준 커밋 `67fc2bc`; 이후 검증 기록 커밋은 git log 확인. TASK 00 진단·로컬 검증·설계 완료. 원격 구축은 아직 시작하지 않았다.
+기록일 2026-11-26. TASK 00 기준 `67fc2bc`; 이후 커밋은 git log 확인. TASK 01 전용 DB/core 구축·원격 SQL 검증 완료, Storage·Auth·실자료 이관은 미완료.
 
 ## 시작 전
 
@@ -49,7 +47,7 @@ Get-Content DEVELOPMENT_STATUS.md
 
 ## 남은 환경·자료 확인 범위
 
-1. 전용 Free 생성은 시도 후 한도로 거절됐다. 사용자가 선택한 환경 확보 방식을 확인하고 실제 개발 ref/용도/비용을 고정한다. 새 조직만으로 계정의 Free 한도가 초기화된다고 가정하지 않는다. 기존 프로젝트는 임의 변경하지 않는다.
+1. 전용 Free 개발 DB는 추가 연결 계정에서 생성·고정했다. 실제 ref/용도/월 $0 확인일은 ignored 승인 기록을 따른다. 기존 업무 프로젝트와 혼동하지 않는다.
 2. core schema/RLS/private bucket 구축은 이번 요청의 승인 범위다. 확정된 독립 개발 대상에서 수행하고 운영 Pages/Actions/Sites/D1의 기준 저장소·Secret은 변경하지 않는다.
 3. 공개 출처별 보관 권리·샘플 이관 범위를 확인한다. `DATA_SOURCES.md`의 PDF 1개+DART HTML 1개 약 3.06MB와 연구 묶음 76개 약 27MB는 다른 묶음이다. 내부자료·개인 PDF·메일 이력·실제 평가 정답은 제외한다. 출처 확인을 이용 권리 확인으로 대신하지 않는다.
 
@@ -58,8 +56,9 @@ Get-Content DEVELOPMENT_STATUS.md
 ## 승인 뒤 TASK 01 체크리스트
 
 - [x] CLI 3.3.0 help/version·local 기본 target 확인, CLI로 migration 생성. PGlite 0.6.0 격리 설치로 로컬 PostgreSQL/WASM SQL/RLS 검사. Docker Supabase stack 검증은 별도 미완료.
-- [ ] 승인된 개발 project ref의 읽기 전용 연결/계정·용도 확인. 실제 사용량과 Free 상태/비용 확인.
-- [ ] 로컬 core migration을 실제 개발 Supabase에서 검증·적용하고 advisors/실 Auth/Storage API를 확인한다. local fixture 통과를 원격 성공으로 대체하지 않는다.
+- [x] 사용자 지정 추가 연결 조직의 Free·월 $0·빈 전용 개발 ref·health와 사용량 확인. 실제 식별자는 ignored 승인 기록.
+- [x] 실제 개발 Supabase에 core와 인덱스 migration 적용, hosted SQL 15개/익명 REST 거부·advisors 검증.
+- [ ] private bucket 생성, 실제 Auth/Storage API의 member 허용·anon/다른 workspace 거부. SQL fixture와 HTTP 검증을 구분한다.
 - [x] trusted membership, workspace 복합 FK, revision 조건 갱신/증가, sources/documents/versions/files/legacy map/jobs와 Storage INSERT/SELECT SQL 구현·로컬 검사.
 - [ ] `central_sync.py`의 기본 offline plan/target 제한/bucket/reader 복원에 더해 멱등 DB seed·승인 자료 server ingestion/upload adapter를 구현·실 검증한다. 기존 `central_contract.py`는 순수 함수로 유지한다.
 - [ ] 이전 후보의 원본/URL/기존 ID/해시 재확인 → 백업 → staging → upload → 독립 download SHA/길이 검증 → 기존 근거 alias/FK → ready 순서 검증.

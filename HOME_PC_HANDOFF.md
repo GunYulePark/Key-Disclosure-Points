@@ -9,7 +9,7 @@
 | 코드·요구사항·진행 기록·검토 결과·테스트·연구 메타데이터 | Git clone으로 확보 가능 |
 | 최신 사례 결과 | `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json` |
 | 조사 원본 76개, 27,024,097 bytes | 회사 PC의 ignored `.local/case-research/originals/`에만 있음. clone에 없음 |
-| Supabase 중앙 DB·private 원본 Storage | 미구축·미연결. 두 PC 공유 성공을 확인한 상태가 아님 |
+| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB/core 생성·SQL 검증 완료. private bucket/Auth·원본 이관·두 PC 공유는 미완료 |
 | 환경변수·인증·API 키·브라우저 개인 업로드 | Git으로 공유하지 않음. 집 PC에서 필요한 연결을 별도 설정 |
 | 저장소 밖 legacy/private Sites 소스·로컬 데이터 | 이 저장소의 clone에 포함되지 않음 |
 
@@ -29,7 +29,7 @@ git log -1 --oneline
 
 3. 이 폴더를 Codex 작업 폴더로 열고 다음 문구로 시작한다. 의존성 설치·검증 명령은 `OPERATIONS.md`에 있다. 기존 개발 기준 커밋은 `1993b69`이며, 인수인계 문서 후속 커밋은 `git log`로 확인한다.
 
-> HOME_PC_HANDOFF.md와 AGENTS.md를 읽고 PROJECT_REQUIREMENTS.md 전체, ROADMAP.md, DEVELOPMENT_STATUS.md, NEXT_TASK.md, CASE_REVIEW_02.md를 확인해서 이어서 진행해줘. 현재 개발 브랜치는 codex/task-00-cloud-foundation이다. 이 PC에 원본이 있는지 먼저 확인하고, 없으면 원본 검증을 완료한 것으로 표시하지 마. 중앙 DB와 원본 Storage는 아직 미구축이다. 다음 우선 작업은 TASK 01의 개발 환경 확보와 승인 범위 확인이다. 기존 데이터와 기능을 유지하고, 운영 변경·배포·유료 전환·승인되지 않은 클라우드 쓰기는 하지 마. 작업 결과와 다음 작업을 MD에 기록하고 개발 브랜치에만 저장해줘.
+> HOME_PC_HANDOFF.md와 AGENTS.md를 읽고 PROJECT_REQUIREMENTS.md 전체, ROADMAP.md, DEVELOPMENT_STATUS.md, NEXT_TASK.md, CASE_REVIEW_02.md를 확인해서 이어서 진행해줘. 현재 개발 브랜치는 codex/task-00-cloud-foundation이다. 이 PC에 원본이 있는지 먼저 확인하고, 없으면 원본 검증을 완료한 것으로 표시하지 마. 중앙 개발 DB/core는 구축했지만 private bucket/Auth·원본 이전은 미완료다. NEXT_TASK.md와 승인 경로의 개발 대상 정보를 확인하고 Storage/Auth 검증을 이어가라. 기존 데이터와 기능을 유지하고, 운영 변경·배포·유료 전환·승인되지 않은 클라우드 쓰기는 하지 마. 작업 결과와 다음 작업을 MD에 기록하고 개발 브랜치에만 저장해줘.
 
 ## 회사와 집 사이를 오갈 때
 
@@ -39,9 +39,9 @@ git log -1 --oneline
 
 ## 중앙 공유 구축의 다음 단계
 
-최신 상태: 사용자가 중앙 구축/TEST 조직의 전용 무료 생성은 승인했으나 Supabase가 계정 active Free 2개 한도로 거절했다. 원격 DB/Storage는 아직 없다. 로컬 core migration·권한 검사·원본 계획/복원 도구는 준비했고 `supabase/README.md`를 따른다. 환경 확보 질문의 답변 확인이 먼저다. 기존 다른 업무 프로젝트를 임의로 변경하지 않는다.
+최신 상태(2026-11-26): 추가 연결 계정에서 사용자 지정 Free 조직의 서울 전용 개발 DB/core를 생성·검증했다. private bucket은 대시보드 로그인 대기다. `supabase/README.md`에 실제 migration 이력·검증·다음 절차가 있다. ignored 승인 ref/workspace와 credential은 clone으로 공유되지 않으므로 승인 경로로 집 PC에 별도 구성한다. 같은 이름의 프로젝트를 새로 생성하거나 다른 업무 프로젝트를 변경하지 않는다.
 
-목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 현재 연결된 무료 조직의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 대상 개발 프로젝트 및 schema/RLS/bucket·샘플 이관 범위 확인이 먼저다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
+목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 
 ## 회사 PC를 끄는 것과 자동 실행
 

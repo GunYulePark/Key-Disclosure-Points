@@ -1,10 +1,14 @@
 # 개발·운영 및 데이터 접근 경계
 
+## 2026-11-26 최신 개발 환경 상태
+
+추가 연결 계정의 사용자 지정 Free 전용 개발 DB/core를 구축했다. 9개 테이블 RLS·명시 GRANT, workspace 격리·trusted membership·불변 원본/revision/ready 조건을 실제 SQL rollback fixture 15개로 확인했다. 익명 REST 401/42501, security/health advisors 지적 0. 이 검증은 실제 Auth 로그인·Storage HTTP·백업 복원 검증을 대신하지 않는다. private bucket은 아직 미생성/로그인 대기다. 계정 이메일/ref/UUID는 ignored 승인 파일에만 저장하고 공개 Git에는 넣지 않는다. 아래 TASK 00 기록은 당시 범위다.
+
 TASK 00: 원격 프로젝트 목록·plan·public schema 메타데이터만 읽었다. 행 데이터/키 조회, SQL 실행, bucket 생성/업로드, 권한 변경, 운영 설정 변경은 수행하지 않았다. 실제 Supabase RLS/Storage/auth 테스트는 아직 수행하지 않았다.
 
 ## 환경과 공개 범위
 
-- 독립 개발 프로젝트가 선정되기 전까지 `CENTRAL_STORE_MODE=disabled`. 기존 업무용 프로젝트 2개는 재사용하지 않는다. schema 이름만 나누는 방식으로 운영 DB에 실험하지 않는다.
+- 독립 개발 프로젝트는 선정·구축했다. 실제 Auth/Storage credential을 승인 경로로 설정하기 전까지 클라이언트의 `CENTRAL_STORE_MODE=disabled`를 유지한다. 기존 업무용 프로젝트 2개는 재사용하지 않는다.
 - `.env.example`은 빈 값 템플릿이며 승인 또는 작동하는 연결이 아니다. publishable key조차 이 단계에서는 프론트엔드에 연결하지 않는다. DB URL/password·server secret/service role·DART/Gemini 키는 로컬 환경/승인된 Secret에서만 관리한다.
 - 공개 코드에 상세 로컬 inventory, 개인 메일/검토 이벤트, 내부 자료, 실제 평가 정답, 프로젝트 관리자 키를 넣지 않는다. 기존 공식 공개 snapshot만 그대로 유지한다.
 - 공식 URL+hash 일치는 외부 저장/재배포 권리 또는 회사 보안 승인을 대체하지 않는다. 샘플 후보도 권리·이전 대상 승인 후 업로드한다.
