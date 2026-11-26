@@ -9,7 +9,7 @@
 | 코드·요구사항·진행 기록·검토 결과·테스트·연구 메타데이터 | Git clone으로 확보 가능 |
 | 최신 사례 결과 | `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json` |
 | 조사 원본 76개, 27,024,097 bytes | 회사 PC 캐시에 76개 보관. 집 PC에서 Supabase로부터 법령 HTML 2개 복원 가능. 나머지 74개는 보관 근거 확인 중 |
-| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성 완료. viewer 등록 및 법령 원본 2개 재다운로드 검증 완료. 집 PC의 실제 로그인·복원 검증 예정 |
+| Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성 완료. 회사 PC에서 실제 viewer 로그인으로 법령 원본 2개 복원 확인. 집 PC의 실제 로그인·복원 검증 예정 |
 | 환경변수·인증·API 키·브라우저 개인 업로드 | Git으로 공유하지 않음. 집 PC에서 필요한 연결을 별도 설정 |
 | 저장소 밖 legacy/private Sites 소스·로컬 데이터 | 이 저장소의 clone에 포함되지 않음 |
 
@@ -68,6 +68,8 @@ $env:SUPABASE_DEV_PUBLISHABLE_KEY = '<development-publishable-key>'
 처음 복원하면 `restored: 2`, 이미 같은 파일이 캐시에 있으면 `cached_verified`로 기록된다. 좌표 조회는 이관된 원문 버전·SHA-256·정규화한 문자 범위를 출력한다.
 
 복원한 원본은 [원문 검토 로컬 미리보기](EVIDENCE_VIEWER.md)에서 바로 열 수 있다. 로컬 미리보기 서버는 캐시를 읽으므로 두 파일을 Supabase에서 받은 뒤 시작한다. 원격 복원 여부를 별도로 증명하려면 새로운 빈 캐시 폴더로 두 파일을 받거나, `verify_original_restore.py`에서 임시 빈 폴더를 사용하는 인증 검사를 실행한다.
+
+2026-11-27 회사 PC에서는 임시 검사로 원본 2개·679,729바이트, 인용 4개, 공개 접근 거부 2개를 확인했다. 임시 검사 서버는 성공 결과를 저장하면 종료한다. 주소가 이후 열리지 않아도 `.local/task01/viewer-restore-check.json`에서 검증 결과를 확인할 수 있다. 이 결과는 집 PC에서의 검증과 별개다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 

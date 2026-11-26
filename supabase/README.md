@@ -2,7 +2,7 @@
 
 2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 월 $0으로 생성했다. 전용 개발 DB/core 9개 테이블·RLS·Storage SELECT/INSERT 정책·workspace 1개와 FK 인덱스 적용/검증 완료. 실제 ref/UUID는 공개 문서에 기록하지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 보관한다. 기존 계정의 11월 24일 생성 한도 실패는 과거 기록이다.
 
-Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들고 법령 HTML 2개를 이관했다. 원격 SQL로 `public=false`, 10MiB 제한과 인증 사용자용 SELECT/INSERT 정책을 확인했다. 두 원본을 별도로 다운로드해 SHA-256·길이·인용 위치를 검증했다. 프로젝트 Auth 사용자 1개를 승인 workspace에 `viewer`로 등록했다. 두 객체의 익명 공개 HTTP 요청은 400을 반환했고, 원격 SQL에서 viewer의 접근과 비회원 차단을 확인했다. 실제 viewer 이메일 로그인과 집 PC 복원 검증이 남아 있다.
+Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들고 법령 HTML 2개를 이관했다. 원격 SQL로 `public=false`, 10MiB 제한과 인증 사용자용 SELECT/INSERT 정책을 확인했다. 프로젝트 Auth 사용자 1개를 승인 workspace에 `viewer`로 등록했다. 2026-11-27 회사 PC에서 실제 viewer 로그인으로 두 원본을 빈 폴더에 복원하고 SHA-256·679,729바이트·인용 4개와 공개 접근 거부 2개를 확인했다. 원격 SQL에서 viewer의 접근과 비회원 차단을 확인했다. 집 PC 복원은 별도로 검증한다.
 
 ## 원격 적용 및 검증 이력
 

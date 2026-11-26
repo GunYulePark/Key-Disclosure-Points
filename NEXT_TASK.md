@@ -2,7 +2,7 @@
 
 ## 현재 우선 작업 — 집 PC 복원과 후속 원본 이관
 
-`ba2a36f` 이후 개발 DB에서 ready 버전 2개·근거 4개·비공개 객체 2개를 다시 확인했다. 이 PC에서 실제 Auth 복원 결과는 `.local/task01/viewer-restore-check.json`을 먼저 확인한다. 파일이 없으면 로그인 기반 복원 검사가 미완료다. [집 PC 인수인계](HOME_PC_HANDOFF.md)에서 이미 설정한 Auth 계정으로 인증한 뒤 빈 캐시 복원을 실행한다. 대시보드 로그인이나 기존 로컬 캐시 조회를 viewer HTTP 성공으로 표시하지 않는다.
+2026-11-27 회사 PC의 실제 Auth 복원 성공. 승인 workspace에 `viewer`로 접근해 빈 폴더로 법령 2개(679,729바이트)를 복원하고 SHA-256·인용 4개·공개 접근 거부 2개를 확인했다. 이 PC의 결과는 ignored `.local/task01/viewer-restore-check.json`에 있다. 성공 후 동일한 임시 URL이 연결 거부로 표시되는 것은 로컬 검사 서버 종료 때문이다. 남은 작업은 [집 PC 인수인계](HOME_PC_HANDOFF.md)에 따라 독립된 집 PC에서 같은 복원을 확인하고, 뷰어에서 인증해 Supabase 원본을 읽도록 연결하는 것이다.
 
 브라우저 검사 서버를 재시작한 뒤에는 `/verify`를 새로고침하지 말고 `http://127.0.0.1:8767/`에서 새 양식을 연다. 기존 Chromium 403은 로컬 양식의 Origin 검사에서 발생했고 수정했다. 실제 Auth/원본 단계의 오류는 화면에 표시된 단계명으로 구분한다.
 
@@ -12,9 +12,9 @@
 
 2026-11-26: 추가 연결 계정에서 사용자 지정 조직의 Free/프로젝트 0개·월 $0을 확인하고 서울 `key-disclosure-points-dev`를 생성했다. 전용 DB `ACTIVE_HEALTHY`, core 9개 테이블/RLS·Storage 정책, workspace 1개와 FK 보완 인덱스까지 적용했다. 기존 구축/조직 승인을 다시 묻거나 다른 프로젝트를 중지·재사용·삭제하지 않는다. 실제 account/ref/workspace는 공개 MD에 쓰지 않으며 이 PC의 `.local/task01/approved-target.json`, `cloud-state.json`을 확인한다. 다른 PC에 이 ignored 파일과 credential은 자동 복제되지 않는다.
 
-Supabase 대시보드에서 `kdp-dev-originals`를 생성했다. 원격 SQL로 `public=false`, 10MiB, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 정책 2개를 확인했다. 익명 Storage HTTP 요청은 버킷 메타데이터를 받지 못했다. 프로젝트 Auth 계정 1개의 `viewer` membership을 등록하고 원격 SQL에서 승인 workspace 조회와 쓰기 제한을 확인했다. 다음 단계는 실제 로그인 세션으로 `central_sync.py check`를 실행하고 이관 후 원본 접근을 검증하는 것이다.
+Supabase 대시보드에서 `kdp-dev-originals`를 생성했다. 원격 SQL로 `public=false`, 10MiB, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 정책 2개를 확인했다. 익명 Storage HTTP 요청은 버킷 메타데이터를 받지 못했다. 프로젝트 Auth 계정 1개의 `viewer` membership을 등록하고 원격 SQL에서 승인 workspace 조회와 쓰기 제한을 확인했다.
 
-비공개 버킷과 프로젝트 Auth viewer membership을 구성했다. **법령 HTML 원본 2개, 679,729바이트 이관과 재다운로드 검증 완료.** ready 문서 버전 2개, 근거 4개, 기존 ID 연결 2개를 원격에서 확인했다. Python 69개 통과. 집 PC에서는 `HOME_PC_HANDOFF.md`의 두 원본 부분 복원을 실행한다. 나머지 자료는 `DATA_SOURCES.md`의 보관 근거 확인 후 같은 순서로 이관한다. 실제 viewer HTTP 로그인, 백업/복원·두 PC 검증은 남아 있다.
+비공개 버킷과 프로젝트 Auth viewer membership을 구성했다. **법령 HTML 원본 2개, 679,729바이트 이관과 재다운로드 검증 완료.** ready 문서 버전 2개, 근거 4개, 기존 ID 연결 2개를 원격에서 확인했다. Python 69개 통과. 집 PC에서는 `HOME_PC_HANDOFF.md`의 두 원본 부분 복원을 실행한다. 나머지 자료는 `DATA_SOURCES.md`의 보관 근거 확인 후 같은 순서로 이관한다. 백업 및 다른 PC 복원 검증이 남아 있다.
 
 TASK 02의 CLI 조회(`scripts/case_pack.py --anchor`)와 로컬 UI는 같은 원본 해시·버전·정규화 인용 위치를 검증한다.
 
@@ -71,8 +71,9 @@ Get-Content DEVELOPMENT_STATUS.md
 - [x] 비공개 버킷 생성, 파일 제한·정책과 익명 버킷 메타데이터 미노출 확인.
 - [x] 개발 브랜치를 별도 폴더에 GitHub에서 새로 clone하고 집 PC용 Auth/workspace 연결 확인 명령을 준비했다.
 - [x] 프로젝트 Auth 계정과 승인 workspace의 viewer membership을 등록하고 원격 SQL에서 읽기 허용·쓰기 제한 확인.
-- [ ] 프로젝트 Auth 로그인으로 `central_sync.py check`를 실행하고 집 PC에서도 같은 workspace를 조회.
-- [ ] 실제 Auth/Storage API의 member 허용·anon/다른 workspace 원본 접근 거부.
+- [x] 회사 PC에서 실제 프로젝트 Auth 로그인·viewer workspace 조회·비공개 원본 2개 복원 및 공개 접근 거부 확인.
+- [ ] 집 PC에서 프로젝트 Auth로 같은 workspace와 원본을 조회.
+- [ ] 다른 workspace의 비회원 Auth 세션으로 원본 HTTP 접근 거부 확인. 원격 SQL의 비회원 권한 검사는 기존에 완료.
 - [x] trusted membership, workspace 복합 FK, revision 조건 갱신/증가, sources/documents/versions/files/legacy map/jobs와 Storage INSERT/SELECT SQL 구현·로컬 검사.
 - [x] 법령 2개에서 승인 배치 staging → 비공개 업로드 → 독립 다운로드 SHA/길이 → 기존 ID/FK → ready 순서 검증.
 - [x] `central_ingest.py`의 멱등 staging/finish와 `central_sync.py` 부분 복원 구현. 대시보드 업로드 경로 검증.
