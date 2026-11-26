@@ -8,6 +8,21 @@
 
 남은 연구 캐시 74개는 DART 65개, 금감원 PDF·HWP 3개, KIND 3개, 기업 사이트 3개다. Open DART는 원문 API 활용을 안내한다. 이번 캐시에 있는 뷰어 HTML·첨부 이미지·PDF에는 해당 파일의 출처와 사용 범위를 대조하고 이관한다. 아래 별도 3.06MB 샘플은 별개의 후보로 유지한다. [Open DART 서비스 소개](https://opendart.fss.or.kr/intro/main.do) · [Open DART 이용약관](https://opendart.fss.or.kr/intro/terms.do)
 
+## 2026-11-26 — 74개 원본의 파일별 보관 근거 확인
+
+[`research/original-retention-review.json`](research/original-retention-review.json)에 74개 원본의 ID·출처 URL·형식·SHA-256과 적용한 권리 확인 항목을 기록했다. 이번 확인에서 해당 파일의 비공개 중앙 보관 근거가 확인된 추가 원본은 0개다. 원본과 기록은 그대로 유지하고 권리가 확인되면 해당 SHA의 결정만 갱신한다.
+
+| 항목 | 파일 수 | 결정 근거 |
+|---|---:|---|
+| DART 기업 제출 공시·첨부 | 57 | 제출인 작성물과 첨부에 제3자 권리가 포함될 수 있다. Open DART API 공개·접근 허용 범위만으로 이 HTML·이미지·PDF 파일 전체 보관 근거를 확인할 수 없었다. |
+| DART 공시목록 화면 응답 | 6 | 공공데이터포털의 공시검색 API 이용허락 범위는 해당 API 데이터에 적용한다. 현재 해시에 해당하는 DART 웹 검색 HTML의 별도 저장 근거는 확인되지 않았다. |
+| 금융감독원 게시 안내 HTML·원본 첨부 | 5 | 안내 HTML 2개는 금감원 권리 표시가 있고, 작성기준 PDF·설명회 PDF·모범사례 HWP 3개에서 파일 보관을 뒷받침하는 공공누리 표기를 확인하지 못했다. |
+| KIND 내 회사 제출 HTML | 3 | 공시의 공개 열람을 확인했다. 제출인 원본의 별도 보관 허락은 미확인이다. |
+| 삼성전자 IR HTML | 2 | 보관한 HTML의 저작권 고지에서 무단 복사·배포 제한을 확인했다. |
+| 종근당 IR HTML | 1 | 사이트 및 보관 사본의 저작권 표시는 확인했으며 이 HTML의 중앙 보관 허락은 미확인이다. |
+
+API 이용조건이 확인된 결과가 필요하면 기존 웹 HTML을 그대로 대체하지 말고 공공데이터 API에서 받은 응답을 새 출처로 등록한다. 출처나 파일 버전이 바뀌면 해시와 인용 위치를 다시 확인한다. [공공데이터포털 금감원 공시검색](https://www.data.go.kr/data/3075133/openapi.do) · [Open DART 이용약관](https://opendart.fss.or.kr/intro/terms.do) · [삼성전자 주주총회 IR](https://www.samsung.com/sec/ir/governance-csr/general-meeting-of-shareholders/)
+
 ## 저장 위치
 
 | 위치 | 내용 | 동기화/권리 상태 |

@@ -1,5 +1,15 @@
 # 개발 진행 상황
 
+## 2026-11-26 — TASK 02 로컬 원문 뷰어와 74개 이관 후보 검토
+
+`ba2a36f` 이후 JUNG 계정의 전용 개발 프로젝트 상태를 확인했다. 원격 SQL 조회 결과 ready 버전 2개·근거 4개·비공개 객체 2개·viewer 1개다. 실제 Auth 복원은 `verify_original_restore.py`로 준비했다. 프로젝트 Auth 로그인 후 빈 임시 폴더로 두 원본을 읽어 길이·SHA-256·4개 인용을 검사하고 공개 요청 거부를 확인한다. 실행 결과는 ignored `.local/task01/viewer-restore-check.json`에서 확인한다. 최초 준비 시 로그인 결과는 미수신이었다.
+
+[원문 검토 미리보기](EVIDENCE_VIEWER.md)를 개발했다. 버전/근거 URL, PDF 페이지·확대·회전과 좌표 강조, HTML 문단·표 셀 강조, 검증된 HWP 인용 주변 텍스트, 수동 위치 메모와 이미지 표시를 제공한다. 원본 해시가 바뀌거나 위치가 일치하지 않으면 표시를 중단한다. 브라우저는 허용된 HTML 태그와 표의 병합 속성만 재구성한다. 공개 Pages/Actions와 별도로 로컬에 빌드한다.
+
+검증: Python 72개 및 TypeScript 검사 통과. 실제 76개 원본의 인용 100개 위치 매핑(HTML 87개, PDF 7개, HWP 3개, 이미지 3개). Chrome에서 실제 법령과 DART 표 셀, PDF 150% 확대·90도 회전·다음 페이지·인용 쪽 복귀, 이미지 표시, 1440/768/390px 화면과 콘솔/HTTP 오류 0건 확인. 이 검증은 로컬 캐시를 사용했다.
+
+남은 연구 원본 74개의 출처와 SHA를 `research/original-retention-review.json`에 기록했다. 이번에 정확한 파일의 중앙 보관 근거가 확인된 추가 원본은 0개다. 새 원본·DB 행 추가 없음. `DATA_SOURCES.md`에 출처별 확인 근거와 새 API 응답을 별도 버전으로 가져오는 방안을 기록했다.
+
 ## 2026-11-26 — 비공개 원본 2개 이관과 근거 위치 조회
 
 사용자가 파일 이전을 요청했다. 연구 캐시 76개를 해시·길이·텍스트 인용 위치로 재검증했다. 국가법령정보센터의 이용정책을 확인해 상법 제정·개정문과 상법 시행령 제33조 HTML 2개(679,729 bytes)를 서울 개발 프로젝트의 `kdp-dev-originals`에 이관했다. 나머지 연구 캐시 74개와 별도 3.06MB PDF·DART 후보는 파일별 보관 근거 확인을 계속한다. [국가법령정보센터 이용정책](https://www.law.go.kr/LSW/legalCopyright.do?menuId=803&subMenuId=79) · [Open DART 이용약관](https://opendart.fss.or.kr/intro/terms.do)

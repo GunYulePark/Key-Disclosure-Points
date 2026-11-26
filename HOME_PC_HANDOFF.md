@@ -67,6 +67,8 @@ $env:SUPABASE_DEV_PUBLISHABLE_KEY = '<development-publishable-key>'
 
 처음 복원하면 `restored: 2`, 이미 같은 파일이 캐시에 있으면 `cached_verified`로 기록된다. 좌표 조회는 이관된 원문 버전·SHA-256·정규화한 문자 범위를 출력한다.
 
+복원한 원본은 [원문 검토 로컬 미리보기](EVIDENCE_VIEWER.md)에서 바로 열 수 있다. 로컬 미리보기 서버는 캐시를 읽으므로 두 파일을 Supabase에서 받은 뒤 시작한다. 원격 복원 여부를 별도로 증명하려면 새로운 빈 캐시 폴더로 두 파일을 받거나, `verify_original_restore.py`에서 임시 빈 폴더를 사용하는 인증 검사를 실행한다.
+
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 
 ## 회사 PC를 끄는 것과 자동 실행

@@ -1,0 +1,698 @@
+{
+  "reviewed_on": "2026-11-26",
+  "scope": "private development storage, exact cached files",
+  "policies": {
+    "dart_filing": [
+      "https://opendart.fss.or.kr/intro/terms.do",
+      "https://www.data.go.kr/data/3075133/openapi.do"
+    ],
+    "dart_search_html": [
+      "https://www.data.go.kr/data/3075133/openapi.do",
+      "https://opendart.fss.or.kr/intro/terms.do"
+    ],
+    "fss_web_notice": [
+      "https://dart.fss.or.kr/info/main.do"
+    ],
+    "fss_attachment": [
+      "https://dart.fss.or.kr/info/main.do"
+    ],
+    "kind_filing": [
+      "https://info.krx.co.kr/contents/KRX/06/06070200/KRX06070200.jsp"
+    ],
+    "samsung_ir": [
+      "https://www.samsung.com/sec/ir/governance-csr/general-meeting-of-shareholders/"
+    ],
+    "ckd_ir": [
+      "https://www.ckdpharm.com/esg/csm_cg01.do",
+      "https://www.ckdpharm.com/etc/agreement.do"
+    ]
+  },
+  "files": [
+    {
+      "id": "form-1113",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=ec1655e433d04a708565d4faa646b394&fileSn=4",
+      "format": "pdf",
+      "sha256": "69b8d7a8d69cb0f353032dbf75877a5470ba83651031f4847acda14034b112f8",
+      "policy": "fss_attachment",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "q3-lecture",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=dafd3c349b224fa6813346e772240a62&fileSn=1",
+      "format": "pdf",
+      "sha256": "90d5a01c82a7189e0087ac8080eb4fff5933f86e40cd18415cbd1936a80f1ba6",
+      "policy": "fss_attachment",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "form-notice-1113",
+      "url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+      "format": "html",
+      "sha256": "f0e76255055102fdd13484da9930e42c51c09713e7cd63ee1ab8f0d7c4df9a3b",
+      "policy": "fss_web_notice",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-half-correction",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000303&dcmNo=11623761&eleId=1&offset=893&length=73055&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "aa7fd95049cdd8d5347403d275ff48f0f81b75c835dd0dc9b2890b3c93e81c55",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-half-attach-signed",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11623928&flNm=%EC%9E%90%EA%B8%B0%EC%A3%BC%EC%8B%9D%EB%B3%B4%EA%B3%A0%EC%84%9C%2826%EB%85%84%EC%83%81%EB%B0%98%EA%B8%B0%29_%EB%82%A0%EC%9D%B8%EB%B3%B8.jpg",
+      "format": "jpg",
+      "sha256": "30b48d33318311975e8214bfa4abb20f27d542955e9396f26b1cf217f2747743",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-q3-stock",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=9&offset=82790&length=59577&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "63e48abc210615ef1e5abb91b2555ce333e966927985708af0f8ed1f79f5333d",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "samsung-gm-proposal-2026",
+      "url": "https://www.samsung.com/sec/ir/reports-disclosures/public-disclosure/3755/",
+      "format": "html",
+      "sha256": "afd57e7b84765ab375490ab30004da3f268ece6672b1936f78d39adf1afd9d54",
+      "policy": "samsung_ir",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "samsung-gm-results-2026",
+      "url": "https://www.samsung.com/sec/ir/governance-csr/general-meeting-of-shareholders/",
+      "format": "html",
+      "sha256": "590055f7b7b093796e60884e4b4df94511eb01f653ee2f21de143775b94b99ff",
+      "policy": "samsung_ir",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hansae-gm-proposal-2026",
+      "url": "https://kind.krx.co.kr/external/2026/03/05/001871/20260305004158/00591.htm",
+      "format": "html",
+      "sha256": "075e013311048f85a253d0f92c0eaa2289fbd6ce8dd6c023361f81faa9a6ab66",
+      "policy": "kind_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hansae-governance-2026",
+      "url": "https://kind.krx.co.kr/external/2026/05/28/001057/20260528002304/99667.htm",
+      "format": "html",
+      "sha256": "6ca02364f784b0dbe20ac8cf71085056b573eb812ad3e4c0c627b07295c622f0",
+      "policy": "kind_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "bio-notice-0828",
+      "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449",
+      "format": "html",
+      "sha256": "ecd16019bf1b1b6b7ad72754c690e90acc90e9d5fd6cd0355e46928440c40e3b",
+      "policy": "fss_web_notice",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "bio-0828",
+      "url": "https://www.fss.or.kr/fss/cmmn/file/fileDown.do?atchFileId=1493bde6c6934d50a24fa04f6cba7b0e&fileSn=1",
+      "format": "hwp",
+      "sha256": "7ac2e07cdc413b6169b729f95e046966888d1ed80263abd8b4a148a9be10ad6a",
+      "policy": "fss_attachment",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-q3-rd",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=17&offset=274968&length=163242&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "e2a58e94a62c04ba7f0049a8f303e5eabceb4a7b01d8adbd99f931137fe75097",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hold-q3-rd",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=15&offset=427079&length=499938&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "cfe16f5a031c4e136c2abdd36c758163665753efd2af940256028d114c429e71",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "kb-q3-rd",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=15&offset=155107&length=79808&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "66d5131b6a6a100bbbfbcaf34c600d12e80d51ab1a6f6e6fca7f40c6135c8f99",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-q3-dividend",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=100&offset=5028350&length=20400&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "fa9665cba7441dfaedd3080d1f17bdcb31713ac0330dc60c34fe0ed1872e4efc",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-q3-charter-history",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=10&offset=142371&length=16735&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "4f832db9e60a072abbee7d6885d7b43eec1268d21f38b2b62e84b932bc82839a",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-charter-page-15",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11142294&flNm=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%A0%95%EA%B4%80_15.jpg",
+      "format": "jpg",
+      "sha256": "f93baeafa9a502e6a77b3acf207b9af65cb9c6c2b1142b68789d3ece5aa58417",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-charter-page-17",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11142294&flNm=%EC%A2%85%EA%B7%BC%EB%8B%B9+%EC%A0%95%EA%B4%80_17.jpg",
+      "format": "jpg",
+      "sha256": "7e7b24a182c8a2bc64d6ca4f5fee94a4d8f12c0f83195965a2b9c63c1e16fae4",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-gm-notice-2026",
+      "url": "https://kind.krx.co.kr/external/2026/03/11/001286/20260311003182/00591.htm",
+      "format": "html",
+      "sha256": "23cb42a0cf16bafa46fc65dcbb9c307cd1fa09e9331d56c6f6bdbb26b62e4e27",
+      "policy": "kind_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-gm-results-2026",
+      "url": "https://www.ckdpharm.com/esg/csm_cg01.do",
+      "format": "html",
+      "sha256": "0b7844c177f57e86db59b5f2a4e02279d3d4d3497f3cb2efc6d9e5c225d9b02f",
+      "policy": "ckd_ir",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20231114001956",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20231114001956&dcmNo=9497749&eleId=15&offset=191902&length=112184&dtd=dart3.xsd",
+      "format": "html",
+      "sha256": "52f5606a860241e7f80ec1877fdbf0f54795f310007b2e32c5abc5f235886ed1",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240320001136",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240320001136&dcmNo=9738452&eleId=15&offset=194509&length=121921&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "b646b2c9cffcbd9e4525f423287c75be091c442810cdd4ab18b00d3fa91e69a4",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240516001324",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240516001324&dcmNo=9949543&eleId=15&offset=199371&length=118608&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "fe82cbccb49a7b851774a062557a1c91064a8674a063b3de7e10c54fca1268e3",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240814003373",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240814003373&dcmNo=10071253&eleId=15&offset=198838&length=123190&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "a05b53c13b27366c62c5ee92ce862aef6fd0785a191836cf02f581457861d58a",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20241114001222",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20241114001222&dcmNo=10182418&eleId=15&offset=206678&length=130496&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "f5671aeab71cde038bad6cf1c9947dab45fce1c0afe574e08b014d16aca0951b",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250325000403",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250325000403&dcmNo=10456377&eleId=17&offset=220423&length=136568&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "c1cad12ccadc87c2b0f90b981f78ed9aeb2c40c8df8c79c86fad82cfddd8002b",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250515001363",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250515001363&dcmNo=10644373&eleId=15&offset=210109&length=124018&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "fade4f696a80228ce8f063f6fa515b21f5d48bf73dd634e0d2a09c2941110a09",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250814002097",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250814002097&dcmNo=10766846&eleId=15&offset=210166&length=128890&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "295441c06d14ec91ff185b54ddc63c76f5efeaff0018a3a8fbcfbe099939a34c",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20251114001538",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114001538&dcmNo=10880856&eleId=15&offset=214333&length=141126&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "0a4a15d5babb0bee2b603970b81bd4c261fd32590f60d6807e3883c3474c4e0f",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260318001376",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001376&dcmNo=11142292&eleId=15&offset=223930&length=157190&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "650355f040e4e9ae079fa8b42cc70be09ba2ee042c16aa47d0ec0e7e4ac8906e",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260515002659",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260515002659&dcmNo=11387501&eleId=15&offset=226237&length=135499&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "ef4e73f431bef738471fdc3729e6c8c218f38266a3db9dd2e05b76227975e629",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20261022000500",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000500&dcmNo=11624747&eleId=17&offset=323943&length=144969&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "1cfb026e12a0fe065109d0f2523b3262015fcd4d29c9b72445b883f8161807ba",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20231201000260",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20231201000260&dcmNo=9524229&eleId=17&offset=392552&length=418757&dtd=dart3.xsd",
+      "format": "html",
+      "sha256": "8e3a0ad88c8b31ffdfdb038eef9eab1659c0d3519170511657f417145b6a19e5",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240320001873",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240320001873&dcmNo=9743718&eleId=15&offset=401968&length=430176&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "3f58dbedfb90e1c76a4f24806044fb191ef27fb73f719687e87609cbb10605b8",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240516002179",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240516002179&dcmNo=9951984&eleId=15&offset=415954&length=430600&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "69f55d167904b570930ef6cc7f425c381217c141f80e40ddc6d7847ead7f9fee",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240814004549",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240814004549&dcmNo=10075488&eleId=15&offset=415914&length=452622&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "5c1c0c1db1ed7f880a85fdb43d918a5dd84a93687a35e1649c7ac6f306e0fd80",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20241114002390",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20241114002390&dcmNo=10185448&eleId=15&offset=418841&length=464589&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "e2142ecf6821a10ae359b11a3c82a3218e5f6e88ed0a93b1084ffbfe6a19ab49",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250318001235",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250318001235&dcmNo=10424335&eleId=15&offset=408041&length=477877&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "4b3bd48071d9acc7f3e6cc8b91fb38e95f8e4cf669a839eba659cc6ab20e9bd8",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250515002230",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250515002230&dcmNo=10646684&eleId=15&offset=404735&length=408046&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "6b76eedad55e22cbd3ee83a254789217949f510d13af7f40e9f26cac5e0a1510",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250814003680",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250814003680&dcmNo=10772175&eleId=15&offset=405933&length=435117&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "ececda741867c2fce1f62d34d8c6ad4c78b7b2b25dd4b4128e25771675daccc0",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20251114002391",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114002391&dcmNo=10883099&eleId=15&offset=410362&length=448709&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "42e0cb93ca4ce6642754efc58e41d27b19433161f67c0b90e5371b096b2db56f",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260318001530",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001530&dcmNo=11143531&eleId=15&offset=396493&length=468852&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "5fff6fc7bb473c12d168cd7f64ef7164900ab61e38dade1210ca302be308a205",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260515002752",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260515002752&dcmNo=11387789&eleId=15&offset=398776&length=425974&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "3490de047b9dbaf43461f2bb3790f4294a96e8f84e056f76911bcd571271227b",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20261012000414",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=17&offset=498129&length=465339&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "61a49f9f4f1448d3e53ac597aed8539c604a168e41c6efc9afcf39bc09c78642",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20231114002289",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20231114002289&dcmNo=9498641&eleId=15&offset=155819&length=78064&dtd=dart3.xsd",
+      "format": "html",
+      "sha256": "a4ea8bb15b2c1adc9d9cdc7b1a4ee860802ab04ce4e9b9c761b1a6995b819def",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240318000672",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240318000672&dcmNo=9726371&eleId=15&offset=152575&length=76873&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "323b88732c6ac49840be0457de4d89e87d304d8a7114aeee3f2c3796da89c662",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240516001741",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240516001741&dcmNo=9950703&eleId=15&offset=151339&length=67426&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "b57f2a078579e4289a5237b89261983406a411469ae2c23d878fee887992a28e",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20240814004147",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20240814004147&dcmNo=10074040&eleId=15&offset=152253&length=68958&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "5cbd5730cbbd20ef417aec622f91e1b77f55c0786ca07d80e71086cd372370f6",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20241114002275",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20241114002275&dcmNo=10185144&eleId=15&offset=156708&length=72554&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "7544c25af7c9dd4d12eadd46f888fd9490629069a9a16b573dd598183e325490",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250318001404",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250318001404&dcmNo=10425574&eleId=15&offset=159922&length=68464&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "d6225eb7045f5250813a80149d88adea8b8ad57e7727a93dc5bdc9f08ccccf45",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250515001770",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250515001770&dcmNo=10645472&eleId=15&offset=163214&length=62248&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "fe00828150656502e560f255d81509e30b2fbc0b50fc8d49d505724833cc3066",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20250814002932",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20250814002932&dcmNo=10769671&eleId=15&offset=161992&length=80108&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "05d5080e98e1a1533570e6b2158ba0d5cfd18ba3634eed632a42f2087854b938",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20251114002597",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114002597&dcmNo=10883663&eleId=15&offset=163671&length=79944&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "bd5398000edd225acf2742dac8b60c595ac797bef3b1261018cff77ac1fc406b",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260318001475",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=15&offset=164854&length=80493&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "af26b445ad83194a71939abae707e403f85616773b9d881e111d7cea26dfb53f",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260515001275",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260515001275&dcmNo=11383784&eleId=15&offset=165281&length=81634&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "cf334578f88f4d493dbfda02d7e76c57858a425e5f7845ab3984125d6af3b8e2",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "rd-20260814003323",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260814003323&dcmNo=11536681&eleId=15&offset=162709&length=78923&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "ce95dc4e0f4c5d97542c19394cda164ccd7a4041c61a868e3e1fdb1f57dfefae",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-2025-assets",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001376&dcmNo=11142292&eleId=18&offset=393656&length=31544&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "291bbdb8700fab000e74cee507280a06c90b568f076e01f99e7054e649ed7573",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-q3-assets",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=20&offset=450747&length=22910&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "92432a900b1c4f06b74a77852d7d37f8c15ccd6f9f0608467caa1cbc17cdeaa3",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hold-2025-assets",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001530&dcmNo=11143531&eleId=18&offset=939727&length=31103&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "6324ce98b83bb6efecd5cbdbcde1854e0caef15227090d47839391474e083d55",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hold-q3-assets",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=18&offset=1002270&length=31246&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "88367df65c5e186f4d73c425c7cfc6c88c840ba1edec10a5b2f5a0e98f00e0e1",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "kb-2025-assets",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=18&offset=308856&length=13005&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "5995066433cb24f35a1e7f7567fd69d9cf8a9bc1b56a6cb404d31e49013b456b",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "kb-q3-assets",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=18&offset=301784&length=13507&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "d939252af57a2572216192426d9de8252b783f90e958fce028107ed97aa59426",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-gov-2026",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260601800818&dcmNo=11413142&eleId=0&offset=0&length=0&dtd=HTML",
+      "format": "html",
+      "sha256": "decd3591e7bb245d12f2f51f5c4e26afc0affe89163ae9bddb7849dd82503406",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-gov-attachment-2026",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260601800818&dcmNo=11413140&eleId=0&offset=0&length=0&dtd=HTML",
+      "format": "html",
+      "sha256": "232152b7d0c663b2572589d84b48e097e9c9a3d0c288ada4ecdff7ae320cf046",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-charter-20260326",
+      "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11413140&flNm=%EC%B2%A8%EB%B6%801.+%EC%A0%95%EA%B4%80.pdf",
+      "format": "pdf",
+      "sha256": "4991ab5efa9f2157d3bbfcf6b935927f9b4b2834e7c2ebe4d5b34adf79b9ca22",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-half-correction-final-observed",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000500&dcmNo=11624747&eleId=1&offset=893&length=73036&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "cc017dcbbcfa84849fdc9ba0abbb36223417f6a01885695ab0c213b95cf4bdee",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "kb-2025-consolidation-na",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=19&offset=322104&length=177&dtd=dart4.xsd",
+      "format": "html",
+      "sha256": "0c024589476b6c7c5b604b5135f362f08127c473c312183c1f03c4b9b6fa09e4",
+      "policy": "dart_filing",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-listing-page-1",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00992871&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "sha256": "c7913fc9e131ce6600c37a93d15dbd1da5636b52e6addd8579166f2ecb2ba7c1",
+      "policy": "dart_search_html",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "ckd-listing-page-2",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=2&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00992871&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "sha256": "d95efd858fc65403726750758fb972a5881c7f115e17fc996dbd0277e3ab858e",
+      "policy": "dart_search_html",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hold-listing-page-1",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00149354&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "sha256": "0c10665cbed48ddda3409bd1fa9ee5e595f902c642a5f8f8c535c39c4b9f183a",
+      "policy": "dart_search_html",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "hold-listing-page-2",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=2&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00149354&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "sha256": "60977bc3ec0be8f3af8524ce3f29dd711866d3a6e0a674502118f6dc2f260997",
+      "policy": "dart_search_html",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "kb-listing-page-1",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00101664&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "sha256": "b6cbf081ea7b28e0f01cf459dedab89544b89907fca1b4ff322953c01d0f4ccb",
+      "policy": "dart_search_html",
+      "decision": "hold",
+      "transfer_approved": false
+    },
+    {
+      "id": "kb-listing-page-2",
+      "url": "https://dart.fss.or.kr/dsab001/search.ax?currentPage=2&maxResults=100&maxLinks=10&sort=date&series=desc&textCrpCik=00101664&textCrpNm=&startDate=20230930&endDate=20261124&finalReport=&businessCode=all",
+      "format": "html",
+      "sha256": "8bf155fc7bdb3dbe96e04a6c823c2b370f0523df07328e86428615fbdf819791",
+      "policy": "dart_search_html",
+      "decision": "hold",
+      "transfer_approved": false
+    }
+  ]
+}
