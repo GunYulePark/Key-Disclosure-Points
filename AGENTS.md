@@ -4,7 +4,7 @@
 
 1. `PROJECT_REQUIREMENTS.md` 전체와 `ROADMAP.md`, `DEVELOPMENT_STATUS.md`, `NEXT_TASK.md`를 읽는다.
 2. `git status --short`, 현재 브랜치와 최근 커밋을 확인한다. 이 저장소가 Git 기준 루트다. 상위 작업 폴더의 미추적 자료를 자동 추가하지 않는다.
-3. 중앙 개발 DB의 승인된 환경 식별자를 확인한다. 2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 생성하고 core/RLS를 검증했다. 실제 ref/workspace는 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 있다. private bucket·Auth·실자료 이관은 아직 미완료다. 기존 구축/조직 승인을 다시 묻지 않는다. 다른 업무 프로젝트를 재사용·중지·삭제하거나 유료 전환하지 않는다.
+3. 중앙 개발 DB의 승인된 환경 식별자를 확인한다. 2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 생성하고 core/RLS를 검증했다. 실제 ref/workspace는 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 있다. 비공개 원본 버킷을 생성하고 설정을 검증했다. Auth·실자료 이관은 미완료다. 기존 구축/조직 승인을 다시 묻지 않는다. 다른 업무 프로젝트를 재사용·중지·삭제하거나 유료 전환하지 않는다.
 4. `NEXT_TASK.md`의 미완료 단계부터 시작하고 실제 테스트와 미검증 상태를 구분한다.
 
 ## 승인 경계 — 사용자 최신 지시 우선

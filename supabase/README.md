@@ -2,7 +2,7 @@
 
 2026-11-26 추가 연결 계정의 사용자 지정 Free 조직에 서울 `key-disclosure-points-dev`를 월 $0으로 생성했다. 전용 개발 DB/core 9개 테이블·RLS·Storage SELECT/INSERT 정책·workspace 1개와 FK 인덱스 적용/검증 완료. 실제 ref/UUID는 공개 문서에 기록하지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 보관한다. 기존 계정의 11월 24일 생성 한도 실패는 과거 기록이다.
 
-**현재 private bucket은 미생성**이다. connector에는 Storage 생성/관리자 credential 조회 도구가 없고 대시보드가 로그인 화면이다. 사용자 로그인 뒤 Storage API/UI로 `kdp-dev-originals`를 public=false·10MiB·허용 MIME 4종으로 생성한다. 원본 0건, 실제 프로젝트 Auth 사용자·membership 0건. 운영 연결/실자료 공유/두 PC 검증 완료가 아니다.
+Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들었다. 원격 SQL로 `public=false`, 10MiB 제한, 허용 MIME `application/pdf`, `text/html`, `application/x-hwp`, `image/jpeg`와 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 버킷 메타데이터 요청은 HTTP 400 `Bucket not found`를 반환했다. 원본과 프로젝트 Auth 사용자·membership은 각각 0개다.
 
 ## 원격 적용 및 검증 이력
 

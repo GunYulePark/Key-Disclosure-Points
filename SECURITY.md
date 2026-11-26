@@ -2,7 +2,7 @@
 
 ## 2026-11-26 최신 개발 환경 상태
 
-추가 연결 계정의 사용자 지정 Free 전용 개발 DB/core를 구축했다. 9개 테이블 RLS·명시 GRANT, workspace 격리·trusted membership·불변 원본/revision/ready 조건을 실제 SQL rollback fixture 15개로 확인했다. 익명 REST 401/42501, security/health advisors 지적 0. 이 검증은 실제 Auth 로그인·Storage HTTP·백업 복원 검증을 대신하지 않는다. private bucket은 아직 미생성/로그인 대기다. 계정 이메일/ref/UUID는 ignored 승인 파일에만 저장하고 공개 Git에는 넣지 않는다. 아래 TASK 00 기록은 당시 범위다.
+추가 연결 계정의 사용자 지정 Free 전용 개발 DB/core를 구축했다. 9개 테이블 RLS·명시 GRANT, workspace 격리·trusted membership·불변 원본/revision/ready 조건을 실제 SQL rollback fixture 15개로 확인했다. 익명 REST 401/42501, security/health advisors 지적 0. 이 검증은 실제 Auth 로그인·Storage HTTP·백업 복원 검증을 대신하지 않는다. 비공개 버킷 설정과 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 요청에서 버킷 메타데이터가 반환되지 않았다. 계정 이메일/ref/UUID는 ignored 승인 파일에만 저장하고 공개 Git에는 넣지 않는다. 아래 TASK 00 기록은 당시 범위다.
 
 TASK 00: 원격 프로젝트 목록·plan·public schema 메타데이터만 읽었다. 행 데이터/키 조회, SQL 실행, bucket 생성/업로드, 권한 변경, 운영 설정 변경은 수행하지 않았다. 실제 Supabase RLS/Storage/auth 테스트는 아직 수행하지 않았다.
 

@@ -1,6 +1,6 @@
 # 개발 진행 상황
 
-## 2026-11-26 — 전용 Free 개발 DB 생성·원격 검증 / Storage 로그인 대기
+## 2026-11-26 — 전용 Free 개발 DB와 비공개 원본 버킷 구축
 
 사용자가 지정한 추가 연결 계정의 조직 1개는 Free이며 조회 프로젝트는 0개였다. 해당 조직에 생성을 명시적으로 지정받고 월 $0 비용을 확인해 서울 리전에 `key-disclosure-points-dev`를 생성했다. `ACTIVE_HEALTHY`, 기존 public table/migration 없음 확인 후 core 9개 테이블·RLS/FK·Storage SELECT/INSERT 정책을 적용했다. 개발 workspace 1개를 bootstrap했으며 Auth 사용자·membership, 문서·원본 객체는 0개다. 계정 이메일·실제 ref/UUID는 공개 문서에 쓰지 않고 ignored `.local/task01/approved-target.json`, `cloud-state.json`에만 기록했다. 새로운 계정/조직 승인을 다시 요구하거나 다른 업무 프로젝트를 변경하지 않는다.
 
@@ -10,7 +10,7 @@
 
 현재 PC의 기존 `.venv` 부재와 기본 `python` alias/전역 PyMuPDF 누락으로 최초 Python 실행은 실패했다. 설치된 Python 3.13으로 ignored `.venv`를 만들고 기존 pinned `requirements.txt`만 설치한 뒤 63개 전체 통과했다. 앱 dependency/lockfile은 바꾸지 않았다. `npx --no-install supabase`는 최신 3.4.0 캐시 부재로 실패해 기존 캐시의 CLI 3.3.0을 명시 실행하고 version/help 확인 후 인덱스 migration을 생성했다. 새 CLI 설치·자동 업그레이드는 하지 않았다.
 
-**미완료:** 대시보드가 로그인 화면이라 private `kdp-dev-originals` 버킷은 아직 생성되지 않았다. 현재 Supabase connector에는 버킷 생성/관리자 credential 조회 도구가 없으며, storage schema에 SQL로 직접 metadata를 쓰는 우회는 사용하지 않는다. 사용자 로그인 후 Storage API/UI로 private bucket·10MiB 제한·허용 MIME을 생성하고 실제 Auth/Storage 접근을 검사한다. 사용자 계정 로그인과 프로젝트 내부 Auth 사용자는 별개다. 실제 자료 권리/샘플 범위·server ingestion adapter·백업/복원·두 PC 조회도 남아 있다. TASK 01 전체 완료나 원본 중앙 공유 성공으로 보고하지 않는다. 운영/Pages/Actions/Sites/D1·유료 전환·실자료 업로드 없음.
+사용자의 대시보드 로그인 후 비공개 `kdp-dev-originals` 버킷을 생성했다. 원격 SQL에서 `public=false`, 10,485,760바이트 제한, PDF·HTML·HWP·JPEG 허용 MIME, 인증 사용자 전용 SELECT/INSERT 정책 2개와 객체 0개를 확인했다. 익명 Storage의 버킷 메타데이터 조회는 HTTP 400 `Bucket not found`를 반환했다. 프로젝트 Auth 사용자와 membership은 0개다. 실제 Auth 원본 접근·샘플 이관·백업 복원·두 PC 조회가 남아 있다.
 
 ## 2026-11-26 — 추가 Supabase 계정 연결 확인
 
@@ -56,12 +56,12 @@ v1 묶음 보존, v2 76자료/97텍스트 위치와 후속 사실 JSON·검증 h
 
 주요 후속 확인: 금융위 2026.6.23 발표와 최종 공포/서식 버전을 대조하여 기존 자기주식 예외 답변의 유효성을 재검토한다. 종근당 배당절의 개선 가능 표시/인용 정관은 최신 정관과 대조할 후보이며 정정 의무 미확정이다. 소집공고 안건의 실제 가결은 별도 확인 대상이다. DART 지침 게시·종근당 배당절·정정 요약 HTTP 200 재확인, 공식 상법 개정문/부칙과 기업 IR/KIND 자료 확인. 원문 바이너리 재배포/외부 API 전송·클라우드 쓰기·운영 변경 없음. 변경은 개발 문서 4개뿐이므로 소스 회귀 테스트는 반복하지 않고 diff·문서 참조·변경 범위를 확인한다.
 
-기록일: 2026-11-24 / 요구사항 v2.0 / 현재 단계: **TASK 00 완료, TASK 01 전용 DB·원격 SQL 검증 완료 / Storage·Auth·샘플 검증 진행 중**. 아래 TASK 00 및 11월 24일 기록은 당시 이력이며 최신 상태는 맨 위 11월 26일 기록을 따른다.
+기록일: 2026-11-24 / 요구사항 v2.0 / 현재 단계: **TASK 00 완료, TASK 01 전용 DB·비공개 버킷 구축 및 검증 완료 / Auth·샘플 검증 진행 중**. 아래 TASK 00 및 11월 24일 기록은 당시 이력이며 최신 상태는 맨 위 11월 26일 기록을 따른다.
 
 ## 바로 알아야 할 사항
 
 - 실제 저장소는 이 문서가 있는 폴더. 개발 브랜치 `codex/task-00-cloud-foundation`, 시작 기준 `9e50cd1`(조사 시 origin/main과 같음).
-- 전용 Free 개발 DB/core RLS는 생성·원격 검증했다. private bucket/Auth·샘플 업로드·두 PC 공유는 미완료다. 실제 대상은 ignored 승인 기록을 따르며 공개 문서에 ref를 쓰지 않는다.
+- 전용 Free 개발 DB와 비공개 버킷을 생성하고 원격 설정을 검증했다. Auth·샘플 업로드·두 PC 공유 검증이 남아 있다. 실제 대상은 ignored 승인 기록을 따르며 공개 문서에 ref를 쓰지 않는다.
 - 기존 계정의 다른 업무 프로젝트 2개는 보존한다. 추가 연결 계정에서 확보한 독립 개발 프로젝트만 이번 대상으로 승인됐다.
 - main push는 실제 배포를 유발한다. 이번 작업은 main merge/push/dispatch/운영 환경 변경을 하지 않는다. 공개 운영 화면 숨김·간결한 문구·현재 데이터 유지.
 - 상위 작업 폴더의 legacy 원본/검증기와 별도 private Sites 소스는 이 공개 저장소 clone에 포함되지 않는다. 상세 inventory는 로컬 `.local/task00/`에만 있다.

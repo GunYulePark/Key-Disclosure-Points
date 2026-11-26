@@ -1,5 +1,10 @@
 # 변경 기록
 
+## 2026-11-26 — 비공개 원본 버킷 생성
+
+- `kdp-dev-originals` 생성 후 비공개 설정, 10MiB 제한, MIME 4종과 인증 사용자용 SELECT/INSERT 정책을 확인했다. 익명 Storage 요청은 버킷 메타데이터를 받지 못했다.
+- 버킷은 비어 있다. 프로젝트 Auth와 원본 이관 검증이 남아 있다.
+
 ## 2026-11-26 — 전용 Free 개발 DB·core 원격 적용
 
 - 사용자 지정 추가 연결 조직에서 Free/월 $0 확인 후 서울 전용 개발 DB를 생성하고 core 9개 RLS 테이블·workspace·Storage 정책을 적용했다. 실제 ref/계정은 ignored 승인 기록에만 남겼다.

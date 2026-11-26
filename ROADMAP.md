@@ -5,7 +5,7 @@
 | TASK | 상태 | 내용·완료 조건 |
 |---|---|---|
 | 00 | 완료 | 저장소/기능/데이터 조사, baseline, 로컬 inventory·샘플 dry-run, 중앙 DB/Storage 설계, 비용·권한·다중 PC 인수인계. 클라우드 이관 완료 아님 |
-| 01 | 전용 Free DB/core·원격 SQL 검증 / Storage 진행 중 | 추가 연결 계정에 서울 개발 DB 생성. core/RLS·인덱스·hosted SQL 15개/익명 REST 거부·advisors 확인. private bucket/Auth·샘플 이관·복원·두 환경 조회 미완료 |
+| 01 | 전용 Free DB·비공개 버킷 구축 및 검증 | core/RLS·인덱스·hosted SQL 15개·익명 REST 거부·advisors 확인. 비공개 버킷 설정 검증. Auth·샘플 이관·복원·두 환경 조회 예정 |
 | 02 | 미착수 | 문서 버전·근거 schema, PDF 좌표/HTML 문단·표·셀 뷰어 |
 | 03 | 사전자료 준비 / 구현 미착수 | 사례 4종·v2 근거 76단위·39개 연구개발 절 준비. 자동 수집 파이프라인·정정/시행일 모델·승인 QA는 미구현 |
 | 04 | 미착수 | Provider 공통화, A 일반 LLM/B 기본 RAG 동일 snapshot baseline |
