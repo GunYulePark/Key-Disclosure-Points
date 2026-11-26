@@ -2,6 +2,8 @@
 
 ## 현재 우선 작업 — 승인된 구축의 환경 확보
 
+2026-11-26 재확인. 같은 계정의 새 조직도 무료 프로젝트 한도를 공유한다. 무료 여유가 있는 별도 Supabase 계정에서 전용 환경을 확보할 수 있다. 새 계정이 연결되면 조직·프로젝트 목록과 비용을 확인해 승인 대상 ref를 고정한다. 기존 두 프로젝트는 용도가 있고 최근 로그도 있어 현 상태에서 임의 중지·재사용 대상이 아니다. 조사 범위는 `DEVELOPMENT_STATUS.md`를 참고한다.
+
 2026-11-24 중앙 DB/private 원본 저장소 구축과 TEST 조직 전용 Free 프로젝트 생성은 사용자 승인됐다. get_cost 월 $0 → 서울 `key-disclosure-points-dev` create 시도 → 계정 active Free 2개 한도 거절. 신규 프로젝트/원격 migration/bucket/업로드는 없다. 환경 확보 방식 질문의 답변부터 확인한다. 기존 구축/조직 승인을 다시 묻지 않는다. 다른 업무 프로젝트 중지·재사용·삭제나 유료 전환은 승인되지 않았다.
 
 `supabase/README.md`와 `20261124080839_kdp_central_core.sql`이 최신 로컬 구현 기준이다. core 9개 테이블·RLS/FK·private Storage 정책, offline plan/bucket 검사·명시 생성/인증 reader 복원 도구까지 준비했다. Python 63개와 PostgreSQL/WASM SQL 24개 통과. 실제 76원본 offline 검증. 원격 bootstrap·server ingestion adapter·샘플 이관·advisors·Auth/Storage HTTP·백업 복원·두 PC 동일 조회는 남아 있다. CLI `migration list`는 local stack 미기동으로 실패했다.
