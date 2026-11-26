@@ -15,7 +15,7 @@ from urllib.parse import unquote, urlsplit
 from case_pack import validate_pack
 from central_ingest import read_json
 from central_sync import SyncError, identity, safe_target
-from evidence_cloud import ViewerSessions, catalog_for, load_original
+from evidence_cloud import ViewerSessions, catalog_for, check_saved_location, load_original
 from evidence_view import evidence_view
 
 
@@ -166,11 +166,13 @@ def app(port, site, cache, pack, workspace, sessions=None):
                     anchor = anchors[(version, anchor_id)]
                     data = load_original(user, source, version, anchor) if sessions else verified_bytes(cache, source)
                     view = evidence_view(source, anchor, data)
+                    location_check = (check_saved_location(user, source, version, anchor, view)
+                                      if sessions else 'source_verified')
                     self.json({'source_id': source['id'], 'version_id': version, 'anchor_id': anchor_id,
                                'title': source['title'], 'format': source['format'],
                                'source_url': source['url'], 'version_label': source['version_label'],
                                'sha256': source['sha256'], 'bytes': source['bytes'],
-                               'raw_url': '/api/original/' + version, **view})
+                               'raw_url': '/api/original/' + version, 'location_check': location_check, **view})
                 elif len(parts) == 3 and parts[:2] == ['api', 'original']:
                     version = parts[2]
                     source = sources[version]

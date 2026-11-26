@@ -10,7 +10,8 @@ type ViewerSession = {mode: 'cache'; signed_in: true} | {mode: 'supabase'; signe
 type InertNode = {text: string; marked?: boolean} |
   {tag: string; id?: string; children: InertNode[]; rowspan?: number; colspan?: number};
 type Meta = {source_id: string; version_id: string; anchor_id: string; title: string; sha256: string;
-  version_label: string; source_url: string; raw_url: string; bytes: number; format: string; text?: string};
+  version_label: string; source_url: string; raw_url: string; bytes: number; format: string; text?: string;
+  location_check?: 'db_matched' | 'source_verified'};
 type Evidence = Meta & (
   {kind: 'html' | 'text'; nodes: InertNode[]; section_id?: string; table_id?: string; row_id?: string; cell_id?: string} |
   {kind: 'pdf'; boxes: number[][]; page_index: number; page_count: number; page_label: string | null;
@@ -306,6 +307,7 @@ function EvidenceApp({cloud, onAuthRequired, onLogout}: {
         {data && <details className="ev-meta"><summary>원본 버전과 식별값</summary><dl>
           <dt>문서 버전</dt><dd>{data.version_label}</dd><dt>버전 ID</dt><dd>{data.version_id}</dd>
           <dt>근거 ID</dt><dd>{data.anchor_id}</dd><dt>SHA-256</dt><dd>{data.sha256}</dd>
+          {data.location_check && <><dt>위치 확인</dt><dd>{data.location_check === 'db_matched' ? 'DB 위치 기록 일치' : '원본에서 위치 확인'}</dd></>}
           <dt>파일 크기</dt><dd>{data.bytes.toLocaleString('ko-KR')} bytes</dd>
         </dl></details>}
       </section>

@@ -73,9 +73,9 @@ try {
     insert into public.kdp_document_files(workspace_id,id,document_version_id,bucket_id,object_path,sha256,byte_length,mime_type)
       values ('${ws}','${file}','${version}','kdp-dev-originals','${object}','${hash}',100,'application/pdf');
   `);
-  await test('all nine core tables enable RLS', async()=>{
+  await test('all ten development tables enable RLS', async()=>{
     const r=await db.query("select count(*)::int n from pg_tables where schemaname='public' and tablename like 'kdp_%' and rowsecurity");
-    assert.equal(r.rows[0].n,9);
+    assert.equal(r.rows[0].n,10);
   });
   await test('member sees only own workspace',async()=>asUser(user,async()=>{
     const r=await db.query('select id from public.kdp_workspaces'); assert.deepEqual(r.rows,[{id:ws}]);
@@ -154,6 +154,31 @@ try {
     await db.exec(`update public.kdp_evidence_spans set verification_status='text_verified';
       update public.kdp_document_versions set parser_version='fixture',processing_status='ready',revision=revision+1`);
     assert.equal((await db.query('select processing_status from public.kdp_document_versions')).rows[0].processing_status,'ready');
+  });
+  const locationColumns = '(workspace_id,document_version_id,legacy_evidence_id,extractor_version,sha256,byte_length,location)';
+  const location = '{"kind":"text","normalized_start":0,"normalized_end":7}';
+  const insertLocation = (digest,payload) => `insert into public.kdp_evidence_locations ${locationColumns}
+    values ('${ws}','${version}','fixture-anchor','kdp-locator-v1','${digest}',100,'${payload}')`;
+  await test('stored location requires the exact original identity and known locator schema',async()=>{
+    await rejected(insertLocation('b'.repeat(64),location),/foreign key/);
+    await rejected(insertLocation(hash,'{"kind":"text","normalized_start":0,"normalized_end":7,"extra":true}'),/check constraint/);
+    await db.exec(insertLocation(hash,location));
+  });
+  await test('location visible to viewer but not writable, anonymous or cross-workspace',async()=>{
+    await asUser(viewer,async()=>{
+      assert.equal((await db.query('select * from public.kdp_evidence_locations')).rows.length,1);
+      await rejected('update public.kdp_evidence_locations set location=location',/permission denied/);
+    });
+    await asUser(outsider,async()=>assert.equal((await db.query('select * from public.kdp_evidence_locations')).rows.length,0));
+    await db.exec('set role anon');
+    try {await rejected('select * from public.kdp_evidence_locations',/permission denied/);}
+    finally {await db.exec('reset role');}
+  });
+  await test('revoking source approval hides stored location without deleting it',async()=>{
+    await db.exec('update public.kdp_sources set transfer_approved=false');
+    try {await asUser(viewer,async()=>assert.equal((await db.query('select * from public.kdp_evidence_locations')).rows.length,0));}
+    finally {await db.exec('update public.kdp_sources set transfer_approved=true');}
+    assert.equal((await db.query('select * from public.kdp_evidence_locations')).rows.length,1);
   });
   console.log(JSON.stringify({passed,engine:'PGlite PostgreSQL fixture',hosted_supabase_verified:false}));
 } finally { await db.close(); }

@@ -10,8 +10,13 @@ Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들고 법령 HT
 |---|---|---|
 | `20261124080839_kdp_central_core.sql` | `20261126042013 kdp_central_core` | `589472a414ba912c788fb80ea1ef9b19337cbcd7b6dea313b5400cc06260b388` |
 | `20261126042319_kdp_file_identity_index.sql` | `20261126042450 kdp_file_identity_index` | `8151942f15c6e8bbb8e21101ea9c2efc965ba885baf4a763956c12ad3c6473e3` |
+| `20261126235013_kdp_evidence_locations.sql` | `20261126235336 kdp_evidence_locations` | `fdb4615a25c9d9eb3005195328260af66377110b28ebbe3ab90dea59d259bf9a` |
 
 MCP `apply_migration`은 적용 시각으로 이력을 생성하므로 로컬 파일명과 다르다. 같은 SQL을 `db push`로 중복 적용하지 않는다. CLI 연결 전 migration history 대응을 확인하고 필요 시 `migration repair --help`와 실제 history를 검토한다. 현재 적용 SQL은 로컬 SHA와 같다. core 파일의 NOT applied 주석은 생성 당시 기록이며 hash 보존을 위해 바꾸지 않았다.
+
+위치 migration은 전용 개발 DB에만 적용했다. `scripts/evidence_locations.py`는 승인 목록과 별도 다운로드한 원본을 대조해 ignored 경로에 backfill SQL만 생성한다. 승인/원본/근거/버전 일치가 확인되면 같은 추출기 버전을 중복 없이 저장한다. 기존 값과 다르면 트랜잭션 오류로 중단한다. 첫 배치 실제 SQL 권한 및 중복 검증은 `DEVELOPMENT_STATUS.md` 참조.
+
+위치 테이블 적용 뒤 Supabase 권고에서 해당 테이블 관련 지적은 없었다. 프로젝트 Auth의 유출 비밀번호 검사 비활성화 경고는 별개로 남아 있다. [Supabase 비밀번호 보호 안내](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection)
 
 `scripts/check_hosted_central.sql`은 **승인된 전용 개발 project에서만** MCP `execute_sql`로 실행한다. 실제 PostgreSQL의 15개 권한/FK/불변/revision/ready 검사를 수행하며 가상 Auth 사용자·metadata는 전부 transaction rollback한다. Storage 테이블/객체를 쓰지 않으며 실제 로그인/Storage HTTP/hash 성공을 주장하지 않는다. 실행 뒤 Auth 사용자 0·workspace 1·문서/객체 0 확인. 익명 publishable key REST 조회는 실제 HTTP 401/42501로 거부됐다.
 

@@ -9,6 +9,7 @@ from urllib.parse import urlencode
 
 from central_ingest import stable_id
 from central_sync import BUCKET, MIMES, Client, SyncError, identity
+from evidence_locations import EXTRACTOR_VERSION, canonical_location
 
 
 def reader_rows(client, table, columns, **filters):
@@ -96,6 +97,25 @@ def load_original(client, source, version, anchor=None):
             raise ValueError('cloud_anchor_mismatch')
     # The storage policy independently checks current source approval and membership.
     return client.download_original(source)
+
+
+def check_saved_location(client, source, version, anchor, view):
+    try:
+        saved = reader_rows(client, 'kdp_evidence_locations', 'sha256,byte_length,location',
+                            document_version_id='eq.' + version, legacy_evidence_id='eq.' + anchor['id'],
+                            extractor_version='eq.' + EXTRACTOR_VERSION)
+    except SyncError as error:
+        if str(error) == 'http_404':
+            # Older development databases can still render a verified original.
+            return 'source_verified'
+        raise
+    if not saved:
+        return 'source_verified'
+    expected = {'sha256': source['sha256'], 'byte_length': source['bytes'],
+                'location': canonical_location(view)}
+    if saved != [expected]:
+        raise ValueError('saved_location_mismatch')
+    return 'db_matched'
 
 
 @dataclass(frozen=True)

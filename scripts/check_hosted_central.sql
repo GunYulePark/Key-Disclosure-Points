@@ -13,7 +13,9 @@ declare
   digest text := repeat('a',64); n integer;
 begin
   if (select count(*) from pg_tables where schemaname='public'
-      and tablename like 'kdp_%' and rowsecurity) <> 9 then
+      and tablename in ('kdp_workspaces','kdp_workspace_members','kdp_sources','kdp_documents',
+                        'kdp_document_versions','kdp_document_files','kdp_evidence_spans',
+                        'kdp_legacy_id_map','kdp_ingestion_jobs') and rowsecurity) <> 9 then
     raise exception 'check 1: core RLS';
   end if;
   if (select count(*) from pg_policies where schemaname='storage'

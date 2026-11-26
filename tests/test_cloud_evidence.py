@@ -13,6 +13,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from central_ingest import stable_id
 from central_sync import BUCKET, SyncError, identity
 from evidence_cloud import ViewerSessions
+from evidence_locations import EXTRACTOR_VERSION, canonical_location
+from evidence_view import evidence_view
 from serve_evidence import app, build_indexes
 from test_case_pack import fixture
 
@@ -39,6 +41,10 @@ def cloud_fixture():
         'kdp_evidence_spans': [{'document_version_id': version, 'legacy_evidence_id': anchor['id'],
                                 'kind': 'text', 'exact_text': anchor['text'], 'normalized_text_start': anchor['start'],
                                 'page_index': None, 'location_note': None, 'verification_status': 'text_verified'}],
+        'kdp_evidence_locations': [{'document_version_id': version, 'legacy_evidence_id': anchor['id'],
+                                    'extractor_version': EXTRACTOR_VERSION, 'sha256': source['sha256'],
+                                    'byte_length': source['bytes'],
+                                    'location': canonical_location(evidence_view(source, anchor, raw))}],
     }
     state = {'downloads': 0, 'login_attempts': 0, 'workspace_allowed': True}
 
@@ -68,8 +74,8 @@ def cloud_fixture():
             table = url.path.rsplit('/', 1)[-1]
             filters = parse_qs(url.query)
             assert filters.pop('workspace_id') == ['eq.' + WORKSPACE]
-            filters.pop('select')
-            return [r for r in rows[table]
+            fields = filters.pop('select')[0].split(',')
+            return [{field: r[field] for field in fields} for r in rows[table]
                     if all(['eq.' + str(r[key])] == expression for key, expression in filters.items())]
 
         def download_original(self, source):
@@ -142,6 +148,7 @@ class CloudViewerTests(unittest.TestCase):
         code, _, body = self.request(self.anchor, headers=creds)
         self.assertEqual(code, 200)
         self.assertEqual(json.loads(body)['status'], 'text_verified')
+        self.assertEqual(json.loads(body)['location_check'], 'db_matched')
         code, headers, data = self.request(self.raw_url, headers=creds)
         self.assertEqual((code, data), (200, self.raw))
         self.assertIn('attachment', headers['Content-Disposition'])
@@ -169,6 +176,17 @@ class CloudViewerTests(unittest.TestCase):
         self.state['workspace_allowed'] = False
         self.assertEqual(self.request(self.raw_url, headers=creds)[0], 403)
         self.assertEqual(self.state['downloads'], 0)
+
+    def test_saved_locator_must_match_original_and_missing_locator_keeps_verified_preview(self):
+        creds = self.login()
+        self.rows['kdp_evidence_locations'][0]['location']['normalized_end'] += 1
+        code, _, body = self.request(self.anchor, headers=creds)
+        self.assertEqual(code, 422)
+        self.assertEqual(json.loads(body)['error'], 'original_or_anchor_verification_failed')
+        self.rows['kdp_evidence_locations'].clear()
+        code, _, body = self.request(self.anchor, headers=creds)
+        self.assertEqual(code, 200)
+        self.assertEqual(json.loads(body)['location_check'], 'source_verified')
 
     def test_removed_approval_and_different_remote_anchor_fail_closed(self):
         creds = self.login()
