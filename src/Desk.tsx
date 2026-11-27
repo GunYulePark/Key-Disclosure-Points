@@ -1,14 +1,40 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Search, LayoutDashboard, Library, BookOpen, Radio, ChevronRight, X, Download, Check, ShieldCheck, FileText, CircleAlert, RotateCw, Menu } from "lucide-react";
+import { ArrowUpRight, Search, LayoutDashboard, Library, BookOpen, Radio, ChevronRight, X, Download, Check, ShieldCheck, FileText, CircleAlert, RotateCw, Menu, ClipboardList } from "lucide-react";
 import data from "./snapshot.json";
 import TreasuryReview from "./TreasuryReview";
 import PeriodReview from "./PeriodReview";
 import RuleReviews from "./RuleReviews";
 import PdfIntake from "./PdfIntake";
+import DisclosureCases from "./DisclosureCases";
+import disclosureCases from "./disclosure-cases.json";
 import {parseOperations,type OperationState} from "./operations-types";
 
 type Finding = typeof data.findings[number] | typeof data.historicalFindings[number];
 const companies: Record<string,string> = { all: "전체 회사", ckd: "종근당", hold: "종근당홀딩스", kb: "경보제약" };
+const tabs = {
+  issues: { label: "우선 점검", title: "공시 점검", icon: LayoutDashboard },
+  archive: { label: "공시 보관함", title: "공시 목록", icon: Library },
+  rules: { label: "공통 기준", title: "공통 기준", icon: BookOpen },
+  cases: { label: "공시 반영 사례", title: "공시 반영 사례", icon: ClipboardList },
+  files: { label: "규정 파일 추가", title: "규정 파일", icon: FileText },
+  sources: { label: "출처 현황", title: "출처", icon: Radio },
+};
+type Tab = keyof typeof tabs;
+const relatedCaseByFinding: Record<string, string | undefined> = {
+  "CKD-Q3-TREASURY": "treasury",
+  "HOLD-Q3-TREASURY": "treasury",
+  "CKD-TREASURY-EXEMPTION": "treasury",
+  "CKD-Q3-BIO-REVIEW": "bio",
+  "HOLD-Q3-BIO-REVIEW": "bio",
+  "KB-Q3-BIO-REVIEW": "bio",
+};
+
+function tabFromHash(hash: string): Tab | undefined {
+  if (hash.startsWith("#rules")) return "rules";
+  if (hash === "#cases" || hash.startsWith("#cases-")) return "cases";
+  const name = hash.slice(1);
+  return Object.hasOwn(tabs, name) ? name as Tab : undefined;
+}
 const ruleNotes: Record<string,string> = {
   FORMAT_CURRENT: "현행 편집본으로 보관합니다. 9월 개정의 공모펀드 항목을 세 회사의 필수 수정으로 일괄 적용하지 않습니다.",
   FORMAT_PREVIOUS: "종속회사 등 중복상장 관련 항목입니다. 해당 상장·신고 사건이 있을 때 적용조건을 검토합니다.",
@@ -36,18 +62,32 @@ function FactView({ f }: { f: Finding }) {
 }
 
 export default function Desk() {
-  const [tab,setTab]=useState(typeof window!=="undefined"&&window.location.hash.startsWith("#rules")?"rules":window.location.hash.startsWith("#files")?"files":"issues"),[company,setCompany]=useState("all"),[q,setQ]=useState(""),[priority,setPriority]=useState("all"),[onlyCandidates,setOnlyCandidates]=useState(false),[from,setFrom]=useState(""),[to,setTo]=useState(""),[page,setPage]=useState(1);
+  const [tab,setTab]=useState<Tab>(()=>tabFromHash(window.location.hash)??"issues"),[company,setCompany]=useState("all"),[q,setQ]=useState(""),[priority,setPriority]=useState("all"),[onlyCandidates,setOnlyCandidates]=useState(false),[from,setFrom]=useState(""),[to,setTo]=useState(""),[page,setPage]=useState(1);
   const [selected,setSelected]=useState<Finding|null>(null),[navOpen,setNavOpen]=useState(false);
   const [operations,setOperations]=useState<OperationState|null>(null);
   async function loadOperations(){try{const r=await fetch(new URL('./data/operations.json',document.baseURI),{cache:'no-store'});if(!r.ok)throw Error();setOperations(parseOperations(await r.json()));}catch{/* Keep the reviewed snapshot and last loaded filing list. */}}
   useEffect(()=>{void loadOperations();},[]);
 
   useEffect(()=>{
-    const followHash=()=>{const h=window.location.hash;if(h.toLowerCase().startsWith('#operations')){window.history.replaceState(null,'','#issues');setTab('issues');return;}if(h.startsWith('#rules'))setTab('rules');else if(['#issues','#archive','#sources','#files'].includes(h))setTab(h.slice(1));};
+    const followHash=()=>{
+      const hash=window.location.hash;
+      if(hash.toLowerCase().startsWith('#operations')){
+        window.history.replaceState(null,'','#issues');
+        setTab('issues');
+        return;
+      }
+      const nextTab=tabFromHash(hash);
+      if(nextTab)setTab(nextTab);
+    };
     followHash();window.addEventListener('hashchange',followHash);
     return()=>window.removeEventListener('hashchange',followHash);
   },[]);
-  useEffect(()=>{if(tab==='rules'&&window.location.hash.startsWith('#rules-'))document.getElementById(window.location.hash.slice(1))?.scrollIntoView({block:'start'});},[tab]);
+  useEffect(()=>{
+    const hash=window.location.hash;
+    if((tab==="rules"||tab==="cases")&&hash.startsWith("#"+tab+"-")){
+      document.getElementById(hash.slice(1))?.scrollIntoView({block:"start"});
+    }
+  },[tab]);
   useEffect(()=>{
     const followFinding=()=>{const h=window.location.hash;if(!h.startsWith('#finding='))return;let id='';try{id=decodeURIComponent(h.slice(9));}catch{return;}const f=[...data.findings,...data.historicalFindings].find(x=>x.id===id);if(f){setTab('issues');setSelected(f);}};
     followFinding();window.addEventListener('hashchange',followFinding);return()=>window.removeEventListener('hashchange',followFinding);
@@ -77,17 +117,25 @@ export default function Desk() {
   const filings=allFilings.filter(f=>(company==="all"||f.company_id===company)&&(!from||f.received_date>=from)&&(!to||f.received_date<=to)&&(!text||[f.title,f.receipt_no,f.filer,companies[f.company_id]].join(" ").toLowerCase().includes(text))).sort((a,b)=>b.received_date.localeCompare(a.received_date)||b.receipt_no.localeCompare(a.receipt_no));
   const scopeIssues=data.findings.filter(f=>company==="all"||f.company_id===company);
   const reset=()=>{setQ("");setPriority("all");setOnlyCandidates(false);setFrom("");setTo("");};
-  const nav=(t:string)=>{setTab(t);reset();setNavOpen(false);window.history.replaceState(null,"",t==="rules"?"#rules":"#"+t);};
+  const nav=(t:Tab)=>{setTab(t);reset();setNavOpen(false);window.history.replaceState(null,"","#"+t);};
+  const navCounts: Partial<Record<Tab,number>> = { issues:data.findings.length, archive:allFilings.length, rules:5, cases:disclosureCases.length, sources:12 };
   return <div className="app-shell">
     <aside className={`sidebar ${navOpen?"is-open":""}`}>
       <a className="brand" href="./" aria-label="공시 검토실 홈"><span className="brand-symbol"><FileText size={22}/></span><span>공시 검토실</span></a>
       <div className="workspace"><span className="workspace-icon">CK</span><div>종근당 계열 공시</div><ShieldCheck size={15}/></div>
       <p className="nav-label">메뉴</p>
-      <nav aria-label="주 메뉴">{[{id:"issues",label:"우선 점검",icon:LayoutDashboard,count:data.findings.length},{id:"archive",label:"공시 보관함",icon:Library,count:allFilings.length},{id:"rules",label:"공통 기준",icon:BookOpen,count:5},{id:"files",label:"규정 파일 추가",icon:FileText,count:undefined},{id:"sources",label:"출처 현황",icon:Radio,count:12}].map(n=><button key={n.id} className={`nav-item ${tab===n.id?"active":""}`} onClick={()=>nav(n.id)} aria-current={tab===n.id?"page":undefined}><n.icon size={18}/><span>{n.label}</span><em>{n.count}</em></button>)}</nav>
+      <nav aria-label="주 메뉴">{(Object.keys(tabs) as Tab[]).map(id=>{
+        const {label, icon: Icon} = tabs[id];
+        return <button key={id} className={`nav-item ${tab===id?"active":""}`} onClick={()=>nav(id)} aria-current={tab===id?"page":undefined}><Icon size={18}/><span>{label}</span><em>{navCounts[id]}</em></button>;
+      })}</nav>
       <p className="nav-label">대상 회사</p><div className="company-list">{Object.entries(companies).filter(([id])=>id!=="all").map(([id,name])=><button key={id} onClick={()=>{setCompany(id);nav("issues");}}><i className={`company-dot ${id}`}/>{name}<ChevronRight size={14}/></button>)}</div>
     </aside>
-    <div className="main-shell"><header className="topbar"><div><button className="mobile-menu icon-btn" onClick={()=>setNavOpen(!navOpen)} aria-label="메뉴 열기"><Menu size={20}/></button><b>{{issues:"우선 점검",archive:"공시 보관함",rules:"공통 기준",files:"규정 파일 추가",sources:"출처 현황"}[tab]}</b></div></header>
-    <main><div className="page-heading"><div><h1>{{issues:"공시 점검",archive:"공시 목록",rules:"공통 기준",files:"규정 파일",sources:"출처"}[tab]}</h1></div><button className="secondary" onClick={()=>download(`공시검토실_${data.asOf}.json`,{snapshot:data,exportedAt:new Date().toISOString()})}><Download size={16}/>자료 내보내기</button></div>
+    <div className="main-shell"><header className="topbar"><div><button className="mobile-menu icon-btn" onClick={()=>setNavOpen(!navOpen)} aria-label="메뉴 열기"><Menu size={20}/></button><b>{tabs[tab].label}</b></div></header>
+    <main><div className="page-heading"><div><h1>{tabs[tab].title}</h1></div><button className="secondary" onClick={()=>{
+      const exportedAt=new Date().toISOString();
+      if(tab==="cases")download("공시_반영_사례.json",{cases:disclosureCases,exportedAt});
+      else download(`공시검토실_${data.asOf}.json`,{snapshot:data,exportedAt});
+    }}><Download size={16}/>자료 내보내기</button></div>
     {(tab==="issues"||tab==="archive")&&<div className="company-tabs" aria-label="회사 필터">{Object.entries(companies).map(([id,name])=><button key={id} onClick={()=>setCompany(id)} className={company===id?"selected":""}>{name}<span>{tab==="archive"?allFilings.filter(f=>id==="all"||f.company_id===id).length:data.findings.filter(f=>id==="all"||f.company_id===id).length}</span></button>)}</div>}
     {(tab==="issues"||tab==="rules")&&<PeriodReview operations={operations}/>}
     {tab==="issues"&&<><div className="metrics"><div><span>우선 점검 <i className="metric-dot"/></span><b>{scopeIssues.filter(f=>f.priority==="P1").length}<small>건</small></b><p>P1 · 제출본 확정 전 확인</p></div><div><span>정정 검토 후보</span><b>{scopeIssues.filter(f=>f.candidate).length}<small>건</small></b><p>추가 정정 필요는 미확정</p></div><div><span>공시 보관함</span><b>{allFilings.filter(f=>company==="all"||f.company_id===company).length}<small>건</small></b><p>정정 포함 · 공식 검색 목록</p></div></div>
@@ -95,10 +143,13 @@ export default function Desk() {
       <div className="filterbar"><label className="search"><Search size={17}/><input aria-label="점검 항목 검색" value={q} onChange={e=>setQ(e.target.value)} placeholder="제목, 내용, 근거로 검색"/></label><select aria-label="중요도" value={priority} onChange={e=>setPriority(e.target.value)}><option value="all">모든 중요도</option><option value="P1">P1 우선 점검</option><option value="P2">P2 일반 점검</option></select><button className="icon-btn" onClick={reset} aria-label="필터 초기화"><RotateCw size={16}/></button></div>
       <div className="issue-list">{issues.map(f=><button className="issue-row" key={f.id} onClick={()=>openDetail(f)}><span className={`priority ${f.priority}`}>{f.priority}</span><div className="issue-main"><div className="issue-meta"><span className="company-name">{companies[f.company_id]}</span><span>{f.date.replaceAll("-",".")}</span>{f.candidate&&<span className="correction-chip">정정 검토 후보</span>}</div><h3>{f.title}</h3><p>{f.instructions}</p><div className="issue-foot"><span><FileText size={12}/>{f.evidence.length}개 근거</span><span>{f.action_type||"검토"}</span></div></div><div className="issue-side"><ChevronRight size={19}/></div></button>)}{issues.length===0&&<div className="empty"><Search size={28}/><h3>조건에 맞는 점검 항목이 없습니다.</h3><button className="secondary" onClick={reset}>필터 초기화</button></div>}</div></>}
     {tab==="archive"&&<><div className="archive-summary"><Library size={24}/><div><b>공식 공시 누적 목록</b><p>2026.01.01부터 정정 포함 {allFilings.length}건 · 목록 수집과 전체 본문 검토는 별개입니다.</p></div><span>{filings.length}건 표시</span></div><div className="filterbar"><label className="search"><Search size={17}/><input aria-label="공시 검색" value={q} onChange={e=>setQ(e.target.value)} placeholder="보고서명, 접수번호 검색"/></label><label className="date-label">시작<input aria-label="시작일" type="date" value={from} onChange={e=>setFrom(e.target.value)}/></label><label className="date-label">종료<input aria-label="종료일" type="date" value={to} onChange={e=>setTo(e.target.value)}/></label><button className="icon-btn" onClick={reset} aria-label="검색 초기화"><RotateCw size={16}/></button></div><div className="table-scroll archive-table"><table><thead><tr><th>접수일</th><th>회사</th><th>공시명</th><th>접수번호</th><th>원문</th></tr></thead><tbody>{filings.slice((page-1)*15,page*15).map(f=><tr key={f.receipt_no}><td>{f.received_date.replaceAll("-",".")}</td><td>{companies[f.company_id]}</td><td><b>{f.title}</b></td><td className="mono">{f.receipt_no}</td><td><a href={f.url} target="_blank" rel="noopener noreferrer" aria-label={`${f.title} DART 원문 열기`}><ArrowUpRight size={18}/></a></td></tr>)}</tbody></table>{!filings.length&&<div className="empty">조건에 맞는 공시가 없습니다.</div>}</div><div className="pagination"><span>{filings.length}건 중 {filings.length?((page-1)*15+1):0}–{Math.min(page*15,filings.length)}</span><div><button disabled={page===1} onClick={()=>setPage(p=>p-1)}>이전</button><span>{page} / {Math.max(1,Math.ceil(filings.length/15))}</span><button disabled={page*15>=filings.length} onClick={()=>setPage(p=>p+1)}>다음</button></div></div></>}
+    {tab==="cases"&&<DisclosureCases/>}
     {tab==="files"&&<PdfIntake/>}
     {tab==="rules"&&<><RuleReviews/><div className="section-heading"><div><h2>보편 · 공통 적용 검토</h2><p>법령·공시서식과 회사별 적용사항</p></div></div><div className="rule-grid">{data.rules.map((r,i)=><article className={`rule-card ${r.id==="TREASURY_ATTACHMENT"?"treasury-featured":""}`} id={r.id==="TREASURY_ATTACHMENT"?"rules-treasury":"rules-"+r.id.toLowerCase()} key={r.id}><div className="rule-top"><span>0{i+1}</span><BookOpen size={21}/></div><h3>{r.title}</h3><p>{ruleNotes[r.id]}</p>{r.id==="TREASURY_ATTACHMENT"&&<TreasuryReview/>}<div className="rule-card-foot"><span>{(r as any).effective_date?`시행 ${(r as any).effective_date}`:"선정 자료 확인"}</span><a href={r.notice_url} target="_blank" rel="noopener noreferrer">공식 안내 <ArrowUpRight size={15}/></a></div></article>)}</div></>}
     {tab==="sources"&&<><div className="section-heading"><div><h2>공식 출처 12개 경로</h2><p>기준일 당시 접근 결과입니다. 운영 수집기의 실시간 정상 상태를 나타내지 않습니다.</p></div></div><div className="source-grid">{data.sources.map(s=><article className="source-card" key={s.id}><div><Radio size={18}/><span className={/timeout|login_required|not_validated|not_configured/.test(s.verification_status)?"source-limited":"source-checked"}>{s.id==="OPENDART"?"API 미연결":s.id==="KRX_RULES"?"접근 시간초과":s.id==="KLCA_LAWS"?"상세 로그인 필요":s.id==="LAW_CENTER"?"본문 미검증":"선정 범위 확인"}</span></div><h3>{s.name}</h3><p>{s.note}</p><a href={s.url} target="_blank" rel="noopener noreferrer">공식 사이트 <ArrowUpRight size={15}/></a></article>)}</div></>}
     </main></div>
-    {selected&&<div className="detail-overlay" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail();}}><section className="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title"><div className="detail-top"><span>점검 상세 <ChevronRight size={14}/><span className="mono">{selected.id}</span></span><button className="icon-btn" onClick={closeDetail} aria-label="상세 닫기" autoFocus><X size={22}/></button></div><div className="detail-content"><div className="detail-badges"><span className={`priority ${selected.priority}`}>{selected.priority}</span><span>{companies[selected.company_id]}</span></div><h2 id="detail-title">{selected.title}</h2><p className="detail-date">공시 근거일 {selected.date}</p><div className="action-box"><span>작성자가 확인할 내용</span><p>{selected.instructions}</p></div>{data.historicalFindings.some(f=>f.id===selected.id)&&<FactView f={selected}/>}<div className="decision-note"><CircleAlert size={16}/><div><b>{selected.correction_status}</b><p>정정 여부는 담당자 확인이 필요합니다.</p></div></div><h3 className="detail-label">원문 근거 <span>{selected.evidence.length}</span></h3><div className="evidence-list">{selected.evidence.map((e,i)=><article key={i}><div className="evidence-header"><b>{e.region==="attachment_image"?"추가 첨부 이미지":e.region==="correction_summary"?"정정 요약":e.region==="rule_document"?"규정·첨부 문서":e.region==="rule_pdf"?"규정·서식 PDF":"공시 본문"}</b><a href={e.url} target="_blank" rel="noopener noreferrer">원문 열기 <ArrowUpRight size={14}/></a></div><p className="location">{e.receipt_no} · {e.location}</p><blockquote>{e.excerpt}</blockquote>{e.region==="attachment_image"&&<p className="hint">AI가 선정 필드를 시각 확인했습니다. 담당자 승인·날인 진위 검증은 미완료입니다.</p>}<details><summary>증거 식별값</summary><code>{e.sha256}</code></details></article>)}</div></div></section></div>}
+    {selected&&<div className="detail-overlay" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail();}}><section className="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title"><div className="detail-top"><span>점검 상세 <ChevronRight size={14}/><span className="mono">{selected.id}</span></span><button className="icon-btn" onClick={closeDetail} aria-label="상세 닫기" autoFocus><X size={22}/></button></div><div className="detail-content"><div className="detail-badges"><span className={`priority ${selected.priority}`}>{selected.priority}</span><span>{companies[selected.company_id]}</span></div><h2 id="detail-title">{selected.title}</h2><p className="detail-date">공시 근거일 {selected.date}</p><div className="action-box"><span>작성자가 확인할 내용</span><p>{selected.instructions}</p>
+      {relatedCaseByFinding[selected.id]&&<a className="case-common-link" href={"#cases-"+relatedCaseByFinding[selected.id]} onClick={closeDetail}>관련 공시 반영 사례</a>}
+    </div>{data.historicalFindings.some(f=>f.id===selected.id)&&<FactView f={selected}/>}<div className="decision-note"><CircleAlert size={16}/><div><b>{selected.correction_status}</b><p>정정 여부는 담당자 확인이 필요합니다.</p></div></div><h3 className="detail-label">원문 근거 <span>{selected.evidence.length}</span></h3><div className="evidence-list">{selected.evidence.map((e,i)=><article key={i}><div className="evidence-header"><b>{e.region==="attachment_image"?"추가 첨부 이미지":e.region==="correction_summary"?"정정 요약":e.region==="rule_document"?"규정·첨부 문서":e.region==="rule_pdf"?"규정·서식 PDF":"공시 본문"}</b><a href={e.url} target="_blank" rel="noopener noreferrer">원문 열기 <ArrowUpRight size={14}/></a></div><p className="location">{e.receipt_no} · {e.location}</p><blockquote>{e.excerpt}</blockquote>{e.region==="attachment_image"&&<p className="hint">AI가 선정 필드를 시각 확인했습니다. 담당자 승인·날인 진위 검증은 미완료입니다.</p>}<details><summary>증거 식별값</summary><code>{e.sha256}</code></details></article>)}</div></div></section></div>}
   </div>;
 }

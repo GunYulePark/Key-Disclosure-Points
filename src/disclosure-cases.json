@@ -1,0 +1,144 @@
+[
+  {
+    "id": "treasury",
+    "title": "자기주식보고서 첨부 예외",
+    "priority": "P1",
+    "status": "종근당·종근당홀딩스 반기 정정 반영 확인",
+    "rule": "종전에는 발행주식의 1% 이상을 보유한 상장회사가 대상이었으나, 자기주식을 보유한 상장회사로 확대됐다. 사업·반기보고서의 자기주식보고서 첨부와 분기보고서의 본문 기재 및 별도 보유처분계획서 조건은 각각 확인한다.",
+    "ruleSources": [{"label": "금융위원회 시행령 개정 설명", "url": "https://www.fsc.go.kr/no010101/87169"}],
+    "commonRule": "#rules-treasury",
+    "examples": [
+      {
+        "company": "종근당",
+        "filing": "2026년 반기보고서 · 2026.10.22 정정",
+        "before": "8월 14일 최초 제출본은 교환사채(EB) 대상 주식을 발행 때 처분한 것으로 보아 자기주식 보유비율을 0%로 기재했고, 종전 1% 기준을 들어 보고서를 생략했다.",
+        "after": "10월 22일 정정본에 자기주식보고서를 붙이고 주식 관련 본문도 보완했다. 마지막으로 확인한 같은 날의 정정 접수(00500)에서도 이 변경을 확인했다.",
+        "sources": [
+          {"label": "DART 반기 최초 접수", "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003547"},
+          {"label": "DART 반기 정정 요약", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261022000500&dcmNo=11624747&eleId=1&offset=893&length=73036&dtd=dart4.xsd"}
+        ]
+      },
+      {
+        "company": "종근당홀딩스",
+        "filing": "2026년 반기보고서 · 2026.10.12 정정",
+        "before": "8월 14일 최초 제출본에 자기주식보고서가 첨부되지 않았다.",
+        "after": "10월 12일 반기 정정본에 자기주식보고서를 추가했다. 첨부본에는 보통주 249,303주와 EB 권리행사 가능기간 종료일이 기재돼 있다.",
+        "sources": [
+          {"label": "DART 홀딩스 반기 최초 접수", "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003989"},
+          {"label": "DART 홀딩스 반기 정정 요약", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261012000414&dcmNo=11610440&eleId=1&offset=892&length=71768&dtd=dart4.xsd"},
+          {"label": "DART 홀딩스 첨부 목록", "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012000414"}
+        ]
+      }
+    ],
+    "checks": [
+      {"company": "ckd", "action": "3분기 본문은 626,712주·4.54%와 EB 주석을 반영했다. 다음 사업·반기 제출 전 미교환 잔량과 행사 가능 기간을 대장과 대사하고, 보유 시 이사회 승인 및 보고서 첨부를 확인한다.", "sources": [{"label": "종근당 3분기 주식의 총수", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=9&offset=82790&length=59577&dtd=dart4.xsd"}]},
+      {"company": "hold", "action": "3분기 공시의 자기주식 249,303주·4.98%를 대장과 대사한다. 다음 사업·반기 제출 시 첨부 조건을, 분기에는 보유처분계획 변동에 따른 별도 첨부 조건을 확인한다.", "sources": [{"label": "종근당홀딩스 3분기 주식의 총수", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=7&offset=90874&length=64048&dtd=dart4.xsd"}]},
+      {"company": "kb", "action": "3분기 공시는 자기주식 관련 해당사항 없음으로 기재했다. 다음 기준일에 보유 여부를 재확인하고, 보유가 생기면 보고서 종류별 기재·첨부 조건을 적용한다.", "sources": [{"label": "경보제약 3분기 주식의 총수", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=7&offset=32232&length=9624&dtd=dart4.xsd"}]}
+    ]
+  },
+  {
+    "id": "dividend",
+    "title": "배당기준일과 정관 인용",
+    "priority": "P1",
+    "status": "종근당 공시 인용 불일치 · 정정 여부 검토",
+    "rule": "결산배당은 배당액 결정 후 배당기준일을 둘 수 있다. 이 절차를 정관이 허용하는지와 해당 결산기에 실제로 사용했는지를 따로 확인한다.",
+    "ruleSources": [{"label": "금융위원회·법무부 배당절차 개선방안", "url": "https://www.fsc.go.kr/no010101/79358"}],
+    "examples": [
+      {
+        "company": "종근당",
+        "filing": "2026년 6월 공개 정관과 3분기보고서 대조",
+        "beforeLabel": "3분기보고서 인용",
+        "afterLabel": "공개 정관의 문구",
+        "before": "3분기 배당 절의 제42조 제2항 인용은 결산기 말 주주에게 배당금을 지급한다는 종전 문구를 담고 있다.",
+        "after": "6월 기업지배구조보고서에 첨부된 정관 15쪽 제42조 제2항은 이사회가 배당기준일을 정할 수 있고, 정한 경우 2주 전에 공고하도록 규정한다. 17쪽 부칙은 2026.3.26 주총을 가리킨다.",
+        "sources": [
+          {"label": "DART 3분기 배당 절", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=100&offset=5028350&length=20400&dtd=dart4.xsd"},
+          {"label": "DART 정관 첨부 PDF · 15·17쪽", "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11413140&flNm=%EC%B2%A8%EB%B6%801.+%EC%A0%95%EA%B4%80.pdf"}
+        ]
+      }
+    ],
+    "checks": [
+      {"company": "ckd", "action": "제출 전 회사 보유 최종 정관을 확인해 배당 절 제42조 제2항 인용을 대사한다. 이사회 의결·사전 공고가 확인된 결산기에만 실제 적용 기록을 반영하고, 이미 낸 보고서의 정정 필요성과 범위는 따로 판단한다."},
+      {"company": "hold", "action": "자사 최종 정관의 배당기준일 조항과 사업·분기보고서 배당 절 인용을 대조한다. 해당 연도 배당기준일 결의·공고가 있으면 실제 적용 표시와 날짜도 확인한다."},
+      {"company": "kb", "action": "자사 정관의 결산배당 기준일 근거와 공시 인용을 대조한다. 기준일이 변경됐으면 배당결정 공시와 정기보고서의 날짜를 함께 확인한다."}
+    ]
+  },
+  {
+    "id": "cumulative-voting",
+    "title": "집중투표 배제 조항",
+    "priority": "P2",
+    "status": "타사 주총 가결 확인 · 3사 적용 조건 점검",
+    "rule": "최근 사업연도 말 자산총액이 2조원 이상인 상장회사는 정관으로 집중투표를 배제할 수 없다. 개정 상법의 시행 후 처음으로 이사 선임 주총을 소집하는 경우부터 적용한다. 3사가 공시한 2025년 말 비교 수치는 모두 2조원 미만이며, 새 사업연도 수치와 적용 시점은 소집 전에 다시 확인한다.",
+    "ruleSources": [
+      {"label": "국가법령정보센터 상법 개정문·적용례", "url": "https://law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702"},
+      {"label": "상법 시행령 제33조", "url": "https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=75811"}
+    ],
+    "examples": [
+      {
+        "company": "삼성전자",
+        "filing": "2026.03.12 정정 소집공고 · 제1-1호",
+        "before": "종전 정관에는 집중투표를 배제하는 조항이 있었다.",
+        "after": "정정 소집공고에서 해당 배제 조항을 삭제하는 안을 안내했고, 제57기 정기주주총회 결과에서 가결을 확인했다.",
+        "sources": [
+          {"label": "삼성전자 정정 소집공고", "url": "https://www.samsung.com/sec/ir/reports-disclosures/public-disclosure/3755/"},
+          {"label": "삼성전자 제57기 주주총회 결과", "url": "https://www.samsung.com/sec/ir/governance-csr/general-meeting-of-shareholders/"}
+        ]
+      },
+      {
+        "company": "한세실업",
+        "filing": "2026.03.05 정정 소집공고 · 제2-1호",
+        "before": "종전 정관에는 집중투표를 배제하는 일반 조항이 있었다.",
+        "after": "일반 조항을 유지하면서 자산총액 2조원 이상 상장회사에 해당할 때의 예외를 넣었다. 후속 기업지배구조보고서에서 3월 26일 가결을 확인했다.",
+        "sources": [
+          {"label": "KRX 한세실업 정정 소집공고", "url": "https://kind.krx.co.kr/external/2026/03/05/001871/20260305004158/00591.htm"},
+          {"label": "KRX 한세실업 기업지배구조보고서", "url": "https://kind.krx.co.kr/external/2026/05/28/001057/20260528002304/99667.htm"}
+        ]
+      }
+    ],
+    "checks": [
+      {"company": "ckd", "action": "2025년 말 별도 1,786,938백만원·연결 1,800,298백만원. 다음 이사선임 주총 소집 전에 새 사업연도 말 자산, 산정 범위와 현행 정관 조항을 확인한다.", "sources": [{"label": "종근당 사업보고서 요약재무정보", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001376&dcmNo=11142292&eleId=18&offset=393656&length=31544&dtd=dart4.xsd"}]},
+      {"company": "hold", "action": "2025년 말 별도 444,745백만원·연결 1,628,781백만원. 소집 전에 자산 산정에 적용할 재무제표 범위와 현행 정관 조항을 확인한다.", "sources": [{"label": "종근당홀딩스 사업보고서 요약재무정보", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001530&dcmNo=11143531&eleId=18&offset=939727&length=31103&dtd=dart4.xsd"}]},
+      {"company": "kb", "action": "2025년 말 개별 319,538백만원. 연결재무제표는 해당 없음으로 공시했다. 다음 사업연도 말 기준과 이사 선임 안건이 생기면 현행 조항을 재검토한다.", "sources": [{"label": "경보제약 사업보고서 요약재무정보", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=18&offset=308856&length=13005&dtd=dart4.xsd"}, {"label": "경보제약 연결재무제표 절", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001475&dcmNo=11143149&eleId=19&offset=322104&length=177&dtd=dart4.xsd"}]}
+    ]
+  },
+  {
+    "id": "bio",
+    "title": "제약·바이오 연구개발 이력",
+    "priority": "P2",
+    "status": "공시 기재 비교 · 품목별 3년 이력 대사 필요",
+    "rule": "금융감독원 모범사례는 연구과제 식별자, 최근 3년 개발 이력, 직전 계획 대비 1년 이상 지연, 주요 계약 조건 등을 확인하는 데 사용한다.",
+    "ruleSources": [{"label": "금융감독원 제약·바이오 공시 모범사례", "url": "https://dart.fss.or.kr/info/selectGuide1.do?seqno=449"}],
+    "commonRule": "#rules-bio_guidance",
+    "examples": [
+      {
+        "company": "종근당",
+        "filing": "2025년 사업보고서와 2026년 3분기보고서",
+        "beforeLabel": "2025년 사업보고서",
+        "afterLabel": "2026년 3분기보고서",
+        "before": "CKD-386의 2022년 품목 발매가 기재돼 있다.",
+        "after": "3분기에는 CKD-508·CKD-510 등의 파이프라인 ID와 이력표가 있다. CKD-510 계약은 총액·계약금·수취 마일스톤을 구분해 표시했다. 발매 이력이 있는 CKD-386은 비교한 절에서 코드가 보이지 않았다.",
+        "sources": [
+          {"label": "DART 종근당 2025년 연구개발", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001376&dcmNo=11142292&eleId=15&offset=223930&length=157190&dtd=dart4.xsd"},
+          {"label": "DART 종근당 2026년 3분기 연구개발", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=17&offset=274968&length=163242&dtd=dart4.xsd"}
+        ]
+      },
+      {
+        "company": "경보제약",
+        "filing": "2025년·2026년 3분기보고서",
+        "beforeLabel": "2025년 3분기보고서",
+        "afterLabel": "2026년 3분기보고서",
+        "before": "P-CAB 신규염2의 발매 예정은 2031년 8월이었다.",
+        "after": "같은 품목의 예정월은 2031년 8월로 유지됐다. 별도 이력관리 총괄표에 KB-001~KB-005 ID가 기재됐다. 지연 판단에는 직전 계획의 일정과 실제 변경 이력이 필요하다.",
+        "sources": [
+          {"label": "DART 경보제약 2025년 3분기 연구개발", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20251114002597&dcmNo=10883663&eleId=15&offset=163671&length=79944&dtd=dart4.xsd"},
+          {"label": "DART 경보제약 2026년 3분기 연구개발", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=15&offset=155107&length=79808&dtd=dart4.xsd"}
+        ]
+      }
+    ],
+    "checks": [
+      {"company": "ckd", "action": "품목 ID·별칭·적응증을 묶어 발매, 개발 완료, 중단을 구분한다. 최근 3년 이력과 계약 변동을 직전 정기보고서·수시공시와 대사한다."},
+      {"company": "hold", "action": "3분기 종속회사 구간에 경보제약 KB-001~KB-005 이력표가 있다. 자체 계약·과제와 구분하고 경보제약 공시와 과제 ID·진행 단계·계약대가를 대사한다.", "sources": [{"label": "종근당홀딩스 3분기 주요계약·연구개발", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=15&offset=427079&length=499938&dtd=dart4.xsd"}]},
+      {"company": "kb", "action": "품목별 직전 계획과 현재 계획의 개발 단계·예정일을 비교한다. 1년 이상 지연이 확인되면 지연과 사유를 기재할 범위를 확인한다."}
+    ]
+  }
+]

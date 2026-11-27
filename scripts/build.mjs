@@ -3,11 +3,15 @@ import {readFile, mkdir, writeFile, cp, rm} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(fileURLToPath(new URL('..',import.meta.url)));
-const out=path.join(root,'docs');
-if(path.dirname(out)!==root||path.basename(out)!=='docs')throw new Error('Invalid build output');
-await rm(out,{recursive:true,force:true});
+const devPreview=process.argv.includes('--dev-preview');
+const outDir=devPreview?'.local/case-preview/site':'docs';
+const out=path.join(root,outDir);
+if(!devPreview){
+  if(path.dirname(out)!==root||path.basename(out)!=='docs')throw new Error('Invalid build output');
+  await rm(out,{recursive:true,force:true});
+}
 await mkdir(out,{recursive:true});
-const result=await build({absWorkingDir:root,entryPoints:['src/main.tsx'],bundle:true,splitting:true,minify:true,jsx:'automatic',format:'esm',target:['es2022'],outdir:'docs',entryNames:'assets/app-[hash]',chunkNames:'assets/lib-[hash]',metafile:true,define:{'process.env.NODE_ENV':'"production"'},legalComments:'linked'});
+const result=await build({absWorkingDir:root,entryPoints:['src/main.tsx'],bundle:true,splitting:true,minify:true,jsx:'automatic',format:'esm',target:['es2022'],outdir:outDir,entryNames:'assets/app-[hash]',chunkNames:'assets/lib-[hash]',metafile:true,define:{'process.env.NODE_ENV':'"production"'},legalComments:'linked'});
 const outputs=Object.keys(result.metafile.outputs);
 const js=outputs.find(p=>p.endsWith('.js')&&result.metafile.outputs[p].entryPoint==='src/main.tsx');
 const css=outputs.find(p=>p.endsWith('.css'));
@@ -19,11 +23,11 @@ await cp(path.join(root,'node_modules/pdfjs-dist/build/pdf.worker.min.mjs'),path
 for(const dir of ['cmaps','standard_fonts','wasm'])await cp(path.join(root,'node_modules/pdfjs-dist',dir),path.join(vendor,dir),{recursive:true});
 await cp(path.join(root,'node_modules/pdfjs-dist/LICENSE'),path.join(vendor,'PDFJS-LICENSE'));
 await writeFile(path.join(out,'.nojekyll'),'');
-const href=p=>'./'+path.relative('docs',p).replaceAll('\\','/');
+const href=p=>'./'+path.relative(outDir,p).replaceAll('\\','/');
 await writeFile(path.join(out,'index.html'),`<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="종근당·종근당홀딩스·경보제약 공시 및 공통 작성기준."><title>공시 검토실 | Key Disclosure Points</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="${href(css)}"><script type="module" src="${href(js)}"></script></head><body><div id="root"></div><noscript>이 페이지의 검색과 필터에는 JavaScript가 필요합니다. <a href="./data/snapshot.json">공개 공시 자료 JSON 내려받기</a></noscript></body></html>\n`);
 await mkdir(path.join(out,'data'),{recursive:true});
 for(const name of ['snapshot.json','rule-reviews.json','reference-catalog.json','rule-link-index.json'])await cp(path.join(root,'src',name),path.join(out,'data',name));
 const client=await readFile(path.join(root,js),'utf8');
 for(const forbidden of ['/api/reviews','signin-with-chatgpt','reviewEvents','SITES_GIT_AUTHORIZATION','appgprj_','GEMINI_API_KEY','API 키 등록 대기','수집·운영 현황'])if(client.includes(forbidden))throw new Error('Private implementation found in public build: '+forbidden);
-console.log('Built public GitHub Pages site in docs/ (relative assets; no private review API).');
+console.log(`Built GitHub Pages bundle in ${outDir}/ (relative assets; no private review API).`);

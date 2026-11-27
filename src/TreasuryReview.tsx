@@ -4,7 +4,7 @@ import data from './snapshot.json';
 export default function TreasuryReview() {
   const r=data.treasuryReview;
   return <div className="treasury-review">
-    <div className="treasury-callout"><CircleAlert size={18}/><div><b>{r.headline}</b><p>{r.summary}</p></div></div>
+    <div className="treasury-callout"><CircleAlert size={18}/><div><b>{r.headline}</b><p>{r.summary}</p><a className="case-common-link" href="#cases-treasury">종근당 반기 공시 반영 사례</a></div></div>
     <details className="treasury-details" open={typeof window!=='undefined'&&window.location.hash==='#rules-treasury'}>
       <summary>회사별 적용·필수 점검·PDF 근거 펼치기</summary>
       <div className="treasury-body">
