@@ -13,6 +13,7 @@ Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들고 법령 HT
 | `20261126235013_kdp_evidence_locations.sql` | `20261126235336 kdp_evidence_locations` | `fdb4615a25c9d9eb3005195328260af66377110b28ebbe3ab90dea59d259bf9a` |
 | `20261127004007_kdp_central_intake.sql` | `20261127004806 kdp_central_intake` | `07aacf7f1dcb0c111b605cc9eaf673676d8a12d7fff4fc11cfb782628a7343c6` |
 | `20261127020921_kdp_intake_context.sql` | `20261127021710 kdp_intake_context` | `05cced07e936c33f04ce1ec1bb2b8ce4211aac8bd9f54257e5807747cdb7235c` |
+| `20261127022626_kdp_company_intake_scope.sql` | `20261127025727 kdp_company_intake_scope` | `f64d36240e576df6797297a2c6fe7af12984b838b86d71fad7d1219c4c103bba` |
 
 MCP `apply_migration`은 적용 시각으로 이력을 생성하므로 로컬 파일명과 다르다. 같은 SQL을 `db push`로 중복 적용하지 않는다. CLI 연결 전 migration history 대응을 확인하고 필요 시 `migration repair --help`와 실제 history를 검토한다. 현재 적용 SQL은 로컬 SHA와 같다. core 파일의 NOT applied 주석은 생성 당시 기록이며 hash 보존을 위해 바꾸지 않았다.
 

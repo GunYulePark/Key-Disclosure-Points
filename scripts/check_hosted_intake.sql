@@ -6,14 +6,20 @@ do $check$
 declare
   ws uuid := gen_random_uuid(); other uuid := gen_random_uuid();
   editor uuid := gen_random_uuid(); reader uuid := gen_random_uuid(); outsider uuid := gen_random_uuid();
+  ckd_user uuid := gen_random_uuid(); hold_user uuid := gen_random_uuid(); kb_user uuid := gen_random_uuid();
   doc uuid := gen_random_uuid(); pdf uuid := gen_random_uuid(); link uuid := gen_random_uuid();
-  note uuid := gen_random_uuid();
+  note uuid := gen_random_uuid(); company_note uuid := gen_random_uuid();
+  company_scope text; account uuid;
   digest text := repeat('a',64);
 begin
-  insert into auth.users(id) values(editor),(reader),(outsider);
+  insert into auth.users(id) values(editor),(reader),(outsider),(ckd_user),(hold_user),(kb_user);
   insert into public.kdp_workspaces(id,slug,name) values (ws,ws::text,'Intake test'),(other,other::text,'Other test');
   insert into public.kdp_workspace_members(workspace_id,user_id,member_role)
     values(ws,editor,'editor'),(ws,reader,'viewer'),(other,outsider,'owner');
+  insert into public.kdp_workspace_members(workspace_id,user_id,member_role,intake_company_id)
+    values(ws,ckd_user,'editor','ckd'),(ws,hold_user,'editor','hold'),(ws,kb_user,'editor','kb');
+  insert into public.kdp_sources(workspace_id,id,source_url)
+    values(ws,gen_random_uuid(),'https://example.org/approved-catalogue-fixture');
   execute 'set local role anon';
   if has_table_privilege(current_user,'public.kdp_intake_entries','SELECT') or
      has_table_privilege(current_user,'public.kdp_reference_sites','SELECT') or
@@ -32,6 +38,8 @@ begin
     values(ws,link,'text','Link','all','link only',digest,20,'https://example.org/','https://example.org/','link');
   insert into public.kdp_intake_notes(workspace_id,intake_id,id,points,related_case_ids)
     values(ws,link,note,'배당기준일 확인',array['dividend']);
+  insert into public.kdp_intake_notes(workspace_id,intake_id,id,points)
+    values(ws,doc,company_note,'종근당 전용 시험 메모');
   if (select count(*) from public.kdp_intake_entries where workspace_id=ws)<>3 then raise exception 'editor data missing'; end if;
   if not exists(select 1 from public.kdp_intake_notes where id=note and created_by=editor) then
     raise exception 'editor review points missing';
@@ -75,6 +83,30 @@ begin
     insert into public.kdp_reference_sites(workspace_id,url,title,category) values(ws,'https://example.net/','Forbidden','filing');
     raise exception 'other workspace wrote a site';
   exception when insufficient_privilege then null; end;
+  for company_scope,account in select * from (values ('ckd',ckd_user),('hold',hold_user),('kb',kb_user)) t loop
+    perform set_config('request.jwt.claim.sub',account::text,true);
+    if not exists(select 1 from public.kdp_intake_entries where id=link) or
+       not exists(select 1 from public.kdp_intake_notes where id=note) or
+       exists(select 1 from public.kdp_sources where workspace_id=ws) or
+       exists(select 1 from public.kdp_intake_entries where id=doc) <> (company_scope='ckd') or
+       exists(select 1 from public.kdp_intake_notes where id=company_note) <> (company_scope='ckd') then
+      raise exception 'company visibility is invalid for %',company_scope;
+    end if;
+    insert into public.kdp_intake_entries(workspace_id,id,kind,title,company_id,rights_basis,sha256,byte_length,body_text)
+      values(ws,gen_random_uuid(),'text','Own',company_scope,'fixture only',digest,4,'test'),
+            (ws,gen_random_uuid(),'text','Common','all','fixture only',digest,4,'test');
+    begin
+      insert into public.kdp_intake_entries(workspace_id,id,kind,title,company_id,rights_basis,sha256,byte_length,body_text)
+        values(ws,gen_random_uuid(),'text','Other',case when company_scope='ckd' then 'hold' else 'ckd' end,
+               'fixture only',digest,4,'test');
+      raise exception 'other company write allowed';
+    exception when insufficient_privilege then null; end;
+    begin
+      insert into public.kdp_reference_sites(workspace_id,url,title,category)
+        values(ws,'https://example.net/','Forbidden','filing');
+      raise exception 'company account added a shared reference site';
+    exception when insufficient_privilege then null; end;
+  end loop;
 end
 $check$;
 rollback;

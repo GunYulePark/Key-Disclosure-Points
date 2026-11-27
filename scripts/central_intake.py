@@ -48,13 +48,15 @@ def source_url(value):
 
 
 def intake_list(client, page=1):
+    membership = client.check_workspace()
     offset = str((page - 1) * PAGE_SIZE)
     options = dict(limit=str(PAGE_SIZE + 1), offset=offset)
     entries = reader_rows(client, 'kdp_intake_entries', ENTRY_COLUMNS, order='created_at.desc,id.desc', **options)
     sites = reader_rows(client, 'kdp_reference_sites', SITE_COLUMNS, order='created_at.desc,url.asc', **options)
     return {'entries': entries[:PAGE_SIZE], 'sites': sites[:PAGE_SIZE],
             'has_more': len(entries) > PAGE_SIZE or len(sites) > PAGE_SIZE,
-            'can_write': client.check_workspace()['member_role'] in ('owner', 'editor')}
+            'can_write': membership['member_role'] in ('owner', 'editor'),
+            'intake_company_id': membership.get('intake_company_id')}
 
 
 def entry(client, entry_id, *, detail=False):

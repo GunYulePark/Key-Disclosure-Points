@@ -81,15 +81,28 @@ try {
   `);
   await test('intake PDF only opens to members after an immutable object is registered', async()=>{
     const intake='77777777-7777-4777-8777-777777777777';
+    const privateIntake='88888888-8888-4888-8888-888888888888';
     const candidate=`${ws}/intake/${intake}.pdf`;
+    const privatePath=`${ws}/intake/${privateIntake}.pdf`;
+    const holding='99999999-9999-4999-8999-999999999999';
     await db.exec('begin');
     try {
+      await db.exec(`insert into auth.users values ('${holding}');
+        insert into public.kdp_workspace_members(workspace_id,user_id,member_role,intake_company_id)
+        values ('${ws}','${holding}','editor','hold');`);
       await asUser(user, async()=>{
         await db.exec(`insert into public.kdp_intake_entries(workspace_id,id,kind,title,company_id,rights_basis,sha256,byte_length)
-          values ('${ws}','${intake}','pdf','Fixture','all','fixture','${hash}',100)`);
+          values ('${ws}','${intake}','pdf','Fixture','all','fixture','${hash}',100),
+                 ('${ws}','${privateIntake}','pdf','Fixture','ckd','fixture','${hash}',100)`);
         await db.exec(`insert into storage.objects(bucket_id,name,metadata)
-          values ('kdp-dev-originals','${candidate}','{"size":100}')`);
-        await db.exec(`update public.kdp_intake_entries set stored_at=now() where id='${intake}'`);
+          values ('kdp-dev-originals','${candidate}','{"size":100}'),
+                 ('kdp-dev-originals','${privatePath}','{"size":100}')`);
+        await db.exec(`update public.kdp_intake_entries set stored_at=now() where id in ('${intake}','${privateIntake}')`);
+      });
+      await asUser(holding, async()=>{
+        const result = await db.query(`select name from storage.objects where name in ('${candidate}','${privatePath}')`);
+        assert.deepEqual(result.rows,[{name:candidate}]);
+        assert.equal((await db.query(`select stored_at from public.kdp_intake_entries where id='${privateIntake}'`)).rows.length,0);
       });
       await asUser(viewer, async()=>{
         const result = await db.query(`select name from storage.objects where name='${candidate}'`);

@@ -106,6 +106,8 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 self.json({'error': 'auth_required'}, 401, cookie=('', 0))
             elif isinstance(error, FileNotFoundError):
                 self.json({'error': 'intake_missing'}, 404)
+            elif code == 'intake_company_scope':
+                self.json({'error': code}, 403)
             elif code in ('http_403', 'approved_workspace_membership_required', 'approved_workspace_not_visible'):
                 self.json({'error': 'intake_editor_required'}, 403)
             elif code == 'intake_pending_other_editor':
@@ -122,7 +124,8 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 self.json({'error': 'auth_required'}, 401, cookie=('', 0))
                 return
             try:
-                if user.check_workspace()['member_role'] not in ('owner', 'editor'):
+                membership = user.check_workspace()
+                if membership['member_role'] not in ('owner', 'editor'):
                     self.json({'error': 'intake_editor_required'}, 403)
                     return
                 size = int(self.headers.get('Content-Length', '0'))
@@ -138,19 +141,20 @@ def app(port, site, cache, pack, workspace, sessions=None):
                     raw = self.rfile.read(size)
                     if len(raw) != size:
                         raise ValueError('invalid_intake_pdf')
-                    result = {'id': store_entry(user, payload, pdf=raw)}
                 else:
                     if mime != 'application/json' or not 0 < size <= 1600000:
                         raise ValueError()
                     payload = json.loads(self.rfile.read(size))
                     if not isinstance(payload, dict):
                         raise ValueError()
-                    if action == 'site':
-                        result = add_site(user, payload)
-                    elif action == 'link':
-                        result = {'id': store_entry(user, payload, link_only=True)}
-                    else:
-                        result = {'id': store_entry(user, payload)}
+                    raw = None
+                company = membership.get('intake_company_id')
+                if company and (action == 'site' or payload.get('company_id') not in ('all', company)):
+                    raise SyncError('intake_company_scope')
+                if action == 'site':
+                    result = add_site(user, payload)
+                else:
+                    result = {'id': store_entry(user, payload, pdf=raw, link_only=action == 'link')}
                 self.json(result)
             except (KeyError, TypeError, ValueError, SyncError, TimeoutError) as error:
                 self.intake_error(error)
@@ -178,17 +182,18 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 if not 0 < size < 8192 or self.headers.get_content_type() != 'application/json':
                     raise ValueError()
                 payload = json.loads(self.rfile.read(size))
-                email, password = payload['email'], payload['password']
-                if not isinstance(email, str) or not isinstance(password, str) or not email.strip() or not password:
+                identifier = payload.get('identifier', payload.get('email'))
+                password = payload['password']
+                if not isinstance(identifier, str) or not isinstance(password, str) or not identifier.strip() or not password:
                     raise ValueError()
             except (KeyError, TypeError, ValueError):
                 self.json({'error': 'invalid_login_form'}, 400)
                 return
             try:
-                cookie = sessions.login(email.strip(), password)
+                cookie = sessions.login(identifier.strip(), password)
             except SyncError as error:
                 code = str(error)
-                if code in {'http_400', 'http_401', 'http_403', 'auth_session_not_available'}:
+                if code in {'http_400', 'http_401', 'http_403', 'auth_session_not_available', 'auth_signin_failed'}:
                     self.json({'error': 'auth_signin_failed'}, 401)
                 elif code in {'approved_workspace_membership_required', 'approved_workspace_not_visible',
                               'permanent_auth_user_required'}:

@@ -329,7 +329,7 @@ function SignIn({csrf, completed}: {csrf: string; completed: (value: ViewerSessi
     try {
       const session = await json<ViewerSession>('/api/session', {
         method: 'POST', headers: {'Content-Type': 'application/json', 'X-KDP-CSRF': csrf},
-        body: JSON.stringify({email: fields.get('email'), password: fields.get('password')}),
+        body: JSON.stringify({identifier: fields.get('identifier'), password: fields.get('password')}),
       });
       form.reset();
       completed(session);
@@ -346,7 +346,7 @@ function SignIn({csrf, completed}: {csrf: string; completed: (value: ViewerSessi
       <h2 id="ev-signin-title">프로젝트 Auth 로그인</h2>
       <p>개발 프로젝트에 등록한 계정으로 비공개 원본을 엽니다.</p>
       <form onSubmit={e => void submit(e)}>
-        <label>이메일<input name="email" type="email" required autoComplete="username"/></label>
+        <label>회사 아이디 또는 이메일<input name="identifier" type="text" required autoComplete="username" autoCapitalize="none" spellCheck={false}/></label>
         <label>비밀번호<input name="password" type="password" required autoComplete="current-password"/></label>
         <button className="ev-session-button" type="submit" disabled={pending}>{pending ? '확인 중…' : '로그인'}</button>
       </form>

@@ -91,3 +91,15 @@ node scripts/build-evidence.mjs
 ## 회사 PC를 끄는 것과 자동 실행
 
 공개 GitHub Pages는 회사 PC와 별도로 서비스된다. 저장소에는 GitHub Actions의 평일 오전 8시(한국시간) 일정이 설정돼 있다. 실제 실행/성공 여부는 Actions 기록과 Secret 상태로 확인하며, 스케줄 정의만으로 AI 분석 성공을 보장하지 않는다. 로컬 Codex 작업·미push 파일은 회사 PC를 끄면 집 PC로 자동 이어지지 않는다. 원격 접속을 위해 회사 PC를 켜 두는 방식을 전제로 하지 않는다.
+
+## 회사 아이디 로그인
+
+개발 Supabase Auth에서 회사별 승인 이메일 계정을 생성하고 계정별로 다른 비밀번호를 설정한다. 관리자만 해당 Auth UUID의 작업공간 멤버십에 `member_role='editor'`와 다음 `intake_company_id`를 지정한다. 기존 전체 계정의 scope는 NULL이다. Auth 계정이 이미 전체 작업공간 역할을 맡고 있으면 별도 회사 계정을 사용한다.
+
+| 화면 아이디 | 서버 환경변수 | 개발 멤버십의 회사 범위 |
+|---|---|---|
+| `ckd` | `KDP_SIGNIN_CKD_EMAIL` | `ckd` |
+| `ckdhd` | `KDP_SIGNIN_CKDHD_EMAIL` | `hold` |
+| `kbp` | `KDP_SIGNIN_KBP_EMAIL` | `kb` |
+
+양쪽 PC의 비공개 서버 실행 환경에 같은 Auth 이메일 매핑을 설정한다. 비밀번호는 이 매핑과 저장소에 넣지 않는다. 서버를 시작한 뒤 회사 아이디와 비밀번호로 [중앙 자료 접수](http://127.0.0.1:8770/#intake)에 로그인한다. 회사 계정은 기본 선택인 회사 전용 또는 3사 공통으로 접수할 수 있다. 다른 회사의 자료·PDF·검토 포인트는 열리지 않는다.

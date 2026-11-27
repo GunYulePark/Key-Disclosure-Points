@@ -9,7 +9,8 @@ type Entry = {
   notes?: {id: string; points: string; related_cases: {id: string; title: string}[]}[];
 };
 type Site = {url: string; title: string; category: string; note: string};
-type IntakePage = {entries: Entry[]; sites: Site[]; has_more: boolean; can_write: boolean};
+type Company = 'ckd' | 'hold' | 'kb';
+type IntakePage = {entries: Entry[]; sites: Site[]; has_more: boolean; can_write: boolean; intake_company_id?: Company | null};
 type Props = {csrf: string; onAuthRequired: () => void; onLogout: () => Promise<void>};
 
 const companies = {all: '공통', ckd: '종근당', hold: '종근당홀딩스', kb: '경보제약'};
@@ -19,6 +20,7 @@ const errors: Record<string, string> = {
   invalid_intake_url: '사용자명과 비밀번호가 없는 HTTPS 주소를 입력하세요.',
   invalid_intake: '제목과 자료 형식에 필요한 항목을 확인하세요.',
   intake_editor_required: '현재 계정은 조회 권한입니다. 접수에는 작업공간 편집 권한이 필요합니다.',
+  intake_company_scope: '이 계정으로는 공통 또는 소속 회사 자료를 등록할 수 있습니다.',
   intake_pending_other_editor: '다른 편집자가 처리 중인 접수입니다. 잠시 뒤 목록을 다시 확인하세요.',
   intake_integrity_failed: '파일 식별값이 일치하지 않아 저장을 완료하지 못했습니다.',
   intake_missing: '해당 자료를 열 수 없습니다.',
@@ -41,6 +43,8 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const company = data?.intake_company_id;
+  const canRegister = data?.can_write && (tab === 'materials' || !company);
 
   const request = useCallback(async <T,>(path: string, options?: RequestInit): Promise<T> => {
     const response = await fetch(path, options);
@@ -108,7 +112,7 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
     <header className="ev-top">
       <div className="ev-brand"><FileText size={22} aria-hidden/><span>공시 검토실</span></div>
       <h1>중앙 자료 접수</h1>
-      <a href="#" className="ci-nav-link">원문 검토</a>
+      {!company && <a href="#" className="ci-nav-link">원문 검토</a>}
       <button className="ev-session-button" onClick={() => void onLogout().catch(() => setError('로그아웃하지 못했습니다.'))}>로그아웃</button>
     </header>
     <nav className="ci-tabs" aria-label="중앙 자료 종류">
@@ -117,6 +121,7 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
     </nav>
     {!data && !error && <p role="status">작업공간을 여는 중…</p>}
     {data && !data.can_write && <p className="ci-info">{errors.intake_editor_required}</p>}
+    {company && tab === 'materials' && <p className="ci-info">{companies[company]} 계정 · 공통 및 {companies[company]} 자료 열람</p>}
     <div className="ci-grid">
       <section className="ci-list" aria-label={tab === 'sites' ? '등록 사이트' : '접수한 자료'}>
         <h2>{tab === 'sites' ? '등록 사이트' : '접수한 자료'}</h2>
@@ -139,7 +144,7 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
           <span>{page}쪽</span><button disabled={!data.has_more} onClick={() => setPage(page + 1)}>다음</button>
         </div>}
       </section>
-      {data?.can_write && <section className="ci-form">
+      {canRegister && <section className="ci-form">
         <h2>{tab === 'sites' ? '사이트 등록' : '자료 등록'}</h2>
         <form key={tab} onSubmit={event => void save(event)}>
           <fieldset disabled={pending}>
@@ -154,8 +159,10 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
                 <option value="pdf">PDF 파일</option><option value="text">텍스트</option><option value="link">공시·규정 링크</option>
               </select></label>
               <label>자료 제목<input name="title" required maxLength={180}/></label>
-              <label>검토 대상<select name="company_id">{Object.entries(companies).map(([key, label]) =>
-                <option key={key} value={key}>{label}</option>)}</select></label>
+              <label>열람 범위<select name="company_id" defaultValue={company || 'all'}>
+                {Object.entries(companies).filter(([key]) => !company || key === company || key === 'all').map(([key, label]) =>
+                  <option key={key} value={key}>{key === 'all' ? '공통 · 3사 열람' : label + ' 전용'}</option>)}
+              </select></label>
               <label>{kind === 'link' ? '출처 주소' : '출처 주소 (선택)'}<input name="source_url" type="url" required={kind === 'link'} maxLength={1024} placeholder="https://"/></label>
               {kind === 'pdf' && <label>PDF 원본 (10MiB 이하)<input name="file" type="file" required accept="application/pdf,.pdf"/></label>}
               {kind === 'text' && <label>원문 텍스트<textarea name="text" required rows={5} maxLength={100000}/></label>}

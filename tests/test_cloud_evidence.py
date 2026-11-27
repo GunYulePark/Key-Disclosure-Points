@@ -68,7 +68,8 @@ def cloud_fixture():
             if not state['workspace_allowed']:
                 raise SyncError('approved_workspace_membership_required')
             assert self.token == 'must-stay-server-side'
-            return {'member_role': state.get('member_role', 'viewer')}
+            return {'member_role': state.get('member_role', 'viewer'),
+                    'intake_company_id': state.get('intake_company_id')}
 
         def json(self, path):
             self.check_workspace()
@@ -92,7 +93,8 @@ class CloudViewerTests(unittest.TestCase):
     def setUp(self):
         self.pack, self.raw, self.rows, self.state, reader = cloud_fixture()
         self.now = 100
-        sessions = ViewerSessions({}, {'SUPABASE_DEV_SECRET_KEY': 'never-pass-this'},
+        sessions = ViewerSessions({}, {'SUPABASE_DEV_SECRET_KEY': 'never-pass-this',
+                                       'KDP_SIGNIN_CKD_EMAIL': 'reader@example.test'},
                                   client_factory=reader, clock=lambda: self.now)
         self.addCleanup((root := tempfile.TemporaryDirectory()).cleanup)
         self.root = Path(root.name)
@@ -192,6 +194,22 @@ class CloudViewerTests(unittest.TestCase):
             response = self.request(path, body={'text': 'fixture'}, headers=credentials)
             self.assertEqual((response[0], json.loads(response[2])), (200, {'id': 'fixture-id'}))
             self.assertEqual(save.call_args.args[1], {'text': 'fixture'})
+
+    def test_alias_requires_matching_membership_and_scope_restricts_upload(self):
+        sign_in = {'identifier': 'ckd', 'password': 'fixture-password'}
+        self.assertEqual(self.request('/api/session', body=sign_in, headers=self.form())[0], 403)
+        self.state.update(member_role='editor', intake_company_id='ckd')
+        status, headers, _ = self.request('/api/session', body=sign_in, headers=self.form())
+        self.assertEqual(status, 200)
+        credentials = {**self.form(), 'Cookie': headers['Set-Cookie'].split(';')[0]}
+        with patch('serve_evidence.store_entry', return_value='fixture-id') as save:
+            result = self.request('/api/intake/link', body={'company_id': 'hold'}, headers=credentials)
+            self.assertEqual((result[0], json.loads(result[2])), (403, {'error': 'intake_company_scope'}))
+            self.assertEqual(self.request('/api/intake/sites', body={}, headers=credentials)[0], 403)
+            save.assert_not_called()
+            for company in ('ckd', 'all'):
+                result = self.request('/api/intake/link', body={'company_id': company}, headers=credentials)
+                self.assertEqual(result[0], 200)
 
     def test_saved_locator_must_match_original_and_missing_locator_keeps_verified_preview(self):
         creds = self.login()

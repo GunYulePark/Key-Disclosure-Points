@@ -167,7 +167,7 @@ class Client:
         if user.get('is_anonymous') is True:
             raise SyncError('permanent_auth_user_required')
         user_id = str(uuid.UUID(user['id']))
-        members = self.json('/rest/v1/kdp_workspace_members?select=member_role'
+        members = self.json('/rest/v1/kdp_workspace_members?select=member_role,intake_company_id'
                             f'&workspace_id=eq.{self.workspace}&user_id=eq.{user_id}')
         if len(members) != 1 or members[0]['member_role'] not in ('owner', 'editor', 'viewer'):
             raise SyncError('approved_workspace_membership_required')
@@ -176,6 +176,7 @@ class Client:
         if rows != [{'id': self.workspace}]:
             raise SyncError('approved_workspace_not_visible')
         return {'workspace_visible': True, 'member_role': members[0]['member_role'],
+                'intake_company_id': members[0].get('intake_company_id'),
                 'bucket_id': BUCKET, 'cloud_data_writes': 0}
 
     def check_bucket(self, *, create=False):

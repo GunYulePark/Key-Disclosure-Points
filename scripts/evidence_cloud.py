@@ -133,6 +133,10 @@ class ViewerSessions:
                                 'SUPABASE_DEV_URL', 'SUPABASE_DEV_WORKSPACE_ID',
                                 'SUPABASE_DEV_STORAGE_BUCKET', 'SUPABASE_DEV_PUBLISHABLE_KEY'}}
         self.client_factory = client_factory
+        self.company_signins = {
+            alias: (company, env.get('KDP_SIGNIN_' + alias.upper() + '_EMAIL', '').strip())
+            for alias, company in {'ckd': 'ckd', 'ckdhd': 'hold', 'kbp': 'kb'}.items()
+        }
         self.clock = clock
         self.csrf = secrets.token_urlsafe(32)
         self.entries: dict[str, Session] = {}
@@ -140,21 +144,30 @@ class ViewerSessions:
         if not self.client_factory(config, self.env).key:
             raise SyncError('publishable_key_required')
 
-    def login(self, email, password):
+    def login(self, identifier, password):
+        company = None
+        email = identifier
+        if '@' not in identifier:
+            alias = self.company_signins.get(identifier.lower())
+            if alias is None or '@' not in alias[1]:
+                raise SyncError('auth_signin_failed')
+            company, email = alias
         client = self.client_factory(self.config, self.env)
         expires_in = client.sign_in_with_password(email, password)
         if type(expires_in) is not int or expires_in <= 5:
             raise SyncError('auth_session_not_available')
-        client.check_workspace()
+        membership = client.check_workspace()
+        if company is not None and membership.get('intake_company_id') != company:
+            raise SyncError('approved_workspace_membership_required')
         ttl = min(1800, expires_in - 5)
-        identifier = secrets.token_urlsafe(32)
+        session_id = secrets.token_urlsafe(32)
         with self.lock:
             now = self.clock()
             self.entries = {key: entry for key, entry in self.entries.items() if entry.expires_at > now}
             while len(self.entries) >= 16:
                 self.entries.pop(next(iter(self.entries)))
-            self.entries[identifier] = Session(client, now + ttl)
-        return identifier, ttl
+            self.entries[session_id] = Session(client, now + ttl)
+        return session_id, ttl
 
     def get(self, identifier):
         with self.lock:

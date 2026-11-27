@@ -126,6 +126,7 @@ class SyncTests(unittest.TestCase):
         client.sign_in_with_password('reader@example.test', 'fixture-password')
         self.assertEqual(client.check_workspace(), {
             'workspace_visible': True, 'member_role': 'viewer',
+            'intake_company_id': None,
             'bucket_id': 'kdp-dev-originals', 'cloud_data_writes': 0,
         })
         self.assertEqual(requests[0].full_url, client.url + '/auth/v1/token?grant_type=password')
