@@ -1,0 +1,19 @@
+.common-rule-guide { display: grid; gap: 12px; margin-bottom: 22px; }
+.common-rule-index { display: flex; flex-wrap: wrap; gap: 7px; padding-bottom: 3px; }
+.common-rule-index a { padding: 4px 10px; border: 1px solid #dce6e6; border-radius: 5px; color: #276357; background: #fff; }
+.common-rule-index a:hover { background: #edf5f1; }
+.common-rule-entry.case-card { padding: 16px 20px; scroll-margin-top: 76px; }
+.common-rule-entry header { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; }
+.common-rule-entry h2 { margin: 0; font-size: 16px; }
+.common-rule-entry p { margin: 8px 0 0; }
+.common-rule-entry .common-rule-scope { margin: 0; font-size: 12px; color: #56666e; }
+.common-rule-entry details { margin-top: 10px; }
+.common-rule-entry summary { color: #276357; font-weight: 650; cursor: pointer; }
+.common-rule-entry dd { margin: 0; color: #34464f; }
+.common-rule-entry .case-checks > div { grid-template-columns: minmax(145px, 1fr) minmax(0, 4fr); }
+.common-rule-related { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-top: 8px; }
+.common-rule-related .case-common-link { margin: 0; }
+@media (max-width: 600px) {
+  .common-rule-entry.case-card { padding: 14px; }
+  .common-rule-entry .case-checks > div { grid-template-columns: 1fr; gap: 4px; }
+}

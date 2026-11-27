@@ -1700,12 +1700,21 @@
   "rules": [
     {
       "id": "FORMAT_CURRENT",
+      "title": "기업공시서식 작성기준 2026.11.13 시행",
+      "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=452",
+      "effective_date": "2026-11-13",
+      "status": "full_file_downloaded_text_extracted_selected_sections_reviewed",
+      "scope_of_latest_amendment": "IPO 사전수요조사 및 코너스톤투자자 증권신고서·증권발행실적보고서",
+      "company_action": "use_the_current_compilation_and_check_the_relevant_form"
+    },
+    {
+      "id": "FORMAT_0930",
       "title": "기업공시서식 작성기준 2026.9.30 시행",
       "notice_url": "https://dart.fss.or.kr/info/selectGuide.do?seqno=450",
       "effective_date": "2026-09-30",
       "status": "full_file_downloaded_text_extracted_selected_sections_reviewed",
-      "scope_of_latest_amendment": "공모펀드 간이투자설명서 핵심위험 안내",
-      "company_action": "retain_as_current_compilation; do_not_flag_all_three_companies_for_latest_amendment"
+      "scope": "공모펀드 간이투자설명서 핵심위험 안내",
+      "company_action": "retain_for_prior_version_comparison"
     },
     {
       "id": "FORMAT_PREVIOUS",

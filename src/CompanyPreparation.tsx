@@ -38,12 +38,12 @@ export default function CompanyPreparation() {
       </li>)}</ul>
     </section>
     {company.id === "ckd" && <section className="case-card prep-card">
-      <h2>2조원에 해당할 때 준비할 주총 안건</h2>
+      <h2>2조원에 해당할 때 준비할 이사회·주총 사항</h2>
       <p className="prep-note">종근당 우선 준비 · 회사별 적용은 결산과 법정 소집·선임 절차에 따라 확정합니다.</p>
       <ul className="prep-list">{data.thresholdTopics.map(item => <li key={item.title}>
         <div><h3>{item.title}</h3><p>{item.action}</p>
           <div className="prep-links"><a className="case-common-link" href={item.source} target="_blank" rel="noreferrer">{item.article}</a>
-            <a className="case-common-link" href={"#cases-" + item.case}>관련 사례</a></div>
+            <a className="case-common-link" href={item.href ?? "#cases-" + item.case}>{item.href ? "공통 기준" : "관련 사례"}</a></div>
         </div>
       </li>)}</ul>
     </section>}

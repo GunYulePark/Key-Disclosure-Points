@@ -7,8 +7,11 @@ import RuleReviews from "./RuleReviews";
 import PdfIntake from "./PdfIntake";
 import DisclosureCases from "./DisclosureCases";
 import CompanyPreparation from "./CompanyPreparation";
+import CommonRuleGuide, {commonRuleCount} from "./CommonRuleGuide";
 import disclosureCases from "./disclosure-cases.json";
 import companyPreparation from "./company-preparation.json";
+import commonRuleGuide from "./common-rule-guide.json";
+import ruleReviews from "./rule-reviews.json";
 import {parseOperations,type OperationState} from "./operations-types";
 
 declare const __KDP_CENTRAL_PREVIEW__: boolean;
@@ -41,10 +44,11 @@ function tabFromHash(hash: string): Tab | undefined {
   return Object.hasOwn(tabs, name) ? name as Tab : undefined;
 }
 const ruleNotes: Record<string,string> = {
-  FORMAT_CURRENT: "현행 편집본으로 보관합니다. 9월 개정의 공모펀드 항목을 세 회사의 필수 수정으로 일괄 적용하지 않습니다.",
+  FORMAT_CURRENT: "금융감독원 게시판의 최신 확인 판본입니다. 이번 개정은 IPO 사전수요조사와 코너스톤투자자 관련 증권신고서·증권발행실적보고서 항목입니다. 정기보고서 작성은 이 편집본 중 해당 조문과 첨부 서식을 확인합니다.",
+  FORMAT_0930: "9월 개정은 공모펀드 간이투자설명서의 핵심위험 안내에 관한 판본입니다. 해당 서식 검토 이력에서 사용합니다.",
   FORMAT_PREVIOUS: "종속회사 등 중복상장 관련 항목입니다. 해당 상장·신고 사건이 있을 때 적용조건을 검토합니다.",
   TREASURY_ATTACHMENT: "종근당 3분기 본문은 자기주식 626,712주·4.54%와 EB 주석을 반영했습니다. 종전 반기 예외 지적과 분기 첨부 조건을 구분하세요. PDF 본문·신구조문·별지서식과 실제 공시를 대조한 회사별 적용사항을 확인합니다.",
-  INDEPENDENT_DIRECTOR_LABEL: "작성 서식 버전과 독립이사 관련 용어를 점검합니다. 회사별 적용과 규정 원문 대조가 남아 있습니다.",
+  INDEPENDENT_DIRECTOR_LABEL: "2026년 7월 23일 시행된 상법 개정에 따라 작성 서식 용어를 확인합니다. 일반 상장회사의 독립이사는 원칙적으로 이사 총수의 3분의 1 이상이며, 인원 요건의 유예와 회사별 예외를 대조합니다.",
   BIO_GUIDANCE: "규정 근거는 기존 PDF·8월 모범사례 대조 기록입니다. 2026년 3분기 회사별 표·ID 반영을 재확인했습니다. 이력관리 3년·고유 ID·1년 이상 지연·목표시장·계약 조건을 회사별로 확인합니다.",
 };
 function download(name: string, value: unknown) {
@@ -123,7 +127,7 @@ export default function Desk() {
   const scopeIssues=data.findings.filter(f=>company==="all"||f.company_id===company);
   const reset=()=>{setQ("");setPriority("all");setOnlyCandidates(false);setFrom("");setTo("");};
   const nav=(t:Tab)=>{setTab(t);reset();setNavOpen(false);window.history.replaceState(null,"","#"+t);};
-  const navCounts: Partial<Record<Tab,number>> = { issues:data.findings.length, archive:allFilings.length, rules:5, cases:disclosureCases.length, sources:12 };
+  const navCounts: Partial<Record<Tab,number>> = { issues:data.findings.length, archive:allFilings.length, rules:data.rules.length + commonRuleCount, cases:disclosureCases.length, sources:12 };
   return <div className="app-shell">
     <aside className={`sidebar ${navOpen?"is-open":""}`}>
       <a className="brand" href="./" aria-label="공시 검토실 홈"><span className="brand-symbol"><FileText size={22}/></span><span>공시 검토실</span></a>
@@ -140,9 +144,10 @@ export default function Desk() {
       const exportedAt=new Date().toISOString();
       if(tab==="cases")download("공시_반영_사례.json",{cases:disclosureCases,exportedAt});
       else if(tab==="prepare")download("회사별_준비사항.json",{...companyPreparation,exportedAt});
-      else download(`공시검토실_${data.asOf}.json`,{snapshot:data,exportedAt});
+      else download(`공시검토실_${data.asOf}.json`,{snapshot:data,...(tab==="rules" ? {commonRuleGuide,ruleReviews} : {}),exportedAt});
     }}><Download size={16}/>자료 내보내기</button></div>
     {(tab==="issues"||tab==="archive")&&<div className="company-tabs" aria-label="회사 필터">{Object.entries(companies).map(([id,name])=><button key={id} onClick={()=>setCompany(id)} className={company===id?"selected":""}>{name}<span>{tab==="archive"?allFilings.filter(f=>id==="all"||f.company_id===id).length:data.findings.filter(f=>id==="all"||f.company_id===id).length}</span></button>)}</div>}
+    {tab==="rules"&&<CommonRuleGuide/>}
     {(tab==="issues"||tab==="rules")&&<PeriodReview operations={operations}/>}
     {tab==="issues"&&<><div className="metrics"><div><span>우선 점검 <i className="metric-dot"/></span><b>{scopeIssues.filter(f=>f.priority==="P1").length}<small>건</small></b><p>P1 · 제출본 확정 전 확인</p></div><div><span>정정 검토 후보</span><b>{scopeIssues.filter(f=>f.candidate).length}<small>건</small></b><p>추가 정정 필요는 미확정</p></div><div><span>공시 보관함</span><b>{allFilings.filter(f=>company==="all"||f.company_id===company).length}<small>건</small></b><p>정정 포함 · 공식 검색 목록</p></div></div>
       <div className="section-heading"><div><h2>회사별 점검 목록 <span>{issues.length}</span></h2><p>P1 우선 점검 · P2 일반 점검 / 중요도와 정정 필요성은 별도 판단합니다.</p></div><button className={`candidate-toggle ${onlyCandidates?"on":""}`} onClick={()=>setOnlyCandidates(!onlyCandidates)} aria-pressed={onlyCandidates}><CircleAlert size={15}/>정정 검토 후보만</button></div>

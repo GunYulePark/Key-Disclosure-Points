@@ -39,6 +39,7 @@
   {
     "id": "dividend",
     "title": "배당기준일과 정관 인용",
+    "commonRule": "#rules-governance",
     "priority": "P1",
     "status": "지배구조 핵심지표 · 종근당 2026년 공시 X",
     "rule": "기업지배구조보고서는 현금배당 예측가능성 제공을 핵심지표로 본다. 회사의 정관상 가능 여부와 실제 배당결정·기준일을 구분한다. 2027년 제출분부터 결산배당 정보의 주총 6주 전 공시 여부도 별도로 설명한다.",
@@ -80,6 +81,7 @@
   },
   {
     "id":"audit-election","title":"감사위원 분리선임과 3% 의결권","priority":"P1","status":"감사위원회 적용 조건 확인 · 한세실업 정관 변경안",
+    "commonRule":"#rules-asset-threshold",
     "rule":"감사위원회 대상의 분리선임과 최대주주·특수관계인 의결권 제한을 별도 검토한다. 분리선임 2인 요건은 2026.9.10, 최대주주 합산 3% 개정은 2026.7.23 시행이다. 실제 안건의 적용 시점은 선임·해임과 부칙을 확인한다.",
     "ruleSources":[{"label":"상법 제542조의11·12 및 제20991호·제21044호 부칙","url":"https://www.law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702"}],
     "examples":[{"company":"한세실업","filing":"2026.03.05 정정 소집공고 제38조의2","before":"감사위원 분리선임 인원과 최대주주 의결권 합산 조건을 기존 정관에서 규정했다.","after":"분리선임 인원과 최대주주 합산 의결권 제한의 문구를 바꾸는 안을 표시했다.","sources":[{"label":"KRX 한세실업 정정 소집공고","url":"https://kind.krx.co.kr/external/2026/03/05/001871/20260305004158/00591.htm"}]}],
@@ -87,6 +89,7 @@
   },
   {
     "id":"electronic-meeting","title":"전자주총·전자 위임장과 시행일","priority":"P1","status":"유한양행 정관 부칙 확인",
+    "commonRule":"#rules-asset-threshold",
     "rule":"2027년 1월 1일부터 적용되는 전자주총과 전자문서 대리권 증명의 기준을 확인한다. 전자투표와 원격 출석 절차를 구분한다.",
     "ruleSources":[{"label":"법무부 전자주총 운영 가이드라인 5쪽","url":"https://mojhome.moj.go.kr/bbs/moj/182/502351/download.do"},{"label":"상법 시행령 제42조의2","url":"https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20270101&joNo=004202&lsiSeq=288205&urlMode=lsInfoP"}],
     "examples":[{"company":"유한양행","filing":"공식 정관 본문 및 2026년 개정 부칙","beforeLabel":"정관 일반 시행일","afterLabel":"해당 조항 시행일","before":"본문 부칙의 일반 시행일은 2026년 3월 20일이다.","after":"주총 개최 방식과 대리행사 조항의 시행일을 2027년 1월 1일로 별도 기재했다.","sources":[{"label":"유한양행 공식 정관 부칙","url":"https://www.yuhan.co.kr/Mobile/Invest/ControlStructure/ArticlesOfIncorporation2/"}]}],
@@ -101,6 +104,7 @@
   },
   {
     "id":"filing-correction","title":"정정공시 후 근거 재검토","priority":"P1","status":"종근당 3분기 실제 정정표 확인",
+    "commonRule":"#rules-filing-correction",
     "rule":"정기보고서 정정본과 최초 제출본을 연결하고, 정정표에 표시된 절을 근거로 기존 검토 항목의 영향을 판별한다.",
     "ruleSources":[{"label":"DART 종근당 3분기 정정표","url":"https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=1&offset=952&length=22327&dtd=dart4.xsd"}],
     "examples":[{"company":"종근당","filing":"2026.11.16 기재정정 분기보고서","before":"당일 최초 제출본이 있다.","after":"정정표에 재무제표 주석 11의 누락 보완을 기재했다. 변경된 주석을 사용한 검토 포인트를 재확인 대상으로 연결한다.","sources":[{"label":"DART 최초 접수","url":"https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001990"},{"label":"DART 당일 정정 접수","url":"https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116002243"}]}],
@@ -142,6 +146,7 @@
   },
   {
     "id": "cumulative-voting",
+    "commonRule": "#rules-asset-threshold",
     "title": "집중투표 배제 조항",
     "priority": "P2",
     "status": "타사 주총 가결 확인 · 3사 적용 조건 점검",
