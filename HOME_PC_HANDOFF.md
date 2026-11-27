@@ -44,7 +44,7 @@ git log -1 --oneline
 
 ### 집 PC에서 개발 DB 연결 확인
 
-1. Supabase 대시보드에서 기존 `key-disclosure-points-dev`를 열어 Project URL과 publishable key를 확인한다. 대시보드에서 같은 DB의 테이블을 조회할 수 있다. 앱 수준 조회에는 개발 프로젝트에서 만든 Auth 계정을 사용한다. 해당 계정의 workspace 역할은 `viewer`다.
+1. Supabase 대시보드에서 기존 `key-disclosure-points-dev`를 열어 Project URL과 publishable key를 확인한다. 대시보드에서 같은 DB의 테이블을 조회할 수 있다. 앱에는 개발 프로젝트에서 만든 Auth 계정을 사용한다. 해당 계정은 2026-11-27 사용자 승인으로 `editor` 권한을 받았다.
 2. 회사 PC의 `.local/task01/approved-target.json`을 승인된 경로로 집 PC의 같은 위치에 복사한다. 이 파일에는 대상 식별자만 들어 있다. 파일을 복사할 수 없으면 프로젝트 관리자에게 승인된 ref와 workspace UUID를 받아 `supabase/README.md`의 형식으로 작성한다.
 3. 집 PC의 PowerShell에서 아래 명령을 실행한다. 표시된 placeholder에는 개발 프로젝트의 publishable key를 넣고, 로그인 프롬프트에는 프로젝트 Auth 사용자가 직접 입력한다.
 
@@ -84,7 +84,7 @@ node scripts/build-evidence.mjs
 .\.venv\Scripts\python.exe scripts/serve_evidence.py --cloud --target .local/task01/approved-target.json --port 8770
 ```
 
-[중앙 자료 접수](http://127.0.0.1:8770/#intake)에 개발 프로젝트 Auth로 로그인한다. 기존 사용자 역할은 viewer다. editor가 저장한 PDF 원본·텍스트·사이트를 같은 개발 작업공간에서 조회한다. PDF 원본 크기 제한은 10MiB다. 회사 PC가 꺼져 있어도 집 PC에서 이 명령으로 중앙 DB에 연결할 수 있다. 두 PC의 실제 접수·재열기 시험은 편집 권한 승인 후 별도로 기록한다.
+[중앙 자료 접수](http://127.0.0.1:8770/#intake)에 개발 프로젝트 Auth로 로그인한다. 편집 권한을 부여받은 계정으로 PDF 원본·텍스트·사이트를 등록하고 같은 개발 작업공간에서 조회할 수 있다. PDF 원본 크기 제한은 10MiB다. 회사 PC가 꺼져 있어도 집 PC에서 이 명령으로 중앙 DB에 연결할 수 있다. 실제 PDF 접수·집 PC 재열기 시험 결과는 별도로 기록한다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 
