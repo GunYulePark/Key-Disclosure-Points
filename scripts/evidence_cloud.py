@@ -133,10 +133,13 @@ class ViewerSessions:
                                 'SUPABASE_DEV_URL', 'SUPABASE_DEV_WORKSPACE_ID',
                                 'SUPABASE_DEV_STORAGE_BUCKET', 'SUPABASE_DEV_PUBLISHABLE_KEY'}}
         self.client_factory = client_factory
-        self.company_signins = {
-            alias: (company, env.get('KDP_SIGNIN_' + alias.upper() + '_EMAIL', '').strip())
-            for alias, company in {'ckd': 'ckd', 'ckdhd': 'hold', 'kbp': 'kb'}.items()
-        }
+        self.company_signins = {}
+        for default_id, company in {'ckd': 'ckd', 'ckdhd': 'hold', 'kbp': 'kb'}.items():
+            prefix = 'KDP_SIGNIN_' + default_id.upper()
+            login_id = (env.get(prefix + '_ID') or default_id).strip().lower()
+            if not login_id or not login_id.isascii() or not login_id.isalnum() or login_id in self.company_signins:
+                raise SyncError('invalid_company_login_ids')
+            self.company_signins[login_id] = (company, env.get(prefix + '_EMAIL', '').strip())
         self.clock = clock
         self.csrf = secrets.token_urlsafe(32)
         self.entries: dict[str, Session] = {}

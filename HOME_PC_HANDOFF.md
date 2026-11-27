@@ -94,12 +94,12 @@ node scripts/build-evidence.mjs
 
 ## 회사 아이디 로그인
 
-개발 Supabase Auth에서 회사별 승인 이메일 계정을 생성하고 계정별로 다른 비밀번호를 설정한다. 관리자만 해당 Auth UUID의 작업공간 멤버십에 `member_role='editor'`와 다음 `intake_company_id`를 지정한다. 기존 전체 계정의 scope는 NULL이다. Auth 계정이 이미 전체 작업공간 역할을 맡고 있으면 별도 회사 계정을 사용한다.
+개발 Supabase Auth에 회사별 계정 3개와 `editor` 멤버십이 등록돼 있다. 기존 전체 계정의 scope는 NULL이다. 집 PC에서는 현재 회사별 아이디와 Auth 이메일이 담긴 회사 PC의 ignored 서버 설정을 승인된 경로로 복제한다. 별도 환경변수로 입력할 때는 실제 Auth 주소와 철자까지 일치하는지 확인한다.
 
-| 화면 아이디 | 서버 환경변수 | 개발 멤버십의 회사 범위 |
-|---|---|---|
-| `ckd` | `KDP_SIGNIN_CKD_EMAIL` | `ckd` |
-| `ckdhd` | `KDP_SIGNIN_CKDHD_EMAIL` | `hold` |
-| `kbp` | `KDP_SIGNIN_KBP_EMAIL` | `kb` |
+| 회사 | 화면 아이디 환경변수 | Auth 이메일 환경변수 | 개발 멤버십 범위 |
+|---|---|---|---|
+| 종근당 | `KDP_SIGNIN_CKD_ID` | `KDP_SIGNIN_CKD_EMAIL` | `ckd` |
+| 종근당홀딩스 | `KDP_SIGNIN_CKDHD_ID` | `KDP_SIGNIN_CKDHD_EMAIL` | `hold` |
+| 경보제약 | `KDP_SIGNIN_KBP_ID` | `KDP_SIGNIN_KBP_EMAIL` | `kb` |
 
 양쪽 PC의 비공개 서버 실행 환경에 같은 Auth 이메일 매핑을 설정한다. 비밀번호는 이 매핑과 저장소에 넣지 않는다. 서버를 시작한 뒤 회사 아이디와 비밀번호로 [중앙 자료 접수](http://127.0.0.1:8770/#intake)에 로그인한다. 회사 계정은 기본 선택인 회사 전용 또는 3사 공통으로 접수할 수 있다. 다른 회사의 자료·PDF·검토 포인트는 열리지 않는다.

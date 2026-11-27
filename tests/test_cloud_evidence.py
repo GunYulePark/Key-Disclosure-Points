@@ -94,7 +94,8 @@ class CloudViewerTests(unittest.TestCase):
         self.pack, self.raw, self.rows, self.state, reader = cloud_fixture()
         self.now = 100
         sessions = ViewerSessions({}, {'SUPABASE_DEV_SECRET_KEY': 'never-pass-this',
-                                       'KDP_SIGNIN_CKD_EMAIL': 'reader@example.test'},
+                                       'KDP_SIGNIN_CKD_EMAIL': 'reader@example.test',
+                                       'KDP_SIGNIN_CKD_ID': 'customckd'},
                                   client_factory=reader, clock=lambda: self.now)
         self.addCleanup((root := tempfile.TemporaryDirectory()).cleanup)
         self.root = Path(root.name)
@@ -196,7 +197,7 @@ class CloudViewerTests(unittest.TestCase):
             self.assertEqual(save.call_args.args[1], {'text': 'fixture'})
 
     def test_alias_requires_matching_membership_and_scope_restricts_upload(self):
-        sign_in = {'identifier': 'ckd', 'password': 'fixture-password'}
+        sign_in = {'identifier': 'customckd', 'password': 'fixture-password'}
         self.assertEqual(self.request('/api/session', body=sign_in, headers=self.form())[0], 403)
         self.state.update(member_role='editor', intake_company_id='ckd')
         status, headers, _ = self.request('/api/session', body=sign_in, headers=self.form())
