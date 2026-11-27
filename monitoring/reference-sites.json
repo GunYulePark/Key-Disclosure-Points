@@ -1,0 +1,11 @@
+[
+  {"title":"금융감독원 DART","url":"https://dart.fss.or.kr/","category":"filing","note":"정기·수시공시 및 정정 원문"},
+  {"title":"OpenDART","url":"https://opendart.fss.or.kr/","category":"filing","note":"공시 목록과 원문 API 안내"},
+  {"title":"한국거래소 KIND","url":"https://kind.krx.co.kr/","category":"filing","note":"거래소 공시·주주총회 공고"},
+  {"title":"한국거래소 법규포털","url":"https://rule.krx.co.kr/","category":"regulation","note":"시장별 공시규정과 상장규정"},
+  {"title":"국가법령정보센터","url":"https://www.law.go.kr/","category":"regulation","note":"법령 본문·개정문·부칙"},
+  {"title":"금융위원회","url":"https://www.fsc.go.kr/","category":"guidance","note":"공시 제도 개정 및 보도자료"},
+  {"title":"금융감독원 기업공시 길라잡이","url":"https://dart.fss.or.kr/info/main.do","category":"guidance","note":"기업공시서식 작성기준·공시유의사항"},
+  {"title":"한국상장회사협의회 발간자료","url":"https://www.klca.or.kr/sub/data/ebook.asp","category":"guidance","note":"표준정관·주총 실무 자료 발간 목록"},
+  {"title":"법무부","url":"https://www.moj.go.kr/","category":"guidance","note":"상법 및 전자주주총회 안내"}
+]

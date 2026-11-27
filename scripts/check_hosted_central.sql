@@ -19,7 +19,7 @@ begin
     raise exception 'check 1: core RLS';
   end if;
   if (select count(*) from pg_policies where schemaname='storage'
-      and tablename='objects' and policyname like 'kdp_%'
+      and tablename='objects' and policyname in ('kdp_originals_read','kdp_originals_insert')
       and cmd in ('SELECT','INSERT')) <> 2
     or exists(select 1 from pg_policies where schemaname='storage'
       and tablename='objects' and cmd in ('ALL','UPDATE','DELETE')) then

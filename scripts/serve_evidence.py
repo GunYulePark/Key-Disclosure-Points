@@ -10,10 +10,11 @@ import secrets
 from http.cookies import CookieError, SimpleCookie
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 
 from case_pack import validate_pack
 from central_ingest import read_json
+from central_intake import PDF_LIMIT, add_site, entry, file_for, intake_list, store_entry
 from central_sync import SyncError, identity, safe_target
 from evidence_cloud import ViewerSessions, catalog_for, check_saved_location, load_original
 from evidence_view import evidence_view
@@ -98,6 +99,57 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 return {'mode': 'cache', 'signed_in': True}
             return {'mode': 'supabase', 'signed_in': signed_in, 'csrf': sessions.csrf}
 
+        def intake_error(self, error):
+            code = str(error)
+            if code == 'http_401':
+                sessions.remove(self.session_id())
+                self.json({'error': 'auth_required'}, 401, cookie=('', 0))
+            elif isinstance(error, FileNotFoundError):
+                self.json({'error': 'intake_missing'}, 404)
+            elif code in ('http_403', 'approved_workspace_membership_required', 'approved_workspace_not_visible'):
+                self.json({'error': 'intake_editor_required'}, 403)
+            elif code == 'intake_pending_other_editor':
+                self.json({'error': code}, 409)
+            elif isinstance(error, (ValueError, TypeError)):
+                self.json({'error': code if code in ('invalid_intake_pdf', 'invalid_intake_url', 'intake_integrity_failed')
+                           else 'invalid_intake'}, 422)
+            else:
+                self.json({'error': 'intake_request_failed'}, 502)
+
+        def intake_post(self, action):
+            user = sessions.get(self.session_id())
+            if user is None:
+                self.json({'error': 'auth_required'}, 401, cookie=('', 0))
+                return
+            try:
+                if user.check_workspace()['member_role'] not in ('owner', 'editor'):
+                    self.json({'error': 'intake_editor_required'}, 403)
+                    return
+                size = int(self.headers.get('Content-Length', '0'))
+                self.connection.settimeout(60)
+                mime = self.headers.get_content_type()
+                if action == 'pdf':
+                    metadata = self.headers.get('X-KDP-Intake', '')
+                    if mime != 'application/pdf' or not 0 < size <= PDF_LIMIT or not 0 < len(metadata) <= 12000:
+                        raise ValueError('invalid_intake_pdf')
+                    payload = json.loads(unquote(metadata))
+                    if not isinstance(payload, dict):
+                        raise ValueError()
+                    raw = self.rfile.read(size)
+                    if len(raw) != size:
+                        raise ValueError('invalid_intake_pdf')
+                    result = {'id': store_entry(user, payload, pdf=raw)}
+                else:
+                    if mime != 'application/json' or not 0 < size <= 1600000:
+                        raise ValueError()
+                    payload = json.loads(self.rfile.read(size))
+                    if not isinstance(payload, dict):
+                        raise ValueError()
+                    result = add_site(user, payload) if action == 'site' else {'id': store_entry(user, payload)}
+                self.json(result)
+            except (KeyError, TypeError, ValueError, SyncError, TimeoutError) as error:
+                self.intake_error(error)
+
         def do_POST(self):
             if (not self.local_request() or self.headers.get('Origin') != origin
                     or sessions is None or not secrets.compare_digest(
@@ -107,6 +159,10 @@ def app(port, site, cache, pack, workspace, sessions=None):
             if self.path == '/api/session/logout':
                 sessions.remove(self.session_id())
                 self.json(self.session_state(), cookie=('', 0))
+                return
+            intake_routes = {'/api/intake/pdf': 'pdf', '/api/intake/text': 'text', '/api/intake/sites': 'site'}
+            if self.path in intake_routes:
+                self.intake_post(intake_routes[self.path])
                 return
             if self.path != '/api/session':
                 self.json({'error': 'unknown_action'}, 404)
@@ -157,7 +213,24 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 self.json({'error': 'auth_required'}, 401, cookie=('', 0))
                 return
             try:
-                if path == '/api/catalog':
+                if sessions and parts[:2] == ['api', 'intake']:
+                    try:
+                        if path == '/api/intake':
+                            page = int(parse_qs(urlsplit(self.path).query).get('page', ['1'])[0])
+                            if not 1 <= page <= 100000:
+                                raise ValueError()
+                            self.json(intake_list(user, page))
+                        elif len(parts) == 3:
+                            item = entry(user, parts[2], detail=True)
+                            item.pop('object_path')
+                            self.json(item)
+                        elif len(parts) == 4 and parts[3] == 'pdf':
+                            self.send(file_for(user, parts[2]), 'application/pdf', filename='original.pdf')
+                        else:
+                            raise FileNotFoundError()
+                    except (SyncError, ValueError, TypeError, KeyError, FileNotFoundError) as error:
+                        self.intake_error(error)
+                elif path == '/api/catalog':
                     visible = catalog_for(user, sources, anchors, catalog) if sessions else catalog
                     self.json({'sources': visible})
                 elif len(parts) == 4 and parts[:2] == ['api', 'evidence']:

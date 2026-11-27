@@ -11,7 +11,7 @@ if(!devPreview){
   await rm(out,{recursive:true,force:true});
 }
 await mkdir(out,{recursive:true});
-const result=await build({absWorkingDir:root,entryPoints:['src/main.tsx'],bundle:true,splitting:true,minify:true,jsx:'automatic',format:'esm',target:['es2022'],outdir:outDir,entryNames:'assets/app-[hash]',chunkNames:'assets/lib-[hash]',metafile:true,define:{'process.env.NODE_ENV':'"production"'},legalComments:'linked'});
+const result=await build({absWorkingDir:root,entryPoints:['src/main.tsx'],bundle:true,splitting:true,minify:true,jsx:'automatic',format:'esm',target:['es2022'],outdir:outDir,entryNames:'assets/app-[hash]',chunkNames:'assets/lib-[hash]',metafile:true,define:{'process.env.NODE_ENV':'"production"',__KDP_CENTRAL_PREVIEW__:String(devPreview)},legalComments:'linked'});
 const outputs=Object.keys(result.metafile.outputs);
 const js=outputs.find(p=>p.endsWith('.js')&&result.metafile.outputs[p].entryPoint==='src/main.tsx');
 const css=outputs.find(p=>p.endsWith('.css'));

@@ -105,7 +105,7 @@ class Client:
         self.secret = env.get('SUPABASE_DEV_SECRET_KEY', '')
         self.opener = build_opener(NoRedirect())
 
-    def request(self, path, *, method='GET', body=None, server=False):
+    def request(self, path, *, method='GET', body=None, server=False, content_type=None):
         password_login = path == '/auth/v1/token?grant_type=password' and method == 'POST'
         auth_user = path == '/auth/v1/user' and method == 'GET'
         if (not path.startswith(('/rest/v1/', '/storage/v1/'))
@@ -126,9 +126,9 @@ class Client:
             if not self.key or not self.token:
                 raise SyncError('authenticated_reader_credentials_required')
             headers = {'apikey': self.key, 'Authorization': 'Bearer ' + self.token}
-        raw = json.dumps(body).encode() if body is not None else None
+        raw = body if isinstance(body, bytes) else json.dumps(body).encode() if body is not None else None
         if raw is not None:
-            headers['Content-Type'] = 'application/json'
+            headers['Content-Type'] = content_type or 'application/json'
         try:
             with self.opener.open(Request(self.url + path, data=raw, method=method,
                                           headers=headers), timeout=60) as response:

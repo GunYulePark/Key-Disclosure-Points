@@ -3,6 +3,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from unittest.mock import patch
 from http.server import ThreadingHTTPServer
 from pathlib import Path
 from urllib.error import HTTPError
@@ -67,6 +68,7 @@ def cloud_fixture():
             if not state['workspace_allowed']:
                 raise SyncError('approved_workspace_membership_required')
             assert self.token == 'must-stay-server-side'
+            return {'member_role': state.get('member_role', 'viewer')}
 
         def json(self, path):
             self.check_workspace()
@@ -176,6 +178,20 @@ class CloudViewerTests(unittest.TestCase):
         self.state['workspace_allowed'] = False
         self.assertEqual(self.request(self.raw_url, headers=creds)[0], 403)
         self.assertEqual(self.state['downloads'], 0)
+
+    def test_intake_requires_same_origin_valid_session_and_current_write_role(self):
+        path = '/api/intake/text'
+        self.assertEqual(self.request('/api/intake')[0], 401)
+        self.assertEqual(self.request(path, body={}, headers=self.form())[0], 401)
+        credentials = {**self.form(), **self.login()}
+        with patch('serve_evidence.store_entry', return_value='fixture-id') as save:
+            self.assertEqual(self.request(path, body={}, headers=credentials)[0], 403)
+            self.state['member_role'] = 'editor'
+            self.assertEqual(self.request(path, body={}, headers={**credentials, 'Origin': 'https://example.test'})[0], 403)
+            save.assert_not_called()
+            response = self.request(path, body={'text': 'fixture'}, headers=credentials)
+            self.assertEqual((response[0], json.loads(response[2])), (200, {'id': 'fixture-id'}))
+            self.assertEqual(save.call_args.args[1], {'text': 'fixture'})
 
     def test_saved_locator_must_match_original_and_missing_locator_keeps_verified_preview(self):
         creds = self.login()

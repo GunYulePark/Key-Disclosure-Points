@@ -11,6 +11,7 @@ Supabase 대시보드에서 비공개 `kdp-dev-originals`를 만들고 법령 HT
 | `20261124080839_kdp_central_core.sql` | `20261126042013 kdp_central_core` | `589472a414ba912c788fb80ea1ef9b19337cbcd7b6dea313b5400cc06260b388` |
 | `20261126042319_kdp_file_identity_index.sql` | `20261126042450 kdp_file_identity_index` | `8151942f15c6e8bbb8e21101ea9c2efc965ba885baf4a763956c12ad3c6473e3` |
 | `20261126235013_kdp_evidence_locations.sql` | `20261126235336 kdp_evidence_locations` | `fdb4615a25c9d9eb3005195328260af66377110b28ebbe3ab90dea59d259bf9a` |
+| `20261127004007_kdp_central_intake.sql` | `20261127004806 kdp_central_intake` | `07aacf7f1dcb0c111b605cc9eaf673676d8a12d7fff4fc11cfb782628a7343c6` |
 
 MCP `apply_migration`은 적용 시각으로 이력을 생성하므로 로컬 파일명과 다르다. 같은 SQL을 `db push`로 중복 적용하지 않는다. CLI 연결 전 migration history 대응을 확인하고 필요 시 `migration repair --help`와 실제 history를 검토한다. 현재 적용 SQL은 로컬 SHA와 같다. core 파일의 NOT applied 주석은 생성 당시 기록이며 hash 보존을 위해 바꾸지 않았다.
 
@@ -89,4 +90,8 @@ PGlite는 WASM PostgreSQL 엔진이며 Auth UID/Storage 테이블은 합성 fixt
 2. `central_ingest.py stage --pack <pack> --target <target> --approval <approval> --files <original-cache> --out <new-.local-folder>`로 사본과 SQL을 생성한다. 승인된 개발 DB에서 `stage.sql`을 실행한 후 `batch.json`에 기록된 경로에 각 파일을 덮어쓰기 없이 업로드한다. Windows 대시보드 파일 선택은 긴 로컬 경로에서 0바이트로 실패할 수 있으므로 원본 캐시의 짧은 파일 경로를 사용한다.
 3. 별도 폴더에 버킷 객체를 다시 다운로드한다. 같은 옵션으로 `finish`를 실행하되 `--files`에 다운로드 폴더를, `--out`에 새 폴더를 지정한다. `finish.sql`을 실행하고 버전·작업 상태, 원본 해시·길이, 근거 수를 확인한다. 시각 근거는 담당자 검증 전 `unverified`다.
 
-정적 Pages, 운영 Actions, 기존 D1/브라우저 업로드는 아직 중앙 저장소로 전환하지 않는다. 원격 프로젝트 확보만으로 TASK 01 완료가 아니다.
+## 중앙 접수
+
+`kdp_intake_entries`에는 회사·제목·출처·보관 근거·SHA-256·텍스트와 파일 상태가 들어간다. PDF는 비공개 `kdp-dev-originals`의 작업공간 접수 경로에 저장한다. 확인된 PDF를 회원에게 열기 전 파일을 다시 내려받아 SHA-256과 길이를 확인한다. 접수 준비와 파일 업로드를 두 단계로 저장해, 파일 저장 후 응답이 끊겨도 같은 자료로 재시도할 수 있다. 직접 변경·덮어쓰기는 허용하지 않는다. 원문 검증이 완료된 연구 자료의 기존 테이블과 원본 경로는 계속 사용한다. 접수 자료를 검토 후 그 원문·근거 체계에 연결하는 단계는 후속이다.
+
+`kdp_reference_sites`는 [기본 참고 경로](../monitoring/reference-sites.json)를 기존 승인된 개발 작업공간에 URL 중복 없이 등록했다. 조회는 작업공간 회원, 등록은 편집자 이상이다. 이 목록은 크롤러 대상 설정을 자동 변경하지 않는다. [중앙 자료 접수 시작 명령](../HOME_PC_HANDOFF.md#중앙-자료-접수)이 있다. 운영 Pages·Actions·D1의 실제 배포와 기존 브라우저 원본 이관은 각각 승인 범위를 따른다.

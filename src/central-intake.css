@@ -1,0 +1,27 @@
+.ci-app { max-width: 1250px; margin: auto; }
+.ci-app h2 { margin: 0 0 14px; font-size: 1.1rem; }
+.ci-nav-link, .ci-entry, .ci-detail a, .ci-list a { color: #14645d; font-weight: 650; }
+.ci-tabs, .ci-pages { display: flex; align-items: center; gap: 9px; margin: 14px 0; }
+.ci-tabs button, .ci-pages button { padding: 7px 11px; border: 1px solid #cad6dd; border-radius: 6px; background: white; }
+.ci-tabs button[aria-pressed="true"] { border-color: #14645d; background: #e6f3ef; color: #134e48; }
+.ci-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.ci-list, .ci-form, .ci-detail { padding: 18px; border: 1px solid #d4dfe4; border-radius: 8px; background: white; }
+.ci-list ul { padding: 0; margin: 0; list-style: none; }
+.ci-list li { display: grid; justify-items: start; gap: 4px; padding: 10px 0; border-top: 1px solid #e5ebee; overflow-wrap: anywhere; }
+.ci-list small, .ci-list time { font-size: .78rem; color: #4d6571; }
+.ci-list li p { margin: 0; font-size: .85rem; }
+.ci-entry { padding: 0; border: 0; background: none; text-align: left; text-decoration: underline; }
+.ci-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; display: grid; gap: 10px; }
+.ci-form label { display: grid; gap: 5px; font-size: .9rem; }
+.ci-form input, .ci-form select, .ci-form textarea { width: 100%; min-width: 0; padding: 7px 8px; border: 1px solid #cad6dd; border-radius: 5px; font: inherit; color: inherit; background: white; }
+.ci-form .ev-session-button { justify-self: start; margin: 0; }
+.ci-info { padding: 9px 12px; background: #e6f3ef; border-radius: 6px; }
+.ci-detail { margin-top: 16px; overflow-wrap: anywhere; }
+.ci-detail a { margin-right: 12px; }
+.ci-detail details { margin-top: 8px; }
+.ci-detail pre { white-space: pre-wrap; }
+@media (max-width: 680px) {
+  .ci-grid { grid-template-columns: minmax(0, 1fr); }
+  .ci-list { order: 2; }
+  .ci-app .ev-top { flex-wrap: wrap; }
+}

@@ -10,6 +10,7 @@
 | 최신 사례 결과 | `CASE_REVIEW_02.md`, `research/priority-case-pack-v2.json`, `research/case-followup-facts.json` |
 | 조사 원본 76개, 27,024,097 bytes | 회사 PC 캐시에 76개 보관. 집 PC에서 Supabase로부터 법령 HTML 2개 복원 가능. 나머지 74개는 보관 근거 확인 중 |
 | Supabase 중앙 DB·private 원본 Storage | 전용 Free DB와 비공개 버킷 생성 완료. 회사 PC에서 실제 viewer 로그인으로 법령 원본 2개 복원 확인. 집 PC의 실제 로그인·복원 검증 예정 |
+| 중앙 자료 접수와 참고 사이트 | 동일 개발 작업공간의 DB에 사이트 9개 등록. 조회는 viewer 이상, 접수는 editor 이상 |
 | 환경변수·인증·API 키·브라우저 개인 업로드 | Git으로 공유하지 않음. 집 PC에서 필요한 연결을 별도 설정 |
 | 저장소 밖 legacy/private Sites 소스·로컬 데이터 | 이 저장소의 clone에 포함되지 않음 |
 
@@ -72,6 +73,18 @@ $env:SUPABASE_DEV_PUBLISHABLE_KEY = '<development-publishable-key>'
 화면에서 원본을 읽기만 할 때는 위와 같은 개발 환경변수로 [Supabase 원본 모드](EVIDENCE_VIEWER.md#supabase-원본-직접-열기)를 실행하면 된다. Auth 로그인 후 필요한 원본을 서버에서 직접 읽는다. 집 PC의 직접 읽기와 빈 폴더 복원은 각각 확인한다.
 
 2026-11-27 회사 PC에서는 임시 검사로 원본 2개·679,729바이트, 인용 4개, 공개 접근 거부 2개를 확인했다. 임시 검사 서버는 성공 결과를 저장하면 종료한다. 주소가 이후 열리지 않아도 `.local/task01/viewer-restore-check.json`에서 검증 결과를 확인할 수 있다. 이 결과는 집 PC에서의 검증과 별개다.
+
+## 중앙 자료 접수
+
+위 개발 대상과 publishable key를 설정한 PowerShell에서 같은 개발 브랜치를 갱신하고 실행한다.
+
+```powershell
+npm.cmd ci
+node scripts/build-evidence.mjs
+.\.venv\Scripts\python.exe scripts/serve_evidence.py --cloud --target .local/task01/approved-target.json --port 8770
+```
+
+[중앙 자료 접수](http://127.0.0.1:8770/#intake)에 개발 프로젝트 Auth로 로그인한다. 기존 사용자 역할은 viewer다. editor가 저장한 PDF 원본·텍스트·사이트를 같은 개발 작업공간에서 조회한다. PDF 원본 크기 제한은 10MiB다. 회사 PC가 꺼져 있어도 집 PC에서 이 명령으로 중앙 DB에 연결할 수 있다. 두 PC의 실제 접수·재열기 시험은 편집 권한 승인 후 별도로 기록한다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 

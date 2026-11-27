@@ -2,6 +2,7 @@ import {createElement, useCallback, useEffect, useRef, useState, type FormEvent,
 import {createRoot} from 'react-dom/client';
 import {ArrowDownToLine, ExternalLink, FileSearch, RotateCw, Search} from 'lucide-react';
 import type {PDFDocumentProxy} from 'pdfjs-dist';
+import CentralIntake from './CentralIntake';
 import './evidence-viewer.css';
 
 type Anchor = {id: string; label: string; page?: number; kind: 'visual' | 'text'};
@@ -255,6 +256,7 @@ function EvidenceApp({cloud, onAuthRequired, onLogout}: {
   return <main className="ev-app">
     <header className="ev-top"><div className="ev-brand"><FileSearch size={23} aria-hidden/><span>공시 검토실</span></div>
       <h1>원문 검토</h1><span className="ev-mode">{cloud ? 'Supabase 원본' : '개발 미리보기'}</span>
+      {cloud && <a className="ci-nav-link" href="#intake">중앙 자료 접수</a>}
       {cloud && <button className="ev-session-button" disabled={logoutPending} onClick={() => void signOut()}>로그아웃</button>}
     </header>
     {logoutError && <p className="ev-notice" role="alert">로그아웃하지 못했습니다. 다시 시도하세요.</p>}
@@ -356,6 +358,12 @@ function SignIn({csrf, completed}: {csrf: string; completed: (value: ViewerSessi
 function ViewerRoot() {
   const [session, setSession] = useState<ViewerSession | null>(null);
   const [unavailable, setUnavailable] = useState(false);
+  const [intake, setIntake] = useState(() => window.location.hash === '#intake');
+  useEffect(() => {
+    const follow = () => setIntake(window.location.hash === '#intake');
+    window.addEventListener('hashchange', follow);
+    return () => window.removeEventListener('hashchange', follow);
+  }, []);
   useEffect(() => {
     const controller = new AbortController();
     json<ViewerSession>('/api/session', {signal: controller.signal}).then(setSession)
@@ -376,6 +384,9 @@ function ViewerRoot() {
     {unavailable ? '원문 검토 서버에 연결하지 못했습니다.' : '원문 검토 여는 중…'}</p>;
   if (session.mode === 'supabase' && !session.signed_in) {
     return <SignIn csrf={session.csrf} completed={setSession}/>;
+  }
+  if (session.mode === 'supabase' && intake) {
+    return <CentralIntake csrf={session.csrf} onAuthRequired={requireLogin} onLogout={logout}/>;
   }
   return <EvidenceApp cloud={session.mode === 'supabase'} onAuthRequired={requireLogin} onLogout={logout}/>;
 }

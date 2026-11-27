@@ -40,7 +40,7 @@ try {
       $$ select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$;
     grant usage on schema auth,storage to anon,authenticated,service_role;
     grant execute on function auth.uid() to anon,authenticated,service_role;
-    create table storage.objects(bucket_id text,name text,primary key(bucket_id,name));
+    create table storage.objects(bucket_id text,name text,metadata jsonb,primary key(bucket_id,name));
     alter table storage.objects enable row level security;
     grant select,insert,update,delete on storage.objects to anon,authenticated,service_role;
   `);
@@ -59,6 +59,11 @@ try {
     assert.equal((await db.query('select count(*)::int n from auth.users')).rows[0].n,0);
     assert.equal((await db.query('select count(*)::int n from public.kdp_workspaces')).rows[0].n,0);
   });
+  await test('intake access and missing object checks roll back fixtures', async()=>{
+    await db.exec(await readFile(resolve('scripts/check_hosted_intake.sql'),'utf8'));
+    assert.equal((await db.query('select count(*)::int n from public.kdp_intake_entries')).rows[0].n,0);
+    assert.equal((await db.query('select count(*)::int n from public.kdp_reference_sites')).rows[0].n,0);
+  });
   await db.exec(`
     insert into auth.users values ('${user}'),('${viewer}'),('${outsider}');
     insert into public.kdp_workspaces(id,slug,name) values ('${ws}','test-a','Fixture A'),('${other}','test-b','Fixture B');
@@ -73,9 +78,28 @@ try {
     insert into public.kdp_document_files(workspace_id,id,document_version_id,bucket_id,object_path,sha256,byte_length,mime_type)
       values ('${ws}','${file}','${version}','kdp-dev-originals','${object}','${hash}',100,'application/pdf');
   `);
-  await test('all ten development tables enable RLS', async()=>{
+  await test('intake PDF only opens to members after an immutable object is registered', async()=>{
+    const intake='77777777-7777-4777-8777-777777777777';
+    const candidate=`${ws}/intake/${intake}.pdf`;
+    await db.exec('begin');
+    try {
+      await asUser(user, async()=>{
+        await db.exec(`insert into public.kdp_intake_entries(workspace_id,id,kind,title,company_id,rights_basis,sha256,byte_length)
+          values ('${ws}','${intake}','pdf','Fixture','all','fixture','${hash}',100)`);
+        await db.exec(`insert into storage.objects(bucket_id,name,metadata)
+          values ('kdp-dev-originals','${candidate}','{"size":100}')`);
+        await db.exec(`update public.kdp_intake_entries set stored_at=now() where id='${intake}'`);
+      });
+      await asUser(viewer, async()=>{
+        const result = await db.query(`select name from storage.objects where name='${candidate}'`);
+        assert.deepEqual(result.rows,[{name:candidate}]);
+      });
+      await asUser(outsider, async()=>assert.equal((await db.query(`select name from storage.objects where name='${candidate}'`)).rows.length,0));
+    } finally {await db.exec('rollback');}
+  });
+  await test('all twelve development tables enable RLS', async()=>{
     const r=await db.query("select count(*)::int n from pg_tables where schemaname='public' and tablename like 'kdp_%' and rowsecurity");
-    assert.equal(r.rows[0].n,10);
+    assert.equal(r.rows[0].n,12);
   });
   await test('member sees only own workspace',async()=>asUser(user,async()=>{
     const r=await db.query('select id from public.kdp_workspaces'); assert.deepEqual(r.rows,[{id:ws}]);

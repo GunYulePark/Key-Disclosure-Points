@@ -14,7 +14,7 @@ function isPublicCandidate(candidate:ReviewCandidate){
  }catch{return false;}
 }
 
-export default function PdfIntake({candidates=[]}:{candidates?:ReviewCandidate[]}){
+export default function PdfIntake({candidates=[],centralHref}:{candidates?:ReviewCandidate[];centralHref?:string}){
  const [records,setRecords]=useState<UploadRecord[]>([]),[selected,setSelected]=useState(''),[busy,setBusy]=useState(false),[message,setMessage]=useState(''),[company,setCompany]=useState('all'),[sourceUrl,setSourceUrl]=useState('');
  const [page,setPage]=useState(1),[query,setQuery]=useState('');const input=useRef<HTMLInputElement>(null);
  const [mode,setMode]=useState<'pdf'|'text'>('pdf');
@@ -91,8 +91,11 @@ export default function PdfIntake({candidates=[]}:{candidates?:ReviewCandidate[]
  function saveBlob(blob:Blob,name:string){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
  async function remove(r:UploadRecord){try{await deleteUpload(r.id);setRecords(prev=>prev.filter(x=>x.id!==r.id));setSelected('');setMessage('이 브라우저에서 삭제했습니다.');}catch{setMessage('삭제에 실패했습니다. 다시 시도해주세요.');}}
  return <section className="pdf-intake" id="files-intake">
-  <div className="intake-explainer"><p>PDF와 붙여넣은 텍스트는 이 브라우저에 저장됩니다. 출처와 관련 기준을 확인하고 검토자료를 내려받을 수 있습니다.</p></div>
-  <div className="intake-type" role="group" aria-label="접수 방식">
+  <div className="intake-explainer">{centralHref ? <>
+   <p>새 PDF·텍스트와 참고 사이트는 로그인 후 중앙에 접수합니다.</p>
+   <a className="primary" href={centralHref}>중앙 자료 접수 열기</a>
+  </> : <p>PDF와 붙여넣은 텍스트는 이 브라우저에 저장됩니다. 출처와 관련 기준을 확인하고 검토자료를 내려받을 수 있습니다.</p>}</div>
+  {!centralHref&&<><div className="intake-type" role="group" aria-label="접수 방식">
    <button className="secondary" aria-pressed={mode==='pdf'} disabled={busy} onClick={()=>setMode('pdf')}>PDF 파일</button>
    <button className="secondary" aria-pressed={mode==='text'} disabled={busy} onClick={()=>setMode('text')}>텍스트 붙여넣기</button>
   </div>
@@ -102,7 +105,7 @@ export default function PdfIntake({candidates=[]}:{candidates?:ReviewCandidate[]
    <label>규정·안내 본문<textarea required value={pasted} rows={6} maxLength={100000} disabled={busy} onChange={e=>setPasted(e.target.value)}/></label>
    <button className="primary" type="submit" disabled={busy}>텍스트 저장</button>
   </form>}
-  {mode==='pdf'&&<p className="hint">PDF 30MB·600쪽 이하 · 이미지 페이지는 OCR 확인 대상</p>}<p role="status" aria-live="polite" className="intake-message">{message}</p>
+  {mode==='pdf'&&<p className="hint">PDF 30MB·600쪽 이하 · 이미지 페이지는 OCR 확인 대상</p>}</>}<p role="status" aria-live="polite" className="intake-message">{message}</p>
   <div className="intake-layout"><aside className="upload-list"><h3>내 브라우저 보관함 <span>{records.length}</span></h3>{records.map(r=><button key={r.id} className={selected===r.id?'selected':''} onClick={()=>openRecord(r.id)}><b>{r.name}</b><small>{r.kind==='text'?r.pages.length+'문단':r.pages.length+'쪽'} · {catalog.some(x=>x.sha256===r.id)?'기존 검토 연결':'검토 대기'}{r.ocrPages.length?' · OCR 확인':''}</small></button>)}{!records.length&&<p>접수한 자료가 없습니다.</p>}</aside>
   {current?<article className="upload-detail"><h3>{current.name}</h3><p className="hint">{{all:'공통 · 세 회사',ckd:'종근당',hold:'종근당홀딩스',kb:'경보제약'}[current.company]} · {current.pages.length}{locationUnit}</p>
    {current.sourceUrl&&<a className="case-common-link" href={current.sourceUrl} target="_blank" rel="noopener noreferrer">입력한 출처 열기</a>}
@@ -112,7 +115,7 @@ export default function PdfIntake({candidates=[]}:{candidates?:ReviewCandidate[]
    <details><summary>관련 기준 연결 후보 {related.length}개</summary>{related.map(r=><div className="related-rule" key={r.id}><b>{r.title}</b><p>{r.matches.join(', ')}{locationUnit}에서 키워드 확인 · 적용 여부 미확정</p><a href={r.href}>기존 검토 기준 확인 →</a></div>)}</details>
    <div className="intake-controls"><label>{isText?'문단 선택':'페이지 선택'}<select value={page} onChange={e=>setPage(Number(e.target.value))}>{current.pages.map(p=><option value={p.page} key={p.page}>{p.page}{locationUnit}</option>)}</select></label><label>본문 검색<input value={query} onChange={e=>setQuery(e.target.value)} placeholder="검색어 입력"/></label></div>
    {query&&<p className="page-hits">{current.pages.filter(p=>p.text.includes(query)).map(p=><button key={p.page} onClick={()=>setPage(p.page)}>{p.page}{locationUnit}</button>)}{!current.pages.some(p=>p.text.includes(query))&&(isText?'일치하는 본문이 없습니다.':'텍스트에서 찾지 못했습니다. 이미지 페이지는 별도 확인하세요.')}</p>}<h4>{isText?'본문 문단 '+page:'PDF '+page+'쪽 추출 본문'}</h4><pre className="pdf-page-text">{current.pages[page-1]?.text||'추출 가능한 텍스트가 없습니다. 원본 PDF의 이미지·표를 확인하세요.'}</pre><details><summary>원본 SHA-256 식별값</summary><code className="file-hash">{current.id.replace(/^text-/,'')}</code></details>
-  </article>:<div className="intake-empty">자료를 추가하거나 보관함에서 선택하세요.</div>}</div>
+  </article>:<div className="intake-empty">{centralHref?'기존 브라우저 자료를 선택하면 원본을 내려받을 수 있습니다.':'자료를 추가하거나 보관함에서 선택하세요.'}</div>}</div>
   {publicUpdates.length>0&&<section className="intake-updates" aria-labelledby="intake-updates-title">
    <h2 id="intake-updates-title">공개 출처 변경 후보</h2>
    {publicUpdates.map(item=><details key={item.id}>
@@ -125,7 +128,7 @@ export default function PdfIntake({candidates=[]}:{candidates?:ReviewCandidate[]
     </dl>}
     <div className="intake-actions">
      <a className="case-common-link" href={item.url} target="_blank" rel="noopener noreferrer">공식 발간·게시 정보</a>
-     <button className="secondary" disabled={busy} onClick={()=>{setSourceUrl(item.url);setTitle(item.title);setMode('text');document.getElementById('files-intake')?.scrollIntoView();}}>접수 양식에 출처 넣기</button>
+     {!centralHref&&<button className="secondary" disabled={busy} onClick={()=>{setSourceUrl(item.url);setTitle(item.title);setMode('text');document.getElementById('files-intake')?.scrollIntoView();}}>접수 양식에 출처 넣기</button>}
     </div>
    </details>)}
   </section>}
