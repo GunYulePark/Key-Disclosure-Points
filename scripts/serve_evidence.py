@@ -14,7 +14,7 @@ from urllib.parse import parse_qs, unquote, urlsplit
 
 from case_pack import validate_pack
 from central_ingest import read_json
-from central_intake import PDF_LIMIT, add_site, entry, file_for, intake_list, store_entry
+from central_intake import PDF_LIMIT, add_site, entry, file_for, intake_list, notes_for, store_entry
 from central_sync import SyncError, identity, safe_target
 from evidence_cloud import ViewerSessions, catalog_for, check_saved_location, load_original
 from evidence_view import evidence_view
@@ -130,7 +130,7 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 mime = self.headers.get_content_type()
                 if action == 'pdf':
                     metadata = self.headers.get('X-KDP-Intake', '')
-                    if mime != 'application/pdf' or not 0 < size <= PDF_LIMIT or not 0 < len(metadata) <= 12000:
+                    if mime != 'application/pdf' or not 0 < size <= PDF_LIMIT or not 0 < len(metadata) <= 40000:
                         raise ValueError('invalid_intake_pdf')
                     payload = json.loads(unquote(metadata))
                     if not isinstance(payload, dict):
@@ -145,7 +145,12 @@ def app(port, site, cache, pack, workspace, sessions=None):
                     payload = json.loads(self.rfile.read(size))
                     if not isinstance(payload, dict):
                         raise ValueError()
-                    result = add_site(user, payload) if action == 'site' else {'id': store_entry(user, payload)}
+                    if action == 'site':
+                        result = add_site(user, payload)
+                    elif action == 'link':
+                        result = {'id': store_entry(user, payload, link_only=True)}
+                    else:
+                        result = {'id': store_entry(user, payload)}
                 self.json(result)
             except (KeyError, TypeError, ValueError, SyncError, TimeoutError) as error:
                 self.intake_error(error)
@@ -160,7 +165,8 @@ def app(port, site, cache, pack, workspace, sessions=None):
                 sessions.remove(self.session_id())
                 self.json(self.session_state(), cookie=('', 0))
                 return
-            intake_routes = {'/api/intake/pdf': 'pdf', '/api/intake/text': 'text', '/api/intake/sites': 'site'}
+            intake_routes = {'/api/intake/pdf': 'pdf', '/api/intake/text': 'text',
+                             '/api/intake/link': 'link', '/api/intake/sites': 'site'}
             if self.path in intake_routes:
                 self.intake_post(intake_routes[self.path])
                 return
@@ -223,6 +229,7 @@ def app(port, site, cache, pack, workspace, sessions=None):
                         elif len(parts) == 3:
                             item = entry(user, parts[2], detail=True)
                             item.pop('object_path')
+                            item['notes'] = notes_for(user, item['id'])
                             self.json(item)
                         elif len(parts) == 4 and parts[3] == 'pdf':
                             self.send(file_for(user, parts[2]), 'application/pdf', filename='original.pdf')

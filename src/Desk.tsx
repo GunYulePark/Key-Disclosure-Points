@@ -6,7 +6,9 @@ import PeriodReview from "./PeriodReview";
 import RuleReviews from "./RuleReviews";
 import PdfIntake from "./PdfIntake";
 import DisclosureCases from "./DisclosureCases";
+import CompanyPreparation from "./CompanyPreparation";
 import disclosureCases from "./disclosure-cases.json";
+import companyPreparation from "./company-preparation.json";
 import {parseOperations,type OperationState} from "./operations-types";
 
 declare const __KDP_CENTRAL_PREVIEW__: boolean;
@@ -18,6 +20,7 @@ const tabs = {
   archive: { label: "공시 보관함", title: "공시 목록", icon: Library },
   rules: { label: "공통 기준", title: "공통 기준", icon: BookOpen },
   cases: { label: "공시 반영 사례", title: "공시 반영 사례", icon: ClipboardList },
+  prepare: { label: "회사별 준비사항", title: "회사별 준비사항", icon: ShieldCheck },
   files: { label: "규정 자료 접수", title: "규정 자료 접수", icon: FileText },
   sources: { label: "출처 현황", title: "출처", icon: Radio },
 };
@@ -136,6 +139,7 @@ export default function Desk() {
     <main><div className="page-heading"><div><h1>{tabs[tab].title}</h1></div><button className="secondary" onClick={()=>{
       const exportedAt=new Date().toISOString();
       if(tab==="cases")download("공시_반영_사례.json",{cases:disclosureCases,exportedAt});
+      else if(tab==="prepare")download("회사별_준비사항.json",{...companyPreparation,exportedAt});
       else download(`공시검토실_${data.asOf}.json`,{snapshot:data,exportedAt});
     }}><Download size={16}/>자료 내보내기</button></div>
     {(tab==="issues"||tab==="archive")&&<div className="company-tabs" aria-label="회사 필터">{Object.entries(companies).map(([id,name])=><button key={id} onClick={()=>setCompany(id)} className={company===id?"selected":""}>{name}<span>{tab==="archive"?allFilings.filter(f=>id==="all"||f.company_id===id).length:data.findings.filter(f=>id==="all"||f.company_id===id).length}</span></button>)}</div>}
@@ -146,6 +150,7 @@ export default function Desk() {
       <div className="issue-list">{issues.map(f=><button className="issue-row" key={f.id} onClick={()=>openDetail(f)}><span className={`priority ${f.priority}`}>{f.priority}</span><div className="issue-main"><div className="issue-meta"><span className="company-name">{companies[f.company_id]}</span><span>{f.date.replaceAll("-",".")}</span>{f.candidate&&<span className="correction-chip">정정 검토 후보</span>}</div><h3>{f.title}</h3><p>{f.instructions}</p><div className="issue-foot"><span><FileText size={12}/>{f.evidence.length}개 근거</span><span>{f.action_type||"검토"}</span></div></div><div className="issue-side"><ChevronRight size={19}/></div></button>)}{issues.length===0&&<div className="empty"><Search size={28}/><h3>조건에 맞는 점검 항목이 없습니다.</h3><button className="secondary" onClick={reset}>필터 초기화</button></div>}</div></>}
     {tab==="archive"&&<><div className="archive-summary"><Library size={24}/><div><b>공식 공시 누적 목록</b><p>2026.01.01부터 정정 포함 {allFilings.length}건 · 목록 수집과 전체 본문 검토는 별개입니다.</p></div><span>{filings.length}건 표시</span></div><div className="filterbar"><label className="search"><Search size={17}/><input aria-label="공시 검색" value={q} onChange={e=>setQ(e.target.value)} placeholder="보고서명, 접수번호 검색"/></label><label className="date-label">시작<input aria-label="시작일" type="date" value={from} onChange={e=>setFrom(e.target.value)}/></label><label className="date-label">종료<input aria-label="종료일" type="date" value={to} onChange={e=>setTo(e.target.value)}/></label><button className="icon-btn" onClick={reset} aria-label="검색 초기화"><RotateCw size={16}/></button></div><div className="table-scroll archive-table"><table><thead><tr><th>접수일</th><th>회사</th><th>공시명</th><th>접수번호</th><th>원문</th></tr></thead><tbody>{filings.slice((page-1)*15,page*15).map(f=><tr key={f.receipt_no}><td>{f.received_date.replaceAll("-",".")}</td><td>{companies[f.company_id]}</td><td><b>{f.title}</b></td><td className="mono">{f.receipt_no}</td><td><a href={f.url} target="_blank" rel="noopener noreferrer" aria-label={`${f.title} DART 원문 열기`}><ArrowUpRight size={18}/></a></td></tr>)}</tbody></table>{!filings.length&&<div className="empty">조건에 맞는 공시가 없습니다.</div>}</div><div className="pagination"><span>{filings.length}건 중 {filings.length?((page-1)*15+1):0}–{Math.min(page*15,filings.length)}</span><div><button disabled={page===1} onClick={()=>setPage(p=>p-1)}>이전</button><span>{page} / {Math.max(1,Math.ceil(filings.length/15))}</span><button disabled={page*15>=filings.length} onClick={()=>setPage(p=>p+1)}>다음</button></div></div></>}
     {tab==="cases"&&<DisclosureCases/>}
+    {tab==="prepare"&&<CompanyPreparation/>}
     {tab==="files"&&<PdfIntake candidates={operations?.queue}
       centralHref={__KDP_CENTRAL_PREVIEW__ ? "http://127.0.0.1:8770/#intake" : undefined}/>}
     {tab==="rules"&&<><RuleReviews/><div className="section-heading"><div><h2>보편 · 공통 적용 검토</h2><p>법령·공시서식과 회사별 적용사항</p></div></div><div className="rule-grid">{data.rules.map((r,i)=><article className={`rule-card ${r.id==="TREASURY_ATTACHMENT"?"treasury-featured":""}`} id={r.id==="TREASURY_ATTACHMENT"?"rules-treasury":"rules-"+r.id.toLowerCase()} key={r.id}><div className="rule-top"><span>0{i+1}</span><BookOpen size={21}/></div><h3>{r.title}</h3><p>{ruleNotes[r.id]}</p>{r.id==="TREASURY_ATTACHMENT"&&<TreasuryReview/>}<div className="rule-card-foot"><span>{(r as any).effective_date?`시행 ${(r as any).effective_date}`:"선정 자료 확인"}</span><a href={r.notice_url} target="_blank" rel="noopener noreferrer">공식 안내 <ArrowUpRight size={15}/></a></div></article>)}</div></>}

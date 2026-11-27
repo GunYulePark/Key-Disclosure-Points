@@ -62,6 +62,7 @@ try {
   await test('intake access and missing object checks roll back fixtures', async()=>{
     await db.exec(await readFile(resolve('scripts/check_hosted_intake.sql'),'utf8'));
     assert.equal((await db.query('select count(*)::int n from public.kdp_intake_entries')).rows[0].n,0);
+    assert.equal((await db.query('select count(*)::int n from public.kdp_intake_notes')).rows[0].n,0);
     assert.equal((await db.query('select count(*)::int n from public.kdp_reference_sites')).rows[0].n,0);
   });
   await db.exec(`
@@ -97,9 +98,9 @@ try {
       await asUser(outsider, async()=>assert.equal((await db.query(`select name from storage.objects where name='${candidate}'`)).rows.length,0));
     } finally {await db.exec('rollback');}
   });
-  await test('all twelve development tables enable RLS', async()=>{
+  await test('all thirteen development tables enable RLS', async()=>{
     const r=await db.query("select count(*)::int n from pg_tables where schemaname='public' and tablename like 'kdp_%' and rowsecurity");
-    assert.equal(r.rows[0].n,12);
+    assert.equal(r.rows[0].n,13);
   });
   await test('member sees only own workspace',async()=>asUser(user,async()=>{
     const r=await db.query('select id from public.kdp_workspaces'); assert.deepEqual(r.rows,[{id:ws}]);

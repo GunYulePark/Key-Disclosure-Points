@@ -84,7 +84,7 @@ node scripts/build-evidence.mjs
 .\.venv\Scripts\python.exe scripts/serve_evidence.py --cloud --target .local/task01/approved-target.json --port 8770
 ```
 
-[중앙 자료 접수](http://127.0.0.1:8770/#intake)에 개발 프로젝트 Auth로 로그인한다. 편집 권한을 부여받은 계정으로 PDF 원본·텍스트·사이트를 등록하고 같은 개발 작업공간에서 조회할 수 있다. PDF 원본 크기 제한은 10MiB다. 회사 PC가 꺼져 있어도 집 PC에서 이 명령으로 중앙 DB에 연결할 수 있다. 실제 PDF 접수·집 PC 재열기 시험 결과는 별도로 기록한다.
+[중앙 자료 접수](http://127.0.0.1:8770/#intake)에 개발 프로젝트 Auth로 로그인한다. 편집 권한을 부여받은 계정으로 PDF 원본·텍스트·공시 링크·참고 사이트를 등록하고 같은 작업공간에서 조회할 수 있다. PDF 원본 크기 제한은 10MiB다. PDF·텍스트·링크의 검토 포인트는 중앙 DB에 저장된다. 접수 상세의 사례 링크를 열려면 `NEXT_TASK.md`의 Pages 개발판도 4175번 포트에 실행한다. 회사 PC가 꺼져 있어도 집 PC에서 같은 개발 DB를 사용한다. 실제 PDF 접수·집 PC 재열기 시험 결과는 별도로 기록한다.
 
 목표는 GitHub에 코드·개발 기록, 승인된 독립 Supabase 개발 DB에 구조화 데이터, private Storage에 승인된 원본을 두는 것이다. 기존 계정의 active 프로젝트 2개는 다른 업무용이므로 임의로 재사용·중지·삭제하거나 유료 전환하지 않는다. TASK 01의 승인된 개발 ref를 확인하고 private bucket/Auth·샘플 이관 범위와 권리를 검증한다. 약 27MB 연구 원본 전체 업로드는 기존 3.06MB 샘플 이관과 다른 범위다.
 

@@ -9,10 +9,11 @@ from urllib.parse import urlencode, urlsplit, urlunsplit
 
 from central_sync import BUCKET, SyncError
 from evidence_cloud import reader_rows
+from intake_context import candidate_cases, case_links
 
 PDF_LIMIT = 10 * 1024 * 1024
 PAGE_SIZE = 40
-ENTRY_COLUMNS = 'id,kind,title,company_id,source_url,rights_basis,sha256,byte_length,created_at,stored_at'
+ENTRY_COLUMNS = 'id,kind,title,company_id,source_url,rights_basis,sha256,byte_length,created_at,stored_at,origin_format'
 SITE_COLUMNS = 'url,title,category,note,created_at'
 
 
@@ -96,26 +97,50 @@ def file_for(client, entry_id):
     return checked_pdf(client, item)
 
 
-def store_entry(client, payload, *, pdf=None):
+def notes_for(client, entry_id):
+    rows = reader_rows(client, 'kdp_intake_notes', 'id,points,related_case_ids,created_at',
+                       intake_id='eq.' + entry_id, order='created_at.desc,id.desc', limit='40')
+    return [dict(note, related_cases=case_links(note['related_case_ids'])) for note in rows]
+
+
+def save_context(client, item, points, pdf):
+    related = candidate_cases(item['title'], points, item['source_url'], item.get('body_text'), pdf)
+    if not points and not related:
+        return
+    context_key = json.dumps([points, related], ensure_ascii=False)
+    note_id = str(uuid.uuid5(uuid.UUID(item['id']), context_key))
+    row = dict(workspace_id=client.workspace, intake_id=item['id'], id=note_id,
+               points=points, related_case_ids=related)
+    try:
+        client.request('/rest/v1/kdp_intake_notes', method='POST', body=row)
+    except SyncError as error:
+        if str(error) != 'http_409':
+            raise
+
+
+def store_entry(client, payload, *, pdf=None, link_only=False):
     kind = 'pdf' if pdf is not None else 'text'
     title = field(payload, 'title', 180)
     company = field(payload, 'company_id', 8)
     if company not in ('all', 'ckd', 'hold', 'kb'):
         raise ValueError('invalid_intake')
-    rights = field(payload, 'rights_basis', 500)
-    url = source_url(field(payload, 'source_url', 1024, optional=True))
-    body = payload.get('text') if kind == 'text' else None
+    points = field(payload, 'review_points', 2000, optional=True)
+    rights = '참고 주소' if link_only else field(payload, 'rights_basis', 500)
+    url = source_url(field(payload, 'source_url', 1024, optional=not link_only))
+    body = url if link_only else payload.get('text') if kind == 'text' else None
     if kind == 'text' and (not isinstance(body, str) or not body.strip() or len(body) > 100000 or '\x00' in body):
         raise ValueError('invalid_intake')
     raw = body.encode() if body is not None else pdf
     if kind == 'pdf' and (not raw.startswith(b'%PDF-') or len(raw) > PDF_LIMIT):
         raise ValueError('invalid_intake_pdf')
     digest = hashlib.sha256(raw).hexdigest()
-    key = json.dumps([kind, company, title, url, digest], ensure_ascii=False)
+    key = json.dumps(['link' if link_only else kind, company, title, url, digest], ensure_ascii=False)
     entry_id = str(uuid.uuid5(uuid.UUID(client.workspace), key))
     row = dict(workspace_id=client.workspace, id=entry_id, kind=kind, title=title,
                company_id=company, source_url=url, rights_basis=rights,
                sha256=digest, byte_length=len(raw), body_text=body)
+    if link_only:
+        row['origin_format'] = 'link'
     db_path = '/rest/v1/kdp_intake_entries'
     try:
         client.request(db_path, method='POST', body=row)
@@ -127,6 +152,7 @@ def store_entry(client, payload, *, pdf=None):
     except FileNotFoundError:
         raise SyncError('intake_pending_other_editor') from None
     if kind == 'text' or item['stored_at']:
+        save_context(client, item, points, pdf)
         return item['id']
     upload = '/storage/v1/object/' + BUCKET + '/' + item['object_path']
     try:
@@ -146,4 +172,5 @@ def store_entry(client, payload, *, pdf=None):
     client.request(db_path + '?' + filters, method='PATCH', body={'stored_at': 'now'})
     if not entry(client, entry_id)['stored_at']:
         raise SyncError('intake_not_committed')
+    save_context(client, item, points, pdf)
     return entry_id

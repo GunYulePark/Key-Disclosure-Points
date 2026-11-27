@@ -1,0 +1,45 @@
+{
+  "companies": [
+    {
+      "id":"ckd","name":"종근당","assets":{"consolidatedPrior":1800298,"separatePrior":1786938,"consolidatedQuarter":1873784,"separateQuarter":1861634},
+      "source":"https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=20&offset=450747&length=22910&dtd=dart4.xsd",
+      "actions":[
+        {"priority":"P1","title":"2조원 도달 시나리오","action":"연말 추정과 확정 결산에서 연결·별도 자산 기준을 대조한다. 재무·법무·IR이 항목별 산정 기준, 최초 적용 주총과 준비 일정을 함께 확인한다.","case":"cumulative-voting"},
+        {"priority":"P1","title":"배당과 지배구조보고서","action":"2026년 보고서의 현금배당 예측가능성 X와 정관상 가능 Y를 근거로, 다음 결산에서 배당액 확정 → 배당기준일의 실제 적용과 공시 일정을 검토한다.","case":"dividend"},
+        {"priority":"P2","title":"자기주식 및 교환사채","action":"미교환 잔량·사채 종료일·보유처분 승인 자료를 대장과 대사하고, 정기보고서 종류별 첨부 조건을 확인한다.","case":"treasury-disposal"}
+      ]
+    },
+    {
+      "id":"hold","name":"종근당홀딩스","assets":{"consolidatedPrior":1628781,"separatePrior":444745,"consolidatedQuarter":1785870,"separateQuarter":500885},
+      "source":"https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=18&offset=1002270&length=31246&dtd=dart4.xsd",
+      "actions":[
+        {"priority":"P1","title":"배당일 증빙 이어가기","action":"2025년 결산의 배당액 확정 3월 26일과 기준일 3월 31일을 결의·공고 자료에 연결하고, 다음 보고서에 필요한 6주 전 공시 여부도 별도로 확인한다.","case":"dividend"},
+        {"priority":"P2","title":"지주회사 자산 기준 대사","action":"종근당과 별개로 지주회사 자체의 연결·별도 자산 및 적용기준을 관리한다. 결산 때 기준을 충족하는 항목의 후보와 주총 안건을 점검한다.","case":"cumulative-voting"},
+        {"priority":"P2","title":"연결 종속회사 공시","action":"종속회사 연구과제 ID와 진행 단계, 계약대가의 반영 범위를 경보제약 공시와 대조한다.","case":"bio"}
+      ]
+    },
+    {
+      "id":"kb","name":"경보제약","assets":{"consolidatedPrior":null,"separatePrior":319538,"consolidatedQuarter":null,"separateQuarter":393767},
+      "source":"https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=18&offset=301784&length=13507&dtd=dart4.xsd",
+      "actions":[
+        {"priority":"P1","title":"연구개발 공시 대사","action":"과제 ID, 이력, 직전 계획과 현재 단계·예정일을 대조하고 확인된 지연의 기재 범위를 검토한다.","case":"bio"},
+        {"priority":"P2","title":"배당 관련 공시 확인","action":"배당 실시 여부, 정관상 가능 여부, 배당액 확정일과 기준일을 대조해 지배구조보고서에 실제 결과를 기재한다.","case":"dividend"},
+        {"priority":"P2","title":"일반 상장사 이사 선임","action":"현재 감사기구와 독립이사 수·임기를 확인하고 일반 상장사 적용 요건으로 소집공고를 점검한다.","case":"independent-director"}
+      ]
+    }
+  ],
+  "commonGovernance": {
+    "source":"https://www.fsc.go.kr/no010101/88091",
+    "topics":[
+      {"title":"사업보고서 제출 일정","action":"정기주총 2주 전 제출을 목표로 결산·감사 일정을 맞춘다. 지배구조보고서에 실제 제출일을 쓰고, 2주 전에 내지 못했으면 사유를 설명한다."},
+      {"title":"결산배당 주주제안 일정","action":"주총 6주 전까지 결산배당 실시 여부와 금액 등을 공시했는지 확인해 지배구조보고서에 기재한다."},
+      {"title":"자기주식 3년 내역","action":"최근 3년간 취득·소각·보유 데이터를 결의 내역 및 정기보고서와 대사한다."}
+    ]
+  },
+  "thresholdTopics": [
+    {"title":"독립이사·후보추천위원회","action":"독립이사 3명 이상이자 이사 총수의 과반수가 되도록 후보를 확보한다. 3분기 기준 2명이며 총원 6명을 유지하면 4명 이상이 필요하다. 후보추천위원회 구성·규정과 후보 추천 일정을 준비한다.","source":"https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=288205","article":"상법 제542조의8 · 시행령 제34조","case":"independent-director"},
+    {"title":"감사위원회와 분리선임","action":"상근감사 체제의 전환을 검토한다. 감사위원 3명 이상, 독립이사 3분의 2 이상과 독립이사인 위원장, 회계·재무 전문가 1명 이상을 대조한다. 분리선임 2인 후보와 최대주주·특수관계인 합산 3% 의결권 계산표를 준비한다.","source":"https://www.law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702","article":"상법 제415조의2·제542조의11·제542조의12 · 시행령 제37조","case":"audit-election"},
+    {"title":"집중투표와 이사 선임 안건","action":"법정 대상이 되면 적용되는 이사 선임 주총의 소집 시점을 확인한다. 배제 조항 정비안, 주주의 청구 접수, 복수 선임 시 의결권 계산과 소집공고 문구를 준비한다.","source":"https://law.go.kr/lsLinkCommonInfo.do?lspttninfSeq=75811","article":"상법 제542조의7 · 시행령 제33조 · 법률 제21044호 부칙","case":"cumulative-voting"},
+    {"title":"전자주주총회","action":"법무부 가이드라인은 승인된 별도·개별 재무제표를 기준으로 첫 2조원 결산을 승인한 정기주총 이후부터 의무가 적용된다고 해석한다. 그다음 임시·정기주총에 대비해 본인인증, 원격 출석, 질의·표결 및 장애 대응을 시험한다.","source":"https://mojhome.moj.go.kr/bbs/moj/182/502351/download.do","article":"법무부 가이드라인 5쪽 · 상법 제542조의14 · 시행령 제42조의2","case":"electronic-meeting"}
+  ]
+}

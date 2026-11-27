@@ -5,6 +5,8 @@ import './central-intake.css';
 type Entry = {
   id: string; kind: 'pdf' | 'text'; title: string; company_id: string; source_url: string | null;
   rights_basis: string; created_at: string; stored_at: string | null; body_text?: string; sha256: string;
+  origin_format?: 'document' | 'link';
+  notes?: {id: string; points: string; related_cases: {id: string; title: string}[]}[];
 };
 type Site = {url: string; title: string; category: string; note: string};
 type IntakePage = {entries: Entry[]; sites: Site[]; has_more: boolean; can_write: boolean};
@@ -15,7 +17,7 @@ const categories = {filing: '공시', regulation: '법령·규정', guidance: '�
 const errors: Record<string, string> = {
   invalid_intake_pdf: '열 수 있는 PDF(10MiB 이하)를 선택하세요.',
   invalid_intake_url: '사용자명과 비밀번호가 없는 HTTPS 주소를 입력하세요.',
-  invalid_intake: '제목, 본문과 보관 근거를 확인하세요.',
+  invalid_intake: '제목과 자료 형식에 필요한 항목을 확인하세요.',
   intake_editor_required: '현재 계정은 조회 권한입니다. 접수에는 작업공간 편집 권한이 필요합니다.',
   intake_pending_other_editor: '다른 편집자가 처리 중인 접수입니다. 잠시 뒤 목록을 다시 확인하세요.',
   intake_integrity_failed: '파일 식별값이 일치하지 않아 저장을 완료하지 못했습니다.',
@@ -31,7 +33,7 @@ function webLink(value: string | null) {
 }
 
 export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
-  const [kind, setKind] = useState<'pdf' | 'text'>('pdf');
+  const [kind, setKind] = useState<'pdf' | 'text' | 'link'>('pdf');
   const [tab, setTab] = useState<'materials' | 'sites'>('materials');
   const [page, setPage] = useState(1);
   const [data, setData] = useState<IntakePage | null>(null);
@@ -126,7 +128,7 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
             {site.note && <p>{site.note}</p>}
           </li>;
         })}</ul> : <ul>{data?.entries.map(item => <li key={item.id}>
-          <small>{item.kind === 'pdf' ? 'PDF' : '텍스트'} · {companies[item.company_id as keyof typeof companies]}
+          <small>{item.origin_format === 'link' ? '링크' : item.kind === 'pdf' ? 'PDF' : '텍스트'} · {companies[item.company_id as keyof typeof companies]}
             {item.kind === 'pdf' && !item.stored_at && ' · 업로드 대기'}</small>
           <button className="ci-entry" onClick={() => void open(item)}>{item.title}</button>
           <time dateTime={item.created_at}>{new Date(item.created_at).toLocaleDateString('ko-KR')}</time>
@@ -149,15 +151,16 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
               <label>참고 범위<textarea name="note" rows={2} maxLength={500}/></label>
             </> : <>
               <label>자료 형식<select value={kind} onChange={event => setKind(event.target.value as typeof kind)}>
-                <option value="pdf">PDF 파일</option><option value="text">텍스트</option>
+                <option value="pdf">PDF 파일</option><option value="text">텍스트</option><option value="link">공시·규정 링크</option>
               </select></label>
               <label>자료 제목<input name="title" required maxLength={180}/></label>
               <label>검토 대상<select name="company_id">{Object.entries(companies).map(([key, label]) =>
                 <option key={key} value={key}>{label}</option>)}</select></label>
-              <label>출처 주소 (선택)<input name="source_url" type="url" maxLength={1024} placeholder="https://"/></label>
-              {kind === 'pdf' ? <label>PDF 원본 (10MiB 이하)<input name="file" type="file" required accept="application/pdf,.pdf"/></label> :
-                <label>원문 텍스트<textarea name="text" required rows={5} maxLength={100000}/></label>}
-              <label>중앙 보관 근거<input name="rights_basis" required maxLength={500} placeholder="예: 자체 작성 자료, 사내 보관 승인"/></label>
+              <label>{kind === 'link' ? '출처 주소' : '출처 주소 (선택)'}<input name="source_url" type="url" required={kind === 'link'} maxLength={1024} placeholder="https://"/></label>
+              {kind === 'pdf' && <label>PDF 원본 (10MiB 이하)<input name="file" type="file" required accept="application/pdf,.pdf"/></label>}
+              {kind === 'text' && <label>원문 텍스트<textarea name="text" required rows={5} maxLength={100000}/></label>}
+              {kind !== 'link' && <label>중앙 보관 근거<input name="rights_basis" required maxLength={500} placeholder="예: 자체 작성 자료, 사내 보관 승인"/></label>}
+              <label>검토 포인트 (선택)<textarea name="review_points" rows={3} maxLength={2000} placeholder="대상 조항, 변경 내용, 확인할 공시"/></label>
             </>}
             <button type="submit" className="ev-session-button">{pending ? '저장 중…' : '중앙 저장'}</button>
           </fieldset>
@@ -168,11 +171,18 @@ export default function CentralIntake({csrf, onAuthRequired, onLogout}: Props) {
     {error && <p className="ev-notice" role="alert">{error}</p>}
     {detail && tab === 'materials' && <section className="ci-detail">
       <h2>{detail.title}</h2>
-      <p>보관 근거 · {detail.rights_basis}</p>
+      {detail.origin_format !== 'link' && <p>보관 근거 · {detail.rights_basis}</p>}
       {webLink(detail.source_url) && <a href={webLink(detail.source_url)} target="_blank" rel="noreferrer">출처 열기</a>}
-      {detail.kind === 'text' ? <pre>{detail.body_text}</pre> :
-        detail.stored_at ? <a href={'/api/intake/' + detail.id + '/pdf'} download>PDF 원본 내려받기</a> :
-          <p>업로드가 완료되지 않았습니다. 같은 제목·대상·출처로 동일한 파일을 다시 접수하세요.</p>}
+      {detail.kind === 'text' && detail.origin_format !== 'link' && <pre>{detail.body_text}</pre>}
+      {detail.kind === 'pdf' && (detail.stored_at ? <a href={'/api/intake/' + detail.id + '/pdf'} download>PDF 원본 내려받기</a> :
+        <p>업로드가 완료되지 않았습니다. 같은 제목·대상·출처로 동일한 파일을 다시 접수하세요.</p>)}
+      {detail.notes?.map(note => <div className="ci-context" key={note.id}>
+        {note.points && <><h3>검토 포인트</h3><p>{note.points}</p></>}
+        {!!note.related_cases.length && <><h3>관련 사례 후보</h3>
+          <ul>{note.related_cases.map(item => <li key={item.id}>
+            <a href={'http://127.0.0.1:4175/Key-Disclosure-Points/#cases-' + item.id} target="_blank" rel="noreferrer">{item.title}</a>
+          </li>)}</ul></>}
+      </div>)}
       <details><summary>SHA-256</summary><code>{detail.sha256}</code></details>
     </section>}
   </main>;

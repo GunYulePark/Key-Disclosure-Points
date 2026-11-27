@@ -1,0 +1,9 @@
+.prep-panel { max-width: 1180px; }
+.prep-card { margin-top: 16px; }
+.prep-card h2 { font-size: 18px; }
+.prep-note { color: #425961; line-height: 1.7; margin: 8px 0; font-size: 13px; }
+.prep-list { list-style: none; padding: 0; margin: 8px 0 0; }
+.prep-list li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.prep-list h3 { font-size: 14px; margin: 0 0 4px; }
+.prep-list p { color: #425961; line-height: 1.65; font-size: 13px; }
+.prep-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
