@@ -13,6 +13,7 @@ class IngestTests(unittest.TestCase):
         self.pack, _ = fixture()
         self.source = self.pack['sources'][0]
         self.source['title'] = "Test $payload$ and $ingest$ document"
+        self.source['url'] = 'https://www.law.go.kr/fixture'
         self.approval = {
             **target(), 'pack_fingerprint': pack_fingerprint(self.pack),
             'transfer_approved': True, 'approved_by': 'fixture operator',
@@ -40,3 +41,17 @@ class IngestTests(unittest.TestCase):
         self.assertTrue(migration_sql(entries).startswith('DO $ingest_$'))
         self.assertIn('$payload_$[{', migration_sql(entries))
         self.assertNotIn('update public.kdp_document_files', migration_sql(entries))
+
+    def test_company_case_does_not_prepare_full_original_without_exception_reason(self):
+        self.source['url'] = 'https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000001'
+        self.approval['pack_fingerprint'] = pack_fingerprint(self.pack)
+        with self.assertRaisesRegex(SyncError, 'research_original_excerpt_by_default'):
+            list(approved_batch(self.pack, self.approval, target(), env()))
+        self.assertEqual(len(list(approved_batch(
+            self.pack, self.approval, target(), env(), stage_originals=False))), 1)
+        permission = self.approval['sources']['s1']
+        permission['full_original_exception'] = True
+        with self.assertRaisesRegex(SyncError, 'research_original_excerpt_by_default'):
+            list(approved_batch(self.pack, self.approval, target(), env()))
+        permission['full_original_reason'] = 'File-specific approved retention fixture'
+        self.assertEqual(len(list(approved_batch(self.pack, self.approval, target(), env()))), 1)

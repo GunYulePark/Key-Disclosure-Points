@@ -16,7 +16,8 @@ from urllib.parse import urlsplit
 from collector import decode, plain
 
 HOSTS = {'dart.fss.or.kr', 'www.fss.or.kr', 'www.fsc.go.kr', 'law.go.kr',
-         'www.law.go.kr', 'kind.krx.co.kr', 'www.samsung.com', 'www.ckdpharm.com'}
+         'www.law.go.kr', 'kind.krx.co.kr', 'www.samsung.com', 'www.ckdpharm.com',
+         'www.klca.or.kr', 'www.moj.go.kr', 'rule.krx.co.kr'}
 FORMATS = {'html', 'pdf', 'hwp', 'jpg'}
 PRIVATE_FIELDS = {'expected_answer', 'gold_answer', 'holdout_answer', 'api_key',
                   'service_role_key', 'recipient_email'}
@@ -105,22 +106,27 @@ def validate_pack(pack):
             'human_approved': 0, 'active_rules': 0}
 
 
-def verified_pages(s, raw):
+def source_pages(s, raw):
     require(len(raw) == s['bytes'] and hashlib.sha256(raw).hexdigest() == s['sha256'],
             'original_hash_or_size_mismatch:' + s['id'])
     if s['format'] == 'pdf':
         import pymupdf
         require(raw.startswith(b'%PDF-'), 'invalid_pdf')
         with pymupdf.open(stream=raw, filetype='pdf') as doc:
-            pages = [compact(p.get_text()) for p in doc]
+            return [p.get_text() for p in doc]
     elif s['format'] == 'html':
-        pages = [compact(plain(decode(raw)))]
+        return [plain(decode(raw))]
     elif s['format'] == 'hwp':
         from ai_analyzer import hwp_text
-        pages = [compact(hwp_text(raw))]
+        return [hwp_text(raw)]
     else:
         require(raw.startswith(b'\xff\xd8\xff'), 'invalid_jpeg')
-        pages = []  # Visual inspection is recorded separately; no OCR claim.
+        return []  # Visual inspection is recorded separately; no OCR claim.
+
+
+def verified_source_pages(s, raw):
+    extracted = source_pages(s, raw)
+    pages = [compact(page) for page in extracted]
     for a in s['anchors']:
         if a['kind'] == 'visual':
             continue
@@ -129,7 +135,11 @@ def verified_pages(s, raw):
         needle = compact(a['text'])
         require(pages[index][a['start']:a['start'] + len(needle)] == needle,
                 'anchor_mismatch:' + a['id'])
-    return pages
+    return extracted, pages
+
+
+def verified_pages(s, raw):
+    return verified_source_pages(s, raw)[1]
 
 
 def verify_source(s, raw):

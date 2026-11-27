@@ -17,13 +17,14 @@ from urllib.parse import urlsplit
 from case_pack import pack_fingerprint, validate_pack, verify_source
 from central_contract import NAMESPACE
 from central_sync import BUCKET, MIMES, SyncError, identity, safe_target, target_config
+from research_retention import allow_research_original
 
 
 def stable_id(kind, key):
     return str(uuid.uuid5(NAMESPACE, kind + '\n' + key))
 
 
-def approved_batch(pack, approval, target, env):
+def approved_batch(pack, approval, target, env, *, stage_originals=True):
     _, workspace = target_config(target, env)
     validate_pack(pack)
     if (approval['project_ref'] != target['project_ref']
@@ -45,6 +46,8 @@ def approved_batch(pack, approval, target, env):
                 or not permission['publisher'].strip()
                 or not permission['document_type'].strip()):
             raise SyncError('source_rights_or_identity_invalid')
+        if stage_originals and not allow_research_original(source, permission):
+            raise SyncError('research_original_excerpt_by_default')
         if source['bytes'] > 10 * 1024 * 1024:
             raise SyncError('source_exceeds_bucket_limit')
         yield source, permission, workspace
@@ -199,7 +202,8 @@ def main():
     if not output.is_relative_to(Path('.local').resolve()):
         raise SyncError('ignored_local_output_required')
     pack, approval, target = map(read_json, [args.pack, args.approval, args.target])
-    batch = list(approved_batch(pack, approval, target, os.environ))
+    batch = list(approved_batch(pack, approval, target, os.environ,
+                                stage_originals=args.action == 'stage'))
     items = records(batch, approval['approved_by'])
     # Validate the complete batch before producing any upload or SQL artifact.
     for source, _, _ in batch:
@@ -222,5 +226,6 @@ if __name__ == '__main__':
     try:
         main()
     except (SyncError, ValueError, KeyError, OSError) as exc:
-        print('central_ingest_failed: ' + type(exc).__name__, file=sys.stderr)
+        reason = str(exc) if isinstance(exc, SyncError) else type(exc).__name__
+        print('central_ingest_failed: ' + reason, file=sys.stderr)
         raise SystemExit(1)
