@@ -14,7 +14,10 @@ KST=timezone(timedelta(hours=9))
 COMPANIES={'ckd':('종근당','00992871'),'hold':('종근당홀딩스','00149354'),'kb':('경보제약','00101664')}
 BOARDS={'general':('기업공시제도 일반','https://dart.fss.or.kr/info/searchGuide.do','selectGuide.do'),
         'caution':('공시유의사항','https://dart.fss.or.kr/info/searchGuide02.do','selectGuide1.do')}
-ALLOWED={'dart.fss.or.kr','www.fss.or.kr','www.fsc.go.kr','opendart.fss.or.kr'}
+ALLOWED={'dart.fss.or.kr','www.fss.or.kr','www.fsc.go.kr','opendart.fss.or.kr','www.klca.or.kr'}
+KLCA_CATALOG='https://www.klca.or.kr/sub/data/ebook.asp'
+KLCA_REVIEWED={'klca-1448': ('2026 상장회사 표준정관', '2026-03-19')}
+KLCA_TOPICS=re.compile(r'표준\s*정관|정관\s*(?:개정|작성)|전자\s*주주총회|공시\s*(?:기준|서식|제도)')
 class CollectionError(Exception):pass
 
 class Plain(HTMLParser):
@@ -98,6 +101,51 @@ def parse_board(text,key):
  if not result:raise CollectionError('notice_rows_missing')
  if len({r['id'] for r in result})!=len(result):raise CollectionError('duplicate_notice_ids')
  return result
+def review_plan(title):
+ """List evidence and tasks to verify, without deciding applicability."""
+ topic = re.sub(r'\s+', '', title)
+ plan = {
+  'source': '공식 원문·개정 전후·공표일·시행일·부칙을 확인한다.',
+  'disclosure': ['정기·수시공시 중 영향을 받는 보고서와 기재 위치를 확인한다.'],
+  'prepare': ['적용 요건을 회사 사실과 대조하고 이미 반영한 공시와 정정 검토를 구분한다.'],
+ }
+ if '정관' in topic or '주주총회' in topic:
+  plan['disclosure'].append('주총 소집공고의 정관 신구대비표·부칙과 주총 결과를 대조한다.')
+  plan['prepare'].append('현행 정관·최근 사업연도 자료·이사회 또는 주총 결의와 비교 상장사 안건을 확보한다.')
+ if '자기주식' in topic:
+  plan['disclosure'].append('자기주식 기재와 보유처분계획서 등 첨부 항목을 각각 확인한다.')
+  plan['prepare'].append('기준일 잔량, 취득일, 보유 목적, 기존 EB 경과조치·승인 자료를 대사한다.')
+ if '공시서식' in topic or '기업공시' in topic or '모범사례' in topic:
+  plan['disclosure'].append('개정 서식의 표·본문·첨부와 처음 적용되는 보고기간을 확인한다.')
+  plan['prepare'].append('직전 제출본과 최신 서식의 달라진 열·첨부 목록을 대사한다.')
+ return plan
+def parse_klca_catalog(text):
+ table=re.search(r'<table\b[^>]*class="[^"]*\bbn_ebook\b[^"]*"[^>]*>(.*?)</table>',text,re.S)
+ if not table:raise CollectionError('klca_public_catalog_unavailable')
+ result=[]
+ for row in re.findall(r'<tr[^>]*>(.*?)</tr>',table[1],re.S):
+  cells=re.findall(r'<td\b[^>]*>(.*?)</td>',row,re.S)
+  if not cells:continue
+  if len(cells)!=6 or plain(cells[1])!='상장협자료':raise CollectionError('klca_catalog_columns_changed')
+  link=re.search(r'<a\b[^>]*href="([^"]+)"',cells[2])
+  date=plain(cells[3]);title=plain(cells[2])
+  if not link or not title or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',date):raise CollectionError('klca_catalog_item_invalid')
+  href=urllib.parse.urlsplit(urllib.parse.urljoin(KLCA_CATALOG,html.unescape(link[1])))
+  params=urllib.parse.parse_qs(href.query)
+  number=params.get('rNo',[''])[0]
+  if (href.scheme,href.netloc,href.path)!=('https','www.klca.or.kr','/sub/data/ebook.asp') or params.get('rWork')!=['TblRead'] or params.get('rBType')!=['6'] or not re.fullmatch(r'\d+',number):
+   raise CollectionError('klca_catalog_item_invalid')
+  url=KLCA_CATALOG+'?'+urllib.parse.urlencode(dict(rWork='TblRead',rNo=number,rBType=6))
+  result.append(dict(id='klca-'+number,title=title,date=date,url=url,detailStatus='member_access_possible'))
+ if not result or len({r['id'] for r in result})!=len(result):raise CollectionError('klca_catalog_rows_invalid')
+ return result
+def collect_klca_catalog(request):
+ rows=[]
+ for page in (1,2):
+  url=KLCA_CATALOG+'?'+urllib.parse.urlencode(dict(rType=6,rGotoPage=page))
+  rows.extend(parse_klca_catalog(decode(request(url))))
+ if len({r['id'] for r in rows})!=len(rows):raise CollectionError('klca_catalog_pagination_repeated')
+ return rows
 def merge_filings(old,observed,seen_at):
  result={r['receipt_no']:copy.deepcopy(r) for r in old};changes=[]
  for r in observed:
@@ -134,10 +182,21 @@ def run(root=ROOT,request=fetch,now=None):
    for r in rows:
     old=notices.get(r['id']);fingerprint=digest(r)
     if old is None and (r['date']>=snapshot['asOf'] or r['date'][:4]==end[:4] and r['url'] not in known_notice_urls) or old is not None and old['fingerprint']!=fingerprint:
-     added.append(dict(id='notice-'+r['id']+'-'+fingerprint[:12],kind='notice_backlog' if not prior and r['date']<snapshot['asOf'] else 'notice',title=r['title'],company_id='common',url=r['url'],date=r['date'],firstSeenAt=stamp,status='awaiting_review',review='게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토',attachments=r['attachments'],before=old.get('item',{}) if old else {},after=r))
+     added.append(dict(id='notice-'+r['id']+'-'+fingerprint[:12],kind='notice_backlog' if not prior and r['date']<snapshot['asOf'] else 'notice',title=r['title'],company_id='common',url=r['url'],date=r['date'],firstSeenAt=stamp,status='awaiting_review',review='게시물·첨부 목록 탐지 / 원문 해석·시행·회사 적용 미검토',attachments=r['attachments'],before=old.get('item',{}) if old else {},after=r,reviewPlan=review_plan(r['title'])))
     notices[r['id']]={'id':r['id'],'fingerprint':fingerprint,'item':r}
    return dict(rows=len(rows),scope='목록 첫 페이지 · 제목/게시일/첨부 목록 비교 · 조회수 제외',response_sha256=digest(raw),oldest_date=min(r['date'] for r in rows))
   source('board-'+key,title,task)
+ def collect_publications():
+  rows=collect_klca_catalog(request);old_ids={key for key in notices if key.startswith('klca-')}
+  if old_ids and not old_ids.intersection(r['id'] for r in rows):raise CollectionError('klca_catalog_overlap_lost_manual_backfill_required')
+  for row in rows:
+   old=notices.get(row['id']);fingerprint=digest(row)
+   already_reviewed=KLCA_REVIEWED.get(row['id'])==(row['title'],row['date'])
+   if KLCA_TOPICS.search(row['title']) and ((old is None and not already_reviewed) or (old is not None and old['fingerprint']!=fingerprint)):
+    added.append(dict(id='publication-'+row['id']+'-'+fingerprint[:12],kind='klca_publication',title=row['title'],company_id='common',url=row['url'],date=row['date'],firstSeenAt=stamp,status='awaiting_review',review='공개 발간목록 감지 · 개정 원문 접수 후 검토',before=old.get('item',{}) if old else {},after=row,reviewPlan=review_plan(row['title'])))
+   notices[row['id']]={'id':row['id'],'fingerprint':fingerprint,'item':row}
+  return dict(rows=len(rows),pages=2,scope='상장협자료 공개 발간목록 · 제목·게시일 비교 · 회원 첨부 미수집')
+ source('board-klca','한국상장회사협의회 발간자료',collect_publications)
  watched=json.loads((root/'monitoring/watch-documents.json').read_text(encoding='utf-8'))
  for doc in watched:
   def task(doc=doc):
@@ -147,7 +206,7 @@ def run(root=ROOT,request=fetch,now=None):
    before=documents.get(doc['id'],{}).get('sha256',doc['reviewed_sha256'])
    if sha!=before:
     archive=root/'monitoring/evidence'/f"{sha}.{doc['format']}";archive.parent.mkdir(parents=True,exist_ok=True);archive.write_bytes(raw)
-    added.append(dict(id='document-'+doc['id']+'-'+sha[:12],kind='document_change',title=doc['title'],company_id='common',url=doc['url'],date=end,firstSeenAt=stamp,status='awaiting_review',review='첨부 원본 변경 / 예외·부칙·본문·회사별 재검토 필요',before={'sha256':before},after={'sha256':sha},reviewed_sha256=doc['reviewed_sha256']))
+    added.append(dict(id='document-'+doc['id']+'-'+sha[:12],kind='document_change',title=doc['title'],company_id='common',url=doc['url'],date=end,firstSeenAt=stamp,status='awaiting_review',review='첨부 원본 변경 / 예외·부칙·본문·회사별 재검토 필요',before={'sha256':before},after={'sha256':sha},reviewed_sha256=doc['reviewed_sha256'],reviewPlan=review_plan(doc['title'])))
    documents[doc['id']]=dict(sha256=sha,checkedAt=stamp,reviewed_sha256=doc['reviewed_sha256'],bytes=len(raw),url=doc['url'],changedFromReviewed=sha!=doc['reviewed_sha256'])
    return dict(sha256=sha,bytes=len(raw),matches_reviewed=sha==doc['reviewed_sha256'],scope='선정 첨부 원파일 해시 비교 · 새 내용 자동 해석 없음')
   source('document-'+doc['id'],doc['title'],task)
@@ -159,4 +218,10 @@ def run(root=ROOT,request=fetch,now=None):
  result=dict(schemaVersion=1,schedule=dict(engine='GitHub Actions / Python',timezone='Asia/Seoul',weekdays='월~금',time='08:00',execution='cloud',aiEngine='gemini_api_status_in_ai_analysis_json'),lastAttemptAt=stamp,lastCompleteAt=stamp if status=='complete' else prior.get('lastCompleteAt'),lastRunStatus=status,collectionStart=start,reviewBaseline=dict(asOf=snapshot['asOf'],ruleVersion=snapshot['ruleVersion']),sources=all_sources,filings=filings,notices=notices,documents=documents,queue=sorted(queue.values(),key=lambda q:q['firstSeenAt'],reverse=True),runs=([record]+prior.get('runs',[]))[:30],limits=['수집 완료는 선정된 경로의 성공이며 전체 법규·공시 본문 전수 검토 완료가 아닙니다.','금융위 신규 게시판·KRX 법규·상장협 상세·법령센터·OpenDART 키 기반 수집은 미연결입니다.','Gemini 별도 단계가 본문·첨부의 검토 후보를 생성합니다. 실제 연결·실행 상태는 AI 패널을 확인하세요. 기존 판단의 자동 확정·메일 발송은 하지 않습니다.'])
  write_json(path,result);write_json(root/'public/data/operations.json',result)
  print(json.dumps(record,ensure_ascii=False));return result
-if __name__=='__main__':run()
+if __name__=='__main__':
+ parser=argparse.ArgumentParser()
+ parser.add_argument('--check-klca',action='store_true',help='Inspect the public KLCA publication catalog without writing repository state')
+ if parser.parse_args().check_klca:
+  rows=collect_klca_catalog(fetch)
+  print(json.dumps([dict(row,reviewPlan=review_plan(row['title'])) for row in rows if KLCA_TOPICS.search(row['title'])],ensure_ascii=False,indent=2))
+ else:run()

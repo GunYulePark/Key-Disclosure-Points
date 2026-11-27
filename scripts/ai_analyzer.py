@@ -327,7 +327,7 @@ def task_list(state,watch):
  # Current guidance first, then new changes; old backlog last. Baseline tasks
  # also make recurring AI actually analyze the originally supplied subject.
  tasks=[dict(id='baseline-'+d['id'],title=d['title'],url=d['url'],company_id='common',kind='baseline',date=state['reviewBaseline']['asOf'],attachments=[d],after=state['documents'].get(d['id'],{})) for d in watch if d['id'] in ('bio-guidance','june-diff','lecture','fsc')]
- fresh=[q for q in state['queue'] if q['kind']!='notice_backlog'];backlog=[q for q in state['queue'] if q['kind']=='notice_backlog']
+ fresh=[q for q in state['queue'] if q['kind'] not in ('notice_backlog','klca_publication')];backlog=[q for q in state['queue'] if q['kind']=='notice_backlog']
  return sorted(fresh,key=lambda q:q.get('date',''),reverse=True)+tasks+sorted(backlog,key=lambda q:q.get('date',''),reverse=True)
 
 def run(root=ROOT,request=fetch,transport=None):

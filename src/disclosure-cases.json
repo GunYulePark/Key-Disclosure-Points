@@ -55,12 +55,44 @@
           {"label": "DART 3분기 배당 절", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=100&offset=5028350&length=20400&dtd=dart4.xsd"},
           {"label": "DART 정관 첨부 PDF · 15·17쪽", "url": "https://dart.fss.or.kr/report/download.do?dcmNo=11413140&flNm=%EC%B2%A8%EB%B6%801.+%EC%A0%95%EA%B4%80.pdf"}
         ]
+      },
+      {
+        "company": "종근당홀딩스",
+        "filing": "2026년 3분기보고서 · 2024·2025년 결산 비교",
+        "before": "2024년 결산 배당기준일은 2024년 12월 31일이었다. 배당액은 2025년 3월 26일에 확정했다.",
+        "after": "2025년 결산에서는 2026년 3월 26일 배당액을 먼저 확정하고 기준일을 3월 31일로 뒀다. 3분기보고서는 실제 적용 여부와 제42조 제2항을 함께 기재했다.",
+        "sources": [{"label": "DART 종근당홀딩스 3분기 배당 절", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=106&offset=2124610&length=21090&dtd=dart4.xsd"}]
       }
     ],
     "checks": [
       {"company": "ckd", "action": "제출 전 회사 보유 최종 정관을 확인해 배당 절 제42조 제2항 인용을 대사한다. 이사회 의결·사전 공고가 확인된 결산기에만 실제 적용 기록을 반영하고, 이미 낸 보고서의 정정 필요성과 범위는 따로 판단한다."},
-      {"company": "hold", "action": "자사 최종 정관의 배당기준일 조항과 사업·분기보고서 배당 절 인용을 대조한다. 해당 연도 배당기준일 결의·공고가 있으면 실제 적용 표시와 날짜도 확인한다."},
+      {"company": "hold", "action": "2025년 결산 배당은 기준일을 배당액 확정 후로 정했고 3분기보고서에 반영했다. 다음 결산에는 결의·공고 자료를 근거로 공시의 적용 표시와 날짜를 맞춘다."},
       {"company": "kb", "action": "자사 정관의 결산배당 기준일 근거와 공시 인용을 대조한다. 기준일이 변경됐으면 배당결정 공시와 정기보고서의 날짜를 함께 확인한다."}
+    ]
+  },
+  {
+    "id": "independent-director",
+    "title": "독립이사 명칭과 최소 인원",
+    "priority": "P1",
+    "status": "3분기 공시의 명칭·인원 반영 확인 · 최종 정관 대조",
+    "rule": "개정 상법이 적용되는 일반 상장회사의 독립이사 수는 이사 총수의 3분의 1 이상이다. 독립이사 관련 개정은 2026년 7월 23일 시행됐으며, 인원 요건은 부칙에 따라 시행 후 1년 이내에 갖춘다.",
+    "ruleSources": [{"label": "국가법령정보센터 상법 개정문 제20991호", "url": "https://www.law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702"}],
+    "commonRule": "#rules-independent_director_label",
+    "examples": [
+      {
+        "company": "엔씨소프트",
+        "filing": "제29기 정기주주총회 소집공고",
+        "beforeLabel": "소집공고의 종전 문구",
+        "afterLabel": "주총에 올린 변경안",
+        "before": "정관 제29조는 사외이사를 이사 총수의 4분의 1 이상으로 규정했다.",
+        "after": "독립이사로 명칭을 정비하고 하한을 3분의 1로 높이는 안을 공시했다. 결원 보충 조문과 부칙의 시행·경과조치도 함께 제시했다.",
+        "sources": [{"label": "KRX 엔씨소프트 정관 개정안", "url": "https://kind.krx.co.kr/external/2026/03/10/000876/20260310002027/00591.htm"}]
+      }
+    ],
+    "checks": [
+      {"company": "ckd", "action": "2026년 3분기 공시에서 독립이사 2명·이사 6명을 확인했다. 현행 정관의 최소 비율과 보선 조항을 대조한다. 총원을 7명으로 늘리는 경우 최소 3명이 필요하다.", "sources": [{"label": "DART 종근당 3분기 이사회", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002243&dcmNo=11662807&eleId=116&offset=5224828&length=36362&dtd=dart4.xsd"}]},
+      {"company": "hold", "action": "2026년 3분기 공시에서 독립이사 2명·이사 4명을 확인했다. 주총 전 유효한 정관에서 최소 비율과 보선 조항을 대조하고, 선임안과 공시 용어를 맞춘다.", "sources": [{"label": "DART 종근당홀딩스 3분기 이사회", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116002123&dcmNo=11662425&eleId=122&offset=2330064&length=28958&dtd=dart4.xsd"}]},
+      {"company": "kb", "action": "적용 예외와 현행 정관을 확인하고, 실제 등기이사 총원에 대한 독립이사 비율과 결원 보충 조항을 대조한다.", "sources": [{"label": "DART 경보제약 3분기 이사회", "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001891&dcmNo=11661801&eleId=68&offset=862801&length=27381&dtd=dart4.xsd"}]}
     ]
   },
   {

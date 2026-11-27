@@ -4,6 +4,9 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 import collector as c
 FIX=Path(__file__).parent/'fixtures'
+def klca_page(number,title,date):
+ return f'<table class="board_normal bn_ebook"><tr><td>1</td><td>상장협자료</td><td><a href="ebook.asp?rWork=TblRead&amp;rNo={number}&amp;rBType=6">{title}</a></td><td>{date}</td><td>기업법제팀</td><td></td></tr></table>'
+
 class CollectorTests(unittest.TestCase):
  def setUp(self):self.text=(FIX/'ckd.html').read_text(encoding='utf-8')
  def test_company_identity_and_missing_count_cannot_succeed(self):
@@ -28,6 +31,12 @@ class CollectorTests(unittest.TestCase):
  def test_unofficial_urls_and_redirect_targets_are_rejected(self):
   for url in ['http://dart.fss.or.kr','https://dart.fss.or.kr.evil.invalid/a','https://user:pass@dart.fss.or.kr/a','https://127.0.0.1/a']:
    with self.assertRaises(c.CollectionError):c.validate_url(url)
+ def test_klca_login_bad_links_and_repeated_pages_are_rejected(self):
+  page=klca_page(1448,'2026 상장회사 표준정관','2026-03-19')
+  self.assertEqual(c.parse_klca_catalog(page)[0]['id'],'klca-1448')
+  for bad in ('<html>로그인</html>',page.replace('href="ebook.asp','href="https://other.invalid/ebook.asp')):
+   with self.assertRaises(c.CollectionError):c.parse_klca_catalog(bad)
+  with self.assertRaises(c.CollectionError):c.collect_klca_catalog(lambda _:page.encode())
  def test_partial_failure_keeps_last_good_data_and_does_not_fake_a_fresh_complete_run(self):
   with tempfile.TemporaryDirectory() as folder:
    root=Path(folder);(root/'src').mkdir();(root/'monitoring').mkdir()
@@ -40,20 +49,27 @@ class CollectorTests(unittest.TestCase):
    (root/'monitoring/watch-documents.json').write_text(json.dumps([dict(id='test-pdf',title='Test',url='https://www.fss.or.kr/file.pdf',format='pdf',reviewed_sha256=c.digest(old_pdf))]),encoding='utf-8')
    def request(url):
     if url.endswith('file.pdf'):return old_pdf
+    if 'rGotoPage=1' in url:return klca_page(1471,'전자주주총회 안내','2026-10-15').encode()
+    if 'rGotoPage=2' in url:return klca_page(1448,'2026 상장회사 표준정관','2026-03-19').encode()
     if 'searchGuide02' in url:return fixtures['caution']
     if 'searchGuide.do' in url:return fixtures['general']
     return next(fixtures[key] for key,(_,code) in c.COMPANIES.items() if code in url)
    first=c.run(root,request,datetime(2026,10,16,8,tzinfo=c.KST));self.assertEqual(first['lastRunStatus'],'complete')
+   publications=[item for item in first['queue'] if item['kind']=='klca_publication']
+   self.assertEqual([item['after']['id'] for item in publications],['klca-1471'])
+   self.assertIn('신구대비표',publications[0]['reviewPlan']['disclosure'][1])
    second=c.run(root,request,datetime(2026,10,19,8,tzinfo=c.KST));self.assertEqual(len(first['queue']),len(second['queue']))
    def partial(url):
     if 'textCrpCik=00992871' in url:raise c.CollectionError('network_failure')
     if url.endswith('file.pdf'):return new_pdf
+    if 'rGotoPage=1' in url:return klca_page(1480,'2027 상장회사 표준정관 개정','2026-10-20').encode()
     return request(url)
    third=c.run(root,partial,datetime(2026,10,20,8,tzinfo=c.KST))
    self.assertEqual(third['lastRunStatus'],'partial');self.assertEqual(third['lastCompleteAt'],second['lastCompleteAt']);self.assertEqual(third['filings'],second['filings'])
    failed=next(s for s in third['sources'] if s['id']=='filings-ckd');self.assertEqual(failed['lastSuccessAt'],second['lastAttemptAt'])
    self.assertTrue(any(q['kind']=='document_change' for q in third['queue']));self.assertEqual((root/'monitoring/evidence'/f'{c.digest(new_pdf)}.pdf').read_bytes(),new_pdf)
+   self.assertTrue(any(q['kind']=='klca_publication' and q['after']['id']=='klca-1480' for q in third['queue']))
    self.assertEqual(json.loads((root/'src/snapshot.json').read_text()),snapshot)
    def blocked(url):return b'<html>Access denied</html>'
-   fourth=c.run(root,blocked,datetime(2026,10,21,8,tzinfo=c.KST));self.assertEqual(fourth['lastRunStatus'],'failed');self.assertEqual(fourth['filings'],third['filings']);self.assertEqual(fourth['documents'],third['documents'])
+   fourth=c.run(root,blocked,datetime(2026,10,21,8,tzinfo=c.KST));self.assertEqual(fourth['lastRunStatus'],'failed');self.assertEqual(fourth['filings'],third['filings']);self.assertEqual(fourth['documents'],third['documents']);self.assertEqual(fourth['notices'],third['notices'])
 if __name__=='__main__':unittest.main()

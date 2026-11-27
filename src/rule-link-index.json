@@ -116,12 +116,36 @@
   },
   {
     "id": "INDEPENDENT_DIRECTOR_LABEL",
-    "title": "독립이사 관련 서식 용어 변경",
+    "title": "독립이사 명칭과 최소 인원",
     "terms": [
       "독립이사",
       "사외이사"
     ],
-    "href": "#rules-independent_director_label"
+    "href": "#cases-independent-director"
+  },
+  {
+    "id": "CHARTER-ELECTRONIC-MEETING",
+    "title": "전자주주총회 개최 방식과 소집통지",
+    "terms": ["전자주주총회", "전자적 출석", "전자문서 위임장"],
+    "href": "https://www.moj.go.kr/bbs/moj/495/612621/artclView.do"
+  },
+  {
+    "id": "CHARTER-AUDIT-COMMITTEE",
+    "title": "감사위원 분리선임과 감사기구 요건",
+    "terms": ["감사위원회", "분리선임", "제542조의12"],
+    "href": "https://www.law.go.kr/LSW/lsRvsDocListP.do?chrClsCd=010102&lsId=001702"
+  },
+  {
+    "id": "CHARTER-VOTING",
+    "title": "집중투표 배제와 회사 규모",
+    "terms": ["집중투표", "제542조의7"],
+    "href": "#cases-cumulative-voting"
+  },
+  {
+    "id": "CHARTER-DIVIDEND",
+    "title": "배당기준일과 정관 인용",
+    "terms": ["배당기준일", "이익배당", "분기배당"],
+    "href": "#cases-dividend"
   },
   {
     "id": "BIO_GUIDANCE",

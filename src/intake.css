@@ -1,0 +1,77 @@
+.intake-type {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.intake-type button[aria-pressed="true"] {
+  border-color: var(--teal);
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.intake-text-form {
+  max-width: 760px;
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+}
+
+.intake-text-form textarea {
+  min-height: 110px;
+}
+
+.upload-list b,
+.upload-detail h3 {
+  overflow-wrap: anywhere;
+}
+
+.intake-updates {
+  margin-top: 24px;
+}
+
+.intake-updates h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.intake-updates details {
+  margin-bottom: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+}
+
+.intake-updates summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.intake-updates time,
+.intake-updates p,
+.intake-updates dl {
+  color: #52666d;
+  font-size: 12px;
+}
+
+.intake-updates time {
+  margin-left: 4px;
+  font-weight: 400;
+}
+
+.intake-updates p,
+.intake-updates dl {
+  margin-top: 8px;
+}
+
+.intake-updates dt {
+  font-weight: 700;
+}
+
+.intake-updates dd {
+  margin: 2px 0 6px;
+}

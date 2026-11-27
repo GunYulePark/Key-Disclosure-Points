@@ -1,4 +1,4 @@
-export type UploadRecord={id:string;name:string;size:number;addedAt:string;company:string;sourceUrl:string;pages:{page:number;text:string}[];ocrPages:number[];bytes:ArrayBuffer};
+export type UploadRecord={id:string;name:string;size:number;addedAt:string;company:string;sourceUrl:string;pages:{page:number;text:string}[];ocrPages:number[];bytes:ArrayBuffer;kind?:"pdf"|"text"};
 async function db() {
  return new Promise<IDBDatabase>((resolve,reject)=>{
   const req=indexedDB.open('disclosure-reference-documents',1);
